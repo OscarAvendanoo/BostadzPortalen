@@ -1,4 +1,6 @@
 
+using BostadzPortalenWebAPI.Data;
+
 namespace BostadzPortalenWebAPI
 {
     public class Program
@@ -13,6 +15,8 @@ namespace BostadzPortalenWebAPI
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<IRealEstateAgencyRepository, RealEstateAgencyRepository>(); //JN
 
             var app = builder.Build();
 
