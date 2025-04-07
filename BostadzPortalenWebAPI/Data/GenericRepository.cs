@@ -3,7 +3,9 @@ using BostadzPortalenWebAPI.Data;
 using Microsoft.EntityFrameworkCore;
 
 
+// Author: Oscar Avendano
 namespace BostadzPortalenWebAPI.Data
+
 {
     public abstract class GenericRepository<T> : IRepository<T> where T : class
     {
