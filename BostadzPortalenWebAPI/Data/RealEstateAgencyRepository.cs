@@ -1,9 +1,13 @@
-﻿namespace BostadzPortalenWebAPI.Data
+﻿using BostadzPortalenWebAPI.Models;
+
+namespace BostadzPortalenWebAPI.Data
 {
     //Author: Johan Nelin
-    public class RealEstateAgencyRepository
+    public class RealEstateAgencyRepository : GenericRepository<RealEstateAgency>, IRealEstateAgencyRepository
     {
-        //for dbContext
-
+        private readonly ApplicationDbContext _context;
+        public RealEstateAgencyRepository(ApplicationDbContext context) : base(context)
+        {
+        }
     }
 }
