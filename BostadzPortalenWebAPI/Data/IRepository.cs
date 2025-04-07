@@ -3,6 +3,7 @@ using System.Linq.Expressions;
 
 namespace BostadzPortalenWebAPI.Data
 {
+    // Author: Oscar Avendano
     public interface IRepository<T>
     {
         Task<T> GetByIDAsync(int id);

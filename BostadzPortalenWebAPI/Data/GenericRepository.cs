@@ -2,7 +2,7 @@
 using BostadzPortalenWebAPI.Data;
 using Microsoft.EntityFrameworkCore;
 
-
+// Author: Oscar Avendano
 namespace FLashHackForum.Data
 {
     public abstract class GenericRepository<T> : IRepository<T> where T : class
