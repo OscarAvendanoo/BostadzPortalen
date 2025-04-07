@@ -3,8 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BostadzPortalenWebAPI.Controllers
 {
+    //Author: Johan Nelin
     public class RealEstateAgencyController : Controller
     {
+
+
+
         // GET: RealEstateAgencyController
         public ActionResult Index()
         {
