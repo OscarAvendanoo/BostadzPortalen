@@ -36,10 +36,7 @@ namespace BostadzPortalenWebAPI.Models
         [Range(1900, int.MaxValue, ErrorMessage = "Year must be a valid 4-digit year.")]
         [RegularExpression(@"^\d{4}$", ErrorMessage = "Year must be a 4-digit number.")]
         public int YearBuilt { get; set; }
-
-
-        public virtual List<PropertyImage> Images { get; set; }
-
+        public virtual List<PropertyImage> Images { get; set; } = new List<PropertyImage>();
         [ForeignKey(nameof(Realtor))]
         public string RealtorId { get; set; }
         public Realtor Realtor { get; set; }
