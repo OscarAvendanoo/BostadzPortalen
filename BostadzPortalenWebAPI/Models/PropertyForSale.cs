@@ -35,7 +35,6 @@ namespace BostadzPortalenWebAPI.Models
         [Required]
         [Range(1900, int.MaxValue, ErrorMessage = "Year must be a valid 4-digit year.")]
         [RegularExpression(@"^\d{4}$", ErrorMessage = "Year must be a 4-digit number.")]
-
         public int YearBuilt { get; set; }
 
 
