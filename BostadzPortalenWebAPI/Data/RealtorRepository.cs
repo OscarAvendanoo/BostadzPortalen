@@ -29,13 +29,11 @@ namespace BostadzPortalenWebAPI.Data
         public async Task<IEnumerable<PropertyForSale>> GetListedPropertiesAsync(string id) //osäker på string på id eller hur vi ska gå tillväga??
         {
             var properties = await context.PropertiesForSale.Where(pfs => pfs.RealtorId == id)
-                .Include(r=>r.Realtor).ToListAsync();
+                .Include(r=>r.Realtor)
+                .ThenInclude(r=>r.ProfileImageUrl).ToListAsync();
             return properties;
         }
 
-        //public async Task<PropertyForSale> AddPropertyForSaleAsync() //denna ska ligga i controller??
-        //{
-
-        //}
+        
     }
 }
