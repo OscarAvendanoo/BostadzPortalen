@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace BostadzPortalenWebAPI.DTO
 {
-    public class PropertyForSaleDTO
+    public class CreatePropertyForSaleDTO
     {
         
             public int PropertyForSaleId { get; set; }
@@ -23,6 +23,5 @@ namespace BostadzPortalenWebAPI.DTO
             public List<string> ImageUrls { get; set; } = new List<string>();
             public string RealtorId { get; set; }
             public TypeOfPropertyEnum TypeOfProperty { get; set; }
-        }
     }
-
+}

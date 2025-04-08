@@ -113,7 +113,6 @@ namespace BostadzPortalenWebAPI.Controllers
             }
 
             var pfs = mapper.Map<PropertyForSale>(dto);
-
             
             await realtorRepository.AddPropertyForSale(pfs);
 
