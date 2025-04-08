@@ -1,5 +1,7 @@
 
 using BostadzPortalenWebAPI.Data;
+using BostadzPortalenWebAPI.Mappings;
+using Microsoft.EntityFrameworkCore;
 
 namespace BostadzPortalenWebAPI
 {
@@ -16,7 +18,13 @@ namespace BostadzPortalenWebAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddAutoMapper(typeof(Program));
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options => 
+            options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString"))); //KH
+
             builder.Services.AddScoped<IRealEstateAgencyRepository, RealEstateAgencyRepository>(); //JN
+            builder.Services.AddScoped<IRealtorRepository, RealtorRepository>(); //KH
 
             var app = builder.Build();
 

@@ -8,6 +8,8 @@ namespace BostadzPortalenWebAPI.Models
     //Author: Kevin
     public class Realtor
     {
+        [Required]
+        public int RealtorId { get; set; }
 
         [Required(ErrorMessage ="First name is required")]
         [StringLength(50)]
