@@ -43,22 +43,48 @@ namespace BostadzPortalenWebAPI.Controllers
             return Ok(properties); 
         }
 
+        // Author: JOna
         // POST api/<PropertyForSaleController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult<PropertyForSale>> Post([FromBody] PropertyForSale propertyForSale)
         {
+            if (propertyForSale == null)
+            {
+                return BadRequest("Property cannot be null");
+            }
+            await _propertyForSaleRepository.AddAsync(propertyForSale);
+            return CreatedAtAction(nameof(Get), new { id = propertyForSale.PropertyForSaleId }, propertyForSale);
         }
-
+        // Author: Jona
         // PUT api/<PropertyForSaleController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<ActionResult<PropertyForSale>> Put(int id, [FromBody] PropertyForSale updatedPropertyForSale)
         {
+            if (updatedPropertyForSale == null)
+            {
+                return BadRequest("Property cannot be null");
+            }
+            var existingProperty = await _propertyForSaleRepository.GetByIDAsync(id);
+            if (existingProperty == null)
+            {
+                return NotFound();
+            }
+            updatedPropertyForSale.PropertyForSaleId = id; // Ensure the ID is set correctly
+            await _propertyForSaleRepository.UpdateAsync(updatedPropertyForSale);
+            return NoContent(); //204 whop 
         }
-
+        // Author: Jonaaa
         // DELETE api/<PropertyForSaleController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
+            var propertyToDelete = await _propertyForSaleRepository.GetByIDAsync(id);
+            if (propertyToDelete == null)
+            {
+                return NotFound();
+            }
+            await _propertyForSaleRepository.DeleteAsync(propertyToDelete);
+            return NoContent(); 
         }
     }
 }
