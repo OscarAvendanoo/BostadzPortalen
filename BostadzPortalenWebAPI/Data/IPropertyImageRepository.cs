@@ -1,5 +1,5 @@
 ﻿using BostadzPortalenWebAPI.Models;
-using FLashHackForum.Data;
+using BostadzPortalenWebAPI.Data;
 
 namespace BostadzPortalenWebAPI.Data
 {
