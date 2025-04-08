@@ -16,7 +16,9 @@ namespace BostadzPortalenWebAPI.Controllers
             _propertyForSaleRepository = propertyForSaleRepository;
             
         }
-        // GET: api/<PropertyForSaleController>
+
+        // Author: Oscar
+     
         [HttpGet("{id}")]
         public async Task<ActionResult<PropertyForSale>> Get(int id)
         {
@@ -27,6 +29,8 @@ namespace BostadzPortalenWebAPI.Controllers
             }
             return Ok(property); 
         }
+
+        // Author: Oscar
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PropertyForSale>>> GetAll()
