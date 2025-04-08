@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BostadzPortalenWebAPI.Data;
+using BostadzPortalenWebAPI.Models;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,18 +10,33 @@ namespace BostadzPortalenWebAPI.Controllers
     [ApiController]
     public class PropertyForSaleController : ControllerBase
     {
-        // GET: api/<PropertyForSaleController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IPropertyForSaleRepository _propertyForSaleRepository;
+        public PropertyForSaleController(IPropertyForSaleRepository propertyForSaleRepository)
         {
-            return new string[] { "value1", "value2" };
+            _propertyForSaleRepository = propertyForSaleRepository;
+            
+        }
+        // GET: api/<PropertyForSaleController>
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PropertyForSale>> Get(int id)
+        {
+            var property = await _propertyForSaleRepository.GetByIDAsync(id);
+            if (property == null)
+            {
+                return NotFound(); 
+            }
+            return Ok(property); 
         }
 
-        // GET api/<PropertyForSaleController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<PropertyForSale>>> GetAll()
         {
-            return "value";
+            var properties = await _propertyForSaleRepository.GetAllAsync(); 
+            if (properties == null || !properties.Any())
+            {
+                return NotFound(); 
+            }
+            return Ok(properties); 
         }
 
         // POST api/<PropertyForSaleController>
