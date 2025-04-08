@@ -25,6 +25,7 @@ namespace BostadzPortalenWebAPI
 
             builder.Services.AddScoped<IRealEstateAgencyRepository, RealEstateAgencyRepository>(); //JN
             builder.Services.AddScoped<IRealtorRepository, RealtorRepository>(); //KH
+            builder.Services.AddScoped<IPropertyForSaleRepository, PropertyForSaleRepository>(); //OA
 
             var app = builder.Build();
 
