@@ -17,6 +17,7 @@ namespace BostadzPortalenWebAPI
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddScoped<IRealEstateAgencyRepository, RealEstateAgencyRepository>(); //JN
+            builder.Services.AddScoped<IPropertyImageRepository, PropertyImageRepository>(); //Jona
 
             var app = builder.Build();
 
