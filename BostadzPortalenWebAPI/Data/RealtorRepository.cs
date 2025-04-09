@@ -30,13 +30,22 @@ namespace BostadzPortalenWebAPI.Data
                 .Where(r => r.RealtorId == id).FirstOrDefaultAsync();
 
         }
-        public async Task<IEnumerable<PropertyForSale>> GetListedPropertiesAsync(int id) //osäker på string på id eller hur vi ska gå tillväga??
+
+        public async Task<Realtor> GetByNameIncludesAsync(string firstName, string lastName)
         {
             return await context.Realtors
                 .Include(r => r.Agency)
                 .Include(r => r.Properties)
                 .Where(r => r.FirstName == firstName || r.LastName == lastName).FirstOrDefaultAsync();
         }
+
+        //public async Task<IEnumerable<PropertyForSale>> GetListedPropertiesAsync(int id) //osäker på string på id eller hur vi ska gå tillväga??
+        //{
+        //    return await context.Realtors
+        //        .Include(r => r.Agency)
+        //        .Include(r => r.Properties)
+        //        .Where(r => r.FirstName == firstName || r.LastName == lastName).FirstOrDefaultAsync();
+        //}
 
         //public async Task AddPropertyForSale(PropertyForSale propertyForSale)
         //{
