@@ -50,14 +50,15 @@ namespace BostadzPortalenWebAPI.Controllers
 
         // PUT api/<PropertyForSaleController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateAgency(int id) //this doesn't take in any info to update the agency with
+        public async Task<ActionResult> UpdateAgency(int id, [FromBody] RealEstateAgency realEstateAgency)
         {
             try
             {
-                var agency = await _realEstateAgencyRepository.GetByIDAsync(id);
+                //updates the agency -> if fails, error
+                await _realEstateAgencyRepository.UpdateAsync(realEstateAgency);
 
-                await _realEstateAgencyRepository.UpdateAsync(agency);
-                return Ok(agency);
+                //fetches the updated agency with the ID -> success and updated agency returned -> if fails, error
+                return Ok(await _realEstateAgencyRepository.GetByIDAsync(id));
             }
             catch (Exception ex)
             {
