@@ -8,6 +8,7 @@ namespace BostadzPortalenWebAPI.Mappings
     {
         public MappingProfile()
         {
+            //Author: Kevin
             CreateMap<Realtor, RegisterRealtorDTO>()
                 .ForMember(dest => dest.FirstName, opt => opt.MapFrom(src => src.FirstName))
                 .ForMember(dest => dest.LastName, opt => opt.MapFrom(src => src.LastName))
@@ -31,6 +32,7 @@ namespace BostadzPortalenWebAPI.Mappings
                 .ForMember(dest => dest.Properties, opt => opt.MapFrom(src => src.Properties))
                 .ReverseMap();
 
+            //Author: Kevin
             CreateMap<PropertyForSale, PropertyForSaleDTO>()
                 .ForMember(dest => dest.PropertyForSaleId, opt => opt.MapFrom(src => src.PropertyForSaleId))
                 .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Address))

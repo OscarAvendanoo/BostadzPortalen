@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace BostadzPortalenWebAPI.DTO
 {
+    //Author: Kevin
     public class PropertyForSaleDTO
     {
 

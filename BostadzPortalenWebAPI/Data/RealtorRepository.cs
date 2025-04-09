@@ -14,25 +14,50 @@ namespace BostadzPortalenWebAPI.Data
             this.context = context;
         }
 
-        public async Task AddPropertyForSale(PropertyForSale propertyForSale)
+        public async Task<List<Realtor>> GetAllWithIncludesAsync()
         {
-            await context.PropertiesForSale.AddAsync(propertyForSale);
-            await context.SaveChangesAsync();
+            return await context.Realtors
+                .Include(r=>r.Agency)
+                .Include(r=>r.Properties)
+                .ToListAsync();
+        } 
+
+        public async Task<Realtor> GetByIdIncludesAsync(int id)
+        {
+            return await context.Realtors
+                .Include(r => r.Agency)
+                .Include(r => r.Properties)
+                .Where(r => r.RealtorId == id).FirstOrDefaultAsync();
+
         }
 
-        public async Task<PropertyForSale> EditPropertyForSale(PropertyForSale propertyForSale)
+        public async Task<Realtor> GetByNameIncludesAsync(string firstName, string lastName)
         {
-            context.PropertiesForSale.Update(propertyForSale);
-            context.SaveChanges();
-            return propertyForSale;
+            return await context.Realtors
+                .Include(r => r.Agency)
+                .Include(r => r.Properties)
+                .Where(r => r.FirstName == firstName || r.LastName == lastName).FirstOrDefaultAsync();
         }
-        public async Task<IEnumerable<PropertyForSale>> GetListedPropertiesAsync(string id) //osäker på string på id eller hur vi ska gå tillväga??
-        {
-            var properties = await context.PropertiesForSale.Where(pfs => pfs.RealtorId == id)
-                .Include(r=>r.Realtor)
-                .ThenInclude(r=>r.ProfileImageUrl).ToListAsync();
-            return properties;
-        }
+
+        //public async Task AddPropertyForSale(PropertyForSale propertyForSale)
+        //{
+        //    await context.PropertiesForSale.AddAsync(propertyForSale);
+        //    await context.SaveChangesAsync();
+        //}
+
+        //public async Task<PropertyForSale> EditPropertyForSale(PropertyForSale propertyForSale)
+        //{
+        //    context.PropertiesForSale.Update(propertyForSale);
+        //    context.SaveChanges();
+        //    return propertyForSale;
+        //}
+        //public async Task<IEnumerable<PropertyForSale>> GetListedPropertiesAsync(string id) //osäker på string på id eller hur vi ska gå tillväga??
+        //{
+        //    var properties = await context.PropertiesForSale.Where(pfs => pfs.RealtorId == id)
+        //        .Include(r=>r.Realtor)
+        //        .ToListAsync();
+        //    return properties;
+        //}
 
         
     }
