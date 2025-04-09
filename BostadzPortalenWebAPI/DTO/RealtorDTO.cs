@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BostadzPortalenWebAPI.DTO
 {
+    //Author: Oscar
     public class RealtorDTO
     {
         public int RealtorId { get; set; }  
