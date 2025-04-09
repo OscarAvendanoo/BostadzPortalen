@@ -111,14 +111,11 @@ namespace BostadzPortalenWebAPI.Controllers
         //[HttpGet("{id}")]
         //public async Task<ActionResult> GetListedProperties(string id)
         //{
-
         //    if (id == null)
         //    {
         //        return BadRequest("You have no listed properties");
         //    }
-
         //    return Ok(await realtorRepository.GetListedPropertiesAsync(id));
-
         //}
 
         //[HttpPost]
@@ -128,13 +125,9 @@ namespace BostadzPortalenWebAPI.Controllers
         //    {
         //        return BadRequest("Invalid input");
         //    }
-
         //    var pfs = mapper.Map<PropertyForSale>(dto);
-            
         //    await realtorRepository.AddPropertyForSale(pfs);
-
         //    return Ok();
-
         //}
 
         //[HttpPut("{id}")]
@@ -144,10 +137,7 @@ namespace BostadzPortalenWebAPI.Controllers
         //    {
         //        return BadRequest("Invalid input.");
         //    }
-            
-
         //    var pfs = mapper.Map<PropertyForSale>(dto);
-
         //    return Ok(await realtorRepository.EditPropertyForSale(pfs));
         //}
 
