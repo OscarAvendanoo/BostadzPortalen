@@ -9,9 +9,9 @@ namespace BostadzPortalenWebAPI.Data
     {
         public Task<IEnumerable<PropertyForSale>> GetListedPropertiesAsync(int id);
 
-        public Task AddPropertyForSale(PropertyForSale propertyForSale);
+        //public Task AddPropertyForSale(PropertyForSale propertyForSale);
 
-        public Task<PropertyForSale> EditPropertyForSale(PropertyForSale propertyForSale);
+        //public Task<PropertyForSale> EditPropertyForSale(PropertyForSale propertyForSale);
 
 
     }

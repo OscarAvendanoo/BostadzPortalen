@@ -24,4 +24,6 @@ namespace BostadzPortalenWebAPI.DTO
             public string RealtorId { get; set; }
             public TypeOfPropertyEnum TypeOfProperty { get; set; }
     }
+
 }
+

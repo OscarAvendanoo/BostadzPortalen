@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BostadzPortalenWebAPI.DTO
 {
+    //Author: Kevin
     public class RegisterRealtorDTO
     {
         [Required]
