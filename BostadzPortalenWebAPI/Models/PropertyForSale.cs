@@ -11,10 +11,10 @@ namespace BostadzPortalenWebAPI.Models
         [Required]
         public string Address { get; set; }
 
-        //[ForeignKey(nameof(Municipality))]
-        //public int MunicipalityId { get; set; }
-        //[Required]
-        //public Municipality Municipality { get; set; }
+        [ForeignKey(nameof(Municipality))]
+        public int MunicipalityId { get; set; }
+        [Required]
+        public Municipality Municipality { get; set; }
         [Required]
         public decimal AskingPrice { get; set; }
         [Required]
