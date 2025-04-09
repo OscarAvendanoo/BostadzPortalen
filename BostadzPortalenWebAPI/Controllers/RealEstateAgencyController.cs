@@ -1,87 +1,76 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using BostadzPortalenWebAPI.Data;
+using BostadzPortalenWebAPI.DTO;
+using BostadzPortalenWebAPI.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BostadzPortalenWebAPI.Controllers
 {
     //Author: Johan Nelin
-    public class RealEstateAgencyController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class RealEstateAgencyController : ControllerBase
     {
-
-
-
-        // GET: RealEstateAgencyController
-        public ActionResult Index()
+        private readonly IRealEstateAgencyRepository _realEstateAgencyRepository;
+        public RealEstateAgencyController(IRealEstateAgencyRepository realEstateAgencyRepository)
         {
-            return View();
+            this._realEstateAgencyRepository = realEstateAgencyRepository;
         }
 
-        // GET: RealEstateAgencyController/Details/5
-        public ActionResult Details(int id)
+
+        // GET: api/<PropertyForSaleController>
+        [HttpGet]
+        public async Task<IEnumerable<RealEstateAgency>> GetAllAgencies()
         {
-            return View();
+            return await _realEstateAgencyRepository.GetAllAsync();
         }
 
-        // GET: RealEstateAgencyController/Create
-        public ActionResult Create()
+        // GET api/<PropertyForSaleController>/5
+        [HttpGet("{id}")]
+        public async Task<RealEstateAgency> GetAgencyById(int id)
         {
-            return View();
+            return await GetAgencyById(id);
         }
 
-        // POST: RealEstateAgencyController/Create
+        // POST api/<PropertyForSaleController>
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> CreateAgency([FromBody] RealEstateAgency agency)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                await _realEstateAgencyRepository.AddAsync(agency);
+                return Ok(agency);
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return StatusCode(500, "An error occured " + ex.Message);
             }
         }
 
-        // GET: RealEstateAgencyController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: RealEstateAgencyController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        // PUT api/<PropertyForSaleController>/5
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateAgency(int id, [FromBody] RealEstateAgency realEstateAgency)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                //updates the agency -> if fails, error
+                await _realEstateAgencyRepository.UpdateAsync(realEstateAgency);
+
+                //fetches the updated agency with the ID -> success and updated agency returned -> if fails, error
+                return Ok(await _realEstateAgencyRepository.GetByIDAsync(id));
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return StatusCode(500, "An error occured " + ex.Message);
             }
         }
 
-        // GET: RealEstateAgencyController/Delete/5
-        public ActionResult Delete(int id)
+        // DELETE api/<PropertyForSaleController>/5
+        [HttpDelete("{id}")]
+        public async Task DeleteAgency(int id)
         {
-            return View();
-        }
-
-        // POST: RealEstateAgencyController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            await _realEstateAgencyRepository.DeleteAsync(await GetAgencyById(id)); //this probably shouldn't be used like this
         }
     }
 }
