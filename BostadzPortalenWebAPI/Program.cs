@@ -18,10 +18,12 @@ namespace BostadzPortalenWebAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddAutoMapper(typeof(Program));
+            builder.Services.AddAutoMapper(typeof(Program)); //KH
 
             builder.Services.AddDbContext<ApplicationDbContext>(options => 
-            options.UseSqlServer(builder.Configuration.GetConnectionString("Ledion"))); //KH
+
+            options.UseSqlServer(builder.Configuration.GetConnectionString("Kevin"))); //KH
+
 
             builder.Services.AddScoped<IRealEstateAgencyRepository, RealEstateAgencyRepository>(); //JN
             builder.Services.AddScoped<IRealtorRepository, RealtorRepository>(); //KH

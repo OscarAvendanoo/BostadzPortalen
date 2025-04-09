@@ -4,6 +4,7 @@ using BostadzPortalenWebAPI.Models;
 
 namespace BostadzPortalenWebAPI.Mappings
 {
+    //Author: Kevin
     public class MappingProfile : Profile
     {
         public MappingProfile()
