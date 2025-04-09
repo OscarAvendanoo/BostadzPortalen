@@ -21,7 +21,7 @@ namespace BostadzPortalenWebAPI
             builder.Services.AddAutoMapper(typeof(Program));
 
             builder.Services.AddDbContext<ApplicationDbContext>(options => 
-            options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString"))); //KH
+            options.UseSqlServer(builder.Configuration.GetConnectionString("Ledion"))); //KH
 
             builder.Services.AddScoped<IRealEstateAgencyRepository, RealEstateAgencyRepository>(); //JN
             builder.Services.AddScoped<IRealtorRepository, RealtorRepository>(); //KH

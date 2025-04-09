@@ -1,6 +1,7 @@
 ﻿using BostadzPortalenWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace BostadzPortalenWebAPI.Data
 {
     //Author: Kevin
@@ -10,6 +11,8 @@ namespace BostadzPortalenWebAPI.Data
         public DbSet<PropertyImage> PrepertyImages { get; set; }
         public DbSet<RealEstateAgency> RealEstateAgencies { get; set; }
         public DbSet<Realtor> Realtors { get; set; }
+        public DbSet<Municipality> Municipalities { get; set; }
+
 
         //Kommer inte riktigt ihåg vad vi sa om denna om vi skulle skapa en egen eller om vi skulle hitta på nåt annat.
 

@@ -7,7 +7,7 @@ namespace BostadzPortalenWebAPI.Data
     //Author: Kevin
     public interface IRealtorRepository : IRepository<Realtor>
     {
-        public Task<IEnumerable<PropertyForSale>> GetListedPropertiesAsync(string id);
+        public Task<IEnumerable<PropertyForSale>> GetListedPropertiesAsync(int id);
 
         public Task AddPropertyForSale(PropertyForSale propertyForSale);
 

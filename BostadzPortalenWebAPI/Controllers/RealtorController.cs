@@ -91,8 +91,8 @@ namespace BostadzPortalenWebAPI.Controllers
             return NoContent();
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult> GetListedProperties(string id)
+        [HttpGet("GetListedProperties/{id}")]
+        public async Task<ActionResult> GetListedProperties(int id)
         {
 
             if (id == null)
@@ -120,7 +120,7 @@ namespace BostadzPortalenWebAPI.Controllers
 
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("EditProperty/{id}")]
         public async Task<ActionResult> EditPropertyForSale([FromForm] PropertyForSaleDTO dto)
         {
             if (dto == null)

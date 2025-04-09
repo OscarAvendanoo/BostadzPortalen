@@ -26,7 +26,7 @@ namespace BostadzPortalenWebAPI.Data
             context.SaveChanges();
             return propertyForSale;
         }
-        public async Task<IEnumerable<PropertyForSale>> GetListedPropertiesAsync(string id) //osäker på string på id eller hur vi ska gå tillväga??
+        public async Task<IEnumerable<PropertyForSale>> GetListedPropertiesAsync(int id) //osäker på string på id eller hur vi ska gå tillväga??
         {
             var properties = await context.PropertiesForSale.Where(pfs => pfs.RealtorId == id)
                 .Include(r=>r.Realtor)
