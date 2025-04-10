@@ -27,7 +27,7 @@ namespace BostadzPortalenWebAPI
 
             builder.Services.AddDbContext<ApplicationDbContext>(options => 
 
-            options.UseSqlServer(builder.Configuration.GetConnectionString("Kevin"))); //KH
+            options.UseSqlServer(builder.Configuration.GetConnectionString("BostadzPortalenWebAPI"))); //KH + JN
 
 
             builder.Services.AddScoped<IRealEstateAgencyRepository, RealEstateAgencyRepository>(); //JN
