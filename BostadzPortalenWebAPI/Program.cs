@@ -20,6 +20,11 @@ namespace BostadzPortalenWebAPI
 
             builder.Services.AddAutoMapper(typeof(Program)); //KH
 
+            builder.Services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+            });
+
             builder.Services.AddDbContext<ApplicationDbContext>(options => 
 
             options.UseSqlServer(builder.Configuration.GetConnectionString("Kevin"))); //KH
