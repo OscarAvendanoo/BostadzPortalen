@@ -12,14 +12,14 @@ namespace BostadzPortalenWebAPI.DTO
         [Required]
         public string LastName { get; set; }
         public string Email { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
         public string? ProfileImageUrl { get; set; } // Can be null, use placeholder if so
         
         
         public int AgencyId { get; set; }
-        public RealEstateAgency Agency { get; set; }
+        
 
 
-        public List<PropertyForSale> Properties { get; set; }
+        public List<int> PropertyIds { get; set; }
     }
 }

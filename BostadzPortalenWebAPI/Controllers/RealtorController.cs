@@ -54,13 +54,15 @@ namespace BostadzPortalenWebAPI.Controllers
                     return BadRequest("Invalid input.");
                 }
 
-                var existingRealtor = await realtorRepository.GetByIDAsync(id);
-                if(existingRealtor == null)
+                var realtor = await realtorRepository.GetByIDAsync(id);
+                if(realtor == null)
                 {
                     return NotFound();
                 }
 
-                var realtor = mapper.Map<Realtor>(dto);
+                mapper.Map(realtor, dto);
+                //mapper.Map<Realtor>(dto);
+                //realtor.RealtorId = id;
 
                 await realtorRepository.UpdateAsync(realtor);
                 return Ok(realtor);
@@ -72,7 +74,7 @@ namespace BostadzPortalenWebAPI.Controllers
             }
         }
 
-        [HttpPost("{dto}")]
+        [HttpPost]
         public async Task<ActionResult> Post([FromBody] RegisterRealtorDTO dto)
         {
             try
@@ -83,7 +85,6 @@ namespace BostadzPortalenWebAPI.Controllers
                 }
 
                 var realtor = mapper.Map<Realtor>(dto);
-
                 await realtorRepository.AddAsync(realtor);
                 return Ok(realtor);
             }

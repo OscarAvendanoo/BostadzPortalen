@@ -12,7 +12,5 @@ namespace BostadzPortalenWebAPI.Data
         Task<Realtor> GetByIdIncludesAsync(int id);
         Task<Realtor> GetByNameIncludesAsync(string firstName, string lastName);
 
-
-
     }
 }
