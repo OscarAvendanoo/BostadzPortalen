@@ -20,7 +20,7 @@ namespace BostadzPortalenWebAPI.Controllers
         // Author: Oscar
      
         [HttpGet("{id}")]
-        public async Task<ActionResult<PropertyForSale>> Get(int id)
+        public async Task<ActionResult<PropertyForSale>> GetProperty(int id)
         {
             var property = await _propertyForSaleRepository.GetByIDAsync(id);
             if (property == null)
@@ -33,7 +33,7 @@ namespace BostadzPortalenWebAPI.Controllers
         // Author: Oscar
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PropertyForSale>>> GetAll()
+        public async Task<ActionResult<IEnumerable<PropertyForSale>>> GetAllProperties()
         {
             var properties = await _propertyForSaleRepository.GetAllAsync(); 
             if (properties == null || !properties.Any())
@@ -46,19 +46,19 @@ namespace BostadzPortalenWebAPI.Controllers
         // Author: JOna
         // POST api/<PropertyForSaleController>
         [HttpPost]
-        public async Task<ActionResult<PropertyForSale>> Post([FromBody] PropertyForSale propertyForSale)
+        public async Task<ActionResult<PropertyForSale>> PostProperty([FromBody] PropertyForSale propertyForSale)
         {
             if (propertyForSale == null)
             {
                 return BadRequest("Property cannot be null");
             }
             await _propertyForSaleRepository.AddAsync(propertyForSale);
-            return CreatedAtAction(nameof(Get), new { id = propertyForSale.PropertyForSaleId }, propertyForSale);
+            return CreatedAtAction(nameof(GetProperty), new { id = propertyForSale.PropertyForSaleId }, propertyForSale);
         }
         // Author: Jona
         // PUT api/<PropertyForSaleController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<PropertyForSale>> Put(int id, [FromBody] PropertyForSale updatedPropertyForSale)
+        public async Task<ActionResult<PropertyForSale>> UpdateProperty(int id, [FromBody] PropertyForSale updatedPropertyForSale)
         {
             if (updatedPropertyForSale == null)
             {
@@ -76,7 +76,7 @@ namespace BostadzPortalenWebAPI.Controllers
         // Author: Jonaaa
         // DELETE api/<PropertyForSaleController>/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> DeleteProperty(int id)
         {
             var propertyToDelete = await _propertyForSaleRepository.GetByIDAsync(id);
             if (propertyToDelete == null)
