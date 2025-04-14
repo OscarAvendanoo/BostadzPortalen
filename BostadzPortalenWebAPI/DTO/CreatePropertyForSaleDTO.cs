@@ -17,8 +17,8 @@ namespace BostadzPortalenWebAPI.DTO
         public decimal AskingPrice { get; set; }
         [Required]
         public double LivingArea { get; set; } // kvm
-        [Required]
-        public double SupplementaryArea { get; set; } // kvm
+      
+        public double? SupplementaryArea { get; set; } // kvm
         public double? PlotArea { get; set; } // kvm
         [Required]
         public string Description { get; set; }
