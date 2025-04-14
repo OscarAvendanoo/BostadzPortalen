@@ -9,6 +9,6 @@
         public string AgencyLogoUrl { get; set; }
 
 
-        public List<Realtor>? AgencyRealtors { get; set; }
+        public virtual List<Realtor>? AgencyRealtors { get; set; }
     }
 }
