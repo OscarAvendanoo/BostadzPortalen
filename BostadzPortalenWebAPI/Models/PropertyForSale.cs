@@ -20,7 +20,7 @@ namespace BostadzPortalenWebAPI.Models
         [Required]
         public double LivingArea { get; set; } // kvm
         // Extra area som inte är inräknat i levnadsarean men som endå bidrar till värdet på fastigheten
-        public double SupplementaryArea { get; set; } // kvm
+        public double? SupplementaryArea { get; set; } // kvm
         // Area av tomt
         public double? PlotArea { get; set; } // kvm
         [Required]

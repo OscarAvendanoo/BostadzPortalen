@@ -40,7 +40,7 @@ namespace BostadzPortalenWebAPI.Models
         public RealEstateAgency Agency { get; set; }
 
 
-        public List<PropertyForSale> Properties { get; set; }
+        public virtual List<PropertyForSale> Properties { get; set; }
 
     }
 }
