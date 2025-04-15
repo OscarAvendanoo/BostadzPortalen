@@ -37,7 +37,7 @@ namespace BostadzPortalenWebAPI.Data
 
         }
         // Hämtar försäljningsobjekt baserat på MäklarId
-        public async Task<List<PropertyForSale>> GetByRealtorAsync(int realtorId)
+        public async Task<List<PropertyForSale>> GetByRealtorAsync(string realtorId)
         {
             return await _context.PropertiesForSale
                 .Where(p => p.RealtorId == realtorId)
