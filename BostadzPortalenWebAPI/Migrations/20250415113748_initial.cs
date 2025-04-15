@@ -108,8 +108,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         name: "FK_AspNetUsers_RealEstateAgencies_AgencyId",
                         column: x => x.AgencyId,
                         principalTable: "RealEstateAgencies",
-                        principalColumn: "RealEstateAgencyId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "RealEstateAgencyId");
                 });
 
             migrationBuilder.CreateTable(
@@ -268,8 +267,8 @@ namespace BostadzPortalenWebAPI.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "AgencyId", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileImageUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, 1, "356ef561-2e5e-477a-8bcc-10e85cd7034a", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEFijB/Z0QU8mRE5kfpjArHQDGsgjLMx0GXCljNd3Sg+F/tznlHrQ3+Li6EWmRApXGw==", "0722661922", false, null, "6968e29f-f9ab-408f-ae90-391cc9fa689b", false, "user@demoapi.com" },
-                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, 1, "6b6ae2b4-a50f-44c5-a54a-b5191ffa4ec7", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEPRrA+z2V4XVE47d6ErGOt4tAuqkN1MIZgNzUM1mFnM8Jw+Mnyi4ddRRngz2mBpIWA==", "0722661920", false, null, "7ab2ff25-325c-4339-a995-444709499b20", false, "admin@demoapi.com" }
+                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, null, "2065ee71-40f1-4adb-8b41-b4b567355b45", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEFijB/Z0QU8mRE5kfpjArHQDGsgjLMx0GXCljNd3Sg+F/tznlHrQ3+Li6EWmRApXGw==", "0722661922", false, null, "b41a7608-b243-48bb-a4be-92149c798027", false, "user@demoapi.com" },
+                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, null, "7d604fae-01e9-4008-9361-ff55c1a75ce3", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEPRrA+z2V4XVE47d6ErGOt4tAuqkN1MIZgNzUM1mFnM8Jw+Mnyi4ddRRngz2mBpIWA==", "0722661920", false, null, "646b8162-a5d4-4fb2-964b-2021f05d9054", false, "admin@demoapi.com" }
                 });
 
             migrationBuilder.InsertData(
