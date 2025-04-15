@@ -14,10 +14,8 @@ namespace BostadzPortalenWebAPI.DTO
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        public string PhoneNumber { get; set; }
-        public string? ProfileImageUrl { get; set; } // Can be null, use placeholder if so
-        
-        
+        public string Password { get; set; }
+        [Required]
         public int AgencyId { get; set; }
 
         
