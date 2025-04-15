@@ -38,7 +38,7 @@ namespace BostadzPortalenWebAPI.Models
         public int YearBuilt { get; set; }
         public virtual List<PropertyImage> Images { get; set; } = new List<PropertyImage>();
         [ForeignKey(nameof(Realtor))]
-        public int RealtorId { get; set; } 
+        public string RealtorId { get; set; }
         public Realtor Realtor { get; set; }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
