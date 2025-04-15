@@ -41,6 +41,15 @@ namespace BostadzPortalenWebAPI.Data
                 }
              );
             //var hasher = new PasswordHasher<ApiUser>();
+            builder.Entity<RealEstateAgency>().HasData(
+                new RealEstateAgency
+                {
+                    AgencyName = "Gunnarsons",
+                    AgencyDescription = "Sveriges bästa mäklarbyrå",
+                    AgencyLogoUrl = "BilderKommerSen"
+   
+                }
+                );
             builder.Entity<Realtor>().HasData(
                 new Realtor
                 {
@@ -54,7 +63,7 @@ namespace BostadzPortalenWebAPI.Data
                     LastName = "Admin",
                     PasswordHash = "AQAAAAIAAYagAAAAEPRrA+z2V4XVE47d6ErGOt4tAuqkN1MIZgNzUM1mFnM8Jw+Mnyi4ddRRngz2mBpIWA==",
                     EmailConfirmed = true,
-                    AgencyId = 1,
+                    //AgencyId = 1,
                     PhoneNumber = "0722661920"
 
                 },
@@ -70,7 +79,7 @@ namespace BostadzPortalenWebAPI.Data
                     LastName = "User",
                     PasswordHash = "AQAAAAIAAYagAAAAEFijB/Z0QU8mRE5kfpjArHQDGsgjLMx0GXCljNd3Sg+F/tznlHrQ3+Li6EWmRApXGw==",
                     EmailConfirmed = true,
-                    AgencyId = 1,
+                    //AgencyId = 1,
                     PhoneNumber = "0722661922"
                 }
             );
