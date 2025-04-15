@@ -44,8 +44,9 @@ namespace BostadzPortalenWebAPI.Data
             builder.Entity<RealEstateAgency>().HasData(
                 new RealEstateAgency
                 {
-                    AgencyName = "Gunnarsons",
-                    AgencyDescription = "Sveriges bästa mäklarbyrå",
+                    RealEstateAgencyId = 5,
+                    AgencyName = "Gottfridsson",
+                    AgencyDescription = "Sveriges näst bästa mäklarbyrå",
                     AgencyLogoUrl = "BilderKommerSen"
    
                 }

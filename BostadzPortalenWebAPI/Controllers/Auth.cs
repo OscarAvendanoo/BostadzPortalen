@@ -33,7 +33,9 @@ namespace BostadzPortalenWebAPI.Controllers
                     Email = userDto.Email,
                     FirstName = userDto.FirstName,
                     LastName = userDto.LastName,
-                    AgencyId = userDto.AgencyId
+                    AgencyId = userDto.AgencyId,
+                    EmailConfirmed = true
+                    
 
                 };
 
