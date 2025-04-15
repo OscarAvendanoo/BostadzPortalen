@@ -20,7 +20,6 @@ namespace BostadzPortalenWebAPI.Mappings
                 .ReverseMap();
 
             CreateMap<Realtor, RealtorDTO>()
-                .ForMember(dest => dest.RealtorId, opt => opt.MapFrom(src => src.RealtorId))
                 .ForMember(dest => dest.FirstName, opt => opt.MapFrom(src => src.FirstName))
                 .ForMember(dest => dest.LastName, opt => opt.MapFrom(src => src.LastName))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))

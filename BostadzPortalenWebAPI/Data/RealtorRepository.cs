@@ -22,14 +22,14 @@ namespace BostadzPortalenWebAPI.Data
                 .ToListAsync();
         } 
 
-        public async Task<Realtor> GetByIdIncludesAsync(int id)
-        {
-            return await context.Realtors
-                .Include(r => r.Agency)
-                .Include(r => r.Properties)
-                .Where(r => r.RealtorId == id).FirstOrDefaultAsync();
+        //public async Task<Realtor> GetByIdIncludesAsync(int id)
+        //{
+        //    return await context.Realtors
+        //        .Include(r => r.Agency)
+        //        .Include(r => r.Properties)
+        //        .Where(r => r.RealtorId == id).FirstOrDefaultAsync();
 
-        }
+        //}
 
         public async Task<Realtor> GetByNameIncludesAsync(string firstName, string lastName)
         {

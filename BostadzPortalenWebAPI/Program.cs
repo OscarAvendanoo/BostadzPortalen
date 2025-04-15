@@ -1,6 +1,8 @@
 
 using BostadzPortalenWebAPI.Data;
 using BostadzPortalenWebAPI.Mappings;
+using BostadzPortalenWebAPI.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace BostadzPortalenWebAPI
@@ -18,6 +20,7 @@ namespace BostadzPortalenWebAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Author: ALL
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll",
@@ -37,6 +40,9 @@ namespace BostadzPortalenWebAPI
 
             options.UseSqlServer(builder.Configuration.GetConnectionString("BostadzPortalenWebAPI"))); //KH + JN
 
+            builder.Services.AddIdentityCore<ApiUser>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
 
             builder.Services.AddScoped<IRealEstateAgencyRepository, RealEstateAgencyRepository>(); //JN
             builder.Services.AddScoped<IRealtorRepository, RealtorRepository>(); //KH

@@ -6,30 +6,9 @@ namespace BostadzPortalenWebAPI.Models
 {
     
     //Author: Kevin
-    public class Realtor
+    public class Realtor : ApiUser
     {
-        [Required]
-        public int RealtorId { get; set; }
-
-        [Required(ErrorMessage ="First name is required")]
-        [StringLength(50)]
-        [Display(Name ="First Name")]
-        public string FirstName { get; set; }
-
-        [Required(ErrorMessage = "Last name is required")]
-        [StringLength(50)]
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
-
-        [Required(ErrorMessage ="Invalid email format")]
-        [Display(Name ="Email")]
-        [EmailAddress]
-        public string Email { get; set; }
-
-        [Required(ErrorMessage ="Invalid phone number")]
-        [Display(Name ="Phone Number")]
-        public int PhoneNumber { get; set; }
-
+        
         
         [Display(Name ="Profile Image")]
         public string? ProfileImageUrl { get; set; } // Can be null, use placeholder if so
