@@ -14,8 +14,6 @@ namespace BostadzPortalenWebAPI.Mappings
                 .ForMember(dest => dest.FirstName, opt => opt.MapFrom(src => src.FirstName))
                 .ForMember(dest => dest.LastName, opt => opt.MapFrom(src => src.LastName))
                 .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.Email))
-                .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.PhoneNumber))
-                .ForMember(dest => dest.ProfileImageUrl, opt => opt.MapFrom(src => src.ProfileImageUrl))
                 .ForMember(dest => dest.AgencyId, opt => opt.MapFrom(src => src.AgencyId))
                 .ReverseMap();
 
