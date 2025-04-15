@@ -26,13 +26,13 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetAll()
+        public async Task<ActionResult> GetAllRealtors()
         {
             return Ok(await realtorRepository.GetAllAsync());
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> Get(int id) //string id??
+        public async Task<ActionResult> GetRealtor(int id) //string id??
         {
             var realtor = await realtorRepository.GetByIDAsync(id);
 
@@ -44,7 +44,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, [FromBody] RegisterRealtorDTO dto)
+        public async Task<ActionResult> UpdateRealtor(int id, [FromBody] RegisterRealtorDTO dto)
         {
 
             try
@@ -75,7 +75,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] RegisterRealtorDTO dto)
+        public async Task<ActionResult> CreateRealtor([FromBody] RegisterRealtorDTO dto)
         {
             try
             {
@@ -96,7 +96,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> DeleteRealtor(int id)
         {
             var realtor = await realtorRepository.GetByIDAsync(id);
 
