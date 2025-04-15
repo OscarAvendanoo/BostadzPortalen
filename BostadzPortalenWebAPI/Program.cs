@@ -18,6 +18,14 @@ namespace BostadzPortalenWebAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    b => b.AllowAnyMethod()
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader());
+            });
+
             builder.Services.AddAutoMapper(typeof(Program)); //KH
 
             builder.Services.AddControllers().AddJsonOptions(options =>
@@ -47,7 +55,7 @@ namespace BostadzPortalenWebAPI
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
+            app.UseCors("AllowAll");
 
             app.MapControllers();
 
