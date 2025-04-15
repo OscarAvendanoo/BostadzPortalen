@@ -18,14 +18,14 @@ namespace BostadzPortalenWebAPI.Controllers
 
         // GET: api/municipality
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Municipality>>> GetAll()
+        public async Task<ActionResult<IEnumerable<Municipality>>> GetAllMunicipalitys()
         {
             return await _context.Municipalities.ToListAsync();
         }
 
         // GET: api/municipality/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Municipality>> GetById(int id)
+        public async Task<ActionResult<Municipality>> GetMunicipalityById(int id)
         {
             var municipality = await _context.Municipalities.FindAsync(id);
             if (municipality == null) return NotFound();
@@ -34,16 +34,16 @@ namespace BostadzPortalenWebAPI.Controllers
 
         // POST: api/municipality
         [HttpPost]
-        public async Task<ActionResult<Municipality>> Create(Municipality municipality)
+        public async Task<ActionResult<Municipality>> CreateMunicipality(Municipality municipality)
         {
             _context.Municipalities.Add(municipality);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetById), new { id = municipality.Id }, municipality);
+            return CreatedAtAction(nameof(GetMunicipalityById), new { id = municipality.Id }, municipality);
         }
 
         // PUT: api/municipality/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, Municipality municipality)
+        public async Task<IActionResult> UpdateMunicipality(int id, Municipality municipality)
         {
             if (id != municipality.Id) return BadRequest();
             _context.Entry(municipality).State = EntityState.Modified;
@@ -53,7 +53,7 @@ namespace BostadzPortalenWebAPI.Controllers
 
         // DELETE: api/municipality/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> DeleteMunicipality(int id)
         {
             var municipality = await _context.Municipalities.FindAsync(id);
             if (municipality == null) return NotFound();

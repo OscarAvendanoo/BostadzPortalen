@@ -9,21 +9,30 @@ namespace BostadzPortalenWebAPI.DTO
     public class CreatePropertyForSaleDTO
     {
         
-            public int PropertyForSaleId { get; set; }
-            public string Address { get; set; }
-            public int MunicipalityId { get; set; }
-            public decimal AskingPrice { get; set; }
-            public double LivingArea { get; set; } // kvm
-            public double SupplementaryArea { get; set; } // kvm
-            public double? PlotArea { get; set; } // kvm
-            public string Description { get; set; }
-            public int NumberOfRooms { get; set; }
-            public decimal? MonthlyFee { get; set; }
-            public decimal YearlyOperatingCost { get; set; }
-            public int YearBuilt { get; set; }
-            public List<string> ImageUrls { get; set; } = new List<string>();
-            public string RealtorId { get; set; }
-            public TypeOfPropertyEnum TypeOfProperty { get; set; }
+        public int PropertyForSaleId { get; set; }
+        [Required]
+        public string Address { get; set; }
+        public int MunicipalityId { get; set; }
+        [Required]
+        public decimal AskingPrice { get; set; }
+        [Required]
+        public double LivingArea { get; set; } // kvm
+      
+        public double? SupplementaryArea { get; set; } // kvm
+        public double? PlotArea { get; set; } // kvm
+        [Required]
+        public string Description { get; set; }
+        [Required]
+        public int NumberOfRooms { get; set; }
+        public decimal? MonthlyFee { get; set; }
+        [Required]
+        public decimal YearlyOperatingCost { get; set; }
+        [Required]
+        public int YearBuilt { get; set; }
+        public List<string> ImageUrls { get; set; } = new List<string>();
+        public int RealtorId { get; set; }
+        [Required]
+        public TypeOfPropertyEnum TypeOfProperty { get; set; }
     }
 
 }
