@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace BostazPortalenClient
+namespace BostadzPortalenClient
 {
     public class Program
     {
