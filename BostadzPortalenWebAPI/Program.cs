@@ -2,6 +2,7 @@
 using BostadzPortalenWebAPI.Data;
 using BostadzPortalenWebAPI.Mappings;
 using BostadzPortalenWebAPI.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -82,6 +83,7 @@ namespace BostadzPortalenWebAPI
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseCors("AllowAll");
 
