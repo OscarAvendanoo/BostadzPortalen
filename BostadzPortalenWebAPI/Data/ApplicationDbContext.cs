@@ -10,15 +10,10 @@ namespace BostadzPortalenWebAPI.Data
     public class ApplicationDbContext : IdentityDbContext<ApiUser>
     {
         public DbSet<PropertyForSale> PropertiesForSale { get; set; }
-        public DbSet<PropertyImage> PrepertyImages { get; set; }
+        public DbSet<PropertyImage> PropertyImages { get; set; }
         public DbSet<RealEstateAgency> RealEstateAgencies { get; set; }
         public DbSet<Realtor> Realtors { get; set; }
         public DbSet<Municipality> Municipalities { get; set; }
-
-
-        //Kommer inte riktigt ihåg vad vi sa om denna om vi skulle skapa en egen eller om vi skulle hitta på nåt annat.
-
-        /*public DbSet<User> Users { get; set; }*/
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
@@ -47,8 +42,8 @@ namespace BostadzPortalenWebAPI.Data
                 NormalizedName = "REALTOR",
                 Id = "1e346bcf-ee97-4bb2-ab3e-8d7202fea078"
             }
-             );
-            //var hasher = new PasswordHasher<ApiUser>();
+            );
+
             builder.Entity<RealEstateAgency>().HasData(
                 new RealEstateAgency
                 {
@@ -56,9 +51,10 @@ namespace BostadzPortalenWebAPI.Data
                     AgencyName = "Gottfridsson",
                     AgencyDescription = "Sveriges näst bästa mäklarbyrå",
                     AgencyLogoUrl = "BilderKommerSen"
-   
                 }
-                );
+            );
+
+            //var hasher = new PasswordHasher<ApiUser>();
             builder.Entity<Realtor>().HasData(
                 new Realtor
                 {
@@ -74,7 +70,6 @@ namespace BostadzPortalenWebAPI.Data
                     EmailConfirmed = true,
                     //AgencyId = 1,
                     PhoneNumber = "0722661920"
-
                 },
                 new Realtor
                 {

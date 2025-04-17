@@ -104,12 +104,12 @@ namespace BostadzPortalenWebAPI.Controllers
 
             var userClaims = await userManager.GetClaimsAsync(user);
             var claims = new List<Claim>
-    {
-        new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-        new Claim(JwtRegisteredClaimNames.Email, user.Email),
-        new Claim("uid", user.Id)
-    }.Union(roleClaims)
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim("uid", user.Id)
+            }.Union(roleClaims)
              .Union(userClaims);
 
             var token = new JwtSecurityToken(

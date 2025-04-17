@@ -9,6 +9,7 @@ namespace BostadzPortalenWebAPI.Data
         private readonly ApplicationDbContext _context;
         public RealEstateAgencyRepository(ApplicationDbContext context) : base(context)
         {
+            _context = context;
         }
         public async Task<List<PropertyForSale>> GetListOfPropertiesFromAgencyAsync(int id)
         {
