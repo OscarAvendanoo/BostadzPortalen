@@ -49,7 +49,7 @@ namespace BostadzPortalenWebAPI.Controllers
                     }
                     return BadRequest(ModelState);
                 }
-                await userManager.AddToRoleAsync(user, "User");
+                await userManager.AddToRoleAsync(user, "Realtor");
 
                 return Ok();
             }
