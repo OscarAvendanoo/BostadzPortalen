@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BostadzPortalenWebAPI.Models
 {
+    //Author: ALL
     public class ApiUser : IdentityUser
     {
         [Required(ErrorMessage = "First name is required")]
