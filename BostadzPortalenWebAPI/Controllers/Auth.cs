@@ -4,6 +4,10 @@ using BostadzPortalenWebAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace BostadzPortalenWebAPI.Controllers
 {
@@ -13,11 +17,13 @@ namespace BostadzPortalenWebAPI.Controllers
     {
         private readonly UserManager<ApiUser> userManager;
         private readonly IMapper mapper;
+        private readonly IConfiguration configuration;
 
-        public Auth(UserManager<ApiUser> userManager, IMapper mapper)
+        public Auth(UserManager<ApiUser> userManager, IMapper mapper, IConfiguration configuration)
         {
             this.userManager = userManager;
             this.mapper = mapper;
+            this.configuration = configuration;
         }
 
         [HttpPost]
@@ -62,7 +68,7 @@ namespace BostadzPortalenWebAPI.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<IActionResult> Login(LoginRealtorDto userDto)
+        public async Task<ActionResult<AuthResponseDTO>> Login(LoginRealtorDto userDto)
         {
             try
             {
@@ -73,23 +79,55 @@ namespace BostadzPortalenWebAPI.Controllers
                 {
                     return Unauthorized(userDto);
                 }
+
+                string tokenstring = await GenerateToken(user);
                 //skapa en DTOklass AuthResponse med props: UserId, Token, Email
 
-                //string tokenString = await GenerateToken(user);
+                string tokenString = await GenerateToken(user);
 
-                //var response = new AuthResponse
-                //{
-                //    Email = userDto.Email,
-                //    tokenString = tokenString,
-                //    UserId = user.Id
-                //};
+                var response = new AuthResponseDTO
+                {
+                    Email = userDto.Email,
+                    Token = tokenString,
+                    UserId = user.Id
+                };
 
-                return Ok();
+                return Ok(response);
             }
             catch
             {
                 return Problem($"Something went wrong in the {nameof(Login)}", statusCode: 500);
             }
+        }
+
+        private async Task<string> GenerateToken(ApiUser user)
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtSettings:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var roles = await userManager.GetRolesAsync(user);
+            var roleClaims = roles.Select(q => new Claim(ClaimTypes.Role, q)).ToList();
+
+            var userClaims = await userManager.GetClaimsAsync(user);
+            var claims = new List<Claim>
+    {
+        new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+        new Claim(JwtRegisteredClaimNames.Email, user.Email),
+        new Claim("uid", user.Id)
+    }.Union(roleClaims)
+             .Union(userClaims);
+
+            var token = new JwtSecurityToken(
+                issuer: configuration["JwtSettings:Issuer"],
+                audience: configuration["JwtSettings:Audience"],
+                claims: claims,
+                expires: DateTime.UtcNow.AddMinutes(Convert.ToInt32(configuration["JwtSettings:DurationInMinutes"])),
+                signingCredentials: credentials
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+
         }
     }
 }
