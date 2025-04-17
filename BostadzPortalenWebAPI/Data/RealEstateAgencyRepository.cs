@@ -24,11 +24,7 @@ namespace BostadzPortalenWebAPI.Data
 
         public async Task<List<PropertyForSale>> GetListOfPropertiesFromAgencyAsync(int id)
         {
-            var agency = await _context.RealEstateAgencies.
-                Include(a => a.AgencyRealtors).
-                ThenInclude(r => r.Properties).
-                Where(a => a.RealEstateAgencyId == id).
-                FirstOrDefaultAsync();
+            var agency = await GetByIdFullIncludeAsync(id);
 
             List<PropertyForSale> propertyList = new List<PropertyForSale>();
             foreach (var p in agency.AgencyRealtors)
@@ -40,6 +36,5 @@ namespace BostadzPortalenWebAPI.Data
             }
             return propertyList;
         }
-       
     }
 }
