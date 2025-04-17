@@ -15,9 +15,13 @@ namespace BostadzPortalenWebAPI.Data
         public DbSet<Realtor> Realtors { get; set; }
         public DbSet<Municipality> Municipalities { get; set; }
 
+
+        //Kommer inte riktigt ihåg vad vi sa om denna om vi skulle skapa en egen eller om vi skulle hitta på nåt annat.
+
+        /*public DbSet<User> Users { get; set; }*/
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        //Author: ALL
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
