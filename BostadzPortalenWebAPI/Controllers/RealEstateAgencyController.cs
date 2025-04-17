@@ -30,7 +30,7 @@ namespace BostadzPortalenWebAPI.Controllers
         [HttpGet("{id}")]
         public async Task<RealEstateAgency> GetAgencyById(int id)
         {
-            return await GetAgencyById(id);
+            return await _realEstateAgencyRepository.GetByIdFullIncludeAsync(id);
         }
 
         // POST api/<PropertyForSaleController>

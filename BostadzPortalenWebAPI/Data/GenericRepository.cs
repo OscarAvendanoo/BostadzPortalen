@@ -19,7 +19,9 @@ namespace BostadzPortalenWebAPI.Data
         public async Task<T> AddAsync(T entity)
         {
             var addedEntity = await _context.AddAsync(entity);
+            
             await _context.SaveChangesAsync();
+           
             return addedEntity.Entity;
         }
 

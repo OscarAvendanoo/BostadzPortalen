@@ -9,7 +9,19 @@ namespace BostadzPortalenWebAPI.Data
         private readonly ApplicationDbContext _context;
         public RealEstateAgencyRepository(ApplicationDbContext context) : base(context)
         {
+            _context = context;
         }
+
+        public async Task<RealEstateAgency> GetByIdFullIncludeAsync(int id)
+        {
+            var agency = await _context.RealEstateAgencies.
+               Include(a => a.AgencyRealtors).
+               ThenInclude(r => r.Properties).
+               Where(a => a.RealEstateAgencyId == id).
+               FirstOrDefaultAsync();
+            return agency;
+        }
+
         public async Task<List<PropertyForSale>> GetListOfPropertiesFromAgencyAsync(int id)
         {
             var agency = await _context.RealEstateAgencies.
@@ -28,5 +40,6 @@ namespace BostadzPortalenWebAPI.Data
             }
             return propertyList;
         }
+       
     }
 }
