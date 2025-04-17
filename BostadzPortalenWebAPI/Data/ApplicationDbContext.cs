@@ -33,12 +33,18 @@ namespace BostadzPortalenWebAPI.Data
                 NormalizedName = "USER",
                 Id = "e6ae5d04-8f49-4b62-bc52-205353eb08dc"
             },
-                new IdentityRole
-                {
-                    Name = "Administrator",
-                    NormalizedName = "ADMINISTRATOR",
-                    Id = "e11cc563-5369-471e-9792-6255e0d08eaf"
-                }
+            new IdentityRole
+            {
+                Name = "Administrator",
+                NormalizedName = "ADMINISTRATOR",
+                Id = "e11cc563-5369-471e-9792-6255e0d08eaf"
+            },
+            new IdentityRole
+            {
+                Name = "Realtor",
+                NormalizedName = "REALTOR",
+                Id = "1e346bcf-ee97-4bb2-ab3e-8d7202fea078"
+            }
              );
             //var hasher = new PasswordHasher<ApiUser>();
             builder.Entity<RealEstateAgency>().HasData(
