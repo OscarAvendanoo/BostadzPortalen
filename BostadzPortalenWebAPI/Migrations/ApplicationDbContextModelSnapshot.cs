@@ -228,6 +228,15 @@ namespace BostadzPortalenWebAPI.Migrations
                     b.HasKey("RealEstateAgencyId");
 
                     b.ToTable("RealEstateAgencies");
+
+                    b.HasData(
+                        new
+                        {
+                            RealEstateAgencyId = 5,
+                            AgencyDescription = "Sveriges näst bästa mäklarbyrå",
+                            AgencyLogoUrl = "BilderKommerSen",
+                            AgencyName = "Gottfridsson"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -408,7 +417,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92d637e6-6a8d-421e-a118-7a29d0edc1e7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7d604fae-01e9-4008-9361-ff55c1a75ce3",
+                            ConcurrencyStamp = "99eab6f5-25b5-4d21-aa5a-74f937a0bcb8",
                             Email = "admin@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -419,7 +428,7 @@ namespace BostadzPortalenWebAPI.Migrations
                             PasswordHash = "AQAAAAIAAYagAAAAEPRrA+z2V4XVE47d6ErGOt4tAuqkN1MIZgNzUM1mFnM8Jw+Mnyi4ddRRngz2mBpIWA==",
                             PhoneNumber = "0722661920",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "646b8162-a5d4-4fb2-964b-2021f05d9054",
+                            SecurityStamp = "a00cf95e-5498-4521-9cda-d959eb08ae67",
                             TwoFactorEnabled = false,
                             UserName = "admin@demoapi.com"
                         },
@@ -427,7 +436,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92b88e50-795f-4df6-90e0-8a7d9a179cb0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2065ee71-40f1-4adb-8b41-b4b567355b45",
+                            ConcurrencyStamp = "70f3979e-f9ec-4144-bb3c-05b8b9572805",
                             Email = "user@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -438,7 +447,7 @@ namespace BostadzPortalenWebAPI.Migrations
                             PasswordHash = "AQAAAAIAAYagAAAAEFijB/Z0QU8mRE5kfpjArHQDGsgjLMx0GXCljNd3Sg+F/tznlHrQ3+Li6EWmRApXGw==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b41a7608-b243-48bb-a4be-92149c798027",
+                            SecurityStamp = "4fc7616c-cf20-4dd6-90c9-6ebf7fedd94e",
                             TwoFactorEnabled = false,
                             UserName = "user@demoapi.com"
                         });
