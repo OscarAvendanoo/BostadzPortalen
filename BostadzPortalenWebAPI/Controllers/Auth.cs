@@ -11,6 +11,7 @@ using System.Text;
 
 namespace BostadzPortalenWebAPI.Controllers
 {
+    //Author: ALL
     [Route("api/[controller]")]
     [ApiController]
     public class Auth : ControllerBase
