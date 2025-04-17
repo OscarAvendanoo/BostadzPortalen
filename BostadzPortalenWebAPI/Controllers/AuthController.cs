@@ -14,13 +14,13 @@ namespace BostadzPortalenWebAPI.Controllers
     //Author: ALL
     [Route("api/[controller]")]
     [ApiController]
-    public class Auth : ControllerBase
+    public class AuthController : ControllerBase
     {
         private readonly UserManager<ApiUser> userManager;
         private readonly IMapper mapper;
         private readonly IConfiguration configuration;
 
-        public Auth(UserManager<ApiUser> userManager, IMapper mapper, IConfiguration configuration)
+        public AuthController(UserManager<ApiUser> userManager, IMapper mapper, IConfiguration configuration)
         {
             this.userManager = userManager;
             this.mapper = mapper;
@@ -42,8 +42,6 @@ namespace BostadzPortalenWebAPI.Controllers
                     LastName = userDto.LastName,
                     AgencyId = userDto.AgencyId,
                     EmailConfirmed = true
-                    
-
                 };
 
                 var result = await userManager.CreateAsync(user, userDto.Password);
@@ -62,7 +60,6 @@ namespace BostadzPortalenWebAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 return Problem($"Something went wrong in the {nameof(Register)}", statusCode: 500);
             }
         }
@@ -81,11 +78,7 @@ namespace BostadzPortalenWebAPI.Controllers
                     return Unauthorized(userDto);
                 }
 
-                string tokenstring = await GenerateToken(user);
-                //skapa en DTOklass AuthResponse med props: UserId, Token, Email
-
                 string tokenString = await GenerateToken(user);
-
                 var response = new AuthResponseDTO
                 {
                     Email = userDto.Email,
@@ -128,7 +121,6 @@ namespace BostadzPortalenWebAPI.Controllers
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
-
         }
     }
 }

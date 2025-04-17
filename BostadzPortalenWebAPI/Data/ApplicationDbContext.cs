@@ -22,6 +22,8 @@ namespace BostadzPortalenWebAPI.Data
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
+
+        //Author: ALL
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

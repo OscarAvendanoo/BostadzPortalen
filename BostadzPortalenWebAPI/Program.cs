@@ -41,8 +41,7 @@ namespace BostadzPortalenWebAPI
             });
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-
-            options.UseSqlServer(builder.Configuration.GetConnectionString("BostadzPortalenWebAPI"))); //KH + JN
+                options.UseSqlServer(builder.Configuration.GetConnectionString("BostadzPortalenWebAPI"))); //KH + JN
 
 
             builder.Services.AddIdentityCore<ApiUser>()
