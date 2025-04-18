@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 
 namespace BostadzPortalenClient.Services.Authentication
 {
+    //Author: ALL
     public class AuthenticationService : IAuthenticationService
     {
         private readonly IClient httpClient;

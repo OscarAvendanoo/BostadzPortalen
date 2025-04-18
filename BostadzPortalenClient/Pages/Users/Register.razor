@@ -55,13 +55,13 @@
         {
             await httpClient.RegisterAsync(RegistrationModel);
 
-            navManager.NavigateTo("login");
+            navManager.NavigateTo("/users/login");
         }
         catch (ApiException aex)
         {
             if (aex.StatusCode >= 200 && aex.StatusCode <= 299)
             {
-                navManager.NavigateTo("login");
+                navManager.NavigateTo("/users/login");
             }
             message = aex.Response;
 

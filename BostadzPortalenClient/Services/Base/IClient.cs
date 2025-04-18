@@ -2,6 +2,7 @@
 {
     public partial interface IClient
     {
+        //Author: ALL
         public HttpClient HttpClient { get; }
     }
 }
