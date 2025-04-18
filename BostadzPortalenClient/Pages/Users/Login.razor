@@ -38,7 +38,7 @@
             var response = await authService.AuthenticateAsync(LoginModel);
             if (response)
             {
-                navManager.NavigateTo("Home");
+                navManager.NavigateTo("/home");
             }
             message = "Invalid Credentials, Try again!";
 
@@ -47,7 +47,7 @@
         {
             if (aex.StatusCode >= 200 && aex.StatusCode <= 299)
             {
-                navManager.NavigateTo("Home");
+                navManager.NavigateTo("/home");
             }
             message = aex.Response;
         }

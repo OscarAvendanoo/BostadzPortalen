@@ -58,7 +58,7 @@ namespace BostadzPortalenWebAPI.Controllers
                 }
                 await userManager.AddToRoleAsync(user, "Realtor");
 
-                return Ok();
+                return Accepted();
             }
             catch (Exception ex)
             {
@@ -81,7 +81,7 @@ namespace BostadzPortalenWebAPI.Controllers
                     return Unauthorized(userDto);
                 }
 
-                string tokenstring = await GenerateToken(user);
+                
                 //skapa en DTOklass AuthResponse med props: UserId, Token, Email
 
                 string tokenString = await GenerateToken(user);

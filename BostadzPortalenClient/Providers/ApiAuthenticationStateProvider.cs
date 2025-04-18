@@ -5,6 +5,8 @@ using System.Security.Claims;
 
 namespace BostadzPortalenTestApp.Providers
 {
+
+    //Author: ALL
     public class ApiAuthenticationStateProvider : AuthenticationStateProvider
     {
         private readonly ILocalStorageService localStorage;
