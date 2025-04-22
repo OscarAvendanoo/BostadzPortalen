@@ -1,0 +1,21 @@
+﻿@page "/properties/index"
+@inject IPropertyForSaleService propertyService
+
+
+<h3>Index</h3>
+
+@foreach (var item in allProperties)
+{
+    <p>@item.PropertyForSaleId</p>
+}
+
+
+
+@code {
+    private ICollection<PropertyForSale> allProperties = new List<PropertyForSale>();
+
+    public async Task test()
+    {
+        allProperties = await propertyService.GetAllPropertiesForSaleAsync();
+    }
+}
