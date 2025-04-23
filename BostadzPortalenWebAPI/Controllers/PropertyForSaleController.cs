@@ -1,4 +1,6 @@
-﻿using BostadzPortalenWebAPI.Data;
+﻿using AutoMapper;
+using BostadzPortalenWebAPI.Data;
+using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,10 +14,12 @@ namespace BostadzPortalenWebAPI.Controllers
     public class PropertyForSaleController : ControllerBase
     {
         private readonly IPropertyForSaleRepository _propertyForSaleRepository;
-        public PropertyForSaleController(IPropertyForSaleRepository propertyForSaleRepository)
+        private readonly IMapper mapper;
+        public PropertyForSaleController(IPropertyForSaleRepository propertyForSaleRepository, IMapper mapper)
         {
             _propertyForSaleRepository = propertyForSaleRepository;
-            
+            this.mapper = mapper;
+
         }
 
         // Author: Oscar
@@ -47,32 +51,31 @@ namespace BostadzPortalenWebAPI.Controllers
         // Author: JOna
         // POST api/<PropertyForSaleController>
         [HttpPost]
-        public async Task<ActionResult<PropertyForSale>> PostProperty([FromBody] PropertyForSale propertyForSale)
+        public async Task<ActionResult> CreatePropertyForSale(CreatePropertyForSaleDTO dto)
         {
-            if (propertyForSale == null)
-            {
-                return BadRequest("Property cannot be null");
-            }
-            await _propertyForSaleRepository.AddAsync(propertyForSale);
-            return CreatedAtAction(nameof(GetProperty), new { id = propertyForSale.PropertyForSaleId }, propertyForSale);
+            if (dto == null)
+                return BadRequest("Invalid input.");
+
+            var property = mapper.Map<PropertyForSale>(dto);
+            await _propertyForSaleRepository.AddAsync(property);
+            return Ok(property);
         }
         // Author: Jona
         // PUT api/<PropertyForSaleController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<PropertyForSale>> UpdateProperty(int id, [FromBody] PropertyForSale updatedPropertyForSale)
+        public async Task<ActionResult> Update(int id, [FromBody] PropertyForSaleDTO dto)
         {
-            if (updatedPropertyForSale == null)
-            {
-                return BadRequest("Property cannot be null");
-            }
+            if (dto == null)
+                return BadRequest("Invalid input.");
+
             var existingProperty = await _propertyForSaleRepository.GetByIDAsync(id);
             if (existingProperty == null)
-            {
                 return NotFound();
-            }
-            updatedPropertyForSale.PropertyForSaleId = id; // Ensure the ID is set correctly
-            await _propertyForSaleRepository.UpdateAsync(updatedPropertyForSale);
-            return NoContent(); //204 whop 
+
+            mapper.Map(dto, existingProperty);
+            await _propertyForSaleRepository.UpdateAsync(existingProperty);
+
+            return NoContent();
         }
         // Author: Jonaaa
         // DELETE api/<PropertyForSaleController>/5
@@ -85,7 +88,7 @@ namespace BostadzPortalenWebAPI.Controllers
                 return NotFound();
             }
             await _propertyForSaleRepository.DeleteAsync(propertyToDelete);
-            return NoContent(); 
+            return NoContent();
         }
     }
 }

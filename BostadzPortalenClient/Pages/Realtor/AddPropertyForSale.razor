@@ -1,0 +1,132 @@
+﻿@page "/property/add"
+@using BostadzPortalenClient.Models
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<h3>Lägg till ny bostad till salu</h3>
+
+<EditForm Model="newProperty" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label>Adress:</label>
+        <InputText class="form-control" @bind-Value="newProperty.Address" />
+    </div>
+
+    <div class="form-group">
+        <label>Kommun ID:</label>
+        <InputNumber class="form-control" @bind-Value="newProperty.MunicipalityId" />
+    </div>
+
+    <div class="form-group">
+        <label>Begärt pris:</label>
+        <InputNumber class="form-control" @bind-Value="newProperty.AskingPrice" />
+    </div>
+
+    <div class="form-group">
+        <label>Boarea (kvm):</label>
+        <InputNumber class="form-control" @bind-Value="newProperty.LivingArea" />
+    </div>
+
+    <div class="form-group">
+        <label>Biarea (kvm):</label>
+        <InputNumber class="form-control" @bind-Value="newProperty.SupplementaryArea" />
+    </div>
+
+    <div class="form-group">
+        <label>Tomtarea (valfri):</label>
+        <InputNumber class="form-control" @bind-Value="newProperty.PlotArea" />
+    </div>
+
+    <div class="form-group">
+        <label>Antal rum:</label>
+        <InputNumber class="form-control" @bind-Value="newProperty.NumberOfRooms" />
+    </div>
+
+    <div class="form-group">
+        <label>Beskrivning:</label>
+        <InputTextArea class="form-control" @bind-Value="newProperty.Description" />
+    </div>
+
+    <div class="form-group">
+        <label>Månadsavgift (valfri):</label>
+        <InputNumber class="form-control" @bind-Value="newProperty.MonthlyFee" />
+    </div>
+
+    <div class="form-group">
+        <label>Driftskostnad/år:</label>
+        <InputNumber class="form-control" @bind-Value="newProperty.YearlyOperatingCost" />
+    </div>
+
+    <div class="form-group">
+        <label>Byggår:</label>
+        <InputNumber class="form-control" @bind-Value="newProperty.YearBuilt" />
+    </div>
+
+    <div class="form-group">
+        <label>Typ av bostad:</label>
+        <InputSelect class="form-control" @bind-Value="newProperty.TypeOfProperty">
+            @foreach (var val in Enum.GetValues(typeof(TypeOfPropertyEnum)))
+            {
+                <option value="@val">@val</option>
+            }
+        </InputSelect>
+    </div>
+
+    <div class="form-group">
+        <label>Bild-URL (lägg till flera):</label>
+        <InputText class="form-control" @bind-Value="imageUrl" />
+        <button class="btn btn-secondary mt-2" type="button" @onclick="AddImageUrl">Lägg till bild</button>
+        <ul>
+            @foreach (var url in newProperty.ImageUrls)
+            {
+                <li>@url</li>
+            }
+        </ul>
+    </div>
+
+    <button class="btn btn-primary mt-3" type="submit">Spara</button>
+</EditForm>
+
+@if (!string.IsNullOrWhiteSpace(feedbackMessage))
+{
+    <div class="alert alert-info mt-3">@feedbackMessage</div>
+}
+
+@code {
+    private CreatePropertyForSaleDTO newProperty = new();
+    private string imageUrl = string.Empty;
+    private string feedbackMessage = string.Empty;
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            var response = await Http.PostAsJsonAsync("api/PropertyForSale", newProperty);
+
+            if (response.IsSuccessStatusCode)
+            {
+                feedbackMessage = "Bostaden har lagts till!";
+                Navigation.NavigateTo("/home");
+            }
+            else
+            {
+                feedbackMessage = $"Fel: {response.ReasonPhrase}";
+            }
+        }
+        catch (Exception ex)
+        {
+            feedbackMessage = $"Något gick fel: {ex.Message}";
+        }
+    }
+
+    private void AddImageUrl()
+    {
+        if (!string.IsNullOrWhiteSpace(imageUrl))
+        {
+            newProperty.ImageUrls.Add(imageUrl);
+            imageUrl = string.Empty;
+        }
+    }
+}

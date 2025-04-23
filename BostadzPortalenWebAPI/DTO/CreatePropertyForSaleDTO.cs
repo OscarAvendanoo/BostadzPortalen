@@ -30,7 +30,7 @@ namespace BostadzPortalenWebAPI.DTO
         [Required]
         public int YearBuilt { get; set; }
         public List<string> ImageUrls { get; set; } = new List<string>();
-        public int RealtorId { get; set; }
+        public Guid RealtorId { get; set; }
         [Required]
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
     }
