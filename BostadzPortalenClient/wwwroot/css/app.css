@@ -16,9 +16,8 @@
 }
 
 html, body {
-    font-family: 'Josefin Sans';/*'Helvetica Neue', Helvetica, Arial, sans-serif*/
+    font-family: 'Josefin Sans'; /*'Helvetica Neue', Helvetica, Arial, sans-serif*/
     margin-top: 60px;
-    
 }
 
 h1:focus {
@@ -36,7 +35,7 @@ a, .btn-link {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 .content {
@@ -127,9 +126,6 @@ code {
 
 .navbar {
     background-color: var(--dark-turqouise);
-    
-   /* padding: 5px;
-    margin: 3px;*/
 }
 
 .a-link {
@@ -139,27 +135,19 @@ code {
     text-decoration: none;
 }
 
-/*.navbar-nav {
-    color: var(--light-yellow);
-}*/
-/*.nav-item {
-    color: var(--light-yellow);
-}*/
-/*
-a.nav-item{
-    color: var(--light-yellow);
-}*/
 a.nav-link {
-   
     color: var(--light-yellow);
 }
 
-
-.nav-link:hover{
+.nav-link:focus {
     color: var(--dark-yellow);
 }
 
-nav-item.a-link{
+.nav-link:hover {
+    color: var(--dark-yellow);
+}
+
+nav-item.a-link {
     color: var(--light-yellow);
 }
 
@@ -169,14 +157,18 @@ nav-item.a-link{
 
 /*BUTTON*/
 
-.main-btn{
+.main-btn {
     background-color: var(--dark-turqouise);
     color: var(--light-yellow);
 }
 
-.main-btn:hover{
-    color: var(--dark-turqouise);
-    background-color: var(--light-yellow);
+    .main-btn:hover {
+        color: var(--dark-turqouise);
+        background-color: var(--light-yellow);
+    }
+
+.btn:focus {
+    box-shadow: 0;
 }
 
 .tab-content {
@@ -186,3 +178,14 @@ nav-item.a-link{
     .tab-content.active {
         display: block; /* Visa aktivt innehåll */
     }
+
+
+/*HOMEPAGEIMAGE*/
+
+.home-page-img {
+    max-width:730px;
+    max-height:500px;
+    width:auto;
+    height: auto;
+    margin-left: 10px;
+}
