@@ -11,7 +11,7 @@ namespace BostadzPortalenWebAPI.Data
     public class ApplicationDbContext : IdentityDbContext<ApiUser>
     {
         public DbSet<PropertyForSale> PropertiesForSale { get; set; }
-        public DbSet<PropertyImage> PrepertyImages { get; set; }
+        public DbSet<PropertyImage> PropertyImages { get; set; }
         public DbSet<RealEstateAgency> RealEstateAgencies { get; set; }
         public DbSet<Realtor> Realtors { get; set; }
         public DbSet<Municipality> Municipalities { get; set; }
@@ -29,8 +29,6 @@ namespace BostadzPortalenWebAPI.Data
             builder = Seeding.RealtorBuilder(builder);
             builder = Seeding.IdentityUserRoleBuilder(builder);
 
-            //the hash that's supposed to set the passwords
-            //var hasher = new PasswordHasher<ApiUser>();
         }
     }
 }

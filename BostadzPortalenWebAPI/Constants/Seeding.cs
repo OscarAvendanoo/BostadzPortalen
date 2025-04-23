@@ -42,14 +42,16 @@ namespace BostadzPortalenWebAPI.Constants
                     RealEstateAgencyId = 1,
                     AgencyName = "Gottfridsson",
                     AgencyDescription = "Sveriges näst bästa mäklarbyrå",
-                    AgencyLogoUrl = "BilderKommerSen"
-                }, 
+                    AgencyLogoUrl = "BilderKommerSen",
+                    AgencyRealtors = null
+                },
                 new RealEstateAgency
                 {
                     RealEstateAgencyId = 2,
                     AgencyName = "Skanebo",
                     AgencyDescription = "Skåne är den bästa platsen på Gotland",
-                    AgencyLogoUrl = "BilderKommerSen"
+                    AgencyLogoUrl = "BilderKommerSen",
+                    AgencyRealtors = null
                 }
                 );
             return builder;
@@ -57,6 +59,9 @@ namespace BostadzPortalenWebAPI.Constants
 
         public static ModelBuilder RealtorBuilder(ModelBuilder builder)
         {
+            //the hash that's supposed to set the passwords
+            //var hasher = new PasswordHasher<ApiUser>();
+
             //the unique users (realtors only)
             builder.Entity<Realtor>().HasData(
                 new Realtor
@@ -107,6 +112,14 @@ namespace BostadzPortalenWebAPI.Constants
                      UserId = SeedGUID.SystemAdmin
                  }
             );
+            return builder;
+        }
+        public static ModelBuilder MunicipalityBuilder(ModelBuilder builder)
+        {
+            return builder;
+        }
+        public static ModelBuilder PropertyForSaleBuilder(ModelBuilder builder)
+        {
             return builder;
         }
     }
