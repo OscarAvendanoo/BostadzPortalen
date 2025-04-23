@@ -1,0 +1,27 @@
+﻿@page "/properties/index"
+@inject IPropertyForSaleService propertyService
+@inject IJSRuntime JS
+
+
+
+<h3>Index</h3>
+<PropertiesTable propertyList="@allProperties"></PropertiesTable>
+
+
+@code {
+    private ICollection<PropertyForSale> allProperties = new List<PropertyForSale>();
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("import", propertyService.GetAllPropertiesForSaleAsync());
+        }
+    }
+    
+    public async Task GetAllPropForSaleForTable()
+    {
+        allProperties = await propertyService.GetAllPropertiesForSaleAsync();
+    }
+}
