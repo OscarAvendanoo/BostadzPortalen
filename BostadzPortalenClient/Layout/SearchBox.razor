@@ -1,0 +1,37 @@
+﻿@inject IJSRuntime JS
+
+<div class="d-flex justify-content-center align-items-center">
+    <div class="card w-50">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs searchbox-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#" data-tab="homes">Sök bostäder</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-tab="agencies">Sök mäklarbyrå</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-tab="realtor">Sök mäklare</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card-body">
+            <RealEstate></RealEstate>
+            <AgencieSearch></AgencieSearch>
+            <RealtorSearch></RealtorSearch>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("setupSearchBoxTabs");
+        }
+    }
+}

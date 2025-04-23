@@ -1,5 +1,24 @@
+
+:root {
+    --white: #FFFFFF;
+    --turqouise: #4D8D7A;
+    --dark-turqouise: #27584A;
+    --light-yellow: #D9A156;
+    --dark-yellow: #B17C3E;
+}
+
+
+.josefin-sans {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+}
+
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Josefin Sans';/*'Helvetica Neue', Helvetica, Arial, sans-serif*/
+    margin-top: 60px;
+    
 }
 
 h1:focus {
@@ -101,3 +120,69 @@ a, .btn-link {
 code {
     color: #c02d76;
 }
+
+
+
+/*EGEN NAVBAR*/
+
+.navbar {
+    background-color: var(--dark-turqouise);
+    
+   /* padding: 5px;
+    margin: 3px;*/
+}
+
+.a-link {
+    color: var(--light-yellow);
+    padding: 5px;
+    margin: 3px;
+    text-decoration: none;
+}
+
+/*.navbar-nav {
+    color: var(--light-yellow);
+}*/
+/*.nav-item {
+    color: var(--light-yellow);
+}*/
+/*
+a.nav-item{
+    color: var(--light-yellow);
+}*/
+a.nav-link {
+   
+    color: var(--light-yellow);
+}
+
+
+.nav-link:hover{
+    color: var(--dark-yellow);
+}
+
+nav-item.a-link{
+    color: var(--light-yellow);
+}
+
+.navbar a {
+    color: var(--light-yellow);
+}
+
+/*BUTTON*/
+
+.main-btn{
+    background-color: var(--dark-turqouise);
+    color: var(--light-yellow);
+}
+
+.main-btn:hover{
+    color: var(--dark-turqouise);
+    background-color: var(--light-yellow);
+}
+
+.tab-content {
+    display: none; /* Dölj allt som standard */
+}
+
+    .tab-content.active {
+        display: block; /* Visa aktivt innehåll */
+    }
