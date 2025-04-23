@@ -1,9 +1,9 @@
 ﻿@using BostadzPortalenClient.Pages
 @using Microsoft.AspNetCore.Components.Authorization
-<CascadingAuthenticationState>
+@* <CascadingAuthenticationState>
 <Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
-        <Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+        <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
             <NotAuthorized>
                 @if(context.User.Identity?.IsAuthenticated == false)
                 {
@@ -16,7 +16,7 @@
                     </div>
                 }
             </NotAuthorized>
-            </Microsoft.AspNetCore.Components.Authorization.AuthorizeRouteView>
+            </AuthorizeRouteView>
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
     </Found>
@@ -27,10 +27,10 @@
         </LayoutView>
     </NotFound>
 </Router>
-</CascadingAuthenticationState>
+</CascadingAuthenticationState> *@
 
 
-@* <Router AppAssembly="@typeof(App).Assembly">
+<Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
         <FocusOnNavigate RouteData="@routeData" Selector="h1" />
@@ -42,4 +42,3 @@
         </LayoutView>
     </NotFound>
 </Router>
- *@

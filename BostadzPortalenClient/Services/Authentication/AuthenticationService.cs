@@ -1,7 +1,8 @@
 ﻿
 using Blazored.LocalStorage;
+using BostadzPortalenClient.Providers;
 using BostadzPortalenClient.Services.Base;
-using BostadzPortalenTestApp.Providers;
+
 using Microsoft.AspNetCore.Components.Authorization;
 
 

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
-namespace BostadzPortalenTestApp.Providers
+namespace BostadzPortalenClient.Providers
 {
 
     //Author: ALL

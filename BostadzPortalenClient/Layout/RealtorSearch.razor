@@ -1,0 +1,42 @@
+﻿
+    <div id="realtor" class="tab-content">
+        <div class="row g-12">
+            
+
+            <!--Sök efter namn-->
+            <!--Kanske smart att solla först på vilka som finns i den agencyn man vill leta efter?-->
+            <label class="form-label">Sök efter namn</label>
+            <div class="col-md-6 mt-3">
+                <input type="text" class="form-control" placeholder="Förnamn" />
+                </div>
+            <div class="col-md-6 mt-3">
+                <input type="text" class="form-control" placeholder="Efternamn" />
+            </div>
+            </div>
+
+        <!--Förslagsvis en lista av alla agencies-->
+        <div class="col-md-12 mt-3">
+            <label class="form-label">Sök efter mäklarbyrå</label>
+                <select class="form-select">
+                    <option>Alla byråer</option>                    
+                    <!--Här ligger mock-->
+                    <option>Länsförsäkringar</option>
+                    <option>Bosses Boende</option>
+                    <option>Villa Villerkulla Dream Living</option>
+                    <option>Agency 4 U</option>
+                </select>
+            </div>
+
+            <!-- Sök-knapp -->
+            <div class="col-12 d-flex justify-content-center mt-4">
+            <button class="btn main-btn w-50">Sök</button>
+            </div>
+        </div>
+
+ 
+@code{
+    private void OnClick(){
+        
+    }
+}
+
