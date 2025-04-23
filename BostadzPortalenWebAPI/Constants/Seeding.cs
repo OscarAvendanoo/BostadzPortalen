@@ -36,7 +36,9 @@ namespace BostadzPortalenWebAPI.Constants
         public static ModelBuilder RealEstateAgencyBuilder(ModelBuilder builder)
         {
             //the real-estate agencies
-            builder.Entity<RealEstateAgency>().HasData(
+            builder.Entity<RealEstateAgency>(t =>
+            {
+                t.HasData(
                 new RealEstateAgency
                 {
                     RealEstateAgencyId = 1,
@@ -54,6 +56,7 @@ namespace BostadzPortalenWebAPI.Constants
                     AgencyRealtors = null
                 }
                 );
+            });
             return builder;
         }
 

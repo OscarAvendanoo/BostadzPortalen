@@ -28,6 +28,7 @@ namespace BostadzPortalenWebAPI.Data
             builder = Seeding.RealEstateAgencyBuilder(builder);
             builder = Seeding.RealtorBuilder(builder);
             builder = Seeding.IdentityUserRoleBuilder(builder);
+            builder = Seeding.MunicipalityBuilder(builder);
 
         }
     }
