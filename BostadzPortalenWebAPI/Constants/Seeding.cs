@@ -7,16 +7,6 @@ namespace BostadzPortalenWebAPI.Constants
     //Author: ALL + Johan Nelin (turning it to a static-class instead of in OnModelCreating)
     public static class Seeding
     {
-        public static void SeedAll()
-        {
-            ModelBuilder builder = new ModelBuilder();
-            builder = Seeding.IdentityRolesBuilder(builder);
-            builder = Seeding.RealEstateAgencyBuilder(builder);
-            builder = Seeding.RealtorBuilder(builder);
-            builder = Seeding.IdentityUserRoleBuilder(builder);
-        }
-
-
         public static ModelBuilder IdentityRolesBuilder(ModelBuilder builder)
         {
             //what kind of users should exist
@@ -25,19 +15,19 @@ namespace BostadzPortalenWebAPI.Constants
             {
                 Name = "User",
                 NormalizedName = "USER",
-                Id = "e6ae5d04-8f49-4b62-bc52-205353eb08dc"
+                Id = SeedGUID.RoleUser
             },
             new IdentityRole
             {
                 Name = "Administrator",
                 NormalizedName = "ADMINISTRATOR",
-                Id = "e11cc563-5369-471e-9792-6255e0d08eaf"
+                Id = SeedGUID.RoleAdmin
             },
             new IdentityRole
             {
                 Name = "Realtor",
                 NormalizedName = "REALTOR",
-                Id = "1e346bcf-ee97-4bb2-ab3e-8d7202fea078"
+                Id = SeedGUID.RoleRealtor
             }
             );
             return builder;
@@ -71,8 +61,7 @@ namespace BostadzPortalenWebAPI.Constants
             builder.Entity<Realtor>().HasData(
                 new Realtor
                 {
-
-                    Id = "92d637e6-6a8d-421e-a118-7a29d0edc1e7",
+                    Id = SeedGUID.SystemAdmin,
                     Email = "admin@demoapi.com",
                     NormalizedEmail = "ADMIN@DEMOAPI.COM",
                     UserName = "admin@demoapi.com",
@@ -87,8 +76,7 @@ namespace BostadzPortalenWebAPI.Constants
                 },
                 new Realtor
                 {
-
-                    Id = "92b88e50-795f-4df6-90e0-8a7d9a179cb0",
+                    Id = SeedGUID.SystemUser,
                     Email = "user@demoapi.com",
                     NormalizedEmail = "USER@DEMOAPI.COM",
                     UserName = "user@demoapi.com",
@@ -110,13 +98,13 @@ namespace BostadzPortalenWebAPI.Constants
             builder.Entity<IdentityUserRole<string>>().HasData(
                 new IdentityUserRole<string>
                 {
-                    RoleId = "e6ae5d04-8f49-4b62-bc52-205353eb08dc",
-                    UserId = "92b88e50-795f-4df6-90e0-8a7d9a179cb0"
+                    RoleId = SeedGUID.RoleUser,
+                    UserId = SeedGUID.SystemUser
                 },
                  new IdentityUserRole<string>
                  {
-                     RoleId = "e11cc563-5369-471e-9792-6255e0d08eaf",
-                     UserId = "92d637e6-6a8d-421e-a118-7a29d0edc1e7"
+                     RoleId = SeedGUID.RoleAdmin,
+                     UserId = SeedGUID.SystemAdmin
                  }
             );
             return builder;
