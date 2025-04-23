@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BostadzPortalenWebAPI.Constants
 {
-    //Author: ALL + Johan Nelin (turning it to a static-class instead of in OnModelCreating)
+    //Author: ALL + Johan Nelin
     public static class Seeding
     {
         public static ModelBuilder IdentityRolesBuilder(ModelBuilder builder)
@@ -116,10 +116,34 @@ namespace BostadzPortalenWebAPI.Constants
         }
         public static ModelBuilder MunicipalityBuilder(ModelBuilder builder)
         {
+            builder.Entity<Municipality>().HasData(
+                new Municipality
+                {
+                    Id = 1,
+                    Name = "Umeå",
+                    PropertiesForSale = null
+                }
+                );
             return builder;
         }
         public static ModelBuilder PropertyForSaleBuilder(ModelBuilder builder)
         {
+            builder.Entity<PropertyForSale>().HasData(
+                new PropertyForSale
+                {
+                    PropertyForSaleId = 1,
+                    MunicipalityId = 1,
+                    RealtorId = SeedGUID.SystemUser,
+                    AskingPrice = 10000,
+                    MonthlyFee = 1000,
+                    YearlyOperatingCost = 1000,
+                    LivingArea = 24,
+                    PlotArea = 8,
+                    SupplementaryArea = 8,
+                    YearBuilt = 1999,
+
+                }
+                );
             return builder;
         }
     }
