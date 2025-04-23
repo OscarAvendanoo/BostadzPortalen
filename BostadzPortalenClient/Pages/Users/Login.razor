@@ -2,28 +2,36 @@
 @inject IAuthenticationService authService
 @inject NavigationManager navManager
 
-<h3>Login</h3>
+<h3>Logga in</h3>
 
+<div class="d-flex justify-content-center align-items-center col-6">
+    <div class="card w-100">
+        
 
+        <div class="card-body col-12 d-flex justify-content-center align-items-center">
+            <div class="col-8 ">
+                <EditForm Model="LoginModel" OnValidSubmit="HandleLogin">
+                    <DataAnnotationsValidator />
+                    <ValidationSummary />
+                    <div class="form-group">
+                        <label for="email">Email Adress</label>
+                        <InputText class="form-control" @bind-Value="LoginModel.Email" />
+                        <ValidationMessage For="@(() => LoginModel.Email)" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Password</label>
+                        <InputText class="form-control" type="password" @bind-Value="LoginModel.Password" />
+                        <ValidationMessage For="@(() => LoginModel.Password)" />
+                    </div>
+                    <button type="submit" class="btn main-btn btn-block mt-3 col-12">Logga in</button>
 
-<div>
-    <EditForm Model="LoginModel" OnValidSubmit="HandleLogin">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
-        <div class="form-group">
-            <label for="email">Email Adress</label>
-            <InputText class="form-control" @bind-Value="LoginModel.Email" />
-            <ValidationMessage For="@(() => LoginModel.Email)" />
+                </EditForm>
+            </div>
+            
         </div>
-        <div class="form-group">
-            <label for="email">Password</label>
-            <InputText class="form-control" type="password" @bind-Value="LoginModel.Password" />
-            <ValidationMessage For="@(() => LoginModel.Password)" />
-        </div>
-        <button type="submit" class="btn main-btn btn-block mt-3">Login</button>
-
-    </EditForm>
+    </div>
 </div>
+
 
 @code {
 

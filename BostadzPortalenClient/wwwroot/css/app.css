@@ -18,6 +18,8 @@
 html, body {
     font-family: 'Josefin Sans'; /*'Helvetica Neue', Helvetica, Arial, sans-serif*/
     margin-top: 60px;
+    height: 100%;
+    
 }
 
 h1:focus {
@@ -183,9 +185,123 @@ nav-item.a-link {
 /*HOMEPAGEIMAGE*/
 
 .home-page-img {
-    max-width:730px;
-    max-height:500px;
-    width:auto;
+    max-width: 730px;
+    max-height: 500px;
+    width: auto;
     height: auto;
     margin-left: 10px;
 }
+
+
+/*FOOTER*/
+
+.bostadz-footer {
+    background-color: #f8f8f8;
+    color: #333;
+    margin-top: 50px;
+    padding: 40px 20px;
+    border-top: 1px solid #e0e0e0;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    
+}
+
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+    .footer-section h4 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: var(--light-yellow);
+        text-decoration:underline;
+        
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+            .footer-section ul li a {
+                text-decoration: none;
+                color: #333;
+                transition: color 0.3s;
+            }
+
+                .footer-section ul li a:hover {
+                    color: var(--light-yellow);
+                }
+
+.social-links li {
+    display: flex;
+    align-items: center;
+}
+
+    .social-links li i {
+        margin-right: 8px;
+    }
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #777;
+}
+
+
+/*DROPDOWN*/
+
+/* Gör dropdown-menyn samma färg som navbaren */
+/*.navbar, .dropdown-menu {
+    background-color: inherit;*/ /* byt till din navbar-färg */
+/*border: none;
+}*/
+
+/* Ta bort standard box-shadow från dropdown */
+.dropdown-menu {
+    box-shadow: none;
+    padding: 0;
+    color: var(--dark-turqouise);
+    background-color: var(--dark-turqouise);
+}
+
+/* Styla länkarna i dropdownen */
+.dropdown-item {
+    color: var(--dark-yellow);
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.2s ease;
+}
+
+    /* Hovereffekt på länkarna */
+    .dropdown-item:hover {
+        background-color: var(--light-yellow); /* lite ljusare än navbaren för diskret effekt */
+        color: var(--dark-turqouise);
+    }
+
+/* Anpassa dropdown-knappen så den smälter in */
+.dropdown-toggle {
+    background-color: transparent;
+    border: none;
+    color: var(--light-yellow);
+}
+
+    /* Ta bort fokus-ringen */
+    .dropdown-toggle:focus {
+        box-shadow: none;
+    }

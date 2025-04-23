@@ -1,5 +1,5 @@
 .navbar-toggler {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: var(--light-yellow);
 }
 
 .top-row {
@@ -81,6 +81,8 @@
         overflow-y: auto;
     }
 }
+
+
 
 /*.navbar {
     background-color: var(--dark-turqouise);*/
