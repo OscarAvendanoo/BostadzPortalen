@@ -6,6 +6,6 @@
         public string Name { get; set; }
 
         // En kommun kan ha flera bostäder
-        public ICollection<PropertyForSale> PropertiesForSale { get; set; }
+        public virtual List<PropertyForSale>? PropertiesForSale { get; set; }
     }
 }
