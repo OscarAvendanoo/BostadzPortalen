@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 
 namespace BostadzPortalenWebAPI
@@ -90,6 +91,9 @@ namespace BostadzPortalenWebAPI
             builder.Services.AddScoped<IRealtorRepository, RealtorRepository>(); //KH
             builder.Services.AddScoped<IPropertyForSaleRepository, PropertyForSaleRepository>(); //OA
             builder.Services.AddScoped<IPropertyImageRepository, PropertyImageRepository>(); //Jona
+
+            //lade till för att asp.net inte ska skriva över "uid" claimet
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             builder.Services.AddAuthentication(options =>
             {

@@ -39,6 +39,14 @@ namespace BostadzPortalenWebAPI.Data
                 .Where(r => r.FirstName == firstName || r.LastName == lastName).FirstOrDefaultAsync();
         }
 
+        public Task<Realtor> GetRealtorByGuidAsync(string guidID)
+        {
+                return context.Realtors
+            .Include(r => r.Agency)
+            .Include(r => r.Properties)
+            .FirstOrDefaultAsync(r => r.Id == guidID);
+        }
+
         //public async Task<IEnumerable<PropertyForSale>> GetListedPropertiesAsync(int id) //osäker på string på id eller hur vi ska gå tillväga??
         //{
         //    return await context.Realtors
@@ -67,6 +75,6 @@ namespace BostadzPortalenWebAPI.Data
         //    return properties;
         //}
 
-        
+
     }
 }

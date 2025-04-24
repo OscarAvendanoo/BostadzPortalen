@@ -2,13 +2,15 @@
 using BostadzPortalenWebAPI.Data;
 using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection.Metadata.Ecma335;
+using System.Security.Claims;
 
 namespace BostadzPortalenWebAPI.Controllers
 {
-    //Author: Kevin
+    //Author: Kevin co.author Oscar(en endpoint)
 
     [Route("api/[controller]")]
     [ApiController]
@@ -107,6 +109,28 @@ namespace BostadzPortalenWebAPI.Controllers
 
             await realtorRepository.DeleteAsync(realtor);
             return NoContent();
+        }
+        // author: Oscar
+        [Authorize]
+        [HttpGet("me")]
+        public async Task<ActionResult<Realtor>> GetCurrentRealtor()
+        {
+
+            var userId = User.FindFirst("uid")?.Value;
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized("Invalid or missing user ID in token.");
+            }
+
+            var realtor = await realtorRepository.GetRealtorByGuidAsync(userId);
+
+            if (realtor == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(realtor);
         }
 
         //[HttpGet("{id}")]
