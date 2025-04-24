@@ -5,6 +5,7 @@ using BostadzPortalenClient.Providers;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using BostadzPortalenClient.Services;
 
 namespace BostadzPortalenClient
 {
@@ -16,7 +17,10 @@ namespace BostadzPortalenClient
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7291/") });
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7291/api/") });
+
+            builder.Services.AddScoped<ApiService>();
+
 
             builder.Services.AddBlazoredLocalStorage();
 
@@ -26,6 +30,8 @@ namespace BostadzPortalenClient
             builder.Services.AddAuthorizationCore();
             builder.Services.AddScoped<IClient, Client>();
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+
+            
 
             await builder.Build().RunAsync();
         }

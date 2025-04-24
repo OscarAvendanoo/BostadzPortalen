@@ -44,6 +44,18 @@ namespace BostadzPortalenWebAPI.Controllers
             return Ok(properties); 
         }
 
+        //Author: Kevin
+        [HttpGet("GetAllPropertiesIncludeAllAsync")]
+        public async Task<ActionResult<IEnumerable<PropertyForSale>>> GetAllPropertiesIncludeAllAsync()
+        {
+            var properties = await _propertyForSaleRepository.GetAllWithIncludesAsync();
+            if (properties == null || !properties.Any())
+            {
+                return NotFound();
+            }
+            return Ok(properties);
+        }
+
         // Author: JOna
         // POST api/<PropertyForSaleController>
         [HttpPost]
