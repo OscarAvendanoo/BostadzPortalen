@@ -1,0 +1,102 @@
+﻿@page "/properties/index"
+@inject IPropertyForSaleService propertyService
+@inject IJSRuntime JS
+
+
+
+<h3>Index</h3>
+@if (allProperties == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th> Kommun </th>
+                <th> Adress </th>
+                <th> Pris </th>
+                <th> Hyra </th>
+                <th> Typ av bostad </th>
+                <th> Bostads area </th>
+                <th> Utomhus area </th>
+                <th> Antal rum </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in propertyList)
+            {
+                <tr>
+                    <td> @item.Municipality </td>
+                    <td> @item.Address </td>
+                    <td> @item.AskingPrice </td>
+                    <td> @item.MonthlyFee </td>
+                    <td> @item.TypeOfProperty </td>
+                    <td> @item.LivingArea </td>
+                    <td> @item.PlotArea </td>
+                    <td> @item.NumberOfRooms </td>
+                    <td> <a asp-action="Details" asp-route-id="@item.PropertyForSaleId">Detaljer</a> <text> | </text> </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+
+@code {
+    private ICollection<PropertyForSale> propertyList = new List<PropertyForSale>();
+
+    public async Task GetAllPropForSaleForTable()
+    {
+        propertyList = await propertyService.GetAllPropertiesForSaleAsync();
+    }
+
+
+
+
+
+
+    private AllProperties[]? allProperties;
+
+    protected override async Task OnInitializedAsync() //this won't run no matter what i do
+    {
+        var propertyList = await propertyService.GetAllPropertiesForSaleAsync(); 
+        foreach (var item in propertyList){
+            var eachProperty = new AllProperties()
+        {
+                    Municipality = item.Municipality,
+                    Address = item.Address,
+                    AskingPrice = item.AskingPrice,
+                    MonthlyFee = item.MonthlyFee,
+                    TypeOfProperty = item.TypeOfProperty,
+                    LivingArea = item.LivingArea,
+                    PlotArea = item.PlotArea,
+                    NumberOfRooms = item.NumberOfRooms
+                };
+            allProperties.Append(eachProperty);
+        }
+
+        // var startDate = DateOnly.FromDateTime(DateTime.Now);
+        // var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
+        // forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        //     {
+        //         Date = startDate.AddDays(index),
+        //         TemperatureC = Random.Shared.Next(-20, 55),
+        //         Summary = summaries[Random.Shared.Next(summaries.Length)]
+        //     }).ToArray();
+    }
+    
+    private class AllProperties
+    {
+        public Municipality Municipality{ get; set; }
+        public string Address { get; set; }
+        public double AskingPrice { get; set; }
+        public double? MonthlyFee { get; set; }
+        public TypeOfPropertyEnum TypeOfProperty { get; set; }
+        public double LivingArea { get; set; }
+        public double? PlotArea { get; set; }
+        public int NumberOfRooms { get; set; }
+    }
+}
