@@ -25,7 +25,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in propertyList)
+            @foreach (var item in allProperties)
             {
                 <tr>
                     <td> @item.Municipality </td>
@@ -36,7 +36,6 @@ else
                     <td> @item.LivingArea </td>
                     <td> @item.PlotArea </td>
                     <td> @item.NumberOfRooms </td>
-                    <td> <a asp-action="Details" asp-route-id="@item.PropertyForSaleId">Detaljer</a> <text> | </text> </td>
                 </tr>
             }
         </tbody>
