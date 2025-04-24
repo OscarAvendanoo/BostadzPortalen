@@ -7,7 +7,7 @@
         {
             get
             {
-                return HttpClient;
+                return _httpClient;
             }
         }
     }

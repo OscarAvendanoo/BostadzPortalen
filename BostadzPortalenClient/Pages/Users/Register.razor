@@ -1,5 +1,6 @@
 ﻿@page "/users/register"
 @inject IClient httpClient
+@inject IRealtorService RealtorService
 @inject NavigationManager navManager
 
 <h3>Register new account</h3>
@@ -35,11 +36,9 @@
             <InputText class="form-control" type="password" @bind-Value="RegistrationModel.Password" />
             <ValidationMessage For="@(() => RegistrationModel.Password)" />
         </div>
-        <div class="form-group">
-            <label for="agencyId">Agency Id</label>
-            <InputNumber class="form-control" @bind-Value="RegistrationModel.AgencyId" />
-            <ValidationMessage For="@(() => RegistrationModel.AgencyId)" />
-        </div>
+
+        <input type="hidden" @bind="RegistrationModel.AgencyId" />
+
         <button type="submit" class="btn main-btn btn-block mt-3">Register</button>
 
     </EditForm>
@@ -49,6 +48,32 @@
     RegisterRealtorDTO RegistrationModel = new RegisterRealtorDTO();
     string message = string.Empty;
 
+    private Realtor currentUser;
+
+    // Author: Oscar
+    protected override async Task OnInitializedAsync()
+    {
+
+        var response = await RealtorService.GetCurrentRealtor();
+
+
+        if (response.Success)
+        {
+            currentUser = response.Data;  
+            if (currentUser.AgencyId != null || currentUser.AgencyId != 0)
+            {
+                RegistrationModel.AgencyId = currentUser.AgencyId ?? 0;
+            }
+            
+        }
+        else
+        {
+            message = "Failed to load realtor information.";
+           
+        }
+    }
+    
+    // Author: ALL
     private async Task HandleRegistration()
     {
         try
