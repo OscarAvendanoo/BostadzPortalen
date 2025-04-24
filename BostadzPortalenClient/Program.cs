@@ -30,9 +30,13 @@ namespace BostadzPortalenClient
             builder.Services.AddAuthorizationCore();
             builder.Services.AddScoped<IClient, Client>();
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+
+            builder.Services.AddScoped<IRealtorService, RealtorService>();
+
             builder.Services.AddScoped<IPropertyForSaleService, PropertyForSaleService>();
 
             
+
 
             await builder.Build().RunAsync();
         }
