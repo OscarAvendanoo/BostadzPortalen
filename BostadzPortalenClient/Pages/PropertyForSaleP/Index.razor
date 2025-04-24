@@ -3,6 +3,7 @@
 @inject IJSRuntime JS
 
 
+
 <h3>Index</h3>
 @if (allProperties == null)
 {
@@ -64,7 +65,7 @@ else
         var propertyList = await propertyService.GetAllPropertiesForSaleAsync(); 
         foreach (var item in propertyList){
             var eachProperty = new AllProperties()
-                {
+        {
                     Municipality = item.Municipality,
                     Address = item.Address,
                     AskingPrice = item.AskingPrice,
@@ -86,7 +87,7 @@ else
         //         Summary = summaries[Random.Shared.Next(summaries.Length)]
         //     }).ToArray();
     }
-
+    
     private class AllProperties
     {
         public Municipality Municipality{ get; set; }
