@@ -1,4 +1,6 @@
-﻿using BostadzPortalenWebAPI.Data;
+﻿using AutoMapper;
+using BostadzPortalenWebAPI.Data;
+using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,10 +14,12 @@ namespace BostadzPortalenWebAPI.Controllers
     public class PropertyForSaleController : ControllerBase
     {
         private readonly IPropertyForSaleRepository _propertyForSaleRepository;
-        public PropertyForSaleController(IPropertyForSaleRepository propertyForSaleRepository)
+        private readonly IMapper mapper;
+        public PropertyForSaleController(IPropertyForSaleRepository propertyForSaleRepository, IMapper mapper)
         {
             _propertyForSaleRepository = propertyForSaleRepository;
-            
+            this.mapper = mapper;
+
         }
 
         // Author: Oscar
@@ -58,16 +62,26 @@ namespace BostadzPortalenWebAPI.Controllers
 
         // Author: JOna
         // POST api/<PropertyForSaleController>
+        [Authorize]
         [HttpPost]
-        public async Task<ActionResult<PropertyForSale>> PostProperty([FromBody] PropertyForSale propertyForSale)
+        public async Task<ActionResult> CreatePropertyForSale(CreatePropertyForSaleDTO dto)
         {
-            if (propertyForSale == null)
-            {
-                return BadRequest("Property cannot be null");
-            }
-            await _propertyForSaleRepository.AddAsync(propertyForSale);
-            return CreatedAtAction(nameof(GetProperty), new { id = propertyForSale.PropertyForSaleId }, propertyForSale);
+            if (dto == null)
+                return BadRequest("Invalid input.");
+
+            // Map DTO to PropertyForSale
+            var property = mapper.Map<PropertyForSale>(dto);
+
+            // Auto-populate fields
+            property.RealtorId = User.FindFirst("sub")?.Value; // Assuming JWT contains the user ID
+            property.Images = dto.ImageUrls.Select(url => new PropertyImage { ImageUrl = url }).ToList();
+
+            // Save to database
+            await _propertyForSaleRepository.AddAsync(property);
+
+            return CreatedAtAction(nameof(GetProperty), new { id = property.PropertyForSaleId }, property);
         }
+
         // Author: Jona
         // PUT api/<PropertyForSaleController>/5
         [HttpPut("{id}")]
