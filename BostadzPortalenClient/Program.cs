@@ -5,6 +5,7 @@ using BostadzPortalenClient.Providers;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using BostadzPortalenClient.Services.PropertyForSaleS;
 
 namespace BostadzPortalenClient
 {
@@ -26,6 +27,7 @@ namespace BostadzPortalenClient
             builder.Services.AddAuthorizationCore();
             builder.Services.AddScoped<IClient, Client>();
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+            builder.Services.AddScoped<IPropertyForSaleService, PropertyForSaleService>();
 
             await builder.Build().RunAsync();
         }
