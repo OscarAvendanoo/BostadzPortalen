@@ -1,0 +1,77 @@
+﻿@using BostadzPortalenClient.Services
+@using Newtonsoft.Json
+@inject ApiService apiService
+@inject HttpClient client
+
+<div class="row">
+    @foreach (var realEstate in PropertiesForSale)
+    {
+        <div class="col-sm-3 mb-3 mb-sm-3 mt-4">
+            <div class="card" style="width: 18rem;">
+                <a asp-action="CarPicture" asp-route-id="@realEstate.PropertyForSaleId"><img src="/lyxvilla.jpg" class="card-img-top" alt="lyxvilla"></a>
+
+                <div class="card-body">
+                    <h5 class="card-title">@realEstate.Address</h5>
+                    <h5 class="card-title">@realEstate.Municipality.Name</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="model-row">
+                            <span style="font-weight:bold;">Byggår</span>
+                            <span>@realEstate.YearBuilt</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="model-row">
+                            <span style="font-weight:bold;">Typ av fastighet</span>
+                            <span>@realEstate.TypeOfProperty</span>
+
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="model-row mb-0">
+                            <span style="font-weight:bold;">Boendeyta</span>
+                            <span>@realEstate.LivingArea kvm</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private List<PropertyForSale> PropertiesForSale = new();
+
+
+
+    private async Task LoadRealEstates()
+    {
+
+
+        try
+        {
+            
+            var realEstates = await apiService.Get<List<PropertyForSale>>("PropertyForSale/GetAllPropertiesIncludeAllAsync");
+            
+            if (realEstates != null)
+            {
+                PropertiesForSale = realEstates;
+            }
+
+            else
+            {
+                Console.WriteLine($"Status code:");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Fel vid hämtning av agencies: {ex.Message}");
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadRealEstates();
+    }
+}
