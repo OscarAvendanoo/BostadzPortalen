@@ -1,5 +1,7 @@
-﻿using BostadzPortalenWebAPI.Models;
+﻿using BostadzPortalenWebAPI.DTO;
+using BostadzPortalenWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 namespace BostadzPortalenWebAPI.Data
 {
@@ -13,6 +15,34 @@ namespace BostadzPortalenWebAPI.Data
         {
             _context = context;
         }
+        public async Task<List<PropertyForSaleDTO>> GetAllPropertyDTO()
+        {
+            var allModels = await GetAllWithIncludesAsync();
+            var allDTOs = new List<PropertyForSaleDTO>();
+            foreach (var property in allModels)
+            {
+                allDTOs.Add(new PropertyForSaleDTO()
+                {
+                    PropertyForSaleId = property.PropertyForSaleId,
+                    Address = property.Address,
+                    MunicipalityName = property.Municipality.Name,
+                    AskingPrice = property.AskingPrice,
+                    LivingArea = property.LivingArea,
+                    SupplementaryArea = property.SupplementaryArea,
+                    PlotArea = property.PlotArea,
+                    Description = property.Description,
+                    NumberOfRooms = property.NumberOfRooms,
+                    MonthlyFee = property.MonthlyFee,
+                    YearlyOperatingCost = property.YearlyOperatingCost,
+                    YearBuilt = property.YearBuilt,
+                    ImageUrls = property.ImageUrls,
+                    RealtorId = property.RealtorId,
+                    RealtorName = $"{property.Realtor.FirstName} + {property.Realtor.LastName}",
+                    TypeOfProperty = property.TypeOfProperty,
+                });
+            }
+            return allDTOs;
+        }
         // Hämtar alla försäljningsobjekt med full include till en lista
         public async Task<List<PropertyForSale>> GetAllWithIncludesAsync()
         {
@@ -20,7 +50,7 @@ namespace BostadzPortalenWebAPI.Data
                 .Include(p => p.Realtor)
                     .ThenInclude(r => r.Agency)
                 .Include(p => p.Municipality)
-                .Include(p => p.Images)
+                //.Include(p => p.Images)
                 .ToListAsync();
         }
         // Hämtar ett försäljningsobjekt med hjälp av ID med full include
@@ -31,7 +61,7 @@ namespace BostadzPortalenWebAPI.Data
                 .Include(p => p.Realtor)
                     .ThenInclude(r => r.Agency)
                 .Include(p => p.Municipality)
-                .Include(p => p.Images)
+                //.Include(p => p.Images)
                 .FirstOrDefaultAsync(p => p.PropertyForSaleId == id);
 
 
@@ -42,7 +72,7 @@ namespace BostadzPortalenWebAPI.Data
             return await _context.PropertiesForSale
                 .Where(p => p.RealtorId == realtorId)
                 .Include(p => p.Municipality)
-                .Include(p => p.Images)
+                //.Include(p => p.Images)
                 .ToListAsync();
         }
 
@@ -52,7 +82,7 @@ namespace BostadzPortalenWebAPI.Data
         {
             return await _context.PropertiesForSale
                 .Where(p => p.MunicipalityId == municipalityId)
-                .Include(p => p.Images)
+                //.Include(p => p.Images)
                 .Include(p => p.Realtor)
                 .ToListAsync();
         }
@@ -65,7 +95,7 @@ namespace BostadzPortalenWebAPI.Data
                 .Include(p => p.Realtor)
                     .ThenInclude(r => r.Agency)
                 .Include(p => p.Municipality)
-                .Include(p => p.Images)
+                //.Include(p => p.Images)
                 .ToListAsync();
         }
     }

@@ -6,10 +6,10 @@ namespace BostadzPortalenClient.DTO
     {
         public int PropertyForSaleId { get; set; }
         public string Address { get; set; }
-        public int MunicipalityId { get; set; }
+        public string MunicipalityName { get; set; }
         public decimal AskingPrice { get; set; }
         public double LivingArea { get; set; } // kvm
-        public double SupplementaryArea { get; set; } // kvm
+        public double? SupplementaryArea { get; set; } // kvm
         public double? PlotArea { get; set; } // kvm
         public string Description { get; set; }
         public int NumberOfRooms { get; set; }
@@ -18,6 +18,7 @@ namespace BostadzPortalenClient.DTO
         public int YearBuilt { get; set; }
         public List<string> ImageUrls { get; set; } = new List<string>();
         public string RealtorId { get; set; }
+        public string RealtorName { get; set; }
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
     }
 }

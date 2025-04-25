@@ -22,7 +22,7 @@ else
             @foreach (var item in propertyList)
             {
                 <tr>
-                    <td> @item.MunicipalityId </td>
+                    <td> @item.MunicipalityName </td>
                     <td> @item.Address </td>
                     <td> @item.AskingPrice </td>
                     <td> @item.MonthlyFee </td>
@@ -39,5 +39,5 @@ else
 
 
 @code {
-	[Parameter] public List<PropertyForSale> propertyList { get; set; }
+	[Parameter] public List<PropertyForSaleDTO> propertyList { get; set; }
 }

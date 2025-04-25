@@ -11,12 +11,12 @@
 
 @code {
     //private List<AllProperties>? allProperties;
-    private List<PropertyForSale> allProperties { get; set; }
+    private List<PropertyForSaleDTO> allProperties { get; set; }
 
     protected override async Task OnInitializedAsync() //this won't run no matter what i do
     {
         Console.WriteLine("Test");
-        allProperties = await apiService.Get<List<PropertyForSale>>("PropertyForSale/GetAllPropertiesIncludeAllAsync");
+        allProperties = await apiService.Get<List<PropertyForSaleDTO>>("PropertyForSale/GetAllPropertyDTO");
         Console.WriteLine("Test");
         // foreach (var item in propertyList){
         //     var eachProperty = new AllProperties()
