@@ -1,8 +1,5 @@
 ﻿@page "/properties/index"
 @inject IPropertyForSaleService propertyService
-@inject IJSRuntime JS
-
-
 
 <h3>Index</h3>
 @if (allProperties == null)
@@ -45,26 +42,16 @@ else
 
 
 @code {
-    private ICollection<PropertyForSale> propertyList = new List<PropertyForSale>();
-
-    public async Task GetAllPropForSaleForTable()
-    {
-        propertyList = await propertyService.GetAllPropertiesForSaleAsync();
-    }
-
-
-
-
-
-
-    private AllProperties[]? allProperties;
+    private List<AllProperties>? allProperties;
 
     protected override async Task OnInitializedAsync() //this won't run no matter what i do
     {
+        Console.WriteLine("Test");
         var propertyList = await propertyService.GetAllPropertiesForSaleAsync(); 
+        Console.WriteLine("Test");
         foreach (var item in propertyList){
             var eachProperty = new AllProperties()
-        {
+                {
                     Municipality = item.Municipality,
                     Address = item.Address,
                     AskingPrice = item.AskingPrice,
@@ -74,17 +61,9 @@ else
                     PlotArea = item.PlotArea,
                     NumberOfRooms = item.NumberOfRooms
                 };
-            allProperties.Append(eachProperty);
+            allProperties.Add(eachProperty);
         }
-
-        // var startDate = DateOnly.FromDateTime(DateTime.Now);
-        // var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
-        // forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        //     {
-        //         Date = startDate.AddDays(index),
-        //         TemperatureC = Random.Shared.Next(-20, 55),
-        //         Summary = summaries[Random.Shared.Next(summaries.Length)]
-        //     }).ToArray();
+        Console.WriteLine("Test");
     }
     
     private class AllProperties
@@ -98,4 +77,24 @@ else
         public double? PlotArea { get; set; }
         public int NumberOfRooms { get; set; }
     }
+
+
+
+
+    // var startDate = DateOnly.FromDateTime(DateTime.Now);
+    // var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
+    // forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+    //     {
+    //         Date = startDate.AddDays(index),
+    //         TemperatureC = Random.Shared.Next(-20, 55),
+    //         Summary = summaries[Random.Shared.Next(summaries.Length)]
+        //     }).ToArray();
+
+
+    //private ICollection<PropertyForSale> propertyList = new List<PropertyForSale>();
+
+    // public async Task GetAllPropForSaleForTable()
+    // {
+    //     propertyList = await propertyService.GetAllPropertiesForSaleAsync();
+    // }
 }
