@@ -1,9 +1,5 @@
 ﻿@page "/properties/index"
-@using BostadzPortalenClient.DTO
-@using BostadzPortalenClient.Services
-@using Newtonsoft.Json
-@* @inject IPropertyForSaleService propertyService *@
-@inject ApiService apiService
+@inject IPropertyForSaleService propertyService
 
 <h3>Index</h3>
 @if (allProperties == null)
@@ -45,42 +41,41 @@ else
 
 
 @code {
-    //private List<AllProperties>? allProperties;
-    private List<PropertyForSaleDTO> allProperties { get; set; }
+    private List<AllProperties>? allProperties;
 
     protected override async Task OnInitializedAsync() //this won't run no matter what i do
     {
         Console.WriteLine("Test");
-        allProperties = await apiService.Get<List<PropertyForSaleDTO>>("PropertyForSale/GetAllPropertyDTO");
+        var propertyList = await propertyService.GetAllPropertiesForSaleAsync(); 
         Console.WriteLine("Test");
-        // foreach (var item in propertyList){
-        //     var eachProperty = new AllProperties()
-        //         {
-        //             Municipality = item.Municipality,
-        //             Address = item.Address,
-        //             AskingPrice = item.AskingPrice,
-        //             MonthlyFee = item.MonthlyFee,
-        //             TypeOfProperty = item.TypeOfProperty,
-        //             LivingArea = item.LivingArea,
-        //             PlotArea = item.PlotArea,
-        //             NumberOfRooms = item.NumberOfRooms
-        //         };
-        //     allProperties.Add(eachProperty);
-        // }
+        foreach (var item in propertyList){
+            var eachProperty = new AllProperties()
+                {
+                    Municipality = item.Municipality,
+                    Address = item.Address,
+                    AskingPrice = item.AskingPrice,
+                    MonthlyFee = item.MonthlyFee,
+                    TypeOfProperty = item.TypeOfProperty,
+                    LivingArea = item.LivingArea,
+                    PlotArea = item.PlotArea,
+                    NumberOfRooms = item.NumberOfRooms
+                };
+            allProperties.Add(eachProperty);
+        }
         Console.WriteLine("Test");
     }
     
-    // private class AllProperties
-    // {
-    //     public Municipality Municipality{ get; set; }
-    //     public string Address { get; set; }
-    //     public double AskingPrice { get; set; }
-    //     public double? MonthlyFee { get; set; }
-    //     public TypeOfPropertyEnum TypeOfProperty { get; set; }
-    //     public double LivingArea { get; set; }
-    //     public double? PlotArea { get; set; }
-    //     public int NumberOfRooms { get; set; }
-    // }
+    private class AllProperties
+    {
+        public Municipality Municipality{ get; set; }
+        public string Address { get; set; }
+        public double AskingPrice { get; set; }
+        public double? MonthlyFee { get; set; }
+        public TypeOfPropertyEnum TypeOfProperty { get; set; }
+        public double LivingArea { get; set; }
+        public double? PlotArea { get; set; }
+        public int NumberOfRooms { get; set; }
+    }
 
 
 
