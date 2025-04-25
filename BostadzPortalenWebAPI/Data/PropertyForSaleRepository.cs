@@ -17,7 +17,8 @@ namespace BostadzPortalenWebAPI.Data
         }
         public async Task<List<PropertyForSaleDTO>> GetAllPropertyDTO()
         {
-            var allModels = await GetAllWithIncludesAsync();
+            var allModels = await _context.PropertiesForSale.
+                ToListAsync();
             var allDTOs = new List<PropertyForSaleDTO>();
             foreach (var property in allModels)
             {
