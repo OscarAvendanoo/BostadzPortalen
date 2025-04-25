@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BostadzPortalenWebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class fuckagain : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -269,15 +269,19 @@ namespace BostadzPortalenWebAPI.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "AgencyId", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileImageUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, null, "eab0c396-95e7-4b29-b0b2-2e0768f30458", "Realtor", "hashed@demoapi.com", true, "Hashed", "User", false, null, "HASHED@DEMOAPI.COM", "HASHED@DEMOAPI.COM", "AQAAAAIAAYagAAAAEAb8zBHen027EYGxZcS7rnCuaGv2TRQTlrJFtl6rCZZEBPdK9j2siKv9nwTFt/3YLA==", "0722661922", false, null, "abb181fa-06ab-44e6-b29f-ba43c1e48c67", false, "hashed@demoapi.com" },
-                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, null, "df377e32-41f9-4acc-a600-5786b5d27290", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEFijB/Z0QU8mRE5kfpjArHQDGsgjLMx0GXCljNd3Sg+F/tznlHrQ3+Li6EWmRApXGw==", "0722661922", false, null, "0a58a259-c24b-4826-8908-4dc0b33e67d1", false, "user@demoapi.com" },
-                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, null, "d63cbbb3-2b26-4c75-81f6-e83c07d6142e", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEPRrA+z2V4XVE47d6ErGOt4tAuqkN1MIZgNzUM1mFnM8Jw+Mnyi4ddRRngz2mBpIWA==", "0722661920", false, null, "0c90945d-4607-47da-84c7-52d91ea0b84c", false, "admin@demoapi.com" }
+                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, null, "57a0eebb-d7a1-47bf-abbd-8c7216a56606", "Realtor", "hashed@demoapi.com", true, "Hashed", "User", false, null, "HASHED@DEMOAPI.COM", "HASHED@DEMOAPI.COM", "AQAAAAIAAYagAAAAEMdXVdbkyXMkVqfHqkqF6AfgeVxYOOdJpvgnEf3Yta44BdSd3tMcDec79i/C3TYA2A==", "0722661922", false, null, "5ea24270-7865-49c1-a497-07a9b575a0e8", false, "hashed@demoapi.com" },
+                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, null, "e034f68f-dab2-476e-a140-32c84c032bbc", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEFijB/Z0QU8mRE5kfpjArHQDGsgjLMx0GXCljNd3Sg+F/tznlHrQ3+Li6EWmRApXGw==", "0722661922", false, null, "8bae1874-fc91-4605-ad99-4418f20a2c3a", false, "user@demoapi.com" },
+                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, null, "14a23368-3049-4a8f-8928-5ad2db1268ac", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEPRrA+z2V4XVE47d6ErGOt4tAuqkN1MIZgNzUM1mFnM8Jw+Mnyi4ddRRngz2mBpIWA==", "0722661920", false, null, "ec3bc18e-b232-4274-863b-e3f1d654fa8e", false, "admin@demoapi.com" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Municipalities",
                 columns: new[] { "Id", "Name" },
-                values: new object[] { 1, "Umeå" });
+                values: new object[,]
+                {
+                    { 1, "Umeå" },
+                    { 2, "Stockholm" }
+                });
 
             migrationBuilder.InsertData(
                 table: "RealEstateAgencies",
@@ -296,6 +300,15 @@ namespace BostadzPortalenWebAPI.Migrations
                     { "e6ae5d04-8f49-4b62-bc52-205353eb08dc", "87efc5ac-77d8-4729-b3d6-3309dc88e88d" },
                     { "e6ae5d04-8f49-4b62-bc52-205353eb08dc", "92b88e50-795f-4df6-90e0-8a7d9a179cb0" },
                     { "e11cc563-5369-471e-9792-6255e0d08eaf", "92d637e6-6a8d-421e-a118-7a29d0edc1e7" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PropertiesForSale",
+                columns: new[] { "PropertyForSaleId", "Address", "AskingPrice", "Description", "ImageUrls", "LivingArea", "MonthlyFee", "MunicipalityId", "NumberOfRooms", "PlotArea", "RealtorId", "SupplementaryArea", "TypeOfProperty", "YearBuilt", "YearlyOperatingCost" },
+                values: new object[,]
+                {
+                    { 1, "Wanker Street 69", 500000m, "It's a place to live", "[]", 24.0, 5000m, 1, 1, 8.0, "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 8.0, 0, 1999, 1000m },
+                    { 2, "Kungsgatan 4", 1000000m, "Fin utsikt", "[]", 24.0, 10000m, 2, 1, 8.0, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8.0, 0, 1999, 1000m }
                 });
 
             migrationBuilder.CreateIndex(

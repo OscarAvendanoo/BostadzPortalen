@@ -144,7 +144,13 @@ namespace BostadzPortalenWebAPI.Constants
                     Id = 1,
                     Name = "Umeå",
                     PropertiesForSale = null
-                }
+                },
+                 new Municipality
+                 {
+                     Id = 2,
+                     Name = "Stockholm",
+                     PropertiesForSale = null
+                 }
                 );
             return builder;
         }
@@ -156,15 +162,35 @@ namespace BostadzPortalenWebAPI.Constants
                     PropertyForSaleId = 1,
                     MunicipalityId = 1,
                     RealtorId = SeedGUID.SystemUser,
-                    AskingPrice = 10000,
-                    MonthlyFee = 1000,
+                    AskingPrice = 500000,
+                    MonthlyFee = 5000,
                     YearlyOperatingCost = 1000,
                     LivingArea = 24,
                     PlotArea = 8,
                     SupplementaryArea = 8,
                     YearBuilt = 1999,
-
-                }
+                    Address = "Wanker Street 69",
+                    Description = "It's a place to live",
+                    NumberOfRooms = 1,
+                    TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet
+                },
+                 new PropertyForSale
+                 {
+                     PropertyForSaleId = 2,
+                     MunicipalityId = 2,
+                     RealtorId = SeedGUID.HashedUser,
+                     AskingPrice = 1000000,
+                     MonthlyFee = 10000,
+                     YearlyOperatingCost = 1000,
+                     LivingArea = 24,
+                     PlotArea = 8,
+                     SupplementaryArea = 8,
+                     YearBuilt = 1999,
+                     Address = "Kungsgatan 4",
+                     Description = "Fin utsikt",
+                     NumberOfRooms = 1,
+                     TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet
+                 }
                 );
             return builder;
         }
