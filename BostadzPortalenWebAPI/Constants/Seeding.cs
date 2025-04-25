@@ -107,7 +107,7 @@ namespace BostadzPortalenWebAPI.Constants
                     LastName = "User",
                     PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
-                    AgencyId = 1,
+                    //AgencyId = 1,
                     PhoneNumber = "0722661922"
                 }
             );
