@@ -1,70 +1,43 @@
-﻿<table class="table">
-	<thead>
-		<tr>
-			<th>
-				Kommun
-			</th>
-			<th>
-				Adress
-			</th>
-			<th>
-				Pris
-			</th>
-			<th>
-				Hyra
-			</th>
-			<th>
-				Typ av bostad
-			</th>
-			<th>
-				Bostads area
-			</th>
-			<th>
-				Utomhus area
-			</th>
-			<th>
-				Antal rum
-			</th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var item in propertyList)
-		{
-			<tr>
-				<td>
-					@item.Municipality
-				</td>
-				<td>
-					@item.Address
-				</td>
-				<td>
-					@item.AskingPrice
-				</td>
-				<td>
-					@item.MonthlyFee
-				</td>
-				<td>
-					@item.TypeOfProperty
-				</td>
-				<td>
-					@item.LivingArea
-				</td>
-				<td>
-					@item.PlotArea
-				</td>
-				<td>
-					@item.NumberOfRooms
-				</td>
-				<td>
-					<a asp-action="Details" asp-route-id="@item.PropertyForSaleId">Detaljer</a> <text> | </text>
-				</td>
-			</tr>
-		}
-	</tbody>
-</table>
+﻿@using BostadzPortalenClient.DTO
+@if (propertyList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th> Kommun </th>
+                <th> Adress </th>
+                <th> Pris </th>
+                <th> Hyra </th>
+                <th> Typ av bostad </th>
+                <th> Bostads area </th>
+                <th> Utomhus area </th>
+                <th> Antal rum </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in propertyList)
+            {
+                <tr>
+                    <td> @item.MunicipalityName </td>
+                    <td> @item.Address </td>
+                    <td> @item.AskingPrice </td>
+                    <td> @item.MonthlyFee </td>
+                    <td> @item.TypeOfProperty </td>
+                    <td> @item.LivingArea </td>
+                    <td> @item.PlotArea </td>
+                    <td> @item.NumberOfRooms </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 
 
 
 @code {
-	[Parameter] public ICollection<PropertyForSale> propertyList { get; set; }
+	[Parameter] public List<PropertyForSaleDTO> propertyList { get; set; }
 }

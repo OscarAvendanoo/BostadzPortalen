@@ -1,11 +1,7 @@
-﻿using BostadzPortalenWebAPI.Models;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
+﻿using BostadzPortalenClient.Services.Base;
 
-namespace BostadzPortalenWebAPI.DTO
+namespace BostadzPortalenClient.DTO
 {
-    //Author: Kevin
     public class PropertyForSaleDTO
     {
         public int PropertyForSaleId { get; set; }
@@ -24,4 +20,3 @@ namespace BostadzPortalenWebAPI.DTO
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
     }
 }
-
