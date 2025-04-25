@@ -21,8 +21,6 @@ namespace BostadzPortalenWebAPI.DTO
         public decimal YearlyOperatingCost { get; set; }
         public int YearBuilt { get; set; }
         public List<string> ImageUrls { get; set; } = new List<string>();
-        public string RealtorId { get; set; }
-        public string RealtorName { get; set; }
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
     }
 }

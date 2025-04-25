@@ -18,7 +18,8 @@ namespace BostadzPortalenWebAPI.Data
         public async Task<List<PropertyForSaleDTO>> GetAllPropertyDTO()
         {
             var allModels = await _context.PropertiesForSale.
-                ToListAsync();
+                Include(p=>p.Municipality)
+                .ToListAsync();
             var allDTOs = new List<PropertyForSaleDTO>();
             foreach (var property in allModels)
             {
@@ -37,8 +38,6 @@ namespace BostadzPortalenWebAPI.Data
                     YearlyOperatingCost = property.YearlyOperatingCost,
                     YearBuilt = property.YearBuilt,
                     ImageUrls = property.ImageUrls,
-                    RealtorId = property.RealtorId,
-                    RealtorName = $"{property.Realtor.FirstName} + {property.Realtor.LastName}",
                     TypeOfProperty = property.TypeOfProperty,
                 });
             }
