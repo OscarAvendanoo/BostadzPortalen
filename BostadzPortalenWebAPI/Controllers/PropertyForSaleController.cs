@@ -1,4 +1,5 @@
 ﻿using BostadzPortalenWebAPI.Data;
+using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -49,6 +50,17 @@ namespace BostadzPortalenWebAPI.Controllers
         public async Task<ActionResult<IEnumerable<PropertyForSale>>> GetAllPropertiesIncludeAllAsync()
         {
             var properties = await _propertyForSaleRepository.GetAllWithIncludesAsync();
+            if (properties == null || !properties.Any())
+            {
+                return NotFound();
+            }
+            return Ok(properties);
+        }
+        //Author: Johan Nelin
+        [HttpGet("GetAllPropertyDTO")]
+        public async Task<ActionResult<List<PropertyForSaleDTO>>> GetAllPropertyDTO()
+        {
+            var properties = await _propertyForSaleRepository.GetAllPropertyDTO();
             if (properties == null || !properties.Any())
             {
                 return NotFound();
