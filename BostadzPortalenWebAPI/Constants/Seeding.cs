@@ -98,7 +98,7 @@ namespace BostadzPortalenWebAPI.Constants
                 },
                 new Realtor
                 {
-                    Id = SeedGUID.SystemUser,
+                    Id = SeedGUID.HashedUser,
                     Email = "hashed@demoapi.com",
                     NormalizedEmail = "HASHED@DEMOAPI.COM",
                     UserName = "hashed@demoapi.com",
