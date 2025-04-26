@@ -1,12 +1,8 @@
 ﻿using BostadzPortalenWebAPI.Models;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
 namespace BostadzPortalenWebAPI.DTO
 {
-    //Author: Kevin
-    public class PropertyForSaleDTO
+    public class PropertyForSaleDetailsDTO
     {
         public int PropertyForSaleId { get; set; }
         public string Address { get; set; }
@@ -22,6 +18,7 @@ namespace BostadzPortalenWebAPI.DTO
         public int YearBuilt { get; set; }
         public List<string> ImageUrls { get; set; } = new List<string>();
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
+        public Realtor Realtor { get; set; }
+        public RealEstateAgency RealEstateAgency { get; set; }
     }
 }
-
