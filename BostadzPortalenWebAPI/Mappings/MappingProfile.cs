@@ -59,9 +59,14 @@ namespace BostadzPortalenWebAPI.Mappings
               .ForMember(dest => dest.YearlyOperatingCost, opt => opt.MapFrom(src => src.YearlyOperatingCost))
               .ForMember(dest => dest.YearBuilt, opt => opt.MapFrom(src => src.YearBuilt))
               .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ImageUrls))
-              .ForMember(dest => dest.RealtorId, opt => opt.MapFrom(src => src.RealtorId))
+              //.ForMember(dest => dest.RealtorId, opt => opt.MapFrom(src => src.RealtorId))
               .ForMember(dest => dest.TypeOfProperty, opt => opt.MapFrom(src => src.TypeOfProperty))
               .ReverseMap();
+
+             CreateMap<CreatePropertyForSaleDTO, PropertyForSale>()
+            .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ImageUrls.Select(url => new PropertyImage { ImageUrl = url }).ToList()))
+            .ForMember(dest => dest.RealtorId, opt => opt.Ignore()); // RealtorId is set server-side
+
         }
 
     }

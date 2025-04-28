@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using BostadzPortalenClient.Services;
 
+
+
 namespace BostadzPortalenClient
 {
     public class Program
@@ -18,7 +20,7 @@ namespace BostadzPortalenClient
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7291/api/") });
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7291/") }); //Tog bort /api/ då jag fick den dubbelt i clienten
 
             builder.Services.AddScoped<ApiService>();
 

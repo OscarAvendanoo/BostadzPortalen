@@ -19,6 +19,7 @@ namespace BostadzPortalenWebAPI.Data
         {
             var allModels = await _context.PropertiesForSale.
                 Include(p=>p.Municipality)
+                .Include(p => p.ImageUrls)
                 .ToListAsync();
             var allDTOs = new List<PropertyForSaleDTO>();
             foreach (var property in allModels)
@@ -37,7 +38,7 @@ namespace BostadzPortalenWebAPI.Data
                     MonthlyFee = property.MonthlyFee,
                     YearlyOperatingCost = property.YearlyOperatingCost,
                     YearBuilt = property.YearBuilt,
-                    ImageUrls = property.ImageUrls,
+                    ImageUrls = property.ImageUrls.Select(img => img.ImageUrl).ToList(),
                     TypeOfProperty = property.TypeOfProperty,
                 });
             }
