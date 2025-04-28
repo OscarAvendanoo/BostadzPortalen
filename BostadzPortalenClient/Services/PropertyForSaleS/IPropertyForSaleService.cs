@@ -1,4 +1,5 @@
 ﻿using BostadzPortalenClient.Services.Base;
+//Author: Johan Nelin
 
 namespace BostadzPortalenClient.Services.PropertyForSaleS
 {
