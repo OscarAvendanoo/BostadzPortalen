@@ -43,21 +43,15 @@
 	<div class="d-flex justify-content-center align-items-center col-6">
 		@foreach (var picture in @realEstate.ImageUrls)
 		{
-			<img src="/picture" />
+			<img src="/Pictures/@picture" />
 		}
-		@* <a href="/ListAllRealEstates"><img src="/lyxvilla.jpg" class="home-page-img" alt="lyxvilla" /></a> *@
 	</div>
 </div>
 
 
 <div>
-	
-	
-</div>
-<div><p></p></div>
-<div>
-	<p> Mäklare: @realEstate.Realtor.FirstName @realEstate.Realtor.LastName @realEstate.Realtor.ProfileImageUrl</p>
-	<p> Mäklarbyrå: @realEstate.RealEstateAgency.AgencyName @realEstate.RealEstateAgency.AgencyLogoUrl</p>
+	<p> Mäklare: @realEstate.Realtor.FirstName @realEstate.Realtor.LastName <img src="/Pictures/@realEstate.Realtor.ProfileImageUrl" /></p>
+	<p> Mäklarbyrå: @realEstate.RealEstateAgency.AgencyName <img src="/Pictures/@realEstate.RealEstateAgency.AgencyLogoUrl" /></p>
 </div>
 
 @code {
