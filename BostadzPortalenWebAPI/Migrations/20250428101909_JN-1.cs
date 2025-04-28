@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BostadzPortalenWebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class JN1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -205,12 +205,12 @@ namespace BostadzPortalenWebAPI.Migrations
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MunicipalityId = table.Column<int>(type: "int", nullable: false),
                     AskingPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    LivingArea = table.Column<double>(type: "float", nullable: false),
-                    SupplementaryArea = table.Column<double>(type: "float", nullable: true),
-                    PlotArea = table.Column<double>(type: "float", nullable: true),
+                    LivingArea = table.Column<int>(type: "int", nullable: false),
+                    SupplementaryArea = table.Column<int>(type: "int", nullable: false),
+                    PlotArea = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     NumberOfRooms = table.Column<int>(type: "int", nullable: false),
-                    MonthlyFee = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    MonthlyFee = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     YearlyOperatingCost = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     YearBuilt = table.Column<int>(type: "int", nullable: false),
                     ImageUrls = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -265,16 +265,6 @@ namespace BostadzPortalenWebAPI.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "AgencyId", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileImageUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[,]
-                {
-                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, null, "57a0eebb-d7a1-47bf-abbd-8c7216a56606", "Realtor", "hashed@demoapi.com", true, "Hashed", "User", false, null, "HASHED@DEMOAPI.COM", "HASHED@DEMOAPI.COM", "AQAAAAIAAYagAAAAEMdXVdbkyXMkVqfHqkqF6AfgeVxYOOdJpvgnEf3Yta44BdSd3tMcDec79i/C3TYA2A==", "0722661922", false, null, "5ea24270-7865-49c1-a497-07a9b575a0e8", false, "hashed@demoapi.com" },
-                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, null, "e034f68f-dab2-476e-a140-32c84c032bbc", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEFijB/Z0QU8mRE5kfpjArHQDGsgjLMx0GXCljNd3Sg+F/tznlHrQ3+Li6EWmRApXGw==", "0722661922", false, null, "8bae1874-fc91-4605-ad99-4418f20a2c3a", false, "user@demoapi.com" },
-                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, null, "14a23368-3049-4a8f-8928-5ad2db1268ac", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEPRrA+z2V4XVE47d6ErGOt4tAuqkN1MIZgNzUM1mFnM8Jw+Mnyi4ddRRngz2mBpIWA==", "0722661920", false, null, "ec3bc18e-b232-4274-863b-e3f1d654fa8e", false, "admin@demoapi.com" }
-                });
-
-            migrationBuilder.InsertData(
                 table: "Municipalities",
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
@@ -293,6 +283,16 @@ namespace BostadzPortalenWebAPI.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "AgencyId", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileImageUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, 2, "12e7a5a6-257a-48b5-b973-2225633fd1cc", "Realtor", "hashed@demoapi.com", true, "Hashed", "User", false, null, "HASHED@DEMOAPI.COM", "HASHED@DEMOAPI.COM", "AQAAAAIAAYagAAAAEPiQAn5qj/2m6oNgqhiL3jsHLzGeF6GQfg5hE0zsvynByZ06AKfqhqtq/fgAk19f4A==", "0722661922", false, null, "7cfd5a55-affd-4a46-9f0d-f7d1a7996fb4", false, "hashed@demoapi.com" },
+                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, 1, "1fe1ffce-7883-4b90-a488-2e9cba1d83c9", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEFijB/Z0QU8mRE5kfpjArHQDGsgjLMx0GXCljNd3Sg+F/tznlHrQ3+Li6EWmRApXGw==", "0722661922", false, null, "606ffbc8-c9cf-4405-b669-3ddb00b3b897", false, "user@demoapi.com" },
+                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, 1, "8c2421cf-e26c-420b-8fb3-f1afa210cd66", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEPRrA+z2V4XVE47d6ErGOt4tAuqkN1MIZgNzUM1mFnM8Jw+Mnyi4ddRRngz2mBpIWA==", "0722661920", false, null, "4d964fb9-2ad8-45e7-b385-3a8ac38e17be", false, "admin@demoapi.com" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
@@ -307,8 +307,8 @@ namespace BostadzPortalenWebAPI.Migrations
                 columns: new[] { "PropertyForSaleId", "Address", "AskingPrice", "Description", "ImageUrls", "LivingArea", "MonthlyFee", "MunicipalityId", "NumberOfRooms", "PlotArea", "RealtorId", "SupplementaryArea", "TypeOfProperty", "YearBuilt", "YearlyOperatingCost" },
                 values: new object[,]
                 {
-                    { 1, "Wanker Street 69", 500000m, "It's a place to live", "[]", 24.0, 5000m, 1, 1, 8.0, "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 8.0, 0, 1999, 1000m },
-                    { 2, "Kungsgatan 4", 1000000m, "Fin utsikt", "[]", 24.0, 10000m, 2, 1, 8.0, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8.0, 0, 1999, 1000m }
+                    { 1, "Wanker Street 69", 500000m, "It's a place to live", "[\"image 1\",\"image 2\"]", 24, 5000m, 1, 1, 8, "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 8, 0, 1999, 1000m },
+                    { 2, "Kungsgatan 4", 1000000m, "Fin utsikt", "[\"image 1\",\"image 2\"]", 24, 10000m, 2, 1, 8, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8, 0, 1999, 1000m }
                 });
 
             migrationBuilder.CreateIndex(

@@ -172,7 +172,8 @@ namespace BostadzPortalenWebAPI.Constants
                     Address = "Wanker Street 69",
                     Description = "It's a place to live",
                     NumberOfRooms = 1,
-                    TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet
+                    TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet,
+                    ImageUrls = new List<string>() { "image 1", "image 2" }
                 },
                  new PropertyForSale
                  {
@@ -189,7 +190,8 @@ namespace BostadzPortalenWebAPI.Constants
                      Address = "Kungsgatan 4",
                      Description = "Fin utsikt",
                      NumberOfRooms = 1,
-                     TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet
+                     TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet,
+                     ImageUrls = new List<string>() { "image 1", "image 2" }
                  }
                 );
             return builder;

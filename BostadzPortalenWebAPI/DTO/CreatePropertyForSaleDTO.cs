@@ -16,15 +16,15 @@ namespace BostadzPortalenWebAPI.DTO
         [Required]
         public decimal AskingPrice { get; set; }
         [Required]
-        public double LivingArea { get; set; } // kvm
+        public int LivingArea { get; set; } // kvm
       
-        public double? SupplementaryArea { get; set; } // kvm
-        public double? PlotArea { get; set; } // kvm
+        public int SupplementaryArea { get; set; } // kvm
+        public int PlotArea { get; set; } // kvm
         [Required]
         public string Description { get; set; }
         [Required]
         public int NumberOfRooms { get; set; }
-        public decimal? MonthlyFee { get; set; }
+        public decimal MonthlyFee { get; set; }
         [Required]
         public decimal YearlyOperatingCost { get; set; }
         [Required]

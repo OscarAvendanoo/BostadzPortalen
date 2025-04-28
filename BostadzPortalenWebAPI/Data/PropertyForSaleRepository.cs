@@ -1,6 +1,7 @@
 ﻿using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 using System.Net;
 
 namespace BostadzPortalenWebAPI.Data
@@ -20,9 +21,6 @@ namespace BostadzPortalenWebAPI.Data
         public async Task<List<PropertyForSaleOverviewDTO>> GetAllPropertyOverviewDTOAsync()
         {
             var allModels = await GetAllWithIncludesAsync();
-                //await _context.PropertiesForSale.
-                //Include(p=>p.Municipality)
-                //.ToListAsync();
             var allDTOs = new List<PropertyForSaleOverviewDTO>();
             foreach (var property in allModels)
             {
