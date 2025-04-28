@@ -1,0 +1,36 @@
+﻿@page "/properties/details/id"
+@using BostadzPortalenClient.DTO
+@using BostadzPortalenClient.Services
+@inject ApiService apiService
+
+<h3>Details</h3>
+
+<p>
+	@realEstate.Address
+	@realEstate.MunicipalityName
+	@realEstate.TypeOfProperty
+	@realEstate.YearBuilt
+	@realEstate.Description
+
+	@realEstate.AskingPrice
+	@realEstate.MonthlyFee
+	@realEstate.YearlyOperatingCost
+
+	@realEstate.LivingArea
+	@realEstate.NumberOfRooms
+	@realEstate.PlotArea
+	@realEstate.SupplementaryArea
+	
+	@realEstate.Realtor.ProfileImageUrl @realEstate.Realtor.FirstName @realEstate.Realtor.LastName
+	@realEstate.RealEstateAgency.AgencyName
+</p>
+
+<div>@realEstate.ImageUrls</div>
+
+@code {
+	private PropertyForSaleDetailsDTO realEstate { get; set; }
+	protected override async Task OnInitializedAsync()
+	{
+		realEstate = await apiService.Get<PropertyForSaleDetailsDTO>("PropertyForSale/GetPropertyByIdDetailsDTOAsync");
+	}
+}
