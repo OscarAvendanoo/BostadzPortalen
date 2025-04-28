@@ -1,4 +1,5 @@
-﻿@page "/properties/details/id"
+﻿@page "/properties/details/{Id:int}"
+@* Author: Johan Nelin *@
 @using BostadzPortalenClient.DTO
 @using BostadzPortalenClient.Services
 @inject ApiService apiService
@@ -20,7 +21,7 @@
 	@realEstate.NumberOfRooms
 	@realEstate.PlotArea
 	@realEstate.SupplementaryArea
-	
+
 	@realEstate.Realtor.ProfileImageUrl @realEstate.Realtor.FirstName @realEstate.Realtor.LastName
 	@realEstate.RealEstateAgency.AgencyName
 </p>
@@ -28,9 +29,12 @@
 <div>@realEstate.ImageUrls</div>
 
 @code {
+	[Parameter] public int Id { get; set; }
 	private PropertyForSaleDetailsDTO realEstate { get; set; }
 	protected override async Task OnInitializedAsync()
 	{
-		realEstate = await apiService.Get<PropertyForSaleDetailsDTO>("PropertyForSale/GetPropertyByIdDetailsDTOAsync");
+		Console.WriteLine("Right place");
+		Console.WriteLine(Id); //IT WORKS THIS FAR
+		realEstate = await apiService.Get<PropertyForSaleDetailsDTO>($"PropertyForSale/GetPropertyByIdDetailsDTOAsync/{Id}"); //ERROR
 	}
 }
