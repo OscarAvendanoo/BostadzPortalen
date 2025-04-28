@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BostadzPortalenWebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -213,6 +213,7 @@ namespace BostadzPortalenWebAPI.Migrations
                     MonthlyFee = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     YearlyOperatingCost = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     YearBuilt = table.Column<int>(type: "int", nullable: false),
+                    ImageUrls = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RealtorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     TypeOfProperty = table.Column<int>(type: "int", nullable: false)
                 },
@@ -234,7 +235,7 @@ namespace BostadzPortalenWebAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PrepertyImages",
+                name: "PropertyImages",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -244,9 +245,9 @@ namespace BostadzPortalenWebAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PrepertyImages", x => x.Id);
+                    table.PrimaryKey("PK_PropertyImages", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PrepertyImages_PropertiesForSale_PropertyForSaleId",
+                        name: "FK_PropertyImages_PropertiesForSale_PropertyForSaleId",
                         column: x => x.PropertyForSaleId,
                         principalTable: "PropertiesForSale",
                         principalColumn: "PropertyForSaleId",
@@ -258,6 +259,7 @@ namespace BostadzPortalenWebAPI.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
+                    { "1e346bcf-ee97-4bb2-ab3e-8d7202fea078", null, "Realtor", "REALTOR" },
                     { "e11cc563-5369-471e-9792-6255e0d08eaf", null, "Administrator", "ADMINISTRATOR" },
                     { "e6ae5d04-8f49-4b62-bc52-205353eb08dc", null, "User", "USER" }
                 });
@@ -267,8 +269,27 @@ namespace BostadzPortalenWebAPI.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "AgencyId", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileImageUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, null, "2065ee71-40f1-4adb-8b41-b4b567355b45", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEFijB/Z0QU8mRE5kfpjArHQDGsgjLMx0GXCljNd3Sg+F/tznlHrQ3+Li6EWmRApXGw==", "0722661922", false, null, "b41a7608-b243-48bb-a4be-92149c798027", false, "user@demoapi.com" },
-                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, null, "7d604fae-01e9-4008-9361-ff55c1a75ce3", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEPRrA+z2V4XVE47d6ErGOt4tAuqkN1MIZgNzUM1mFnM8Jw+Mnyi4ddRRngz2mBpIWA==", "0722661920", false, null, "646b8162-a5d4-4fb2-964b-2021f05d9054", false, "admin@demoapi.com" }
+                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, null, "57a0eebb-d7a1-47bf-abbd-8c7216a56606", "Realtor", "hashed@demoapi.com", true, "Hashed", "User", false, null, "HASHED@DEMOAPI.COM", "HASHED@DEMOAPI.COM", "AQAAAAIAAYagAAAAEMdXVdbkyXMkVqfHqkqF6AfgeVxYOOdJpvgnEf3Yta44BdSd3tMcDec79i/C3TYA2A==", "0722661922", false, null, "5ea24270-7865-49c1-a497-07a9b575a0e8", false, "hashed@demoapi.com" },
+                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, null, "e034f68f-dab2-476e-a140-32c84c032bbc", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEFijB/Z0QU8mRE5kfpjArHQDGsgjLMx0GXCljNd3Sg+F/tznlHrQ3+Li6EWmRApXGw==", "0722661922", false, null, "8bae1874-fc91-4605-ad99-4418f20a2c3a", false, "user@demoapi.com" },
+                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, null, "14a23368-3049-4a8f-8928-5ad2db1268ac", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEPRrA+z2V4XVE47d6ErGOt4tAuqkN1MIZgNzUM1mFnM8Jw+Mnyi4ddRRngz2mBpIWA==", "0722661920", false, null, "ec3bc18e-b232-4274-863b-e3f1d654fa8e", false, "admin@demoapi.com" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Municipalities",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Umeå" },
+                    { 2, "Stockholm" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "RealEstateAgencies",
+                columns: new[] { "RealEstateAgencyId", "AgencyDescription", "AgencyLogoUrl", "AgencyName" },
+                values: new object[,]
+                {
+                    { 1, "Sveriges näst bästa mäklarbyrå", "BilderKommerSen", "Gottfridsson" },
+                    { 2, "Skåne är den bästa platsen på Gotland", "BilderKommerSen", "Skanebo" }
                 });
 
             migrationBuilder.InsertData(
@@ -276,8 +297,18 @@ namespace BostadzPortalenWebAPI.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
+                    { "e6ae5d04-8f49-4b62-bc52-205353eb08dc", "87efc5ac-77d8-4729-b3d6-3309dc88e88d" },
                     { "e6ae5d04-8f49-4b62-bc52-205353eb08dc", "92b88e50-795f-4df6-90e0-8a7d9a179cb0" },
                     { "e11cc563-5369-471e-9792-6255e0d08eaf", "92d637e6-6a8d-421e-a118-7a29d0edc1e7" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PropertiesForSale",
+                columns: new[] { "PropertyForSaleId", "Address", "AskingPrice", "Description", "ImageUrls", "LivingArea", "MonthlyFee", "MunicipalityId", "NumberOfRooms", "PlotArea", "RealtorId", "SupplementaryArea", "TypeOfProperty", "YearBuilt", "YearlyOperatingCost" },
+                values: new object[,]
+                {
+                    { 1, "Wanker Street 69", 500000m, "It's a place to live", "[]", 24.0, 5000m, 1, 1, 8.0, "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 8.0, 0, 1999, 1000m },
+                    { 2, "Kungsgatan 4", 1000000m, "Fin utsikt", "[]", 24.0, 10000m, 2, 1, 8.0, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8.0, 0, 1999, 1000m }
                 });
 
             migrationBuilder.CreateIndex(
@@ -325,11 +356,6 @@ namespace BostadzPortalenWebAPI.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PrepertyImages_PropertyForSaleId",
-                table: "PrepertyImages",
-                column: "PropertyForSaleId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_PropertiesForSale_MunicipalityId",
                 table: "PropertiesForSale",
                 column: "MunicipalityId");
@@ -338,6 +364,11 @@ namespace BostadzPortalenWebAPI.Migrations
                 name: "IX_PropertiesForSale_RealtorId",
                 table: "PropertiesForSale",
                 column: "RealtorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PropertyImages_PropertyForSaleId",
+                table: "PropertyImages",
+                column: "PropertyForSaleId");
         }
 
         /// <inheritdoc />
@@ -359,7 +390,7 @@ namespace BostadzPortalenWebAPI.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "PrepertyImages");
+                name: "PropertyImages");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

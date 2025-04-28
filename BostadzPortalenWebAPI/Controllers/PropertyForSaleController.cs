@@ -37,7 +37,7 @@ namespace BostadzPortalenWebAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PropertyForSale>>> GetAllProperties()
         {
-            var properties = await _propertyForSaleRepository.GetAllAsync(); 
+            var properties = await _propertyForSaleRepository.GetAllWithIncludesAsync();
             if (properties == null || !properties.Any())
             {
                 return NotFound(); 

@@ -63,7 +63,7 @@ namespace BostadzPortalenWebAPI.Constants
         public static ModelBuilder RealtorBuilder(ModelBuilder builder)
         {
             //the hash that's supposed to set the passwords
-            //var hasher = new PasswordHasher<ApiUser>();
+            var hasher = new PasswordHasher<ApiUser>();
 
             //the unique users (realtors only)
             builder.Entity<Realtor>().HasData(
@@ -95,6 +95,20 @@ namespace BostadzPortalenWebAPI.Constants
                     EmailConfirmed = true,
                     //AgencyId = 1,
                     PhoneNumber = "0722661922"
+                },
+                new Realtor
+                {
+                    Id = SeedGUID.HashedUser,
+                    Email = "hashed@demoapi.com",
+                    NormalizedEmail = "HASHED@DEMOAPI.COM",
+                    UserName = "hashed@demoapi.com",
+                    NormalizedUserName = "HASHED@DEMOAPI.COM",
+                    FirstName = "Hashed",
+                    LastName = "User",
+                    PasswordHash = hasher.HashPassword(null, "Test123!"),
+                    EmailConfirmed = true,
+                    //AgencyId = 1,
+                    PhoneNumber = "0722661922"
                 }
             );
             return builder;
@@ -113,6 +127,11 @@ namespace BostadzPortalenWebAPI.Constants
                  {
                      RoleId = SeedGUID.RoleAdmin,
                      UserId = SeedGUID.SystemAdmin
+                 },
+                 new IdentityUserRole<string>
+                 {
+                     RoleId = SeedGUID.RoleUser,
+                     UserId = SeedGUID.HashedUser
                  }
             );
             return builder;
@@ -125,7 +144,13 @@ namespace BostadzPortalenWebAPI.Constants
                     Id = 1,
                     Name = "Umeå",
                     PropertiesForSale = null
-                }
+                },
+                 new Municipality
+                 {
+                     Id = 2,
+                     Name = "Stockholm",
+                     PropertiesForSale = null
+                 }
                 );
             return builder;
         }
@@ -137,15 +162,35 @@ namespace BostadzPortalenWebAPI.Constants
                     PropertyForSaleId = 1,
                     MunicipalityId = 1,
                     RealtorId = SeedGUID.SystemUser,
-                    AskingPrice = 10000,
-                    MonthlyFee = 1000,
+                    AskingPrice = 500000,
+                    MonthlyFee = 5000,
                     YearlyOperatingCost = 1000,
                     LivingArea = 24,
                     PlotArea = 8,
                     SupplementaryArea = 8,
                     YearBuilt = 1999,
-
-                }
+                    Address = "Wanker Street 69",
+                    Description = "It's a place to live",
+                    NumberOfRooms = 1,
+                    TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet
+                },
+                 new PropertyForSale
+                 {
+                     PropertyForSaleId = 2,
+                     MunicipalityId = 2,
+                     RealtorId = SeedGUID.HashedUser,
+                     AskingPrice = 1000000,
+                     MonthlyFee = 10000,
+                     YearlyOperatingCost = 1000,
+                     LivingArea = 24,
+                     PlotArea = 8,
+                     SupplementaryArea = 8,
+                     YearBuilt = 1999,
+                     Address = "Kungsgatan 4",
+                     Description = "Fin utsikt",
+                     NumberOfRooms = 1,
+                     TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet
+                 }
                 );
             return builder;
         }
