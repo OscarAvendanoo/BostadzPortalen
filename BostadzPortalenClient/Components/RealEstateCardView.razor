@@ -3,7 +3,6 @@
 @using BostadzPortalenClient.Services
 @using Newtonsoft.Json
 @inject IApiService apiService
-@inject HttpClient client
 @inject IPropertyForSaleService propService
 
 <div class="row">
@@ -44,13 +43,16 @@
                         </div>
                     </li>
                 </ul>
-                <RemoveButton Id="@realEstate.PropertyForSaleId" OnRemove="RemoveRealEstate" />
+                @* <RemoveButton Id="@realEstate.PropertyForSaleId" OnRemove="RemoveRealEstate" /> *@
             </div>
         </div>
     }
 </div>
 
 @code {
+    [Parameter]
+    public int Amount { get; set; }
+
     private List<PropertyForSale> PropertiesForSale = new();
 
 
@@ -67,7 +69,7 @@
             if (realEstates != null)
             {
 
-                PropertiesForSale = realEstates.OrderByDescending(r => r.AskingPrice).Take(4).ToList();
+                PropertiesForSale = realEstates.OrderByDescending(r => r.AskingPrice).Take(Amount).ToList();
             }
 
             else
