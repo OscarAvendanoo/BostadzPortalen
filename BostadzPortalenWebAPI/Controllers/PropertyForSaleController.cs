@@ -78,7 +78,7 @@ namespace BostadzPortalenWebAPI.Controllers
             }
             return Ok(properties);
         }
-        [HttpGet("GetPropertyByIdDetailsDTOAsync")]
+        [HttpGet("GetPropertyByIdDetailsDTOAsync/{id}")]
         public async Task<ActionResult<PropertyForSaleDetailsDTO>> GetPropertyByIdDetailsDTOAsync(int id)
         {
             var property = await _propertyForSaleRepository.GetPropertyByIdDTOAsync(id);
