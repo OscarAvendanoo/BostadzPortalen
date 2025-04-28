@@ -1,6 +1,8 @@
-﻿@using BostadzPortalenClient.Services
+﻿<!--Author: Kevin-->
+
+@using BostadzPortalenClient.Services
 @using Newtonsoft.Json
-@inject ApiService apiService
+@inject IApiService apiService
 @inject HttpClient client
 @inject IPropertyForSaleService propService
 
@@ -42,7 +44,7 @@
                         </div>
                     </li>
                 </ul>
-                <button @onclick="() => RemoveRealEstate(realEstate.PropertyForSaleId)" class="btn-link main-btn">Ta bort</button>
+                <RemoveButton Id="@realEstate.PropertyForSaleId" OnRemove="RemoveRealEstate" />
             </div>
         </div>
     }
@@ -86,8 +88,8 @@
 
     private async Task RemoveRealEstate(int id)
     {
-        // await propService.DeletePropertyForSale(id);
         await apiService.Delete($"propertyforsale/{id}");
+        PropertiesForSale.RemoveAll(p => p.PropertyForSaleId == id);
     }
 
     

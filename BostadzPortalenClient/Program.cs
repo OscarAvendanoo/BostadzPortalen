@@ -32,6 +32,7 @@ namespace BostadzPortalenClient
             builder.Services.AddAuthorizationCore();
             builder.Services.AddScoped<IClient, Client>();
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+            builder.Services.AddScoped<IApiService, ApiService>();
 
             builder.Services.AddScoped<IRealtorService, RealtorService>();
 

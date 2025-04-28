@@ -1,9 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿
+using Newtonsoft.Json;
 using System.Text;
 
 namespace BostadzPortalenClient.Services
 {
-    public class ApiService
+    public class ApiService : IApiService
     {
         private readonly HttpClient _httpClient;
 
