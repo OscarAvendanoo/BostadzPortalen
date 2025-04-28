@@ -1,6 +1,7 @@
 ﻿using Blazored.LocalStorage;
 using BostadzPortalenClient.Services.Base;
 using Microsoft.AspNetCore.Components.Authorization;
+//Author: Johan Nelin
 
 namespace BostadzPortalenClient.Services.PropertyForSaleS
 {
