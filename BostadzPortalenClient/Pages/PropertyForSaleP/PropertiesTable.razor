@@ -24,11 +24,11 @@ else
                 <tr>
                     <td> @item.MunicipalityName </td>
                     <td> @item.Address </td>
-                    <td> @item.AskingPrice </td>
-                    <td> @item.MonthlyFee </td>
+                    <td> <DecimalToStringSEK inputDecimal="@item.AskingPrice"></DecimalToStringSEK> </td>
+                    <td> <DecimalToStringSEK inputDecimal="@item.MonthlyFee"></DecimalToStringSEK> </td>
                     <td> @item.TypeOfProperty </td>
-                    <td> @item.LivingArea </td>
-                    <td> @item.PlotArea </td>
+                    <td> <IntToString_m2 inputInt="@item.LivingArea"></IntToString_m2> </td>
+                    <td> <IntToString_m2 inputInt="@item.PlotArea"></IntToString_m2> </td>
                     <td> @item.NumberOfRooms </td>
                 </tr>
             }
@@ -39,5 +39,5 @@ else
 
 
 @code {
-	[Parameter] public List<PropertyForSaleDTO> propertyList { get; set; }
+	[Parameter] public List<PropertyForSaleOverviewDTO> propertyList { get; set; }
 }

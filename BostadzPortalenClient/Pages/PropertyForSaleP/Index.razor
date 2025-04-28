@@ -10,60 +10,10 @@
 
 
 @code {
-    //private List<AllProperties>? allProperties;
-    private List<PropertyForSaleDTO> allProperties { get; set; }
+    private List<PropertyForSaleOverviewDTO> allProperties { get; set; }
 
-    protected override async Task OnInitializedAsync() //this won't run no matter what i do
+    protected override async Task OnInitializedAsync() 
     {
-        Console.WriteLine("Test");
-        allProperties = await apiService.Get<List<PropertyForSaleDTO>>("PropertyForSale/GetAllPropertyDTO");
-        Console.WriteLine("Test");
-        // foreach (var item in propertyList){
-        //     var eachProperty = new AllProperties()
-        //         {
-        //             Municipality = item.Municipality,
-        //             Address = item.Address,
-        //             AskingPrice = item.AskingPrice,
-        //             MonthlyFee = item.MonthlyFee,
-        //             TypeOfProperty = item.TypeOfProperty,
-        //             LivingArea = item.LivingArea,
-        //             PlotArea = item.PlotArea,
-        //             NumberOfRooms = item.NumberOfRooms
-        //         };
-        //     allProperties.Add(eachProperty);
-        // }
-        Console.WriteLine("Test");
+        allProperties = await apiService.Get<List<PropertyForSaleOverviewDTO>>("PropertyForSale/GetAllPropertyOverviewDTOAsync");
     }
-    
-    // private class AllProperties
-    // {
-    //     public Municipality Municipality{ get; set; }
-    //     public string Address { get; set; }
-    //     public double AskingPrice { get; set; }
-    //     public double? MonthlyFee { get; set; }
-    //     public TypeOfPropertyEnum TypeOfProperty { get; set; }
-    //     public double LivingArea { get; set; }
-    //     public double? PlotArea { get; set; }
-    //     public int NumberOfRooms { get; set; }
-    // }
-
-
-
-
-    // var startDate = DateOnly.FromDateTime(DateTime.Now);
-    // var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
-    // forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
-    //     {
-    //         Date = startDate.AddDays(index),
-    //         TemperatureC = Random.Shared.Next(-20, 55),
-    //         Summary = summaries[Random.Shared.Next(summaries.Length)]
-        //     }).ToArray();
-
-
-    //private ICollection<PropertyForSale> propertyList = new List<PropertyForSale>();
-
-    // public async Task GetAllPropForSaleForTable()
-    // {
-    //     propertyList = await propertyService.GetAllPropertiesForSaleAsync();
-    // }
 }

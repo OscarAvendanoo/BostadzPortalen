@@ -1,4 +1,9 @@
-﻿@page "/users/register"
+﻿<h3>RegisterFirstRealtor</h3>
+
+@code {
+
+}
+@page "/users/registerfirstrealtor"
 @inject IClient httpClient
 @inject IRealtorService RealtorService
 @inject NavigationManager navManager
@@ -19,6 +24,7 @@
 
             <div class="card-body col-12 d-flex justify-content-center align-items-center">
                 <div class="col-8 ">
+
                     <EditForm Model="RegistrationModel" OnValidSubmit="HandleRegistration">
                         <DataAnnotationsValidator />
                         <ValidationSummary />
@@ -42,48 +48,26 @@
                             <InputText class="form-control" type="password" @bind-Value="RegistrationModel.Password" />
                             <ValidationMessage For="@(() => RegistrationModel.Password)" />
                         </div>
-
-                        <input type="hidden" @bind="RegistrationModel.AgencyId" />
+                        <div class="form-group">
+                            <label for="AgencyId">AgencyId</label>
+                            <InputNumber class="form-control" @bind-Value="RegistrationModel.AgencyId" />
+                            <ValidationMessage For="@(() => RegistrationModel.AgencyId)" />
+                        </div>
 
                         <button type="submit" class="btn main-btn btn-block mt-3">Register</button>
 
                     </EditForm>
+
                 </div>
             </div>
-
         </div>
     </div>
 </div>
-
 
 @code {
     RegisterRealtorDTO RegistrationModel = new RegisterRealtorDTO();
     string message = string.Empty;
 
-    private Realtor currentUser;
-
-    // Author: Oscar
-    protected override async Task OnInitializedAsync()
-    {
-
-        var response = await RealtorService.GetCurrentRealtor();
-
-
-        if (response.Success)
-        {
-            currentUser = response.Data;
-            if (currentUser.AgencyId != null || currentUser.AgencyId != 0)
-            {
-                RegistrationModel.AgencyId = currentUser.AgencyId ?? 0;
-            }
-
-        }
-        else
-        {
-            message = "Failed to load realtor information.";
-
-        }
-    }
 
     // Author: ALL
     private async Task HandleRegistration()

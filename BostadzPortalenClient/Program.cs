@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using BostadzPortalenClient.Services;
+using BostadzPortalenClient.Services.PropertyForSaleS;
 
 
 
@@ -33,6 +34,7 @@ namespace BostadzPortalenClient
             builder.Services.AddAuthorizationCore();
             builder.Services.AddScoped<IClient, Client>();
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+            builder.Services.AddScoped<IApiService, ApiService>();
 
             builder.Services.AddScoped<IRealtorService, RealtorService>();
 

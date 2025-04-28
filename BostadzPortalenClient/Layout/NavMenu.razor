@@ -1,4 +1,6 @@
-﻿@inject NavigationManager navManager
+﻿<!--Author: Kevin-->
+
+@inject NavigationManager navManager
 
 @* @using BostadzPortalenClient.Pages
 @using Microsoft.AspNetCore.Components.Authorization *@
@@ -30,6 +32,9 @@
                     <NavLink class="nav-link" aria-current="page" href="/">Sök bostad</NavLink>
                 </li>
                 <li class="nav-link">
+                    <NavLink class="nav-link" aria-current="page" href="/properties/index">Alla bostäder</NavLink>
+                </li>
+                <li class="nav-link">
                     <NavLink class="nav-link" href="/users/login">Som mäklare</NavLink>
                 </li>
                 <li class="nav-link">
@@ -53,6 +58,7 @@
             </ul>
             <div class="ms-auto d-flex gap-2">
                 <NavLink href="/users/login" class="btn main-btn">Login</NavLink>
+                <NavLink href="/users/registerFirstRealtor" class="btn main-btn">Register (Admin)</NavLink>
                 <NavLink href="/users/register" class="btn main-btn">Register</NavLink>
             </div>
         </div>

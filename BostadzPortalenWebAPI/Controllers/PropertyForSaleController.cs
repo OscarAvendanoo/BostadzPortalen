@@ -48,7 +48,7 @@ namespace BostadzPortalenWebAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PropertyForSale>>> GetAllProperties()
         {
-            var properties = await _propertyForSaleRepository.GetAllAsync(); 
+            var properties = await _propertyForSaleRepository.GetAllWithIncludesAsync();
             if (properties == null || !properties.Any())
             {
                 return NotFound(); 
@@ -68,15 +68,25 @@ namespace BostadzPortalenWebAPI.Controllers
             return Ok(properties);
         }
         //Author: Johan Nelin
-        [HttpGet("GetAllPropertyDTO")]
-        public async Task<ActionResult<List<PropertyForSaleDTO>>> GetAllPropertyDTO()
+        [HttpGet("GetAllPropertyOverviewDTOAsync")]
+        public async Task<ActionResult<List<PropertyForSaleOverviewDTO>>> GetAllPropertyOverviewDTOAsync()
         {
-            var properties = await _propertyForSaleRepository.GetAllPropertyDTO();
+            var properties = await _propertyForSaleRepository.GetAllPropertyOverviewDTOAsync();
             if (properties == null || !properties.Any())
             {
                 return NotFound();
             }
             return Ok(properties);
+        }
+        [HttpGet("GetPropertyByIdDetailsDTOAsync")]
+        public async Task<ActionResult<List<PropertyForSaleDetailsDTO>>> GetPropertyByIdDetailsDTOAsync(int id)
+        {
+            var property = await _propertyForSaleRepository.GetPropertyByIdDTOAsync(id);
+            if (property == null)
+            {
+                return NotFound();
+            }
+            return Ok(property);
         }
 
         // Author: JOna

@@ -22,6 +22,21 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
             var tests = await httpClient.PropertyForSaleAllAsync();
             return tests;
         }
+
+        public async Task DeletePropertyForSale(int id)
+        {
+            try
+            {
+                await httpClient.PropertyForSaleDELETEAsync(id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Gick inte att ta bort: {ex.Message}");
+                throw;
+            }
+            
+            
+        }
         //public async Task<bool> AddPropertyForSaleAsync(CreatePropertyForSaleDTO dto)
         //{
         //    await httpClient.PropertyForSalePOSTAsync(dto);

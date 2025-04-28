@@ -1,20 +1,9 @@
-﻿@inject IJSRuntime JS
+﻿@using BostadzPortalenClient.Components
+@inject IJSRuntime JS
 
 <div class="d-flex justify-content-center align-items-center col-6">
     <div class="card w-100">
-        <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs searchbox-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#" data-tab="homes">Sök bostäder</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-tab="agencies">Sök mäklarbyrå</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-tab="realtor">Sök mäklare</a>
-                </li>
-            </ul>
-        </div>
+        <SearchBoxHeader/>
 
         <div class="card-body">
             <RealEstate></RealEstate>

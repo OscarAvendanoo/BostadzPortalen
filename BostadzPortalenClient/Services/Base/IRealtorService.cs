@@ -6,5 +6,6 @@ namespace BostadzPortalenClient.Services.Base
     {
         //Author: Oscar
         Task<Response<Realtor>> GetCurrentRealtor();
+        Task<Realtor> FindRealtor(string firstName, string lastName);
     }
 }

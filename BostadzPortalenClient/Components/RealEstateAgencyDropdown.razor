@@ -1,0 +1,45 @@
+﻿@using BostadzPortalenClient.Services
+@inject ApiService apiService
+
+<label class="form-label">Sök efter mäklarbyrå</label>
+<select class="form-select" @onchange="OnAgencySelected">
+    <option value="">Alla byråer</option>
+    @foreach (var agency in realEstateAgencies)
+    {
+        <option value="@agency.RealEstateAgencyId">@agency.AgencyName</option>
+    }
+</select>
+
+@code {
+    private List<RealEstateAgency> realEstateAgencies = new();
+
+    [Parameter]
+    public EventCallback<int?> OnSelectedAgencyChanged { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadAgencies();
+    }
+
+    private async Task LoadAgencies()
+    {
+        try
+        {
+            var agencies = await apiService.Get<List<RealEstateAgency>>("RealEstateAgency");
+            realEstateAgencies = agencies ?? new List<RealEstateAgency>();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Fel vid hämtning av agencies: {ex.Message}");
+        }
+    }
+
+    private async Task OnAgencySelected(ChangeEventArgs e)
+    {
+        int? selectedId = string.IsNullOrEmpty(e.Value?.ToString())
+            ? (int?)null
+            : int.Parse(e.Value.ToString());
+
+        await OnSelectedAgencyChanged.InvokeAsync(selectedId);
+    }
+}

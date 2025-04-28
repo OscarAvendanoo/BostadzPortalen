@@ -1,6 +1,7 @@
 ﻿using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 using System.Net;
 
 namespace BostadzPortalenWebAPI.Data
@@ -15,16 +16,15 @@ namespace BostadzPortalenWebAPI.Data
         {
             _context = context;
         }
-        public async Task<List<PropertyForSaleDTO>> GetAllPropertyDTO()
+        //Author: Johan Nelin
+        //Get All for DTO-overview (index)
+        public async Task<List<PropertyForSaleOverviewDTO>> GetAllPropertyOverviewDTOAsync()
         {
-            var allModels = await _context.PropertiesForSale.
-                Include(p=>p.Municipality)
-                .Include(p => p.ImageUrls)
-                .ToListAsync();
-            var allDTOs = new List<PropertyForSaleDTO>();
+            var allModels = await GetAllWithIncludesAsync();
+            var allDTOs = new List<PropertyForSaleOverviewDTO>();
             foreach (var property in allModels)
             {
-                allDTOs.Add(new PropertyForSaleDTO()
+                allDTOs.Add(new PropertyForSaleOverviewDTO()
                 {
                     PropertyForSaleId = property.PropertyForSaleId,
                     Address = property.Address,
@@ -43,6 +43,35 @@ namespace BostadzPortalenWebAPI.Data
                 });
             }
             return allDTOs;
+        }
+        public async Task<PropertyForSaleDetailsDTO> GetPropertyByIdDTOAsync(int id)
+        {
+            var model = await GetByIDIncludesAsync(id); //doesn't give the agency, despite ThenInclude
+            //added method to grab the agency of the realtor for the DTO
+            var model2 = await _context.Realtors 
+                .Include(r=>r.Agency)
+                .Where(r=>r.Id == model.RealtorId)
+                .FirstOrDefaultAsync();
+            var dto = new PropertyForSaleDetailsDTO()
+            {
+                PropertyForSaleId = model.PropertyForSaleId,
+                Address = model.Address,
+                MunicipalityName = model.Municipality.Name,
+                AskingPrice = model.AskingPrice,
+                LivingArea = model.LivingArea,
+                SupplementaryArea = model.SupplementaryArea,
+                PlotArea = model.PlotArea,
+                Description = model.Description,
+                NumberOfRooms = model.NumberOfRooms,
+                MonthlyFee = model.MonthlyFee,
+                YearlyOperatingCost = model.YearlyOperatingCost,
+                YearBuilt = model.YearBuilt,
+                ImageUrls = model.ImageUrls,
+                TypeOfProperty = model.TypeOfProperty,
+                RealEstateAgency = model2.Agency,
+                Realtor = model.Realtor,
+            };
+            return dto;
         }
         // Hämtar alla försäljningsobjekt med full include till en lista
         public async Task<List<PropertyForSale>> GetAllWithIncludesAsync()

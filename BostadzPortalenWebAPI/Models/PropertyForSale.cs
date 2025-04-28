@@ -18,18 +18,18 @@ namespace BostadzPortalenWebAPI.Models
         [Required]
         public decimal AskingPrice { get; set; }
         [Required]
-        public double LivingArea { get; set; } // kvm
+        public int LivingArea { get; set; } // kvm
         // Extra area som inte är inräknat i levnadsarean men som endå bidrar till värdet på fastigheten
-        public double? SupplementaryArea { get; set; } // kvm
+        public int SupplementaryArea { get; set; } // kvm
         // Area av tomt
-        public double? PlotArea { get; set; } // kvm
+        public int PlotArea { get; set; } // kvm
         [Required]
         [MaxLength(1000)]
         public string Description { get; set; }
         [Required]
         public int NumberOfRooms { get; set; }
         // Endast i de fall det finns en månadsavgift, som i bostadsrätter
-        public decimal? MonthlyFee { get; set; }
+        public decimal MonthlyFee { get; set; }
         [Required]
         public decimal YearlyOperatingCost { get; set; }
         [Required]

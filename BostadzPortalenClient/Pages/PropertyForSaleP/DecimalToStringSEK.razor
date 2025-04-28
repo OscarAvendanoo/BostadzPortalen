@@ -1,0 +1,14 @@
+﻿@using System.Globalization
+
+<p>@inputDecimal.ToString("C00", svCulture).PadRight(10)</p>
+
+@code {
+    [Parameter] public decimal inputDecimal { get; set; }
+    public CultureInfo svCulture { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        svCulture = new CultureInfo("sv-SE");
+        svCulture.NumberFormat.CurrencyPositivePattern = 3;
+    }
+}
