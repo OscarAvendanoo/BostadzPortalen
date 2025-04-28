@@ -36,6 +36,8 @@ namespace BostadzPortalenWebAPI.Data
             return await context.Realtors
                 .Include(r => r.Agency)
                 .Include(r => r.Properties)
+                .ThenInclude(r=>r.Municipality)
+                .ThenInclude(r=>r.PropertiesForSale)
                 .Where(r => r.FirstName == firstName || r.LastName == lastName).FirstOrDefaultAsync();
         }
 
