@@ -78,7 +78,7 @@ namespace BostadzPortalenWebAPI.Constants
                     LastName = "Admin",
                     PasswordHash = "AQAAAAIAAYagAAAAEPRrA+z2V4XVE47d6ErGOt4tAuqkN1MIZgNzUM1mFnM8Jw+Mnyi4ddRRngz2mBpIWA==",
                     EmailConfirmed = true,
-                    //AgencyId = 1,
+                    AgencyId = 1,
                     PhoneNumber = "0722661920"
 
                 },
@@ -93,7 +93,7 @@ namespace BostadzPortalenWebAPI.Constants
                     LastName = "User",
                     PasswordHash = "AQAAAAIAAYagAAAAEFijB/Z0QU8mRE5kfpjArHQDGsgjLMx0GXCljNd3Sg+F/tznlHrQ3+Li6EWmRApXGw==",
                     EmailConfirmed = true,
-                    //AgencyId = 1,
+                    AgencyId = 1,
                     PhoneNumber = "0722661922"
                 },
                 new Realtor
@@ -107,7 +107,7 @@ namespace BostadzPortalenWebAPI.Constants
                     LastName = "User",
                     PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
-                    //AgencyId = 1,
+                    AgencyId = 2,
                     PhoneNumber = "0722661922"
                 }
             );
@@ -172,7 +172,8 @@ namespace BostadzPortalenWebAPI.Constants
                     Address = "Wanker Street 69",
                     Description = "It's a place to live",
                     NumberOfRooms = 1,
-                    TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet
+                    TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet,
+                    ImageUrls = new List<string>() { "image 1", "image 2" }
                 },
                  new PropertyForSale
                  {
@@ -189,7 +190,8 @@ namespace BostadzPortalenWebAPI.Constants
                      Address = "Kungsgatan 4",
                      Description = "Fin utsikt",
                      NumberOfRooms = 1,
-                     TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet
+                     TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet,
+                     ImageUrls = new List<string>() { "image 1", "image 2" }
                  }
                 );
             return builder;

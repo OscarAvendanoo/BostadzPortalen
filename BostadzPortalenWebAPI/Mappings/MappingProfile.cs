@@ -28,7 +28,7 @@ namespace BostadzPortalenWebAPI.Mappings
                 .ReverseMap();
 
             //Author: Kevin
-            CreateMap<PropertyForSale, PropertyForSaleDTO>()
+            CreateMap<PropertyForSale, PropertyForSaleOverviewDTO>()
                 .ForMember(dest => dest.PropertyForSaleId, opt => opt.MapFrom(src => src.PropertyForSaleId))
                 .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Address))
                 //.ForMember(dest => dest.MunicipalityId, opt => opt.MapFrom(src => src.MunicipalityId))
