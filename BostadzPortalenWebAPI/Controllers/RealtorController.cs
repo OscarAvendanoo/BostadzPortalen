@@ -133,7 +133,7 @@ namespace BostadzPortalenWebAPI.Controllers
             return Ok(realtor);
         }
 
-        [HttpGet("FindRealtorByName/{firstName},{lastName}")]
+        [HttpGet("FindRealtorByName/{firstName}/{lastName}")]
         public async Task<ActionResult<Realtor>> FindRealtorByName(string firstName, string lastName)
         {
             try

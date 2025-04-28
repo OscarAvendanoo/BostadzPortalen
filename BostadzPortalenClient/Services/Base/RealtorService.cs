@@ -39,7 +39,7 @@ namespace BostadzPortalenClient.Services.Base
 
         public async Task<Realtor> FindRealtor(string firstName, string lastName)
         {
-            var realtor = await apiService.Get<Realtor>($"realtor/FindRealtorByName/{firstName}{lastName}");
+            var realtor = await apiService.Get<Realtor>($"realtor/FindRealtorByName/{firstName}/{lastName}");
             return realtor;
             
         }
