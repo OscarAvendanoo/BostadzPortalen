@@ -1,7 +1,10 @@
-﻿@using BostadzPortalenClient.Services
+﻿<!--Author: Kevin-->
+
+@using BostadzPortalenClient.Services
 @using Newtonsoft.Json
-@inject ApiService apiService
+@inject IApiService apiService
 @inject HttpClient client
+@inject IPropertyForSaleService propService
 
 <div class="row">
     @foreach (var realEstate in PropertiesForSale)
@@ -34,7 +37,14 @@
                             <span>@realEstate.LivingArea kvm</span>
                         </div>
                     </li>
+                    <li class="list-group-item">
+                        <div class="model-row mb-0 mt-3">
+                            <span style="font-weight:bold; text-decoration: underline">Utgångspris</span>
+                            <span>@realEstate.AskingPrice</span>
+                        </div>
+                    </li>
                 </ul>
+                <RemoveButton Id="@realEstate.PropertyForSaleId" OnRemove="RemoveRealEstate" />
             </div>
         </div>
     }
@@ -51,12 +61,13 @@
 
         try
         {
-            
+
             var realEstates = await apiService.Get<List<PropertyForSale>>("PropertyForSale/GetAllPropertiesIncludeAllAsync");
-            
+
             if (realEstates != null)
             {
-                PropertiesForSale = realEstates;
+
+                PropertiesForSale = realEstates.OrderByDescending(r => r.AskingPrice).Take(4).ToList();
             }
 
             else
@@ -74,4 +85,12 @@
     {
         await LoadRealEstates();
     }
+
+    private async Task RemoveRealEstate(int id)
+    {
+        await apiService.Delete($"propertyforsale/{id}");
+        PropertiesForSale.RemoveAll(p => p.PropertyForSaleId == id);
+    }
+
+    
 }
