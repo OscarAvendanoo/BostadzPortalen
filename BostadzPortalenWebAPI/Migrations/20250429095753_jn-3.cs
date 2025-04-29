@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BostadzPortalenWebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class jn2 : Migration
+    public partial class jn3 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -287,9 +287,9 @@ namespace BostadzPortalenWebAPI.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "AgencyId", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileImageUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, 2, "38f6c49f-c6bf-441f-8093-205216f1768a", "Realtor", "realtor@demoapi.com", true, "System", "Realtor", false, null, "REALTOR@DEMOAPI.COM", "REALTOR@DEMOAPI.COM", "AQAAAAIAAYagAAAAEA5c6ZKijZWjcthZc+gnDpg8i05MT69wyf7a3E3EqaWPoRyvC8MaHip3xNFpIRk8cw==", "0722661922", false, "NoPicUser.png", "408b5717-52b9-4be1-ac44-72cb7a6db7fb", false, "realtor@demoapi.com" },
-                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, 1, "e929064a-b121-4ad6-bdbd-41699503e4bc", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEAHNaVmuDfDJTU0BMgk6NK4/rmdIhhv83l6OAr2ut1Z/oL4t1li1wOd+7A6fvN2rdw==", "0722661922", false, "NoPicUser.png", "c42229c0-a1d7-4d23-86a1-1831905f3ccf", false, "user@demoapi.com" },
-                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, 1, "1ec5cbf0-ea61-4921-8982-376cde97afe3", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEBRHLZ6hAm4xNt3TyUB6PxX7FD6oKrqrCRB6Yu+m+9Bj5YglsBzYqRs04Qr9DLwkVg==", "0722661920", false, "NoPicUser.png", "6636b98c-4c44-4448-b8ca-46e4816012f1", false, "admin@demoapi.com" }
+                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, 2, "3fa035f2-796c-4bc4-b6a4-be2b4c48d230", "Realtor", "realtor@demoapi.com", true, "System", "Realtor", false, null, "REALTOR@DEMOAPI.COM", "REALTOR@DEMOAPI.COM", "AQAAAAIAAYagAAAAEHi9nMSL0aw9h2kOKGmQq7Wh9MegPOT1c/E+dH9+yvU+rTJJODG9K+4Wri8HwNDsIA==", "0722661922", false, "NoPicUser.png", "ebb6f573-9038-49d1-ada4-941edca62155", false, "realtor@demoapi.com" },
+                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, 1, "6d3686e3-c16b-4788-9de7-edc127ba8372", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEPEJIYZwt11dil2m9S5H+t/YMXBVYMtGls7nupbFv/LZICRgHt9iQKdX/+nLI6sGjw==", "0722661922", false, "NoPicUser.png", "fcde2b15-5de5-4313-8257-bc7452c8c570", false, "user@demoapi.com" },
+                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, 1, "a76633bc-ef96-4412-8572-8bce4a64b7f2", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEA6Sx7PGwEUbnDawJEXAg3Igvey0n+op0felpiiYDt0rJ/k3Y5p1onJRMdqR9Owxvw==", "0722661920", false, "NoPicUser.png", "dc1a9a85-e303-4e4f-97ba-27f3c97b619f", false, "admin@demoapi.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -307,9 +307,9 @@ namespace BostadzPortalenWebAPI.Migrations
                 columns: new[] { "PropertyForSaleId", "Address", "AskingPrice", "Description", "ImageUrls", "LivingArea", "MonthlyFee", "MunicipalityId", "NumberOfRooms", "PlotArea", "RealtorId", "SupplementaryArea", "TypeOfProperty", "YearBuilt", "YearlyOperatingCost" },
                 values: new object[,]
                 {
-                    { 1, "Wanker Street 69", 500000m, "It's a place to live", "[\"image1.jpg\",\"image2.jpg\"]", 24, 5000m, 1, 1, 8, "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 8, 0, 1999, 1000m },
-                    { 2, "Kungsgatan 4", 1000000m, "Fin utsikt", "[\"image3.jpg\",\"image4.jpg\"]", 24, 10000m, 2, 1, 8, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8, 0, 1999, 1000m },
-                    { 3, "Kungsgatan 16", 7000000m, "Bättre än kungsgatan 4", "[\"image5.jpg\",\"image6.jpg\"]", 64, 10000m, 2, 4, 8, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8, 2, 1950, 1000m }
+                    { 1, "Wanker Street 69", 500000m, "It's a place to live", "[\"~/Pictures/image1.jpg\",\"~/Pictures/image2.jpg\"]", 24, 5000m, 1, 1, 8, "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 8, 0, 1999, 1000m },
+                    { 2, "Kungsgatan 4", 1000000m, "Fin utsikt", "[\"~/Pictures/image3.jpg\",\"~/Pictures/image4.jpg\"]", 24, 10000m, 2, 1, 8, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8, 0, 1999, 1000m },
+                    { 3, "Kungsgatan 16", 7000000m, "Bättre än kungsgatan 4", "[\"~/Pictures/image5.jpg\",\"~/Pictures/image6.jpg\"]", 64, 10000m, 2, 4, 8, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8, 2, 1950, 1000m }
                 });
 
             migrationBuilder.CreateIndex(
