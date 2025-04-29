@@ -19,6 +19,7 @@ namespace BostadzPortalenClient.Services.Base
             {
                 //await GetBearerToken();
                 var data = await client.GetAllMuniAsync();
+                
 
                 response = new Response<List<Municipality>>
                 {
