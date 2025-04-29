@@ -1,5 +1,4 @@
 ﻿<!--Author: Kevin-->
-
 @using BostadzPortalenClient.Services
 @using Newtonsoft.Json
 @inject IApiService apiService
@@ -10,8 +9,18 @@
     {
         <div class="col-sm-3 mb-3 mb-sm-3 mt-4">
             <div class="card" style="width: 18rem;">
-                <a asp-action="CarPicture" asp-route-id="@realEstate.PropertyForSaleId"><img src="/lyxvilla.jpg" class="card-img-top" alt="lyxvilla"></a>
-
+                <div class="image-container">
+                    <NavLink class="card-img-top" href="/propertyDetails/realEstate.PropertyForSaleId">
+                        <img src="/lyxvilla.jpg" class="card-img-top" alt="lyxvilla">
+                    </NavLink>
+                    @if (soldProperties.Contains(realEstate.PropertyForSaleId))
+                    {
+                        <!--Behöver lägga till bool Sold eller nåt för att lagra men detta är väl mest lyxgrej typ-->
+                        <div class="sold-overlay">
+                            <span>SOLD</span>
+                        </div>
+                    }
+                </div>
                 <div class="card-body">
                     <h5 class="card-title">@realEstate.Address</h5>
                     <h5 class="card-title">@realEstate.Municipality.Name</h5>
@@ -43,7 +52,9 @@
                         </div>
                     </li>
                 </ul>
-                @* <RemoveButton Id="@realEstate.PropertyForSaleId" OnRemove="RemoveRealEstate" /> *@
+                <RemoveButton Id="@realEstate.PropertyForSaleId" OnRemove="RemoveRealEstate" />
+                
+                <button class="btn btn-danger" @onclick="() => MarkAsSold(realEstate.PropertyForSaleId)">Sälj</button>
             </div>
         </div>
     }
@@ -52,9 +63,14 @@
 @code {
     [Parameter]
     public int Amount { get; set; }
+    private HashSet<int> soldProperties = new();
 
     private List<PropertyForSale> PropertiesForSale = new();
 
+    private void MarkAsSold(int propertyId)
+    {
+        soldProperties.Add(propertyId);
+    }
 
 
     private async Task LoadRealEstates()
@@ -94,5 +110,7 @@
         PropertiesForSale.RemoveAll(p => p.PropertyForSaleId == id);
     }
 
-    
+
+
+
 }
