@@ -3,7 +3,7 @@
 
 namespace BostadzPortalenClient.DTO
 {
-    public class PropertyForSaleOverviewDTO
+    public class PropertyForSaleDetailsDTO
     {
         public int PropertyForSaleId { get; set; }
         public string Address { get; set; }
@@ -19,5 +19,7 @@ namespace BostadzPortalenClient.DTO
         public int YearBuilt { get; set; }
         public List<string> ImageUrls { get; set; } = new List<string>();
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
+        public Realtor Realtor { get; set; }
+        public RealEstateAgency RealEstateAgency { get; set; }
     }
 }

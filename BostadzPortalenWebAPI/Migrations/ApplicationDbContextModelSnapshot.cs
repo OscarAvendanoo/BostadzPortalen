@@ -204,7 +204,7 @@ namespace BostadzPortalenWebAPI.Migrations
                             Address = "Wanker Street 69",
                             AskingPrice = 500000m,
                             Description = "It's a place to live",
-                            ImageUrls = "[\"image1.jpg\",\"image2.jpg\"]",
+                            ImageUrls = "[\"~/Pictures/image1.jpg\",\"~/Pictures/image2.jpg\"]",
                             LivingArea = 24,
                             MonthlyFee = 5000m,
                             MunicipalityId = 1,
@@ -222,7 +222,7 @@ namespace BostadzPortalenWebAPI.Migrations
                             Address = "Kungsgatan 4",
                             AskingPrice = 1000000m,
                             Description = "Fin utsikt",
-                            ImageUrls = "[\"image3.jpg\",\"image4.jpg\"]",
+                            ImageUrls = "[\"~/Pictures/image3.jpg\",\"~/Pictures/image4.jpg\"]",
                             LivingArea = 24,
                             MonthlyFee = 10000m,
                             MunicipalityId = 2,
@@ -240,7 +240,7 @@ namespace BostadzPortalenWebAPI.Migrations
                             Address = "Kungsgatan 16",
                             AskingPrice = 7000000m,
                             Description = "Bättre än kungsgatan 4",
-                            ImageUrls = "[\"image5.jpg\",\"image6.jpg\"]",
+                            ImageUrls = "[\"~/Pictures/image5.jpg\",\"~/Pictures/image6.jpg\"]",
                             LivingArea = 64,
                             MonthlyFee = 10000m,
                             MunicipalityId = 2,
@@ -520,7 +520,7 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@DEMOAPI.COM",
                             NormalizedUserName = "ADMIN@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBRHLZ6hAm4xNt3TyUB6PxX7FD6oKrqrCRB6Yu+m+9Bj5YglsBzYqRs04Qr9DLwkVg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEA6Sx7PGwEUbnDawJEXAg3Igvey0n+op0felpiiYDt0rJ/k3Y5p1onJRMdqR9Owxvw==",
                             PhoneNumber = "0722661920",
                             PhoneNumberConfirmed = false,
 
@@ -551,7 +551,7 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@DEMOAPI.COM",
                             NormalizedUserName = "USER@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAHNaVmuDfDJTU0BMgk6NK4/rmdIhhv83l6OAr2ut1Z/oL4t1li1wOd+7A6fvN2rdw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPEJIYZwt11dil2m9S5H+t/YMXBVYMtGls7nupbFv/LZICRgHt9iQKdX/+nLI6sGjw==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
 
@@ -582,7 +582,7 @@ namespace BostadzPortalenWebAPI.Migrations
 
                             NormalizedEmail = "REALTOR@DEMOAPI.COM",
                             NormalizedUserName = "REALTOR@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEA5c6ZKijZWjcthZc+gnDpg8i05MT69wyf7a3E3EqaWPoRyvC8MaHip3xNFpIRk8cw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHi9nMSL0aw9h2kOKGmQq7Wh9MegPOT1c/E+dH9+yvU+rTJJODG9K+4Wri8HwNDsIA==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
 

@@ -1,8 +1,7 @@
 ﻿@page "/properties/index"
+@* Author: Johan Nelin *@
 @using BostadzPortalenClient.DTO
 @using BostadzPortalenClient.Services
-@using Newtonsoft.Json
-@inject IPropertyForSaleService propertyService
 @inject ApiService apiService
 
 <h3>Index</h3>
@@ -11,12 +10,9 @@
 
 @code {
     private List<PropertyForSaleOverviewDTO> allProperties { get; set; }
-    // private List<PropertyForSale> AllProperties { get; set; }
 
     protected override async Task OnInitializedAsync() 
     {
         var allProperties = await apiService.Get<List<PropertyForSaleOverviewDTO>>("PropertyForSale/GetAllPropertyOverviewDTOAsync");
-        // var allProperties = await propertyService.GetAllPropertiesForSaleAsync(); 
-        // AllProperties = (List<PropertyForSale>)allProperties;
     }
 }
