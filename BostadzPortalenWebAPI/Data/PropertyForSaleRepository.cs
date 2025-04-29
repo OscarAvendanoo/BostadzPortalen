@@ -128,5 +128,13 @@ namespace BostadzPortalenWebAPI.Data
                 //.Include(p => p.Images)
                 .ToListAsync();
         }
+
+        public IQueryable<PropertyForSale> QueryPropertiesWithIncludes()
+        {
+            return _context.PropertiesForSale
+                .Include(p => p.Municipality)
+                .Include(p => p.Realtor)
+                .Include(p => p.ImageUrls);
+        }
     }
 }

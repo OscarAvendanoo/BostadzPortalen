@@ -1,0 +1,47 @@
+﻿@page "/search-results"
+@inject ISearchResultService SearchResultService
+
+@using BostadzPortalenClient.Models
+
+<h2 class="my-4">Sökresultat</h2>
+
+@if (properties == null)
+{
+    <p>Laddar resultat...</p>
+}
+else if (!properties.Any())
+{
+    <p>Inga bostäder matchar din sökning.</p>
+}
+else
+{
+    <div class="property-list">
+        @foreach (var property in properties)
+        {
+            <div class="property-card d-flex shadow-sm mb-4 rounded p-3">
+                <img src="@property.Images.FirstOrDefault()" alt="Property Image" class="property-image me-3" />
+
+                <div class="property-details">
+                    <h5>@property.Address</h5>
+                    <p><strong>Kommun:</strong> @property.Municipality?.Name</p>
+                    <p><strong>Antal rum:</strong> @property.NumberOfRooms</p>
+                    <p><strong>Boarea:</strong> @property.LivingArea kvm</p>
+                    <p><strong>Tomtarea:</strong> @property.PlotArea kvm</p>
+                    <p><strong>Pris:</strong> @property.AskingPrice.ToString("N0") kr</p>
+                    <p><strong>Byggår:</strong> @property.YearBuilt</p>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private List<PropertyForSale> properties;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var listOfProperties = await SearchResultService.GetSearchResults();
+
+        properties = listOfProperties;
+    }
+}

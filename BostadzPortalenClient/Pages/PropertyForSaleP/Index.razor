@@ -13,6 +13,6 @@
 
     protected override async Task OnInitializedAsync() 
     {
-        allProperties = await apiService.Get<List<PropertyForSaleOverviewDTO>>("PropertyForSale/GetAllPropertyOverviewDTOAsync");
+        var allProperties = await apiService.Get<List<PropertyForSaleOverviewDTO>>("PropertyForSale/GetAllPropertyOverviewDTOAsync");
     }
 }

@@ -24,6 +24,7 @@ namespace BostadzPortalenClient
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7291/") }); //Tog bort /api/ då jag fick den dubbelt i clienten
 
 
+
             builder.Services.AddScoped<ApiService>();
 
 
@@ -37,7 +38,9 @@ namespace BostadzPortalenClient
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
             builder.Services.AddScoped<IApiService, ApiService>();
 
+            builder.Services.AddScoped<IMuniService, MuniService>();
             builder.Services.AddScoped<IRealtorService, RealtorService>();
+            builder.Services.AddScoped<ISearchResultService, SearchResultService>();
 
             builder.Services.AddScoped<IPropertyForSaleService, PropertyForSaleService>();
 
