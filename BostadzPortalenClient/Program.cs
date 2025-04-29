@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using BostadzPortalenClient.Services;
-using BostadzPortalenClient.Services.PropertyForSaleS;
 
 
 
@@ -21,7 +20,9 @@ namespace BostadzPortalenClient
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7291/") }); //Tog bort /api/ dÂ jag fick den dubbelt i clienten
+
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7291/") }); //Tog bort /api/ d√• jag fick den dubbelt i clienten
+
 
             builder.Services.AddScoped<ApiService>();
 

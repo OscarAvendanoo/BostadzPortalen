@@ -1,0 +1,12 @@
+﻿@page "/realtorobjects/{RealtorId}"
+@using BostadzPortalenClient.Components
+
+<h1>Dina objekt</h1>
+
+<RealEstateCardView RealtorId="@RealtorId"/>
+
+@code {
+    [Parameter]
+    public string RealtorId { get; set; }
+
+}

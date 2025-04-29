@@ -37,6 +37,19 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
             
             
         }
+
+
+        public async Task<PropertyForSale> GetPropertyAsync(int id)
+        {
+            var property = await httpClient.PropertyForSaleGETAsync(id);
+            return property;
+        }
+
+        public async Task UpdatePropertyAsync(int propertyId, PropertyForSale property)
+        {
+            await httpClient.PropertyForSalePUTAsync(propertyId, property);
+        }
+
         //public async Task<bool> AddPropertyForSaleAsync(CreatePropertyForSaleDTO dto)
         //{
         //    await httpClient.PropertyForSalePOSTAsync(dto);
@@ -67,6 +80,7 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
             await this.apiService.Post<CreatePropertyForSaleDTO>("api/propertyForSale", dto);
             return true;
         }
+
 
 
     }
