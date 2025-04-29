@@ -1,0 +1,19 @@
+﻿<!--Author: Kevin-->
+
+@using BostadzPortalenClient.Services
+@inject ApiService apiService
+
+<button @onclick="OnRemoveClicked" class="btn main-btn">Ta bort</button>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    [Parameter]
+    public EventCallback<int> OnRemove { get; set; }
+
+    private async Task OnRemoveClicked()
+    {
+        await OnRemove.InvokeAsync(Id);
+    }
+}

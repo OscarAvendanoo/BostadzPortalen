@@ -63,7 +63,7 @@ namespace BostadzPortalenWebAPI.Constants
         public static ModelBuilder RealtorBuilder(ModelBuilder builder)
         {
             //the hash that's supposed to set the passwords
-            //var hasher = new PasswordHasher<ApiUser>();
+            var hasher = new PasswordHasher<ApiUser>();
 
             //the unique users (realtors only)
             builder.Entity<Realtor>().HasData(
@@ -76,10 +76,11 @@ namespace BostadzPortalenWebAPI.Constants
                     NormalizedUserName = "ADMIN@DEMOAPI.COM",
                     FirstName = "System",
                     LastName = "Admin",
-                    PasswordHash = "AQAAAAIAAYagAAAAEPRrA+z2V4XVE47d6ErGOt4tAuqkN1MIZgNzUM1mFnM8Jw+Mnyi4ddRRngz2mBpIWA==",
+                    PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
-                    //AgencyId = 1,
-                    PhoneNumber = "0722661920"
+                    AgencyId = 1,
+                    PhoneNumber = "0722661920",
+                    ProfileImageUrl = "NoPicUser.png"
 
                 },
                 new Realtor
@@ -91,10 +92,26 @@ namespace BostadzPortalenWebAPI.Constants
                     NormalizedUserName = "USER@DEMOAPI.COM",
                     FirstName = "System",
                     LastName = "User",
-                    PasswordHash = "AQAAAAIAAYagAAAAEFijB/Z0QU8mRE5kfpjArHQDGsgjLMx0GXCljNd3Sg+F/tznlHrQ3+Li6EWmRApXGw==",
+                    PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
-                    //AgencyId = 1,
-                    PhoneNumber = "0722661922"
+                    AgencyId = 1,
+                    PhoneNumber = "0722661922",
+                    ProfileImageUrl = "NoPicUser.png"
+                },
+                new Realtor
+                {
+                    Id = SeedGUID.SystemRealtor,
+                    Email = "realtor@demoapi.com",
+                    NormalizedEmail = "REALTOR@DEMOAPI.COM",
+                    UserName = "realtor@demoapi.com",
+                    NormalizedUserName = "REALTOR@DEMOAPI.COM",
+                    FirstName = "System",
+                    LastName = "Realtor",
+                    PasswordHash = hasher.HashPassword(null, "Test123!"),
+                    EmailConfirmed = true,
+                    AgencyId = 2,
+                    PhoneNumber = "0722661922",
+                    ProfileImageUrl = "NoPicUser.png"
                 }
             );
             return builder;
@@ -113,6 +130,11 @@ namespace BostadzPortalenWebAPI.Constants
                  {
                      RoleId = SeedGUID.RoleAdmin,
                      UserId = SeedGUID.SystemAdmin
+                 },
+                 new IdentityUserRole<string>
+                 {
+                     RoleId = SeedGUID.RoleRealtor,
+                     UserId = SeedGUID.SystemRealtor
                  }
             );
             return builder;
@@ -125,7 +147,13 @@ namespace BostadzPortalenWebAPI.Constants
                     Id = 1,
                     Name = "Umeå",
                     PropertiesForSale = null
-                }
+                },
+                 new Municipality
+                 {
+                     Id = 2,
+                     Name = "Stockholm",
+                     PropertiesForSale = null
+                 }
                 );
             return builder;
         }
@@ -137,15 +165,55 @@ namespace BostadzPortalenWebAPI.Constants
                     PropertyForSaleId = 1,
                     MunicipalityId = 1,
                     RealtorId = SeedGUID.SystemUser,
-                    AskingPrice = 10000,
-                    MonthlyFee = 1000,
+                    AskingPrice = 500000,
+                    MonthlyFee = 5000,
                     YearlyOperatingCost = 1000,
                     LivingArea = 24,
                     PlotArea = 8,
                     SupplementaryArea = 8,
                     YearBuilt = 1999,
-
-                }
+                    Address = "Wanker Street 69",
+                    Description = "It's a place to live",
+                    NumberOfRooms = 1,
+                    TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet,
+                    ImageUrls = new List<string>() { "image1.jpg", "image2.jpg" }
+                },
+                 new PropertyForSale
+                 {
+                     PropertyForSaleId = 2,
+                     MunicipalityId = 2,
+                     RealtorId = SeedGUID.SystemRealtor,
+                     AskingPrice = 1000000,
+                     MonthlyFee = 10000,
+                     YearlyOperatingCost = 1000,
+                     LivingArea = 24,
+                     PlotArea = 8,
+                     SupplementaryArea = 8,
+                     YearBuilt = 1999,
+                     Address = "Kungsgatan 4",
+                     Description = "Fin utsikt",
+                     NumberOfRooms = 1,
+                     TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet,
+                     ImageUrls = new List<string>() { "image3.jpg", "image4.jpg" }
+                 },
+                 new PropertyForSale
+                 {
+                     PropertyForSaleId = 3,
+                     MunicipalityId = 2,
+                     RealtorId = SeedGUID.SystemRealtor,
+                     AskingPrice = 7000000,
+                     MonthlyFee = 10000,
+                     YearlyOperatingCost = 1000,
+                     LivingArea = 64,
+                     PlotArea = 8,
+                     SupplementaryArea = 8,
+                     YearBuilt = 1950,
+                     Address = "Kungsgatan 16",
+                     Description = "Bättre än kungsgatan 4",
+                     NumberOfRooms = 4,
+                     TypeOfProperty = TypeOfPropertyEnum.Villa,
+                     ImageUrls = new List<string>() { "image5.jpg", "image6.jpg" }
+                 }
                 );
             return builder;
         }

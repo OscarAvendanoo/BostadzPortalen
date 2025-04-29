@@ -1,4 +1,8 @@
-﻿using BostadzPortalenWebAPI.Data;
+
+using BostadzPortalenWebAPI.Data;
+
+﻿using AutoMapper;
+
 using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -14,10 +18,19 @@ namespace BostadzPortalenWebAPI.Controllers
     public class PropertyForSaleController : ControllerBase
     {
         private readonly IPropertyForSaleRepository _propertyForSaleRepository;
-        public PropertyForSaleController(IPropertyForSaleRepository propertyForSaleRepository)
+        private readonly IMapper mapper;
+        private readonly ApplicationDbContext _context;
+
+      
+
+
+
+        public PropertyForSaleController(IPropertyForSaleRepository propertyForSaleRepository, IMapper mapper, ApplicationDbContext context)
         {
             _propertyForSaleRepository = propertyForSaleRepository;
-            
+            this.mapper = mapper;
+            _context = context;
+
         }
 
         // Author: Oscar
@@ -57,19 +70,73 @@ namespace BostadzPortalenWebAPI.Controllers
             }
             return Ok(properties);
         }
+        //Author: Johan Nelin
+        [HttpGet("GetAllPropertyOverviewDTOAsync")]
+        public async Task<ActionResult<List<PropertyForSaleOverviewDTO>>> GetAllPropertyOverviewDTOAsync()
+        {
+            var properties = await _propertyForSaleRepository.GetAllPropertyOverviewDTOAsync();
+            if (properties == null || !properties.Any())
+            {
+                return NotFound();
+            }
+            return Ok(properties);
+        }
+        [HttpGet("GetPropertyByIdDetailsDTOAsync")]
+        public async Task<ActionResult<List<PropertyForSaleDetailsDTO>>> GetPropertyByIdDetailsDTOAsync(int id)
+        {
+            var property = await _propertyForSaleRepository.GetPropertyByIdDTOAsync(id);
+            if (property == null)
+            {
+                return NotFound();
+            }
+            return Ok(property);
+        }
 
         // Author: JOna
         // POST api/<PropertyForSaleController>
         [HttpPost]
-        public async Task<ActionResult<PropertyForSale>> PostProperty([FromBody] PropertyForSale propertyForSale)
+        [Authorize(Roles = "Realtor")]
+        public async Task<ActionResult> CreatePropertyForSale([FromBody] CreatePropertyForSaleDTO dto)
         {
-            if (propertyForSale == null)
+            if (dto == null || !ModelState.IsValid)
+                return BadRequest("Invalid input.");
+
+            // Hämta användarens id från token
+            var userId = User.FindFirst("uid")?.Value; 
+
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("User ID not found in token.");
+
+            // Hämta kommunen från DbContext
+            var municipality = await _context.Municipalities.FindAsync(dto.MunicipalityId);
+            if (municipality == null)
             {
-                return BadRequest("Property cannot be null");
+                return BadRequest("Municipality not found.");
             }
-            await _propertyForSaleRepository.AddAsync(propertyForSale);
-            return CreatedAtAction(nameof(GetProperty), new { id = propertyForSale.PropertyForSaleId }, propertyForSale);
+
+            // Hämta Realtor från DbContext
+            var realtor = await _context.Realtors
+            .Include(r => r.Agency) // inkludera agency också då vafan
+            .FirstOrDefaultAsync(r => r.Id == userId);
+            if (realtor == null)
+            {
+                return BadRequest("Realtor not found.");
+            }
+
+            // PropertyForSale och sätt RealtorId från JWT-token
+            var property = mapper.Map<PropertyForSale>(dto);
+            property.RealtorId = userId; //  RealtorId från den inloggade användaren 
+            property.Realtor = realtor;  //  Realtor (hela objektet) på fastigheten
+
+            
+            await _propertyForSaleRepository.AddAsync(property);
+
+            
+            return CreatedAtAction(nameof(GetProperty), new { id = property.PropertyForSaleId }, property);
         }
+
+
+
         // Author: Jona
         // PUT api/<PropertyForSaleController>/5
         [HttpPut("{id}")]

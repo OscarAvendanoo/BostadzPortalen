@@ -133,6 +133,23 @@ namespace BostadzPortalenWebAPI.Controllers
             return Ok(realtor);
         }
 
+        [HttpGet("FindRealtorByName/{firstName}/{lastName}")]
+        public async Task<ActionResult<Realtor>> FindRealtorByName(string firstName, string lastName)
+        {
+            try
+            {
+                var realtor = await realtorRepository.GetByNameIncludesAsync(firstName, lastName);
+                return Ok(realtor);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Kunder inte hämta realtor: {ex.Message}");
+                
+            }
+            
+            
+        }
+
         //[HttpGet("{id}")]
         //public async Task<ActionResult> GetListedProperties(string id)
         //{
