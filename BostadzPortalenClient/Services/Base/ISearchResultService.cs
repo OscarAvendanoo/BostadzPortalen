@@ -1,7 +1,10 @@
-﻿namespace BostadzPortalenClient.Services.Base
+﻿using BostadzPortalenClient.Models;
+
+namespace BostadzPortalenClient.Services.Base
 {
     public interface ISearchResultService
     {
-       Task SearchProperties(PropertySearchRequest propertySearchRequest);
+        Task<Response<List<PropertyForSale>>> SearchProperties(PropertySearchRequest propertySearchRequest);
+        Task<List<PropertyForSale>> GetSearchResults();
     }
 }

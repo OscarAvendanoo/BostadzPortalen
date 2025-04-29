@@ -14,7 +14,7 @@ namespace BostadzPortalenClient.Services.Base
         {
             this.client = client;
         }
-        public async Task SearchProperties(PropertySearchRequest propertySearchRequest)
+        public async Task<Response<List<PropertyForSale>>> SearchProperties(PropertySearchRequest propertySearchRequest)
         {
             var data = await client.SearchAsync(propertySearchRequest);
 
@@ -23,11 +23,13 @@ namespace BostadzPortalenClient.Services.Base
                 Data = (List<PropertyForSale>)data,
                 Success = true
             };
-            if (response.Success)
-            {
-                // Handle successful search result
-            }
+            return response;
           
+        }
+
+        public async Task<List<PropertyForSale>> GetSearchResults()
+        {
+            return Results;
         }
     }
 }

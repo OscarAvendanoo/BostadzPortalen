@@ -3,6 +3,7 @@
 @inject IClient httpClient
 @inject IMuniService MuniService
 @inject ISearchResultService SearchResultService
+@inject NavigationManager navManager
 
 <!--Author: Kevin-->
 
@@ -122,8 +123,19 @@
                 MinPrice = selectedPrice // You'll need to bind and parse this one too
             };
 
-       await SearchResultService.SearchProperties(searchDto);
+        var response = await SearchResultService.SearchProperties(searchDto);
 
+        if (response.Success)
+        {
+            navManager.NavigateTo("/Search-results");
+
+
+        }
+        else
+        {
+            message = "Failed to load realtor information.";
+
+        }
     }
 }
 
