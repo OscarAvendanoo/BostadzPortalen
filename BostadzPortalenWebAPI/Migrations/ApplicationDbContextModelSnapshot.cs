@@ -156,7 +156,6 @@ namespace BostadzPortalenWebAPI.Migrations
                         .HasColumnType("nvarchar(1000)");
 
                     b.PrimitiveCollection<string>("ImageUrls")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("LivingArea")
@@ -489,7 +488,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92d637e6-6a8d-421e-a118-7a29d0edc1e7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "8c2421cf-e26c-420b-8fb3-f1afa210cd66",
+                            ConcurrencyStamp = "d81d75af-8f9e-4ee3-9297-c8d8bc8eb073",
                             Email = "admin@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -500,7 +499,7 @@ namespace BostadzPortalenWebAPI.Migrations
                             PasswordHash = "AQAAAAIAAYagAAAAEPRrA+z2V4XVE47d6ErGOt4tAuqkN1MIZgNzUM1mFnM8Jw+Mnyi4ddRRngz2mBpIWA==",
                             PhoneNumber = "0722661920",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4d964fb9-2ad8-45e7-b385-3a8ac38e17be",
+                            SecurityStamp = "a36763ce-b3f4-472d-833b-b39a58164f4d",
                             TwoFactorEnabled = false,
                             UserName = "admin@demoapi.com",
                             AgencyId = 1
@@ -509,7 +508,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92b88e50-795f-4df6-90e0-8a7d9a179cb0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1fe1ffce-7883-4b90-a488-2e9cba1d83c9",
+                            ConcurrencyStamp = "5fe9a5bf-7df9-445e-ae43-0c1edd018435",
                             Email = "user@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -520,7 +519,7 @@ namespace BostadzPortalenWebAPI.Migrations
                             PasswordHash = "AQAAAAIAAYagAAAAEFijB/Z0QU8mRE5kfpjArHQDGsgjLMx0GXCljNd3Sg+F/tznlHrQ3+Li6EWmRApXGw==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "606ffbc8-c9cf-4405-b669-3ddb00b3b897",
+                            SecurityStamp = "7b022691-ca9f-4f18-9c13-b90c7fc6d080",
                             TwoFactorEnabled = false,
                             UserName = "user@demoapi.com",
                             AgencyId = 1
@@ -529,7 +528,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "87efc5ac-77d8-4729-b3d6-3309dc88e88d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "12e7a5a6-257a-48b5-b973-2225633fd1cc",
+                            ConcurrencyStamp = "949115b8-a40f-410b-9af0-ebae44dc5673",
                             Email = "hashed@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Hashed",
@@ -537,10 +536,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "HASHED@DEMOAPI.COM",
                             NormalizedUserName = "HASHED@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPiQAn5qj/2m6oNgqhiL3jsHLzGeF6GQfg5hE0zsvynByZ06AKfqhqtq/fgAk19f4A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO7MpjlybNS4KWrlysLsCfA+SeQCZR556ZKY/8E3GJxn29b4sjRY+52lTHfKM5TNkA==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7cfd5a55-affd-4a46-9f0d-f7d1a7996fb4",
+                            SecurityStamp = "839ec4a1-e638-40fe-91ac-8877f11e5304",
                             TwoFactorEnabled = false,
                             UserName = "hashed@demoapi.com",
                             AgencyId = 2
