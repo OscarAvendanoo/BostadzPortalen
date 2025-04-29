@@ -1,23 +1,25 @@
+@using BostadzPortalenClient.Models
 
 @inject IClient httpClient
 @inject IMuniService MuniService
+@inject ISearchResultService SearchResultService
+@inject NavigationManager navManager
 
 <!--Author: Kevin-->
 
 
     <div id="homes" class="tab-content active">
         <div class="row g-12">
-            <!-- Plats -->
+          @*   <!-- Plats -->
             <div class="col-md-12 mt-3">
                 <label class="form-label">Plats</label>
                 <input type="text" class="form-control" placeholder="Ange område, t.ex. Stockholm">
-            </div>
+            </div> *@
 
             <!-- Bostadstyp -->
             <div class="col-md-12 mt-3">
-                <label class="form-label">Bostadstyp</label>
-                <select class="form-select">
-                    <option>Alla typer</option>
+            <label class="form-label">Bostadstyp</label>
+            <select class="form-select" @bind="selectedPropertyType">
                     <option>Bostadsrättslägenhet</option>
                     <option>Bostadsrättsradhus</option>
                     <option>Villa</option>
@@ -28,7 +30,7 @@
             <!-- Pris från -->
             <div class="col-md-12 mt-3">
                 <label class="form-label">Pris från</label>
-                <select class="form-select">
+            <select class="form-select" @bind="selectedPrice">
                     <option>Ingen min</option>
                     <option>500 000 kr</option>
                     <option>1 000 000 kr</option>
@@ -62,7 +64,7 @@
 
             <!-- Sök-knapp -->
             <div class="col-12 d-flex justify-content-center mt-4">
-                <button class="btn main-btn w-50">Sök</button>
+            <button class="btn main-btn w-50" @onclick="SearchAsync">Sök</button>
             </div>
         </div>
     </div>
@@ -72,6 +74,10 @@
 @code {
     private List<Municipality> municipalities = new();
     private string selectedMunicipality;
+    private int selectedPrice;
+    private string selectedPropertyType;
+    private int selectedPropertyTypeInt;
+
     string message = string.Empty;
 
     protected override async Task OnInitializedAsync()
@@ -84,11 +90,50 @@
         if (response.Success)
         {
             municipalities = response.Data;
-           
+
         }
         else
         {
             message = "Failed to load Municipality information.";
+
+        }
+    }
+    private async Task SearchAsync()
+    {
+        if (selectedPropertyType is "Bostadsrättslägenhet")
+        {
+            selectedPropertyTypeInt = 0;
+        }
+        if (selectedPropertyType is "Bostadsrättsradhus")
+        {
+            selectedPropertyTypeInt = 1;
+        }
+        if (selectedPropertyType is "Villa")
+        {
+            selectedPropertyTypeInt = 2;
+        }
+        if (selectedPropertyType is "Fritidshus")
+        {
+            selectedPropertyTypeInt = 3;
+        }
+        var searchDto = new PropertySearchRequest
+            {
+                MunicipalityName = selectedMunicipality,
+                TypeOfProperty = selectedPropertyTypeInt,
+                MinPrice = selectedPrice // You'll need to bind and parse this one too
+            };
+
+        var response = await SearchResultService.SearchProperties(searchDto);
+
+        if (response.Success)
+        {
+            navManager.NavigateTo("/Search-results");
+
+
+        }
+        else
+        {
+            message = "Failed to load realtor information.";
 
         }
     }
