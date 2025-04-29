@@ -33,5 +33,16 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
             
             
         }
+
+        public async Task<PropertyForSale> GetPropertyAsync(int id)
+        {
+            var property = await httpClient.PropertyForSaleGETAsync(id);
+            return property;
+        }
+
+        public async Task UpdatePropertyAsync(int propertyId, PropertyForSale property)
+        {
+            await httpClient.PropertyForSalePUTAsync(propertyId, property);
+        }
     }
 }

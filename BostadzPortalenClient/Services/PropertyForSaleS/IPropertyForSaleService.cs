@@ -7,5 +7,8 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
         public Task<ICollection<PropertyForSale>> GetAllPropertiesForSaleAsync();
         public Task DeletePropertyForSale(int id);
 
+        public Task<PropertyForSale> GetPropertyAsync(int id);
+        public Task UpdatePropertyAsync(int propertyId, PropertyForSale property);
+
     }
 }
