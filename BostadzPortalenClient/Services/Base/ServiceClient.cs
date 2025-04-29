@@ -2754,10 +2754,10 @@ namespace BostadzPortalenClient.Services.Base
         public double AskingPrice { get; set; }
 
         [Newtonsoft.Json.JsonProperty("livingArea", Required = Newtonsoft.Json.Required.Always)]
-        public double LivingArea { get; set; }
+        public int LivingArea { get; set; }
 
         [Newtonsoft.Json.JsonProperty("supplementaryArea", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? SupplementaryArea { get; set; }
+        public int? SupplementaryArea { get; set; }
 
         [Newtonsoft.Json.JsonProperty("plotArea", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int PlotArea { get; set; }

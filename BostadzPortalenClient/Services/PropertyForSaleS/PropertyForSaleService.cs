@@ -1,7 +1,6 @@
 ﻿using Blazored.LocalStorage;
 using BostadzPortalenClient.Services.Base;
 using BostadzPortalenClient.DTO;
-using BostadzPortalenClient.DTO;
 using Microsoft.AspNetCore.Components.Authorization;
 //Author: Johan Nelin
 
