@@ -1,5 +1,5 @@
 ﻿using BostadzPortalenClient.Services.Base;
-using BostadzPortalenWebAPI.DTO;
+
 using BostadzPortalenClient.DTO;
 
 namespace BostadzPortalenClient.Services.PropertyForSaleS
