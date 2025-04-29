@@ -52,7 +52,7 @@
                         </div>
                     </li>
                 </ul>
-                <RemoveButton Id="@realEstate.PropertyForSaleId" OnRemove="RemoveRealEstate" />
+                @* <RemoveButton Id="@realEstate.PropertyForSaleId" OnRemove="RemoveRealEstate" /> *@
 
                 <button class="btn btn-danger" @onclick="() => MarkAsSold(realEstate.PropertyForSaleId)">Sälj</button>
             </div>
@@ -81,7 +81,7 @@
     private async Task LoadRealEstates()
     {
         var id = RealtorId;
-        var realEstates = await apiService.Get<List<PropertyForSale>>("PropertyForSale/GetAllPropertiesIncludeAllAsync");
+        var realEstates = await propService.GetAllPropertiesForSaleAsync();  /* apiService.Get<List<PropertyForSale>>("PropertyForSale/GetAllPropertiesIncludeAllAsync"); */
 
         if (id == null)
         {

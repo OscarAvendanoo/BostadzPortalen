@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System.Text;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
+using BostadzPortalenClient.Services.Base;
 
 namespace BostadzPortalenClient.Services
 {
