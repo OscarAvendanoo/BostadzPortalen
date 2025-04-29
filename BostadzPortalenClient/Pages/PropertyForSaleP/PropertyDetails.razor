@@ -81,7 +81,7 @@
 
     private async Task<PropertyForSale> GetProperty()
     {
-        PropertyForSale = await apiService.Get<PropertyForSale>($"propertyforsale/{PropertyForSaleId}");/* propService.GetPropertyAsync(PropertyForSaleId); */
+        PropertyForSale = await propService.GetPropertyAsync(PropertyForSaleId); 
         return PropertyForSale;
     }
 
