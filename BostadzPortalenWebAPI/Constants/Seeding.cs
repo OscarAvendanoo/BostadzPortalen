@@ -176,7 +176,7 @@ namespace BostadzPortalenWebAPI.Constants
                     Description = "It's a place to live",
                     NumberOfRooms = 1,
                     TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet,
-                    ImageUrls = new List<string>() { "image1.jpg", "image2.jpg" }
+                    ImageUrls = new List<string>() { "~/Pictures/image1.jpg", "~/Pictures/image2.jpg" }
                 },
                  new PropertyForSale
                  {
@@ -194,7 +194,7 @@ namespace BostadzPortalenWebAPI.Constants
                      Description = "Fin utsikt",
                      NumberOfRooms = 1,
                      TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet,
-                     ImageUrls = new List<string>() { "image3.jpg", "image4.jpg" }
+                     ImageUrls = new List<string>() { "~/Pictures/image3.jpg", "~/Pictures/image4.jpg" }
                  },
                  new PropertyForSale
                  {
@@ -212,7 +212,7 @@ namespace BostadzPortalenWebAPI.Constants
                      Description = "Bättre än kungsgatan 4",
                      NumberOfRooms = 4,
                      TypeOfProperty = TypeOfPropertyEnum.Villa,
-                     ImageUrls = new List<string>() { "image5.jpg", "image6.jpg" }
+                     ImageUrls = new List<string>() { "~/Pictures/image5.jpg", "~/Pictures/image6.jpg" }
                  }
                 );
             return builder;
