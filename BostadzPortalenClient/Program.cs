@@ -40,6 +40,7 @@ namespace BostadzPortalenClient
 
             builder.Services.AddScoped<IMuniService, MuniService>();
             builder.Services.AddScoped<IRealtorService, RealtorService>();
+            builder.Services.AddScoped<ISearchResultService, SearchResultService>();
 
             builder.Services.AddScoped<IPropertyForSaleService, PropertyForSaleService>();
 

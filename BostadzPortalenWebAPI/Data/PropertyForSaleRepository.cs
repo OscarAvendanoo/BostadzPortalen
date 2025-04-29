@@ -134,7 +134,7 @@ namespace BostadzPortalenWebAPI.Data
             return _context.PropertiesForSale
                 .Include(p => p.Municipality)
                 .Include(p => p.Realtor)
-                .Include(p => p.Images);
+                .Include(p => p.ImageUrls);
         }
     }
 }
