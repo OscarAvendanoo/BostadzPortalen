@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="SQL-Query\" />
+    <Folder Include="Pictures\" />
   </ItemGroup>
 
 </Project>
