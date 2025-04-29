@@ -1,4 +1,9 @@
-﻿<!--Author: Kevin-->
+
+@inject IClient httpClient
+@inject IMuniService MuniService
+
+<!--Author: Kevin-->
+
 
     <div id="homes" class="tab-content active">
         <div class="row g-12">
@@ -31,7 +36,7 @@
                 </select>
             </div>
 
-            <!-- Min antal rum -->
+            @* <!-- Min antal rum -->
             <div class="col-md-12 mt-3">
                 <label class="form-label">Min antal rum</label>
                 <select class="form-select">
@@ -40,6 +45,18 @@
                     <option>2+</option>
                     <option>3+</option>
                     <option>4+</option>
+                </select>
+            </div> *@
+
+        <!-- Kommun -->
+            <div class="col-md-12 mt-3">
+                <label class="form-label">Kommun</label>
+                <select class="form-select" @bind="selectedMunicipality">
+                    <option value="">Alla kommuner</option>
+                    @foreach (var municipality in municipalities)
+                    {
+                        <option value="@municipality">@municipality.Name</option>
+                    }
                 </select>
             </div>
 
@@ -53,7 +70,28 @@
 
 
 @code {
+    private List<Municipality> municipalities = new();
+    private string selectedMunicipality;
+    string message = string.Empty;
 
+    protected override async Task OnInitializedAsync()
+    {
+
+        // var response = await MuniService.GetAllMunicipalityToListAsync();
+        var response = await MuniService.GetAllMunicipalityToListAsync();
+
+
+        if (response.Success)
+        {
+            municipalities = response.Data;
+           
+        }
+        else
+        {
+            message = "Failed to load Municipality information.";
+
+        }
+    }
 }
 
 

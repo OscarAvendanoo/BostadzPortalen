@@ -1,5 +1,8 @@
-﻿using AutoMapper;
+
 using BostadzPortalenWebAPI.Data;
+
+﻿using AutoMapper;
+
 using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -164,6 +167,33 @@ namespace BostadzPortalenWebAPI.Controllers
             }
             await _propertyForSaleRepository.DeleteAsync(propertyToDelete);
             return NoContent(); 
+        }
+        // author: Oscar
+        [HttpPost("search")]
+        public async Task<ActionResult<List<PropertyForSale>>> SearchProperties([FromBody] PropertySearchRequest searchRequest)
+        {
+            var query = _propertyForSaleRepository.QueryPropertiesWithIncludes();
+
+
+            if (searchRequest.TypeOfProperty.HasValue)
+            {
+                var propertyTypeEnum = (TypeOfPropertyEnum)searchRequest.TypeOfProperty.Value;
+                query = query.Where(p => p.TypeOfProperty == propertyTypeEnum);
+            }
+
+            if (searchRequest.MinPrice.HasValue)
+            {
+                query = query.Where(p => p.AskingPrice >= searchRequest.MinPrice.Value);
+            }
+
+            if (!string.IsNullOrWhiteSpace(searchRequest.MunicipalityName))
+            {
+                query = query.Where(p => p.Municipality.Name.Contains(searchRequest.MunicipalityName));
+            }
+
+            var properties = await query.ToListAsync();
+
+            return Ok(properties);
         }
     }
 }
