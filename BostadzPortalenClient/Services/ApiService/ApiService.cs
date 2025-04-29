@@ -32,6 +32,7 @@ namespace BostadzPortalenClient.Services
         }
         public async Task<T> Get<T>(string endpoint)
         {
+            Console.WriteLine($"BaseAddress: {_httpClient.BaseAddress}");
 
             var response = await _httpClient.GetAsync(endpoint);
             //Console.WriteLine($"Response status: {response.StatusCode}");
