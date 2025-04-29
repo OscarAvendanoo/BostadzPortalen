@@ -155,12 +155,12 @@ namespace BostadzPortalenClient.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PropertyForSaleDetailsDTO>> GetPropertyByIdDetailsDTOAsync(int? id);
+        System.Threading.Tasks.Task<PropertyForSaleDetailsDTO> GetPropertyByIdDetailsDTOAsync(int id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PropertyForSaleDetailsDTO>> GetPropertyByIdDetailsDTOAsync(int? id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<PropertyForSaleDetailsDTO> GetPropertyByIdDetailsDTOAsync(int id, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -1434,7 +1434,7 @@ namespace BostadzPortalenClient.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PropertyForSaleDetailsDTO>> GetPropertyByIdDetailsDTOAsync(int? id)
+        public virtual System.Threading.Tasks.Task<PropertyForSaleDetailsDTO> GetPropertyByIdDetailsDTOAsync(int id)
         {
             return GetPropertyByIdDetailsDTOAsync(id, System.Threading.CancellationToken.None);
         }
@@ -1442,8 +1442,11 @@ namespace BostadzPortalenClient.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PropertyForSaleDetailsDTO>> GetPropertyByIdDetailsDTOAsync(int? id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<PropertyForSaleDetailsDTO> GetPropertyByIdDetailsDTOAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
             var client_ = _httpClient;
             var disposeClient_ = false;
             try
@@ -1455,14 +1458,9 @@ namespace BostadzPortalenClient.Services.Base
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                 
-                    // Operation Path: "api/PropertyForSale/GetPropertyByIdDetailsDTOAsync"
-                    urlBuilder_.Append("api/PropertyForSale/GetPropertyByIdDetailsDTOAsync");
-                    urlBuilder_.Append('?');
-                    if (id != null)
-                    {
-                        urlBuilder_.Append(System.Uri.EscapeDataString("id")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
-                    }
-                    urlBuilder_.Length--;
+                    // Operation Path: "api/PropertyForSale/GetPropertyByIdDetailsDTOAsync/{id}"
+                    urlBuilder_.Append("api/PropertyForSale/GetPropertyByIdDetailsDTOAsync/");
+                    urlBuilder_.Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
 
                     PrepareRequest(client_, request_, urlBuilder_);
 
@@ -1489,7 +1487,7 @@ namespace BostadzPortalenClient.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<PropertyForSaleDetailsDTO>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<PropertyForSaleDetailsDTO>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -3153,13 +3151,13 @@ namespace BostadzPortalenClient.Services.Base
     public enum TypeOfPropertyEnum
     {
 
-        Bostadsrättslägenhet = 0,
+        _0 = 0,
 
-        Bostadsrättsradhus = 1,
+        _1 = 1,
 
-        Villa = 2,
+        _2 = 2,
 
-        Fritidshus = 3,
+        _3 = 3,
 
     }
 
