@@ -1,14 +1,15 @@
-﻿using BostadzPortalenWebAPI.Models;
+﻿using BostadzPortalenClient.Models;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using BostadzPortalenClient.Services.Base;
 
 namespace BostadzPortalenWebAPI.DTO
 {
-    //Author: Oscar
+    
     public class CreatePropertyForSaleDTO
     {
-        
+
         public int PropertyForSaleId { get; set; }
         [Required]
         public string Address { get; set; }
@@ -17,14 +18,14 @@ namespace BostadzPortalenWebAPI.DTO
         public decimal AskingPrice { get; set; }
         [Required]
         public double LivingArea { get; set; } // kvm
-      
+
         public double? SupplementaryArea { get; set; } // kvm
-        public int PlotArea { get; set; } // kvm
+        public int? PlotArea { get; set; } // kvm
         [Required]
         public string Description { get; set; }
         [Required]
         public int NumberOfRooms { get; set; }
-        public decimal MonthlyFee { get; set; }
+        public decimal? MonthlyFee { get; set; }
         [Required]
         public decimal YearlyOperatingCost { get; set; }
         [Required]

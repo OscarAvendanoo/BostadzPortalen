@@ -1,4 +1,6 @@
 ﻿using BostadzPortalenClient.Services.Base;
+using BostadzPortalenWebAPI.DTO;
+using BostadzPortalenClient.DTO;
 
 namespace BostadzPortalenClient.Services.PropertyForSaleS
 {
@@ -6,6 +8,12 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
     {
         public Task<ICollection<PropertyForSale>> GetAllPropertiesForSaleAsync();
         public Task DeletePropertyForSale(int id);
+
+
+        Task<bool> AddPropertyForSaleAsync(CreatePropertyForSaleDTO dto);
+
+       
+
 
     }
 }

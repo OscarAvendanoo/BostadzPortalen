@@ -1,19 +1,34 @@
 ﻿
 using Newtonsoft.Json;
 using System.Text;
+using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace BostadzPortalenClient.Services
 {
     public class ApiService : IApiService
     {
         private readonly HttpClient _httpClient;
+        private readonly ILocalStorageService _localStorage; // JA
+        private readonly AuthenticationStateProvider _authenticationStateProvider; // JA
 
-        public ApiService(HttpClient httpClient)
+        public ApiService(HttpClient httpClient, ILocalStorageService localStorageService, AuthenticationStateProvider authenticationStateProvider)
         {
             _httpClient = httpClient;
+            _localStorage = localStorageService; // JA
+            _authenticationStateProvider = authenticationStateProvider; // JA
             //_httpClient.BaseAddress = new Uri("https://localhost:7291/api/");
-        }
 
+        }
+        // Jona
+        private async Task AddBearerTokenAsync()
+        {
+            var token = await _localStorage.GetItemAsync<string>("accessToken");
+            if (!string.IsNullOrWhiteSpace(token))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            }
+        }
         public async Task<T> Get<T>(string endpoint)
         {
 
@@ -35,6 +50,7 @@ namespace BostadzPortalenClient.Services
 
         public async Task<T> Post<T>(string endpoint, object payload)
         {
+            await AddBearerTokenAsync(); // JOna
             var content = new StringContent(JsonConvert.SerializeObject(payload), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync(endpoint, content);
             response.EnsureSuccessStatusCode();
