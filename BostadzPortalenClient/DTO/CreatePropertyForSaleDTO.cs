@@ -20,7 +20,7 @@ namespace BostadzPortalenWebAPI.DTO
         public double LivingArea { get; set; } // kvm
 
         public double? SupplementaryArea { get; set; } // kvm
-        public double? PlotArea { get; set; } // kvm
+        public int? PlotArea { get; set; } // kvm
         [Required]
         public string Description { get; set; }
         [Required]

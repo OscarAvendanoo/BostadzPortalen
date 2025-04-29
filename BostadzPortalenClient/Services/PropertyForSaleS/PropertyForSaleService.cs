@@ -63,7 +63,8 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
             };
 
             // Testar med apiService ist Jona
-            await this.apiService.Post<PropertyForSale>("api/propertyForSale", propertyForSale);
+            //await this.apiService.Post<PropertyForSale>("api/propertyForSale", propertyForSale);
+            await this.apiService.Post<CreatePropertyForSaleDTO>("api/propertyForSale", dto);
             return true;
         }
 

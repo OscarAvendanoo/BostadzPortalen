@@ -38,7 +38,7 @@ namespace BostadzPortalenWebAPI.Data
                     MonthlyFee = property.MonthlyFee,
                     YearlyOperatingCost = property.YearlyOperatingCost,
                     YearBuilt = property.YearBuilt,
-                    ImageUrls = property.ImageUrls.Select(img => img.ImageUrl).ToList(),
+                    //ImageUrls = property.ImageUrls.Select(img => img.ImageUrl).ToList(),
                     TypeOfProperty = property.TypeOfProperty,
                 });
             }

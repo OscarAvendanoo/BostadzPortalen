@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BostadzPortalenWebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class JN1 : Migration
+    public partial class Jona : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -213,7 +213,7 @@ namespace BostadzPortalenWebAPI.Migrations
                     MonthlyFee = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     YearlyOperatingCost = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     YearBuilt = table.Column<int>(type: "int", nullable: false),
-                    ImageUrls = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImageUrls = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RealtorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     TypeOfProperty = table.Column<int>(type: "int", nullable: false)
                 },
@@ -287,9 +287,9 @@ namespace BostadzPortalenWebAPI.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "AgencyId", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileImageUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, 2, "12e7a5a6-257a-48b5-b973-2225633fd1cc", "Realtor", "hashed@demoapi.com", true, "Hashed", "User", false, null, "HASHED@DEMOAPI.COM", "HASHED@DEMOAPI.COM", "AQAAAAIAAYagAAAAEPiQAn5qj/2m6oNgqhiL3jsHLzGeF6GQfg5hE0zsvynByZ06AKfqhqtq/fgAk19f4A==", "0722661922", false, null, "7cfd5a55-affd-4a46-9f0d-f7d1a7996fb4", false, "hashed@demoapi.com" },
-                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, 1, "1fe1ffce-7883-4b90-a488-2e9cba1d83c9", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEFijB/Z0QU8mRE5kfpjArHQDGsgjLMx0GXCljNd3Sg+F/tznlHrQ3+Li6EWmRApXGw==", "0722661922", false, null, "606ffbc8-c9cf-4405-b669-3ddb00b3b897", false, "user@demoapi.com" },
-                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, 1, "8c2421cf-e26c-420b-8fb3-f1afa210cd66", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEPRrA+z2V4XVE47d6ErGOt4tAuqkN1MIZgNzUM1mFnM8Jw+Mnyi4ddRRngz2mBpIWA==", "0722661920", false, null, "4d964fb9-2ad8-45e7-b385-3a8ac38e17be", false, "admin@demoapi.com" }
+                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, 2, "a276a280-cc08-4af7-8c0a-0ee6c23043fb", "Realtor", "hashed@demoapi.com", true, "Hashed", "User", false, null, "HASHED@DEMOAPI.COM", "HASHED@DEMOAPI.COM", "AQAAAAIAAYagAAAAEIoTE2BcBSsTAYeV20uQ9AFgZmmkhm1uFlx8OY56gdGDW/UNH70QA8R4g7yTEecGdw==", "0722661922", false, null, "f9104f6a-9c79-4ca3-9ff3-4346222d28b2", false, "hashed@demoapi.com" },
+                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, 1, "8ee578ba-45a3-4237-9f21-7465d368f9d5", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEFijB/Z0QU8mRE5kfpjArHQDGsgjLMx0GXCljNd3Sg+F/tznlHrQ3+Li6EWmRApXGw==", "0722661922", false, null, "3678e778-8ed1-4923-bd54-2fd330118d8c", false, "user@demoapi.com" },
+                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, 1, "aa507532-b36e-4852-9b1d-d7031bd42997", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEPRrA+z2V4XVE47d6ErGOt4tAuqkN1MIZgNzUM1mFnM8Jw+Mnyi4ddRRngz2mBpIWA==", "0722661920", false, null, "ea98c1d9-0744-4a93-9e2f-7acde56733f5", false, "admin@demoapi.com" }
                 });
 
             migrationBuilder.InsertData(
