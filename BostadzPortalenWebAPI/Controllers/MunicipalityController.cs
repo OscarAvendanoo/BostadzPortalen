@@ -17,7 +17,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         // GET: api/municipality
-        [HttpGet]
+        [HttpGet("GetAllMuni")]
         public async Task<ActionResult<IEnumerable<Municipality>>> GetAllMunicipalitys()
         {
             return await _context.Municipalities.ToListAsync();

@@ -9,5 +9,7 @@ namespace BostadzPortalenWebAPI.Data
         Task<List<PropertyForSale>> GetByRealtorAsync(string realtorId);
         Task<List<PropertyForSale>> GetByMunicipalityAsync(int municipalityId);
         Task<List<PropertyForSale>> GetByCategoryAsync(TypeOfPropertyEnum category);
+
+        IQueryable<PropertyForSale> QueryPropertiesWithIncludes();
     }
 }

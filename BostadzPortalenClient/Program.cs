@@ -18,8 +18,8 @@ namespace BostadzPortalenClient
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7291/api/") });
-
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7291/") });
+        
             builder.Services.AddScoped<ApiService>();
 
 
@@ -32,6 +32,7 @@ namespace BostadzPortalenClient
             builder.Services.AddScoped<IClient, Client>();
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
+            builder.Services.AddScoped<IMuniService, MuniService>();
             builder.Services.AddScoped<IRealtorService, RealtorService>();
 
             builder.Services.AddScoped<IPropertyForSaleService, PropertyForSaleService>();
