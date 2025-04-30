@@ -1,17 +1,17 @@
 ﻿@page "/properties/index"
 @* Author: Johan Nelin *@
 @using BostadzPortalenClient.Services
-@inject ApiService apiService
+@inject IPropertyForSaleService propService
 
 <h3>Index</h3>
 <PropertiesTable propertyList="allProperties"></PropertiesTable>
 
 
 @code {
-    private List<PropertyForSaleOverviewDTO> allProperties { get; set; }
+    private IEnumerable<PropertyForSaleOverviewDTO> allProperties { get; set; }
 
     protected override async Task OnInitializedAsync() 
     {
-        var allProperties = await apiService.Get<List<PropertyForSaleOverviewDTO>>("PropertyForSale/GetAllPropertyOverviewDTOAsync");
+        allProperties = await propService.GetAllPropertiesForSaleDTOAsync();
     }
 }

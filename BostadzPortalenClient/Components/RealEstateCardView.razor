@@ -23,7 +23,7 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">@realEstate.Address</h5>
-                    <h5 class="card-title">@realEstate.Municipality.Name</h5>
+                    <h5 class="card-title">@realEstate.MunicipalityName</h5>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
@@ -68,7 +68,7 @@
     [Parameter]
     public string RealtorId { get; set; }
 
-    private List<PropertyForSale> PropertiesForSale = new();
+    private List<PropertyForSaleOverviewDTO> PropertiesForSale = new();
 
     private void MarkAsSold(int propertyId)
     {
@@ -81,7 +81,7 @@
     private async Task LoadRealEstates()
     {
         var id = RealtorId;
-        var realEstates = await propService.GetAllPropertiesForSaleAsync();  /* apiService.Get<List<PropertyForSale>>("PropertyForSale/GetAllPropertiesIncludeAllAsync"); */
+        var realEstates = await propService.GetAllPropertiesForSaleDTOAsync();  /* apiService.Get<List<PropertyForSale>>("PropertyForSale/GetAllPropertiesIncludeAllAsync"); */
 
         if (id == null)
         {
@@ -110,7 +110,8 @@
         }
         else
         {
-            PropertiesForSale = realEstates.Where(p=>p.RealtorId == id).OrderBy(prop => prop.Municipality.Name).ToList();
+            //PropertiesForSale = realEstates.Where(p=>p. == id).OrderBy(prop => prop.MunicipalityName).ToList();
+            //JN: This needs a change in the overviewDTO to function -> (another nSwag build)
         }
     }
 

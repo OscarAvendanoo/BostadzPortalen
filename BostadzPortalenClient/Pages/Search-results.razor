@@ -19,7 +19,7 @@ else
         @foreach (var property in properties)
         {
             <div class="property-card d-flex shadow-sm mb-4 rounded p-3">
-                <img src="@property.Images.FirstOrDefault()" alt="Property Image" class="property-image me-3" />
+                <img src="@property.ImageUrls.FirstOrDefault()" alt="Property Image" class="property-image me-3" />
 
                 <div class="property-details">
                     <h5>@property.Address</h5>

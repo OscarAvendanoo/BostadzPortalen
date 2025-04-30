@@ -6,12 +6,13 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
 {
     public interface IPropertyForSaleService
     {
-        public Task<ICollection<PropertyForSale>> GetAllPropertiesForSaleAsync();
-        public Task DeletePropertyForSale(int id);
+        Task<IEnumerable<PropertyForSaleOverviewDTO>> GetAllPropertiesForSaleDTOAsync();
+        Task<PropertyForSaleDetailsDTO> GetPropertyDetailsDTOByIdAsync(int id);
+        Task DeletePropertyForSale(int id);
 
 
-        public Task<PropertyForSale> GetPropertyAsync(int id);
-        public Task UpdatePropertyAsync(int propertyId, PropertyForSale property);
+        Task<PropertyForSale> GetPropertyAsync(int id);
+        Task UpdatePropertyAsync(int propertyId, PropertyForSale property);
 
 
         Task<bool> AddPropertyForSaleAsync(CreatePropertyForSaleDTO dto);

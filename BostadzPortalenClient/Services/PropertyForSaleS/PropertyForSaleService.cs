@@ -8,17 +8,17 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
     public class PropertyForSaleService: IPropertyForSaleService
     {
         private readonly IClient httpClient;
-        private readonly ApiService apiService;
+        //private readonly ApiService apiService;
 
         public PropertyForSaleService(IClient httpClient, ApiService apiService)
         {
             this.httpClient = httpClient;
-            this.apiService = apiService; // Jona
+            //this.apiService = apiService; // Jona
         }
 
-        public async Task<ICollection<PropertyForSale>> GetAllPropertiesForSaleAsync()
+        public async Task<IEnumerable<PropertyForSaleOverviewDTO>> GetAllPropertiesForSaleDTOAsync()
         {
-            var tests = await httpClient.PropertyForSaleAllAsync();
+            var tests = await httpClient.GetAllPropertyOverviewDTOAsync();
             return tests;
         }
 
@@ -35,6 +35,13 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
             }
             
             
+        }
+
+        public async Task<PropertyForSaleDetailsDTO> GetPropertyDetailsDTOByIdAsync(int id)
+        {
+
+            var property = await httpClient.GetPropertyByIdDetailsDTOAsync(id);
+            return property;
         }
 
 
@@ -56,31 +63,29 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
         //}
         public async Task<bool> AddPropertyForSaleAsync(CreatePropertyForSaleDTO dto)
         {
-            
+
             var propertyForSale = new PropertyForSale
             {
                 Address = dto.Address,
                 MunicipalityId = dto.MunicipalityId,
                 AskingPrice = (double)dto.AskingPrice,
                 LivingArea = dto.LivingArea,
-                SupplementaryArea = dto.SupplementaryArea ?? 0 ,
+
+                SupplementaryArea = dto.SupplementaryArea ?? 0,
                 PlotArea = dto.PlotArea,
                 Description = dto.Description,
                 NumberOfRooms = dto.NumberOfRooms,
-                MonthlyFee = dto.MonthlyFee,
+                MonthlyFee = (double)dto.MonthlyFee,
                 YearlyOperatingCost = (double)dto.YearlyOperatingCost,
                 YearBuilt = dto.YearBuilt,
                 TypeOfProperty = dto.TypeOfProperty,
-                ImageUrls = dto.ImageUrls?.Select(url => new PropertyImage { ImageUrl = url }).ToList()
+                ImageUrls = dto.ImageUrls
+
             };
 
-            // Testar med apiService ist Jona
-            //await this.apiService.Post<PropertyForSale>("api/propertyForSale", propertyForSale);
-            await this.apiService.Post<CreatePropertyForSaleDTO>("api/propertyForSale", dto);
+            // JN: Removed ApiService usage -> Don't know if it works (but this way we can comment-out ApiService entirely)
+            await this.httpClient.PropertyForSalePOSTAsync(dto);
             return true;
         }
-
-
-
     }
 }
