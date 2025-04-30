@@ -16,7 +16,7 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
 
         Task<bool> AddPropertyForSaleAsync(CreatePropertyForSaleDTO dto);
 
-       
+        Task<IEnumerable<PropertyForSale>> GetPropertiesByRealtor(string id);
 
 
 

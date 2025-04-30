@@ -1,0 +1,99 @@
+﻿@page "/realtor/myProperties/{RealtorId:string}"
+@inject IPropertyForSaleService propService
+
+<h3>Dina objekt</h3>
+@* 
+<div class="d-flex align-items-center">
+	<div>
+		<h3>@realEstate.Address: @realEstate.MunicipalityName</h3>
+		<p>
+			@realEstate.TypeOfProperty, byggd @realEstate.YearBuilt.
+		</p>
+		<p>
+			Beskrivning: @realEstate.Description
+		</p>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th> Pris </th>
+					<th> Hyra </th>
+					<th> Års kostnad </th>
+					<th> Bostads area </th>
+					<th> Utomhus area </th>
+					<th> Tillkommande area </th>
+					<th> Antal rum </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.AskingPrice)"></DecimalToStringSEK> </td>
+					<td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.MonthlyFee)"></DecimalToStringSEK> </td>
+					<td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.YearlyOperatingCost)"></DecimalToStringSEK> </td>
+					<td> <IntToString_m2 inputInt="@realEstate.LivingArea"></IntToString_m2> </td>
+					<td> <IntToString_m2 inputInt="@realEstate.PlotArea"></IntToString_m2> </td>
+					<td> <IntToString_m2 inputInt="@realEstate.SupplementaryArea"></IntToString_m2> </td>
+					<td> @realEstate.NumberOfRooms </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="d-flex justify-content-center align-items-center col-6">
+		@foreach (var picture in realEstate.ImageUrls)
+		{
+			<img src="@picture" />
+		}
+	</div>
+</div>
+
+
+<div>
+	<p> Mäklare: @realEstate.Realtor.FirstName @realEstate.Realtor.LastName <img src="/Pictures/@realEstate.Realtor.ProfileImageUrl" /></p>
+	<p> Mäklarbyrå: @realEstate.RealEstateAgency.AgencyName <img src="~/Pictures/@realEstate.RealEstateAgency.AgencyLogoUrl" /></p>
+</div> *@
+
+
+@code {
+	[Parameter]
+	public string RealtorId { get; set; }
+
+	IEnumerable<PropertyForSale> Properties = new List<PropertyForSale>();
+
+	private async Task LoadRealEstates()
+	{
+		var id = RealtorId;
+		var realEstates = await propService.GetPropertiesByRealtor(RealtorId);  /* apiService.Get<List<PropertyForSale>>("PropertyForSale/GetAllPropertiesIncludeAllAsync"); */
+
+		if (id == null)
+		{
+			try
+			{
+				if (realEstates != null)
+				{
+
+					Properties = realEstates.OrderByDescending(r => r.AskingPrice);
+
+                }
+
+                else
+                {
+                    Console.WriteLine($"Status code:");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fel vid hämtning av agencies: {ex.Message}");
+            }
+        }
+        else
+        {
+            //PropertiesForSale = realEstates.Where(p=>p. == id).OrderBy(prop => prop.MunicipalityName).ToList();
+            //JN: This needs a change in the overviewDTO to function -> (another nSwag build)
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadRealEstates();
+    }
+}

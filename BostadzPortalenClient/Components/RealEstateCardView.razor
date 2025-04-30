@@ -1,7 +1,6 @@
 ﻿<!--Author: Kevin-->
 @using BostadzPortalenClient.Services
 @using Newtonsoft.Json
-@inject IApiService apiService
 @inject IPropertyForSaleService propService
 
 <div class="row">
@@ -93,8 +92,10 @@
                     {
                         PropertiesForSale = realEstates.OrderByDescending(r => r.AskingPrice).Take(Amount).ToList();
                     }
-
-                    PropertiesForSale = realEstates.OrderByDescending(r => r.AskingPrice).ToList();
+                    else
+                    {
+                        PropertiesForSale = realEstates.OrderByDescending(r => r.AskingPrice).ToList();
+                    }
 
                 }
 
@@ -122,8 +123,9 @@
 
     private async Task RemoveRealEstate(int id)
     {
-        await apiService.Delete($"propertyforsale/{id}");
+        await propService.DeletePropertyForSale(id);   /* apiService.Delete($"propertyforsale/{id}"); */
         PropertiesForSale.RemoveAll(p => p.PropertyForSaleId == id);
+        StateHasChanged();
     }
 
 

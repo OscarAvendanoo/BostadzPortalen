@@ -1,4 +1,5 @@
-﻿using Blazored.LocalStorage;
+﻿using AutoMapper;
+using Blazored.LocalStorage;
 using BostadzPortalenClient.Services.Base;
 using Microsoft.AspNetCore.Components.Authorization;
 //Author: Johan Nelin
@@ -8,11 +9,14 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
     public class PropertyForSaleService: IPropertyForSaleService
     {
         private readonly IClient httpClient;
+        private readonly IMapper mapper;
+
         //private readonly ApiService apiService;
 
-        public PropertyForSaleService(IClient httpClient, ApiService apiService)
+        public PropertyForSaleService(IClient httpClient, ApiService apiService, IMapper mapper)
         {
             this.httpClient = httpClient;
+            this.mapper = mapper;
             //this.apiService = apiService; // Jona
         }
 
@@ -84,6 +88,18 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
             // JN: Removed ApiService usage -> Don't know if it works (but this way we can comment-out ApiService entirely)
             await this.httpClient.PropertyForSalePOSTAsync(dto);
             return true;
+        }
+
+        //TEST KEVIN
+
+        public async Task<IEnumerable<PropertyForSale>> GetPropertiesByRealtor(string id)
+        {
+            
+            
+            var properties = await httpClient.GetAllPropertiesIncludeAllAsync();
+            var myProps = properties.Where(p => p.RealtorId == id).ToList();
+            
+            return myProps;
         }
     }
 }
