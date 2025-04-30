@@ -8,7 +8,7 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
     public class PropertyForSaleService: IPropertyForSaleService
     {
         private readonly IClient httpClient;
-        private readonly ApiService apiService;
+        //private readonly ApiService apiService;
 
         public PropertyForSaleService(IClient httpClient, ApiService apiService)
         {
@@ -16,9 +16,9 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
             //this.apiService = apiService; // Jona
         }
 
-        public async Task<IEnumerable<PropertyForSale>> GetAllPropertiesForSaleAsync()
+        public async Task<IEnumerable<PropertyForSaleOverviewDTO>> GetAllPropertiesForSaleDTOAsync()
         {
-            var tests = await httpClient.PropertyForSaleAllAsync();
+            var tests = await httpClient.GetAllPropertyOverviewDTOAsync();
             return tests;
         }
 
@@ -81,13 +81,9 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
                 ImageUrls = dto.ImageUrls
             };
 
-            // Testar med apiService ist Jona
-            //await this.apiService.Post<PropertyForSale>("api/propertyForSale", propertyForSale);
-            await this.apiService.Post<CreatePropertyForSaleDTO>("api/propertyForSale", dto);
+            // JN: Removed ApiService usage -> Don't know if it works (but this way we can comment-out ApiService entirely)
+            await this.httpClient.PropertyForSalePOSTAsync(dto);
             return true;
         }
-
-
-
     }
 }

@@ -1,27 +1,17 @@
 ﻿@page "/properties/index"
 @* Author: Johan Nelin *@
-@using AutoMapper
 @using BostadzPortalenClient.Services
 @inject IPropertyForSaleService propService
-@inject IMapper mapper
-@* @inject ApiService apiService *@
 
 <h3>Index</h3>
-<PropertiesTable propertyList="AllProperties"></PropertiesTable>
+<PropertiesTable propertyList="allProperties"></PropertiesTable>
 
 
 @code {
-    private IEnumerable<PropertyForSaleOverviewDTO> AllProperties { get; set; }
+    private IEnumerable<PropertyForSaleOverviewDTO> allProperties { get; set; }
 
     protected override async Task OnInitializedAsync() 
     {
-        Console.WriteLine("call");
-        var allProperties = await propService.GetAllPropertiesForSaleAsync();    /* apiService.Get<List<PropertyForSaleOverviewDTO>>("PropertyForSale/GetAllPropertyOverviewDTOAsync"); */
-
-        AllProperties = mapper.Map<IEnumerable<PropertyForSaleOverviewDTO>>(allProperties);
-
-
-        // AllProperties = allProperties;
-        Console.WriteLine("response");
+        allProperties = await propService.GetAllPropertiesForSaleDTOAsync();
     }
 }
