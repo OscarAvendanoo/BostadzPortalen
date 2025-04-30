@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BostadzPortalenWebAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250429235722_jn-4")]
-    partial class jn4
+    [Migration("20250430162020_jn-5")]
+    partial class jn5
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -207,7 +207,7 @@ namespace BostadzPortalenWebAPI.Migrations
                             Address = "Wanker Street 69",
                             AskingPrice = 500000m,
                             Description = "It's a place to live",
-                            ImageUrls = "[\"~/Pictures/image1.jpg\",\"~/Pictures/image2.jpg\"]",
+                            ImageUrls = "[\"~/api/Pictures/image1.jpg\",\"~/api/Pictures/image2.jpg\"]",
                             LivingArea = 24,
                             MonthlyFee = 5000m,
                             MunicipalityId = 1,
@@ -225,7 +225,7 @@ namespace BostadzPortalenWebAPI.Migrations
                             Address = "Kungsgatan 4",
                             AskingPrice = 1000000m,
                             Description = "Fin utsikt",
-                            ImageUrls = "[\"~/Pictures/image3.jpg\",\"~/Pictures/image4.jpg\"]",
+                            ImageUrls = "[\"~/api/Pictures/image3.jpg\",\"~/api/Pictures/image4.jpg\"]",
                             LivingArea = 24,
                             MonthlyFee = 10000m,
                             MunicipalityId = 2,
@@ -243,7 +243,7 @@ namespace BostadzPortalenWebAPI.Migrations
                             Address = "Kungsgatan 16",
                             AskingPrice = 7000000m,
                             Description = "Bättre än kungsgatan 4",
-                            ImageUrls = "[\"~/Pictures/image5.jpg\",\"~/Pictures/image6.jpg\"]",
+                            ImageUrls = "[\"~/api/Pictures/image5.jpg\",\"~/api/Pictures/image6.jpg\"]",
                             LivingArea = 64,
                             MonthlyFee = 10000m,
                             MunicipalityId = 2,
@@ -509,7 +509,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92d637e6-6a8d-421e-a118-7a29d0edc1e7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "556fdb6a-ea7e-4dfc-9f1d-a0dea302649f",
+                            ConcurrencyStamp = "82eb8030-d8f4-46ab-b0bf-00185d5fb598",
                             Email = "admin@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -517,10 +517,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@DEMOAPI.COM",
                             NormalizedUserName = "ADMIN@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIyXLY4QkBqrtChtZqpe+qKVm1/rTlC63uAseySJUozBigsGxLpUz93o0a6QYYezHQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAc70M4x3y77QSnEc6KVIMQjJD4SYoEZ5z1benantBycwoSoYxzgeOhu4MGuy7FW2g==",
                             PhoneNumber = "0722661920",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a13e85a0-06fb-4ebc-b6df-079c8b82e07a",
+                            SecurityStamp = "33e20125-868b-437f-9e2a-4c827a0575b0",
                             TwoFactorEnabled = false,
                             UserName = "admin@demoapi.com",
                             AgencyId = 1,
@@ -530,7 +530,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92b88e50-795f-4df6-90e0-8a7d9a179cb0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "cd277ce4-34c4-4098-8204-dff9e1309e9a",
+                            ConcurrencyStamp = "c7db965f-6bec-4fda-baa4-339d42f7ff4a",
                             Email = "user@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -538,10 +538,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@DEMOAPI.COM",
                             NormalizedUserName = "USER@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFLEKpU7JLjgzers1Mfk2BZ1/Gj0J4/LpgIAgS4KsSSdGFNgHoDu2X62KlbbDHxRZQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDM5VD/KVSKLksU3ZrC5m4BDWHWT4xWvWrPO+6M0CJtCodth3Tzp0KO4geYw5R9QDg==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b9601e9c-90d6-459b-abf0-59409d38bf46",
+                            SecurityStamp = "023de4e3-0a1a-4e0d-a981-15649e815cb7",
                             TwoFactorEnabled = false,
                             UserName = "user@demoapi.com",
                             AgencyId = 1,
@@ -551,7 +551,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "87efc5ac-77d8-4729-b3d6-3309dc88e88d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5dedaad9-2f53-478b-8197-e306645e53c6",
+                            ConcurrencyStamp = "c224b729-8062-4bbe-8f63-c3e7cc4da00c",
                             Email = "realtor@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -559,10 +559,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "REALTOR@DEMOAPI.COM",
                             NormalizedUserName = "REALTOR@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEETwdLwuGKX4iRMq2TmbtTrBz8ZqjgPZWNIr4ErD1I7kRMwrJ3K76zi0MOpfBQgqrA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEL87EmIBCRbHOsT0qvbNg/9MNm09Vja3Peood/GldOu7o0XusLZEzuRP/BoOvyO2cw==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8db780df-ac97-425f-91eb-13fd3a9b9770",
+                            SecurityStamp = "8c842b2f-fab8-4d76-bff6-d1f7f6dac1a9",
                             TwoFactorEnabled = false,
                             UserName = "realtor@demoapi.com",
                             AgencyId = 2,
