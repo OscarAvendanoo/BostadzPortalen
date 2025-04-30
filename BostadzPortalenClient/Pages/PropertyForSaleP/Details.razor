@@ -1,18 +1,21 @@
 ﻿@page "/properties/details/{Id:int}"
 @* Author: Johan Nelin *@
+@using AutoMapper
 @using BostadzPortalenClient.Services
 @using BostadzPortalenClient.Pages.PropertyForSaleP
-@inject ApiService apiService
+@inject IPropertyForSaleService propService
+@inject IMapper mapper
+@* @inject ApiService apiService *@
 
 
 <div class="d-flex align-items-center">
 	<div>
-		<h3>@realEstate.Address: @realEstate.MunicipalityName</h3>
+		<h3>@RealEstate.Address: @RealEstate.MunicipalityName</h3>
 		<p>
-			@realEstate.TypeOfProperty, byggd @realEstate.YearBuilt.
+			@RealEstate.TypeOfProperty, byggd @RealEstate.YearBuilt.
 		</p>
 		<p>
-			Beskrivning: @realEstate.Description
+			Beskrivning: @RealEstate.Description
 		</p>
 
 		<table class="table">
@@ -29,19 +32,19 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.AskingPrice)"></DecimalToStringSEK> </td>
-					<td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.MonthlyFee)"></DecimalToStringSEK> </td>
-					<td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.YearlyOperatingCost)"></DecimalToStringSEK> </td>
-					<td> <IntToString_m2 inputInt="@realEstate.LivingArea"></IntToString_m2> </td>
-					<td> <IntToString_m2 inputInt="@realEstate.PlotArea"></IntToString_m2> </td>
-					<td> <IntToString_m2 inputInt="@realEstate.SupplementaryArea"></IntToString_m2> </td>
-					<td> @realEstate.NumberOfRooms </td>
+					<td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(RealEstate.AskingPrice)"></DecimalToStringSEK> </td>
+					<td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(RealEstate.MonthlyFee)"></DecimalToStringSEK> </td>
+					<td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(RealEstate.YearlyOperatingCost)"></DecimalToStringSEK> </td>
+					<td> <IntToString_m2 inputInt="@RealEstate.LivingArea"></IntToString_m2> </td>
+					<td> <IntToString_m2 inputInt="@RealEstate.PlotArea"></IntToString_m2> </td>
+					<td> <IntToString_m2 inputInt="@RealEstate.SupplementaryArea"></IntToString_m2> </td>
+					<td> @RealEstate.NumberOfRooms </td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 	<div class="d-flex justify-content-center align-items-center col-6">
-		@foreach (var picture in @realEstate.ImageUrls)
+		@foreach (var picture in RealEstate.ImageUrls)
 		{
 			<img src="@picture" />
 		}
@@ -50,15 +53,19 @@
 
 
 <div>
-	<p> Mäklare: @realEstate.Realtor.FirstName @realEstate.Realtor.LastName <img src="/Pictures/@realEstate.Realtor.ProfileImageUrl" /></p>
-	<p> Mäklarbyrå: @realEstate.RealEstateAgency.AgencyName <img src="~/Pictures/@realEstate.RealEstateAgency.AgencyLogoUrl" /></p>
+	<p> Mäklare: @RealEstate.Realtor.FirstName @RealEstate.Realtor.LastName <img src="/Pictures/@RealEstate.Realtor.ProfileImageUrl" /></p>
+	<p> Mäklarbyrå: @RealEstate.RealEstateAgency.AgencyName <img src="~/Pictures/@RealEstate.RealEstateAgency.AgencyLogoUrl" /></p>
 </div>
 
 @code {
 	[Parameter] public int Id { get; set; }
-	private PropertyForSaleDetailsDTO realEstate { get; set; }
+	private PropertyForSaleDetailsDTO RealEstate { get; set; }
 	protected override async Task OnInitializedAsync()
 	{
-		realEstate = await apiService.Get<PropertyForSaleDetailsDTO>($"PropertyForSale/GetPropertyByIdDetailsDTOAsync/{Id}");
+
+
+		var realEstate = await propService.GetPropertyIncludeAllAsync(Id); /* apiService.Get<PropertyForSaleDetailsDTO>($"PropertyForSale/GetPropertyByIdDetailsDTOAsync/{Id}"); */
+
+		RealEstate = mapper.Map<PropertyForSaleDetailsDTO>(realEstate);
 	}
 }
