@@ -13,10 +13,10 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
         public PropertyForSaleService(IClient httpClient, ApiService apiService)
         {
             this.httpClient = httpClient;
-            this.apiService = apiService; // Jona
+            //this.apiService = apiService; // Jona
         }
 
-        public async Task<ICollection<PropertyForSale>> GetAllPropertiesForSaleAsync()
+        public async Task<IEnumerable<PropertyForSale>> GetAllPropertiesForSaleAsync()
         {
             var tests = await httpClient.PropertyForSaleAllAsync();
             return tests;

@@ -1,5 +1,7 @@
 ﻿@using BostadzPortalenClient.Services
-@inject ApiService apiService
+@using BostadzPortalenClient.Services.Base.AgencyService
+@* @inject ApiService apiService *@
+@inject IAgencyService agencyService
 
 <label class="form-label">Sök efter mäklarbyrå</label>
 <select class="form-select" @onchange="OnAgencySelected">
@@ -11,7 +13,7 @@
 </select>
 
 @code {
-    private List<RealEstateAgency> realEstateAgencies = new();
+    private IEnumerable<RealEstateAgency> realEstateAgencies = new List<RealEstateAgency>();
 
     [Parameter]
     public EventCallback<int?> OnSelectedAgencyChanged { get; set; }
@@ -25,8 +27,8 @@
     {
         try
         {
-            var agencies = await apiService.Get<List<RealEstateAgency>>("RealEstateAgency");
-            realEstateAgencies = agencies ?? new List<RealEstateAgency>();
+            var agencies = await agencyService.GetAllAgenciesAsync();/* apiService.Get<List<RealEstateAgency>>("RealEstateAgency"); */
+            realEstateAgencies = agencies;
         }
         catch (Exception ex)
         {

@@ -43,6 +43,6 @@ else
 
 
 @code {
-    [Parameter] public List<PropertyForSaleOverviewDTO> propertyList { get; set; }
+    [Parameter] public IEnumerable<PropertyForSaleOverviewDTO> propertyList { get; set; }
     private void NavigateToDetails(int id) => Navigation.NavigateTo($"/properties/details/{id}");
 }
