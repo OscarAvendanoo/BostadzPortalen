@@ -64,7 +64,7 @@
 	{
 
 
-		var realEstate = await propService.GetPropertyIncludeAllAsync(Id); /* apiService.Get<PropertyForSaleDetailsDTO>($"PropertyForSale/GetPropertyByIdDetailsDTOAsync/{Id}"); */
+		var realEstate = await propService.GetPropertyDetailsDTOByIdAsync(Id); /* apiService.Get<PropertyForSaleDetailsDTO>($"PropertyForSale/GetPropertyByIdDetailsDTOAsync/{Id}"); */
 
 		RealEstate = mapper.Map<PropertyForSaleDetailsDTO>(realEstate);
 	}

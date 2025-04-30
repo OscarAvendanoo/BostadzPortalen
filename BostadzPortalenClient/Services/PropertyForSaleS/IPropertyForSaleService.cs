@@ -6,7 +6,7 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
     public interface IPropertyForSaleService
     {
         Task<IEnumerable<PropertyForSale>> GetAllPropertiesForSaleAsync();
-        Task<PropertyForSale> GetPropertyIncludeAllAsync(int id);
+        Task<PropertyForSaleDetailsDTO> GetPropertyDetailsDTOByIdAsync(int id);
         Task DeletePropertyForSale(int id);
 
 

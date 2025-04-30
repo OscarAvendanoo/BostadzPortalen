@@ -37,10 +37,10 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
             
         }
 
-        public async Task<PropertyForSale> GetPropertyIncludeAllAsync(int id)
+        public async Task<PropertyForSaleDetailsDTO> GetPropertyDetailsDTOByIdAsync(int id)
         {
-            var properties = await httpClient.GetAllPropertiesIncludeAllAsync();
-            var property = properties.Where(p => p.PropertyForSaleId == id).FirstOrDefault();
+
+            var property = await httpClient.GetPropertyByIdDetailsDTOAsync(id);
             return property;
         }
 
