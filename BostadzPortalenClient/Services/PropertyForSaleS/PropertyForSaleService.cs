@@ -1,6 +1,5 @@
 ﻿using Blazored.LocalStorage;
 using BostadzPortalenClient.Services.Base;
-using BostadzPortalenClient.DTO;
 using Microsoft.AspNetCore.Components.Authorization;
 //Author: Johan Nelin
 
@@ -64,15 +63,15 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
                 MunicipalityId = dto.MunicipalityId,
                 AskingPrice = (double)dto.AskingPrice,
                 LivingArea = dto.LivingArea,
-                SupplementaryArea = dto.SupplementaryArea,
+                SupplementaryArea = dto.SupplementaryArea ?? 0 ,
                 PlotArea = dto.PlotArea,
                 Description = dto.Description,
                 NumberOfRooms = dto.NumberOfRooms,
-                MonthlyFee = (double?)dto.MonthlyFee,
+                MonthlyFee = dto.MonthlyFee,
                 YearlyOperatingCost = (double)dto.YearlyOperatingCost,
                 YearBuilt = dto.YearBuilt,
                 TypeOfProperty = dto.TypeOfProperty,
-                Images = dto.ImageUrls?.Select(url => new PropertyImage { ImageUrl = url }).ToList()
+                ImageUrls = dto.ImageUrls?.Select(url => new PropertyImage { ImageUrl = url }).ToList()
             };
 
             // Testar med apiService ist Jona
