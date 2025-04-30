@@ -70,6 +70,7 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
                 MunicipalityId = dto.MunicipalityId,
                 AskingPrice = (double)dto.AskingPrice,
                 LivingArea = dto.LivingArea,
+
                 SupplementaryArea = dto.SupplementaryArea ?? 0,
                 PlotArea = dto.PlotArea,
                 Description = dto.Description,
@@ -79,6 +80,7 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
                 YearBuilt = dto.YearBuilt,
                 TypeOfProperty = dto.TypeOfProperty,
                 ImageUrls = dto.ImageUrls
+
             };
 
             // JN: Removed ApiService usage -> Don't know if it works (but this way we can comment-out ApiService entirely)

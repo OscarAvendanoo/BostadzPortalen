@@ -5,6 +5,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BostadzPortalenClient.Services.Base
 {
+    // Author: Oscar 
     public class SearchResultService : BaseHttpService, ISearchResultService
     {
         private readonly IClient client;
