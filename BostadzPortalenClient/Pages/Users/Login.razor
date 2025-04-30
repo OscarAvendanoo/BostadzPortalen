@@ -46,7 +46,7 @@
             var response = await authService.AuthenticateAsync(LoginModel);
             if (response)
             {
-                navManager.NavigateTo("/home");
+                navManager.NavigateTo("/");
             }
             message = "Invalid Credentials, Try again!";
 

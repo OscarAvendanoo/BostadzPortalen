@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using BostadzPortalenClient.Services;
+using BostadzPortalenClient.Services.Base.AgencyService;
 
 
 
@@ -21,12 +22,12 @@ namespace BostadzPortalenClient
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7291/") }); 
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7291/") });
             //Tog bort /api/ då jag fick den dubbelt i clienten
             //JN: Kom inte in i API-metoden (GetAll PropertyForSale) -> lade till /api/ -> kom in i metoden (kraschade fortfarande)
             //JN: Använde mig av ApiService med endpoint-string -> ???
 
-
+            builder.Services.AddAutoMapper(typeof(Program));
 
             builder.Services.AddScoped<ApiService>();
 
@@ -46,8 +47,8 @@ namespace BostadzPortalenClient
             builder.Services.AddScoped<ISearchResultService, SearchResultService>();
 
             builder.Services.AddScoped<IPropertyForSaleService, PropertyForSaleService>();
+            builder.Services.AddScoped<IAgencyService, AgencyService>();
 
-            
 
 
             await builder.Build().RunAsync();

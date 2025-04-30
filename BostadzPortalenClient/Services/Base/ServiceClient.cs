@@ -3151,13 +3151,13 @@ namespace BostadzPortalenClient.Services.Base
     public enum TypeOfPropertyEnum
     {
 
-        _0 = 0,
+        Bostadsrättslägenhet = 0,
 
-        _1 = 1,
+        Bostadsrättsradhus = 1,
 
-        _2 = 2,
+        Villa = 2,
 
-        _3 = 3,
+        Fritidshus = 3,
 
     }
 
