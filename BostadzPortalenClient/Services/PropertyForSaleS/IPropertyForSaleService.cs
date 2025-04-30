@@ -1,6 +1,5 @@
 ﻿using BostadzPortalenClient.Services.Base;
 
-using BostadzPortalenClient.DTO;
 
 namespace BostadzPortalenClient.Services.PropertyForSaleS
 {
