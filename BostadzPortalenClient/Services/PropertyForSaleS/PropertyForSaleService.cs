@@ -51,7 +51,8 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
 
         public async Task<PropertyForSale> GetPropertyAsync(int id)
         {
-            var property = await httpClient.PropertyForSaleGETAsync(id);
+            var properties = await httpClient.GetAllPropertiesIncludeAllAsync();
+            var property = properties.Where(p => p.PropertyForSaleId == id).FirstOrDefault();
             return property;
         }
 
