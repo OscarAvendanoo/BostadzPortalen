@@ -1,66 +1,130 @@
-﻿@using BostadzPortalenClient.Pages.PropertyForSaleP
+﻿
 @inject PropertyForSaleService propService
+@inject IMapper mapper
+@inject NavigationManager navManager
+@attribute [Authorize(Roles="Admin,Realtor")]
 
-<div class="d-flex align-items-center">
-    <div>
-        <h3>@realEstate.Address: @realEstate.Municipality.Name</h3>
-        <p>
-            @realEstate.TypeOfProperty, byggd @realEstate.YearBuilt.
-        </p>
-        <p>
-            Beskrivning: @realEstate.Description
-        </p>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th> Pris </th>
-                    <th> Hyra </th>
-                    <th> Års kostnad </th>
-                    <th> Bostads area </th>
-                    <th> Utomhus area </th>
-                    <th> Tillkommande area </th>
-                    <th> Antal rum </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.AskingPrice)"></DecimalToStringSEK> </td>
-                    <td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.MonthlyFee)"></DecimalToStringSEK> </td>
-                    <td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.YearlyOperatingCost)"></DecimalToStringSEK> </td>
-                    <td> <IntToString_m2 inputInt="@realEstate.LivingArea"></IntToString_m2> </td>
-                    <td> <IntToString_m2 inputInt="@realEstate.PlotArea"></IntToString_m2> </td>
-                    <td> <IntToString_m2 inputInt="@realEstate.SupplementaryArea"></IntToString_m2> </td>
-                    <td> @realEstate.NumberOfRooms </td>
-                </tr>
-            </tbody>
-        </table>
+<EditForm Model="@realEstate" OnValidSubmit="SaveChanges">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="d-flex align-items-start flex-wrap">
+
+        <div class="col-6">
+
+            <div class="form-group">
+                <label>Adress</label>
+                <InputText @bind-Value="realEstate.Address" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Kommun</label>
+                <InputText @bind-Value="realEstate.MunicipalityName" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Typ av bostad</label>
+                <InputNumber @bind-Value="realEstate.TypeOfProperty" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Byggår</label>
+                <InputNumber @bind-Value="realEstate.YearBuilt" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label>Beskrivning</label>
+                <InputTextArea @bind-Value="realEstate.Description" class="form-control" />
+            </div>
+
+            <table class="table mt-3">
+                <thead>
+                    <tr>
+                        <th>Pris</th>
+                        <th>Hyra</th>
+                        <th>Års kostnad</th>
+                        <th>Bostadsarea</th>
+                        <th>Utomhusarea</th>
+                        <th>Tillkommande area</th>
+                        <th>Antal rum</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <InputNumber @bind-Value="realEstate.AskingPrice" class="form-control" />
+                        </td>
+                        <td>
+                            <InputNumber @bind-Value="realEstate.MonthlyFee" class="form-control" />
+                        </td>
+                        <td>
+                            <InputNumber @bind-Value="realEstate.YearlyOperatingCost" class="form-control" />
+                        </td>
+                        <td>
+                            <InputNumber @bind-Value="realEstate.LivingArea" class="form-control" />
+                        </td>
+                        <td>
+                            <InputNumber @bind-Value="realEstate.PlotArea" class="form-control" />
+                        </td>
+                        <td>
+                            <InputNumber @bind-Value="realEstate.SupplementaryArea" class="form-control" />
+                        </td>
+                        <td>
+                            <InputNumber @bind-Value="realEstate.NumberOfRooms" class="form-control" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-center align-items-center col-6">
+            @foreach (var picture in realEstate.ImageUrls)
+            {
+                <img src="@picture" class="img-thumbnail m-1" style="max-width: 150px;" />
+            }
+        </div>
+
     </div>
-    <div class="d-flex justify-content-center align-items-center col-6">
-        @foreach (var picture in realEstate.ImageUrls)
-        {
-            <img src="@picture" />
-        }
+
+    <div class="mt-4">
+        <div class="form-group">
+            <label>Mäklare</label>
+            <InputText @bind-Value="realEstate.Realtor.FirstName" class="form-control mb-2" placeholder="Förnamn" />
+            <InputText @bind-Value="realEstate.Realtor.LastName" class="form-control mb-2" placeholder="Efternamn" />
+            <img src="/Pictures/@realEstate.Realtor.ProfileImageUrl" class="img-thumbnail" style="max-width: 100px;" />
+        </div>
+
+        <div class="form-group mt-3">
+            <label>Mäklarbyrå</label>
+            <InputText @bind-Value="realEstate.RealEstateAgency.AgencyName" class="form-control mb-2" />
+            <img src="/Pictures/@realEstate.RealEstateAgency.AgencyLogoUrl" class="img-thumbnail" style="max-width: 100px;" />
+        </div>
     </div>
-</div>
+
+    <button type="submit" class="btn btn-primary mt-3">Spara ändringar</button>
+
+</EditForm>
 
 
-<div>
-    <p> Mäklare: @realEstate.Realtor.FirstName @realEstate.Realtor.LastName <img src="/Pictures/@realEstate.Realtor.ProfileImageUrl" /></p>
-    <p> Mäklarbyrå: @realEstate.Realtor.Agency.AgencyName <img src="~/Pictures/@realEstate.Realtor.Agency.AgencyLogoUrl" /></p>
-</div>
 
 @code {
     [Parameter]
     public int Id { get; set; }
 
-    private PropertyForSale realEstate { get; set; }
+    private PropertyForSaleDetailsDTO realEstate { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        realEstate = await propService.GetPropertyAsync(Id);
+        realEstate = await propService.GetPropertyDetailsDTOByIdAsync(Id);
     }
-    
 
+    private async Task SaveChanges()
+    {
+        var estate = mapper.Map<PropertyForSale>(realEstate);
+        await propService.UpdatePropertyAsync(Id, estate);
+        navManager.NavigateTo("/PropertiesTable");
+    }
 
 }
