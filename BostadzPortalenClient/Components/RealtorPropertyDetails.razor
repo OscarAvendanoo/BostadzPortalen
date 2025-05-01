@@ -2,7 +2,7 @@
 @inject PropertyForSaleService propService
 @inject IMapper mapper
 @inject NavigationManager navManager
-@attribute [Authorize(Roles="Admin,Realtor")]
+@* @attribute [Authorize(Roles="Admin, Realtor")] *@
 
 
 <EditForm Model="@realEstate" OnValidSubmit="SaveChanges">

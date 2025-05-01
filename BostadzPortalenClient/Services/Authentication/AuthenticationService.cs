@@ -1,9 +1,11 @@
 ﻿
 using Blazored.LocalStorage;
+using BostadzPortalenClient.Models;
 using BostadzPortalenClient.Providers;
 using BostadzPortalenClient.Services.Base;
 
 using Microsoft.AspNetCore.Components.Authorization;
+using Newtonsoft.Json;
 
 
 
@@ -24,7 +26,23 @@ namespace BostadzPortalenClient.Services.Authentication
         }
         public async Task<bool> AuthenticateAsync(LoginRealtorDto realtorDto)
         {
+            //try
+            //{
+            //    localStorage.SetItemAsync("testKey", "testValue");
+            //    await localStorage.RemoveItemAsync("testKey");
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    Console.WriteLine($"Error med local Storage: {ex.Message}");
+            //}
             var response = await httpClient.LoginAsync(realtorDto);
+
+            //await localStorage.SetItemAsync("testKey", "testValue");
+            //var retrievedValue = await localStorage.GetItemAsync<string>("testKey");
+            //Console.WriteLine($"Läst värde: {retrievedValue}");
+
+            //await localStorage.ClearAsync();
 
             await localStorage.SetItemAsync("accessToken", response.Token);
 

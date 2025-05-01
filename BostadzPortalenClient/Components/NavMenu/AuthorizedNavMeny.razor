@@ -52,13 +52,13 @@
     }
 
 
-    protected override async Task OnInitializedAsync()
-    {
-        var authState = await authenticationStateProvider.GetAuthenticationStateAsync();
-        user = authState.User;
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     var authState = await authenticationStateProvider.GetAuthenticationStateAsync();
+    //     user = authState.User;
 
-        userName = user?.FindFirst("FirstName")?.Value;
-    }
+    //     userName = user?.FindFirst("FirstName")?.Value;
+    // }
 }
 
 

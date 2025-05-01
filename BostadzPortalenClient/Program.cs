@@ -32,6 +32,7 @@ namespace BostadzPortalenClient
             builder.Services.AddBlazoredLocalStorage();
 
             builder.Services.AddScoped<ApiAuthenticationStateProvider>();
+
             builder.Services.AddScoped<AuthenticationStateProvider>(p =>
             p.GetRequiredService<ApiAuthenticationStateProvider>());
             builder.Services.AddAuthorizationCore();
