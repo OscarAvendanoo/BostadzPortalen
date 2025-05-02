@@ -3,6 +3,7 @@ using BostadzPortalenWebAPI.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 
 namespace BostadzPortalenWebAPI.Data
@@ -23,7 +24,7 @@ namespace BostadzPortalenWebAPI.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-
+          
             builder = Seeding.IdentityRolesBuilder(builder);
             builder = Seeding.RealEstateAgencyBuilder(builder);
             builder = Seeding.RealtorBuilder(builder);
@@ -32,6 +33,10 @@ namespace BostadzPortalenWebAPI.Data
             builder = Seeding.PropertyForSaleBuilder(builder);
             builder = Seeding.SeedPropertyImages(builder);
 
+            builder.Entity<PropertyImage>()
+            .HasOne(pi => pi.PropertyForSale)
+            .WithMany(p => p.ImageUrls)
+            .HasForeignKey(pi => pi.PropertyForSaleId);
         }
     }
 }
