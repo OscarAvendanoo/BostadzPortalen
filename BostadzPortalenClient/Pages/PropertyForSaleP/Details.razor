@@ -1,4 +1,6 @@
 ﻿@page "/properties/details/{Id:int}"
+@using BostadzPortalenClient.Components
+@using Microsoft.AspNetCore.Components.Authorization
 @* Author: Johan Nelin *@
 @inject IPropertyForSaleService propService
 @inject AuthenticationStateProvider AuthenticationStateProvider
@@ -9,7 +11,8 @@
 }
 else if (authState.User.Identity.IsAuthenticated)
 {
-    <RealtorPropertyDetails Id="Id"></RealtorPropertyDetails>
+    <p>Hejsan</p>
+    @* <RealtorPropertyDetails Id="Id"></RealtorPropertyDetails> *@
 }
 else
 {
