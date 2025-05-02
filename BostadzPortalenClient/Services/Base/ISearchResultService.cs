@@ -1,5 +1,5 @@
 ﻿using BostadzPortalenClient.Models;
-using static BostadzPortalenClient.DTO.PropertyForSaleDTO;
+
 
 namespace BostadzPortalenClient.Services.Base
 {
