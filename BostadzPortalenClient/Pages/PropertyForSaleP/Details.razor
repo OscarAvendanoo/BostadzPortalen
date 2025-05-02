@@ -3,61 +3,69 @@
 @inject IPropertyForSaleService propService
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
-<AuthorizeView>
-    <Authorized>
-        <RealtorPropertyDetails Id="Id"></RealtorPropertyDetails>
-    </Authorized>
-    <NotAuthorized>
-        <div class="d-flex align-items-center">
-            <div>
-                <h3>@realEstate.Address: @realEstate.MunicipalityName</h3>
-                <p>
-                    @realEstate.TypeOfProperty, byggd @realEstate.YearBuilt.
-                </p>
-                <p>
-                    Beskrivning: @realEstate.Description
-                </p>
-
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th> Pris </th>
-                            <th> Hyra </th>
-                            <th> Års kostnad </th>
-                            <th> Bostads area </th>
-                            <th> Utomhus area </th>
-                            <th> Tillkommande area </th>
-                            <th> Antal rum </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.AskingPrice)"></DecimalToStringSEK> </td>
-                            <td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.MonthlyFee)"></DecimalToStringSEK> </td>
-                            <td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.YearlyOperatingCost)"></DecimalToStringSEK> </td>
-                            <td> <IntToString_m2 inputInt="@realEstate.LivingArea"></IntToString_m2> </td>
-                            <td> <IntToString_m2 inputInt="@realEstate.PlotArea"></IntToString_m2> </td>
-                            <td> <IntToString_m2 inputInt="@realEstate.SupplementaryArea"></IntToString_m2> </td>
-                            <td> @realEstate.NumberOfRooms </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="d-flex justify-content-center align-items-center col-6">
-                @foreach (var picture in realEstate.ImageUrls)
-                {
-                    <img src="@picture" />
-                }
-            </div>
-        </div>
-
-
+@if (authState is null)
+{
+    <p>Laddar...</p>
+}
+else if (authState.User.Identity.IsAuthenticated)
+{
+    <RealtorPropertyDetails Id="Id"></RealtorPropertyDetails>
+}
+else
+{
+    <div class="d-flex align-items-center">
         <div>
-            <p> Mäklare: @realEstate.Realtor.FirstName @realEstate.Realtor.LastName <img src="/Pictures/@realEstate.Realtor.ProfileImageUrl" /></p>
-            <p> Mäklarbyrå: @realEstate.RealEstateAgency.AgencyName <img src="~/Pictures/@realEstate.RealEstateAgency.AgencyLogoUrl" /></p>
+            <h3>@realEstate.Address: @realEstate.MunicipalityName</h3>
+            <p>
+                @realEstate.TypeOfProperty, byggd @realEstate.YearBuilt.
+            </p>
+            <p>
+                Beskrivning: @realEstate.Description
+            </p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th> Pris </th>
+                        <th> Hyra </th>
+                        <th> Års kostnad </th>
+                        <th> Bostads area </th>
+                        <th> Utomhus area </th>
+                        <th> Tillkommande area </th>
+                        <th> Antal rum </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.AskingPrice)"></DecimalToStringSEK> </td>
+                        <td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.MonthlyFee)"></DecimalToStringSEK> </td>
+                        <td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.YearlyOperatingCost)"></DecimalToStringSEK> </td>
+                        <td> <IntToString_m2 inputInt="@realEstate.LivingArea"></IntToString_m2> </td>
+                        <td> <IntToString_m2 inputInt="@realEstate.PlotArea"></IntToString_m2> </td>
+                        <td> <IntToString_m2 inputInt="@realEstate.SupplementaryArea"></IntToString_m2> </td>
+                        <td> @realEstate.NumberOfRooms </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </NotAuthorized>
-</AuthorizeView>
+        <div class="d-flex justify-content-center align-items-center col-6">
+            @foreach (var picture in realEstate.ImageUrls)
+            {
+                <img src="@picture" />
+            }
+        </div>
+    </div>
+
+
+    <div>
+        <p> Mäklare: @realEstate.Realtor.FirstName @realEstate.Realtor.LastName <img src="/Pictures/@realEstate.Realtor.ProfileImageUrl" /></p>
+        <p> Mäklarbyrå: @realEstate.RealEstateAgency.AgencyName <img src="~/Pictures/@realEstate.RealEstateAgency.AgencyLogoUrl" /></p>
+    </div>
+
+}
+
+
+
 
 
 
@@ -68,16 +76,18 @@
     [Parameter] public int Id { get; set; }
     private PropertyForSaleDetailsDTO realEstate { get; set; }
 
-    // private ClaimsPrincipal user;
+    private AuthenticationState authState;
 
     protected override async Task OnInitializedAsync()
     {
+        authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        StateHasChanged();
         realEstate = await propService.GetPropertyDetailsDTOByIdAsync(Id);
         //JN: Currently the DetailsDTO includes entire Realtor + Agency
         //JN: This will need to change to only include: (RealtorName + RealtorID + RealtorPicture) + (AgencyName + AgencyID + AgencyLogo)
         //JN: But it requires an nSwag rebuild so...
 
-        // var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        // user = authState.User;
+        
+
     }
 }

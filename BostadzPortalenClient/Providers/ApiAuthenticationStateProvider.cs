@@ -50,6 +50,7 @@ namespace BostadzPortalenClient.Providers
             var authState = new AuthenticationState(user);
             
             NotifyAuthenticationStateChanged(Task.FromResult(authState));
+
             Console.WriteLine("Användaren har loggats in");
         }
 

@@ -1,10 +1,21 @@
 ﻿@using System.Security.Claims
-
 @using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
 
 <!--Author: Kevin-->
-
-<AuthorizeView>
+@if (authState is null)
+{
+    <p>Laddar...</p>
+}
+else if (authState.User.Identity.IsAuthenticated)
+{
+    <AuthorizedNavMeny/>
+}
+else
+{
+    <NotAuthNavMeny/>
+}
+@* <AuthorizeView>
     <NotAuthorized>
         <NotAuthNavMeny>
         </NotAuthNavMeny>
@@ -14,7 +25,7 @@
         </AuthorizedNavMeny>
     </Authorized>
 
-</AuthorizeView>
+</AuthorizeView> *@
 
 
 
@@ -27,7 +38,8 @@
     private bool collapseNavMenu = true;
 
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
+    
+    private AuthenticationState? authState;
 
 
     private void ToggleNavMenu()
@@ -36,6 +48,10 @@
     }
 
 
+    protected override async Task OnInitializedAsync()
+    {
+        authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+    }
 
 
 
