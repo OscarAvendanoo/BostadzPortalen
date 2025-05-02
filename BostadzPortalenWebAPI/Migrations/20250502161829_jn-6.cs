@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BostadzPortalenWebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class jn6 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -240,7 +240,7 @@ namespace BostadzPortalenWebAPI.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PropertyForSaleId = table.Column<int>(type: "int", nullable: false)
+                    PropertyForSaleId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -249,8 +249,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         name: "FK_PropertyImages_PropertiesForSale_PropertyForSaleId",
                         column: x => x.PropertyForSaleId,
                         principalTable: "PropertiesForSale",
-                        principalColumn: "PropertyForSaleId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "PropertyForSaleId");
                 });
 
             migrationBuilder.InsertData(
@@ -286,9 +285,9 @@ namespace BostadzPortalenWebAPI.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "AgencyId", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileImageUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, 2, "b45c81aa-d788-45a6-b58d-ff300b204a93", "Realtor", "realtor@demoapi.com", true, "System", "Realtor", false, null, "REALTOR@DEMOAPI.COM", "REALTOR@DEMOAPI.COM", "AQAAAAIAAYagAAAAENrimS8n51u0Va6ezyA9KUYqkFvau+JsO9kWI2J2vtqXqyb4QZ6YGo9IGYH1c+5cQg==", "0722661922", false, "NoPicUser.png", "16b30e5d-9e99-4166-a988-41bf1cc1483e", false, "realtor@demoapi.com" },
-                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, 1, "f9e04b00-0919-4fa6-92fa-9c50400f1a0f", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEMixM2b5MELMxs9KCT4UbxXGDKQIFI6jZe6LDQW30QCs/Q8PSO2nuKOrD/EH5KxekQ==", "0722661922", false, "NoPicUser.png", "eccf9d8a-edd3-434c-83ad-9182c9edb3ac", false, "user@demoapi.com" },
-                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, 1, "af6e9852-74e3-4a67-ab8c-ab78658af7b3", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAECph8PjT1SWfPr8hDgHnnB2yuxQqopj2+OuHzvlrvQZ8MweihkBHAXIu6trgAdI4bQ==", "0722661920", false, "NoPicUser.png", "e75480b5-0e17-4585-848a-f43c1aa1dbf7", false, "admin@demoapi.com" }
+                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, 2, "5b623711-20a0-43bc-86d7-6750e27d6908", "Realtor", "realtor@demoapi.com", true, "System", "Realtor", false, null, "REALTOR@DEMOAPI.COM", "REALTOR@DEMOAPI.COM", "AQAAAAIAAYagAAAAECCcm4SCos4G/Zk8Nq6EZo7Zj6NpbnG6Af8gRxkz//tlJq/g8PcwmUGZ/olz+Tz6xA==", "0722661922", false, "NoPicUser.png", "8fd4cd67-dbd0-4253-a687-b9274d260b36", false, "realtor@demoapi.com" },
+                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, 1, "d3b926ba-5566-4717-a708-7eab60346e88", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEG8EfqlCam61lXie2Xz27mf8Cly/NTyTHGyyCnGjR7hgnuPKK46a7yBh96IQHYPN6w==", "0722661922", false, "NoPicUser.png", "6f75a2d4-6445-4830-9b4d-bf9cdcaddccd", false, "user@demoapi.com" },
+                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, 1, "bec3f0c9-734a-4ee0-93a1-f4fa2fe392e7", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEB83oXtJabzptZgJoruqbN4jI3xcqVzkZ5RYnouvNeKEBglSo33ePiC0O+1wxdelew==", "0722661920", false, "NoPicUser.png", "d548c8a3-9575-4282-8ab2-aa766d5b9528", false, "admin@demoapi.com" }
                 });
 
             migrationBuilder.InsertData(

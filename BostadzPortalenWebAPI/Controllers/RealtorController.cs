@@ -34,15 +34,35 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetRealtor(int id) //string id??
+        public async Task<ActionResult> GetRealtor(string id) //string id??
         {
-            var realtor = await realtorRepository.GetByIDAsync(id);
+            var realtor = await realtorRepository.GetRealtorByGuidAsync(id);
 
             if (realtor == null)
             {
                 return NotFound();
             }
+
             return Ok(realtor);
+        }
+        //Author: Johan Nelin
+        [HttpGet("RealtorProperties/{id}")]
+        public async Task<ActionResult<List<PropertyForSaleOverviewDTO>>> GetPropertyOverviewDTOFromRealtorId(string id)
+        {
+            var realtor = await realtorRepository.GetRealtorByGuidAsync(id);
+
+            var allDTOs = new List<PropertyForSaleOverviewDTO>();
+            if (realtor == null || realtor.Properties == null)
+            {
+                return NotFound();
+            }
+
+            foreach (var property in realtor.Properties)
+            {
+                allDTOs.Add(mapper.Map<PropertyForSaleOverviewDTO>(property));
+            }
+
+            return Ok(allDTOs);
         }
 
         [HttpPut("{id}")]
