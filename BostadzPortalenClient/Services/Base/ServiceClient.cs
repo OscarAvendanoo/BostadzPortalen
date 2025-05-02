@@ -2904,7 +2904,7 @@ namespace BostadzPortalenClient.Services.Base
         public int YearBuilt { get; set; }
 
         [Newtonsoft.Json.JsonProperty("imageUrls", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ImageUrls { get; set; }
+        public System.Collections.Generic.ICollection<PropertyImage> ImageUrls { get; set; }
 
         [Newtonsoft.Json.JsonProperty("realtorId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RealtorId { get; set; }
@@ -3014,6 +3014,17 @@ namespace BostadzPortalenClient.Services.Base
 
         [Newtonsoft.Json.JsonProperty("typeOfProperty", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.3.0.0 (NJsonSchema v11.2.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class PropertyImage
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Id { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("imageUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ImageUrl { get; set; }
 
     }
 
@@ -3151,13 +3162,13 @@ namespace BostadzPortalenClient.Services.Base
     public enum TypeOfPropertyEnum
     {
 
-        Bostadsrättslägenhet = 0,
+        _0 = 0,
 
-        Bostadsrättsradhus = 1,
+        _1 = 1,
 
-        Villa = 2,
+        _2 = 2,
 
-        Fritidshus = 3,
+        _3 = 3,
 
     }
 

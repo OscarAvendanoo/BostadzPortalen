@@ -191,9 +191,19 @@ namespace BostadzPortalenWebAPI.Controllers
                 query = query.Where(p => p.Municipality.Name.Contains(searchRequest.MunicipalityName));
             }
 
-            var properties = await query.ToListAsync();
+            
+            try
+            {
+                var properties = await query.ToListAsync();
+                return Ok(properties);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: " + ex.Message);
+                throw;
+            }
 
-            return Ok(properties);
+           
         }
     }
 }
