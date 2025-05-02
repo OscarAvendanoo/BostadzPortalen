@@ -1,7 +1,7 @@
 ﻿@using System.Globalization
 @* Author: Johan Nelin *@
 
-<p>@inputDecimal.ToString("C00", svCulture).PadRight(10)</p>
+@inputDecimal.ToString("C00", svCulture)
 
 @code {
     [Parameter] public decimal inputDecimal { get; set; }

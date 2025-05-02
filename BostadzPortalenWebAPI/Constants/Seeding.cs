@@ -157,6 +157,7 @@ namespace BostadzPortalenWebAPI.Constants
                 );
             return builder;
         }
+
         //public static ModelBuilder PropertyForSaleBuilder(ModelBuilder builder)
         //{
             //builder.Entity<PropertyForSale>().HasData(
@@ -235,6 +236,7 @@ namespace BostadzPortalenWebAPI.Constants
             //     }
             //    );
             //return builder;
+
         }
     }
 //}

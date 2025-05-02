@@ -1,6 +1,7 @@
 ﻿<!--Author: Kevin-->
 @using BostadzPortalenClient.Services
 @using Newtonsoft.Json
+@using BostadzPortalenClient.Components.XtoString
 @inject IApiService apiService
 @inject IPropertyForSaleService propService
 
@@ -42,13 +43,13 @@
                     <li class="list-group-item">
                         <div class="model-row mb-0">
                             <span style="font-weight:bold;">Boendeyta</span>
-                            <span>@realEstate.LivingArea kvm</span>
+                            <span><IntToString_m2 inputInt="@realEstate.LivingArea"></IntToString_m2> </span>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div class="model-row mb-0 mt-3">
                             <span style="font-weight:bold; text-decoration: underline">Utgångspris</span>
-                            <span>@realEstate.AskingPrice</span>
+                            <span><DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.AskingPrice)"></DecimalToStringSEK></span>
                         </div>
                     </li>
                 </ul>
@@ -81,7 +82,7 @@
     private async Task LoadRealEstates()
     {
         var id = RealtorId;
-        var realEstates = await propService.GetAllPropertiesForSaleDTOAsync();  /* apiService.Get<List<PropertyForSale>>("PropertyForSale/GetAllPropertiesIncludeAllAsync"); */
+        var realEstates = await propService.GetAllPropertiesForSaleDTOAsync(); 
 
         if (id == null)
         {
@@ -110,7 +111,7 @@
         }
         else
         {
-            //PropertiesForSale = realEstates.Where(p=>p. == id).OrderBy(prop => prop.MunicipalityName).ToList();
+            //PropertiesForSale = realEstates.Where(p=>p.RealtorId == id).OrderBy(prop => prop.MunicipalityName).ToList();
             //JN: This needs a change in the overviewDTO to function -> (another nSwag build)
         }
     }
