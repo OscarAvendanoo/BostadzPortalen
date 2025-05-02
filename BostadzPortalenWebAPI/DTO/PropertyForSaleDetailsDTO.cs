@@ -27,7 +27,7 @@ namespace BostadzPortalenWebAPI.DTO
         public string AgencyLogo { get; set; }
 
         //Might want to add things like (access to: laundry machine / dryer / dishwasher / garage / etc)
-        public Realtor Realtor { get; set; }
+        //public Realtor Realtor { get; set; }
         //public RealEstateAgency RealEstateAgency { get; set; }
     }
 }

@@ -3071,9 +3071,6 @@ namespace BostadzPortalenClient.Services.Base
         [Newtonsoft.Json.JsonProperty("agencyLogo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AgencyLogo { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("realtor", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Realtor Realtor { get; set; }
-
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.3.0.0 (NJsonSchema v11.2.0.0 (Newtonsoft.Json v13.0.0.0))")]
