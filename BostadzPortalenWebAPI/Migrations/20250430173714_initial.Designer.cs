@@ -4,6 +4,7 @@ using BostadzPortalenWebAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BostadzPortalenWebAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250430173714_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -193,64 +196,6 @@ namespace BostadzPortalenWebAPI.Migrations
                     b.HasIndex("RealtorId");
 
                     b.ToTable("PropertiesForSale");
-
-
-                    b.HasData(
-                        new
-                        {
-                            PropertyForSaleId = 1,
-                            Address = "Wanker Street 69",
-                            AskingPrice = 500000m,
-                            Description = "It's a place to live",
-                            ImageUrls = "[\"~/api/Pictures/image1.jpg\",\"~/api/Pictures/image2.jpg\"]",
-                            LivingArea = 24,
-                            MonthlyFee = 5000m,
-                            MunicipalityId = 1,
-                            NumberOfRooms = 1,
-                            PlotArea = 8,
-                            RealtorId = "92b88e50-795f-4df6-90e0-8a7d9a179cb0",
-                            SupplementaryArea = 8,
-                            TypeOfProperty = 0,
-                            YearBuilt = 1999,
-                            YearlyOperatingCost = 1000m
-                        },
-                        new
-                        {
-                            PropertyForSaleId = 2,
-                            Address = "Kungsgatan 4",
-                            AskingPrice = 1000000m,
-                            Description = "Fin utsikt",
-                            ImageUrls = "[\"~/api/Pictures/image3.jpg\",\"~/api/Pictures/image4.jpg\"]",
-                            LivingArea = 24,
-                            MonthlyFee = 10000m,
-                            MunicipalityId = 2,
-                            NumberOfRooms = 1,
-                            PlotArea = 8,
-                            RealtorId = "87efc5ac-77d8-4729-b3d6-3309dc88e88d",
-                            SupplementaryArea = 8,
-                            TypeOfProperty = 0,
-                            YearBuilt = 1999,
-                            YearlyOperatingCost = 1000m
-                        },
-                        new
-                        {
-                            PropertyForSaleId = 3,
-                            Address = "Kungsgatan 16",
-                            AskingPrice = 7000000m,
-                            Description = "Bättre än kungsgatan 4",
-                            ImageUrls = "[\"~/api/Pictures/image5.jpg\",\"~/api/Pictures/image6.jpg\"]",
-                            LivingArea = 64,
-                            MonthlyFee = 10000m,
-                            MunicipalityId = 2,
-                            NumberOfRooms = 4,
-                            PlotArea = 8,
-                            RealtorId = "87efc5ac-77d8-4729-b3d6-3309dc88e88d",
-                            SupplementaryArea = 8,
-                            TypeOfProperty = 2,
-                            YearBuilt = 1950,
-                            YearlyOperatingCost = 1000m
-                        });
-
                 });
 
             modelBuilder.Entity("BostadzPortalenWebAPI.Models.PropertyImage", b =>
@@ -265,7 +210,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PropertyForSaleId")
+                    b.Property<int>("PropertyForSaleId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -505,9 +450,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92d637e6-6a8d-421e-a118-7a29d0edc1e7",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "ced42190-86c7-48cd-a650-75f3232ad02b",
-
+                            ConcurrencyStamp = "af6e9852-74e3-4a67-ab8c-ab78658af7b3",
                             Email = "admin@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -515,12 +458,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@DEMOAPI.COM",
                             NormalizedUserName = "ADMIN@DEMOAPI.COM",
-
-                            PasswordHash = "AQAAAAIAAYagAAAAEKvTe/COZeXgScQTuxCpIc4aLdcKGX+C8AVsJ+Ov95c0JPSZ8Fivm/073aFi4JNPiw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECph8PjT1SWfPr8hDgHnnB2yuxQqopj2+OuHzvlrvQZ8MweihkBHAXIu6trgAdI4bQ==",
                             PhoneNumber = "0722661920",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "27a21cf0-a762-4548-a5b4-1854a35e6f9a",
-
+                            SecurityStamp = "e75480b5-0e17-4585-848a-f43c1aa1dbf7",
                             TwoFactorEnabled = false,
                             UserName = "admin@demoapi.com",
                             AgencyId = 1,
@@ -530,9 +471,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92b88e50-795f-4df6-90e0-8a7d9a179cb0",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "26d2fc4d-023f-40bd-a249-f95789b30496",
-
+                            ConcurrencyStamp = "f9e04b00-0919-4fa6-92fa-9c50400f1a0f",
                             Email = "user@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -540,12 +479,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@DEMOAPI.COM",
                             NormalizedUserName = "USER@DEMOAPI.COM",
-
-                            PasswordHash = "AQAAAAIAAYagAAAAECz1PP5lfwKBv3t7nmX2eG1uXaR3/FAisV20gPqNmWhVL5uM3H/Zx4RWoPGFira2HA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMixM2b5MELMxs9KCT4UbxXGDKQIFI6jZe6LDQW30QCs/Q8PSO2nuKOrD/EH5KxekQ==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "dc275878-9e3b-49f1-9af8-a6b65bc83b29",
-
+                            SecurityStamp = "eccf9d8a-edd3-434c-83ad-9182c9edb3ac",
                             TwoFactorEnabled = false,
                             UserName = "user@demoapi.com",
                             AgencyId = 1,
@@ -555,9 +492,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "87efc5ac-77d8-4729-b3d6-3309dc88e88d",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "af2608a5-c960-4381-b0e7-f166230b15ca",
-
+                            ConcurrencyStamp = "b45c81aa-d788-45a6-b58d-ff300b204a93",
                             Email = "realtor@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -565,12 +500,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "REALTOR@DEMOAPI.COM",
                             NormalizedUserName = "REALTOR@DEMOAPI.COM",
-
-                            PasswordHash = "AQAAAAIAAYagAAAAEHZLyumRsULBZGtgycSBIoOXqh9scsiZDPKkVDSt2gZyVCiznGTn3SVRXT70UJ/UWw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENrimS8n51u0Va6ezyA9KUYqkFvau+JsO9kWI2J2vtqXqyb4QZ6YGo9IGYH1c+5cQg==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d6bdd4f3-14e7-44d1-b3c2-ea1e4f726c01",
-
+                            SecurityStamp = "16b30e5d-9e99-4166-a988-41bf1cc1483e",
                             TwoFactorEnabled = false,
                             UserName = "realtor@demoapi.com",
                             AgencyId = 2,
@@ -599,9 +532,13 @@ namespace BostadzPortalenWebAPI.Migrations
 
             modelBuilder.Entity("BostadzPortalenWebAPI.Models.PropertyImage", b =>
                 {
-                    b.HasOne("BostadzPortalenWebAPI.Models.PropertyForSale", null)
+                    b.HasOne("BostadzPortalenWebAPI.Models.PropertyForSale", "PropertyForSale")
                         .WithMany("ImageUrls")
-                        .HasForeignKey("PropertyForSaleId");
+                        .HasForeignKey("PropertyForSaleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PropertyForSale");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

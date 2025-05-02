@@ -79,7 +79,7 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
                 YearlyOperatingCost = (double)dto.YearlyOperatingCost,
                 YearBuilt = dto.YearBuilt,
                 TypeOfProperty = dto.TypeOfProperty,
-                ImageUrls = dto.ImageUrls
+                //ImageUrls = dto.ImageUrls behöver ändras
 
             };
 

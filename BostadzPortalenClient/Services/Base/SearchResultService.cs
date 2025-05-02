@@ -1,6 +1,9 @@
 ﻿
 using Blazored.LocalStorage;
+using BostadzPortalenClient.DTO;
 using BostadzPortalenClient.Models;
+using Newtonsoft.Json;
+using static BostadzPortalenClient.DTO.PropertyForSaleDTO;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BostadzPortalenClient.Services.Base
@@ -17,20 +20,38 @@ namespace BostadzPortalenClient.Services.Base
         }
         public async Task<Response<List<PropertyForSale>>> SearchProperties(PropertySearchRequest propertySearchRequest)
         {
-            var data = await client.SearchAsync(propertySearchRequest);
+            var response = new Response<List<PropertyForSale>>();
 
-            var response = new Response<List<PropertyForSale>>
+            try
             {
-                Data = (List<PropertyForSale>)data,
-                Success = true
-            };
+                var data = await client.SearchAsync(propertySearchRequest);
+
+                if (data != null && data.Any())
+                {
+                    
+                    response.Data = data.ToList();
+                    response.Success = true;
+                    Results = response.Data;
+                }
+                else
+                {
+                    response.Success = false;
+                    response.Message = "No properties found.";
+                }
+            }
+            catch (ApiException ex)
+            {
+                Console.WriteLine(ex.Message);
+                response = ConvertApiExceptions<List<PropertyForSale>>(ex);
+            }
+
+            
             return response;
-          
         }
 
-        public async Task<List<PropertyForSale>> GetSearchResults()
-        {
-            return Results;
-        }
+            public async Task<List<PropertyForSale>> GetSearchResults()
+            {
+                return Results;
+            }
     }
 }

@@ -66,7 +66,7 @@ namespace BostadzPortalenWebAPI.Data
                 MonthlyFee = model.MonthlyFee,
                 YearlyOperatingCost = model.YearlyOperatingCost,
                 YearBuilt = model.YearBuilt,
-                ImageUrls = model.ImageUrls,
+                //ImageUrls = model.ImageUrls,   måste fixa denna
                 TypeOfProperty = model.TypeOfProperty,
                 RealEstateAgency = model2.Agency,
                 Realtor = model.Realtor,
@@ -134,7 +134,10 @@ namespace BostadzPortalenWebAPI.Data
             return _context.PropertiesForSale
                 .Include(p => p.Municipality)
                 .Include(p => p.Realtor)
+                .ThenInclude(r => r.Agency)
                 .Include(p => p.ImageUrls);
+
+               
         }
     }
 }
