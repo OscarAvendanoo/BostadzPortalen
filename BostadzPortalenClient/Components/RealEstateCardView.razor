@@ -82,7 +82,7 @@
     private async Task LoadRealEstates()
     {
         var id = RealtorId;
-        var realEstates = await propService.GetAllPropertiesForSaleDTOAsync();  /* apiService.Get<List<PropertyForSale>>("PropertyForSale/GetAllPropertiesIncludeAllAsync"); */
+        var realEstates = await propService.GetAllPropertiesForSaleDTOAsync(); 
 
         if (id == null)
         {
@@ -111,7 +111,7 @@
         }
         else
         {
-            //PropertiesForSale = realEstates.Where(p=>p. == id).OrderBy(prop => prop.MunicipalityName).ToList();
+            //PropertiesForSale = realEstates.Where(p=>p.RealtorId == id).OrderBy(prop => prop.MunicipalityName).ToList();
             //JN: This needs a change in the overviewDTO to function -> (another nSwag build)
         }
     }
