@@ -1,9 +1,9 @@
 ﻿
 using Blazored.LocalStorage;
-using BostadzPortalenClient.DTO;
+
 using BostadzPortalenClient.Models;
 using Newtonsoft.Json;
-using static BostadzPortalenClient.DTO.PropertyForSaleDTO;
+
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BostadzPortalenClient.Services.Base
