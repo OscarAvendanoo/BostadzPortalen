@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BostadzPortalenWebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class jn6 : Migration
+    public partial class jn7 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -240,7 +240,7 @@ namespace BostadzPortalenWebAPI.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PropertyForSaleId = table.Column<int>(type: "int", nullable: true)
+                    PropertyForSaleId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -249,7 +249,8 @@ namespace BostadzPortalenWebAPI.Migrations
                         name: "FK_PropertyImages_PropertiesForSale_PropertyForSaleId",
                         column: x => x.PropertyForSaleId,
                         principalTable: "PropertiesForSale",
-                        principalColumn: "PropertyForSaleId");
+                        principalColumn: "PropertyForSaleId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -285,9 +286,9 @@ namespace BostadzPortalenWebAPI.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "AgencyId", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileImageUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, 2, "5b623711-20a0-43bc-86d7-6750e27d6908", "Realtor", "realtor@demoapi.com", true, "System", "Realtor", false, null, "REALTOR@DEMOAPI.COM", "REALTOR@DEMOAPI.COM", "AQAAAAIAAYagAAAAECCcm4SCos4G/Zk8Nq6EZo7Zj6NpbnG6Af8gRxkz//tlJq/g8PcwmUGZ/olz+Tz6xA==", "0722661922", false, "NoPicUser.png", "8fd4cd67-dbd0-4253-a687-b9274d260b36", false, "realtor@demoapi.com" },
-                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, 1, "d3b926ba-5566-4717-a708-7eab60346e88", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEG8EfqlCam61lXie2Xz27mf8Cly/NTyTHGyyCnGjR7hgnuPKK46a7yBh96IQHYPN6w==", "0722661922", false, "NoPicUser.png", "6f75a2d4-6445-4830-9b4d-bf9cdcaddccd", false, "user@demoapi.com" },
-                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, 1, "bec3f0c9-734a-4ee0-93a1-f4fa2fe392e7", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEB83oXtJabzptZgJoruqbN4jI3xcqVzkZ5RYnouvNeKEBglSo33ePiC0O+1wxdelew==", "0722661920", false, "NoPicUser.png", "d548c8a3-9575-4282-8ab2-aa766d5b9528", false, "admin@demoapi.com" }
+                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, 2, "15a14eed-2cea-4f47-be33-bb21f5604d24", "Realtor", "realtor@demoapi.com", true, "System", "Realtor", false, null, "REALTOR@DEMOAPI.COM", "REALTOR@DEMOAPI.COM", "AQAAAAIAAYagAAAAEEO5EyjKdBNNgnOSI/8Yif8WA0lV2/+ydYEFfPJpUpIWqKf4O2wvD8YOxdrkElQk/g==", "0722661922", false, "NoPicUser.png", "f8afa92e-5a01-4348-92d6-636f45f0dcc1", false, "realtor@demoapi.com" },
+                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, 1, "49adb663-04fd-404a-978a-af2ae7772fc0", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEFWPCp0bxO43AVReUQVMkTaLuyiYyVTkAJIilgo/RxTTVrdjEz3LDuwSTo4uzVp25Q==", "0722661922", false, "NoPicUser.png", "212d58f4-526b-486b-a64d-0639ae6db234", false, "user@demoapi.com" },
+                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, 1, "98c056e3-88b3-4ba0-9bf0-17a77ec4708d", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEMEynk6/zZ7p7L4qC5672zNnETR+Zl4jcV1DOXV7yvPn4Ub+Z3KLqRTVpTvHsgHh9w==", "0722661920", false, "NoPicUser.png", "754f9208-6e36-466a-997d-b95f2d6858c1", false, "admin@demoapi.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -298,6 +299,26 @@ namespace BostadzPortalenWebAPI.Migrations
                     { "1e346bcf-ee97-4bb2-ab3e-8d7202fea078", "87efc5ac-77d8-4729-b3d6-3309dc88e88d" },
                     { "e6ae5d04-8f49-4b62-bc52-205353eb08dc", "92b88e50-795f-4df6-90e0-8a7d9a179cb0" },
                     { "e11cc563-5369-471e-9792-6255e0d08eaf", "92d637e6-6a8d-421e-a118-7a29d0edc1e7" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PropertiesForSale",
+                columns: new[] { "PropertyForSaleId", "Address", "AskingPrice", "Description", "LivingArea", "MonthlyFee", "MunicipalityId", "NumberOfRooms", "PlotArea", "RealtorId", "SupplementaryArea", "TypeOfProperty", "YearBuilt", "YearlyOperatingCost" },
+                values: new object[,]
+                {
+                    { 1, "Wanker Street 69", 500000m, "It's a place to live", 24, 5000m, 1, 1, 8, "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 8, 0, 1999, 1000m },
+                    { 2, "Kungsgatan 4", 1000000m, "Fin utsikt", 24, 10000m, 2, 1, 8, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8, 0, 1999, 1000m },
+                    { 3, "Kungsgatan 16", 7000000m, "Bättre än kungsgatan 4", 64, 10000m, 2, 4, 8, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8, 2, 1950, 1000m }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PropertyImages",
+                columns: new[] { "Id", "ImageUrl", "PropertyForSaleId" },
+                values: new object[,]
+                {
+                    { 1, "https://bilder.hemnet.se/images/itemgallery_cut/8c/db/8cdb9b8866cc65d5ec941a56b31ba634.jpg", 1 },
+                    { 2, "https://bilder.hemnet.se/images/itemgallery_cut/40/f5/40f595711fdb0cc0ebdbd5ee80be8929.jpg", 2 },
+                    { 3, "https://bilder.hemnet.se/images/itemgallery_cut/89/89/898947735c6b46af72a4556dabadf07a.jpg", 3 }
                 });
 
             migrationBuilder.CreateIndex(
