@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Components.Authorization;
 
 namespace BostadzPortalenClient.Services.PropertyForSaleS
 {
-    public class PropertyForSaleService: IPropertyForSaleService
+    public class PropertyForSaleService: BaseHttpService, IPropertyForSaleService
     {
         private readonly IClient httpClient;
         //private readonly ApiService apiService;
 
-        public PropertyForSaleService(IClient httpClient, ApiService apiService)
+        public PropertyForSaleService(ILocalStorageService localStorage, IClient httpClient, ApiService apiService) : base(localStorage, httpClient)
         {
             this.httpClient = httpClient;
             //this.apiService = apiService; // Jona
@@ -63,6 +63,7 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
         //}
         public async Task<bool> AddPropertyForSaleAsync(CreatePropertyForSaleDTO dto)
         {
+            await GetBearerToken();
 
             var propertyForSale = new PropertyForSale
             {
