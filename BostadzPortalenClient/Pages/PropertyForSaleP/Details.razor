@@ -45,18 +45,28 @@
 	</div>
 	<div class="d-flex justify-content-center align-items-center col-6" width="500px">
 		<Carousel>
-			<CarouselItem Active="true">
+
+			@* <CarouselItem Active="true">
 				<Image src="/image1.jpg" />
 			</CarouselItem>
 			<CarouselItem >
 				<Image src="/image2.jpg" />
-			</CarouselItem>
-			@* @foreach (var picture in realEstate.ImageUrls)
+			</CarouselItem> *@
+			@for (int i = 0; i < realEstate.ImageUrls.Count; i++)
 			{
-				<CarouselItem Active="true">
-					<Image src="/lyxvilla.jpg" />
-				</CarouselItem>
-			} *@
+				string pic = $"/image{i+1}.jpg";
+				if(i==0){
+					<CarouselItem Active="true">
+						<Image src="@pic" />
+					</CarouselItem>
+				}
+				else
+				{
+					<CarouselItem>
+						<Image src="@pic" />
+					</CarouselItem>
+				}
+			}
 		</Carousel>
 	</div>
 </div>
