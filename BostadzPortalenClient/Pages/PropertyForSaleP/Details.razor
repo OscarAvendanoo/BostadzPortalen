@@ -5,6 +5,7 @@
 @using BostadzPortalenClient.Pages.PropertyForSaleP
 @using BostadzPortalenClient.Components.XtoString
 @inject IPropertyForSaleService propService
+@inject IJSRuntime JS
 
 <div class="d-flex align-items-center">
 	<div>
@@ -77,5 +78,14 @@
 		//JN: Currently the DetailsDTO includes entire Realtor + Agency
 		//JN: This will need to change to only include: (RealtorName + RealtorID + RealtorPicture) + (AgencyName + AgencyID + AgencyLogo)
 		//JN: But it requires an nSwag rebuild so...
+
+		//JN: image-access
+		
 	}
+	// private async Task SetImageUsingStreamAsync()
+	// {
+	// 	var imageStream = await propService.httpClient.GetImageStreamAsync();
+	// 	var dotnetImageStream = new DotNetStreamReference(imageStream);
+	// 	await JS.InvokeVoidAsync("setImageUsingStreaming", "image1", dotnetImageStream);
+	// }
 }
