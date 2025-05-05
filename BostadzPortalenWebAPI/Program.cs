@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
+using Microsoft.OpenApi.Models;
+
 
 namespace BostadzPortalenWebAPI
 {
@@ -23,7 +25,12 @@ namespace BostadzPortalenWebAPI
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
+
+
+
+
             builder.Services.AddSwaggerGen();
+
 
             // Author: ALL
             builder.Services.AddCors(options =>
@@ -42,8 +49,9 @@ namespace BostadzPortalenWebAPI
             });
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("BostadzPortalenWebAPI"))
+            .ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning)));
 
-            options.UseSqlServer(builder.Configuration.GetConnectionString("BostadzPortalenWebAPI"))); //KH + JN
 
 
             builder.Services.AddIdentityCore<ApiUser>()
