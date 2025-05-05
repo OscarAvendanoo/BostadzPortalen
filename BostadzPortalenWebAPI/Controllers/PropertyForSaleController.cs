@@ -147,7 +147,7 @@ namespace BostadzPortalenWebAPI.Controllers
         // Author: Jona
         // PUT api/<PropertyForSaleController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateProperty(int id, [FromBody] PropertyForSaleDetailsDTO updatedPropertyForSale)
+        public async Task<ActionResult> UpdateProperty(int id, [FromBody] PropertyForSaleUpdateDto updatedPropertyForSale)
         {
             if (updatedPropertyForSale == null)
             {
@@ -158,12 +158,13 @@ namespace BostadzPortalenWebAPI.Controllers
             {
                 return NotFound();
             }
-            updatedPropertyForSale.PropertyForSaleId = id; // Ensure the ID is set correctly
-
-            var prop = mapper.Map<PropertyForSale>(updatedPropertyForSale);
-
-            await _propertyForSaleRepository.UpdateAsync(prop);
+         
+            mapper.Map(updatedPropertyForSale, existingProperty);
+             
+            await _propertyForSaleRepository.UpdateAsync(existingProperty);
             return NoContent(); //204 whop 
+    
+
         }
         // Author: Jonaaa
         // DELETE api/<PropertyForSaleController>/5

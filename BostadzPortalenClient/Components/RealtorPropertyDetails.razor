@@ -1,9 +1,9 @@
-﻿@* @page "/realtorPropertyDetails/{Id:int}" *@
+﻿@page "/realtorPropertyDetails/{Id:int}"
 @using AutoMapper
 @inject IPropertyForSaleService propService
 @inject IMapper mapper
 @inject NavigationManager navManager
-@attribute [Authorize(Roles = "Realtor")]
+@* @attribute [Authorize(Roles = "Realtor")] *@
 
 
 <EditForm Model="@realEstate" OnValidSubmit="SaveChanges">
@@ -131,19 +131,22 @@
     public int Id { get; set; }
 
     private PropertyForSaleDetailsDTO realEstate { get; set; } = new PropertyForSaleDetailsDTO();
+    private PropertyForSaleUpdateDto realEstateUpdated { get; set; } = new PropertyForSaleUpdateDto();
 
     protected override async Task OnInitializedAsync()
     {
         realEstate = await propService.GetPropertyDetailsDTOByIdAsync(Id);
 
-
+        
     }
 
     private async Task SaveChanges()
     {
+        realEstateUpdated = mapper.Map<PropertyForSaleUpdateDto>(realEstate);
+
         try
         {
-            await propService.UpdatePropertyAsync(Id, realEstate);
+            await propService.UpdatePropertyAsync(Id, realEstateUpdated);
             navManager.NavigateTo("/PropertiesTable");
         }
         catch (Exception ex)
@@ -154,8 +157,8 @@
         
         
 
-        await propService.UpdatePropertyAsync(Id, realEstate);
-        navManager.NavigateTo("/PropertiesTable", forceLoad: false);
+        // await propService.UpdatePropertyAsync(Id, realEstate);
+        // navManager.NavigateTo("/PropertiesTable", forceLoad: false);
     }
 
 }

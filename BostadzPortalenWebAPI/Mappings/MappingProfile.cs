@@ -74,6 +74,32 @@ namespace BostadzPortalenWebAPI.Mappings
                 .ForMember(dest => dest.YearBuilt, opt => opt.MapFrom(src => src.YearBuilt))
                 .ReverseMap();
 
+            CreateMap<PropertyForSaleUpdateDto, PropertyForSale>()
+             //.ForMember(dest => dest.PropertyForSaleId, opt => opt.MapFrom(src => src.PropertyForSaleId))
+             .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Address))
+             .ForMember(dest => dest.AskingPrice, opt => opt.MapFrom(src => src.AskingPrice))
+             .ForMember(dest => dest.LivingArea, opt => opt.MapFrom(src => src.LivingArea))
+             .ForMember(dest => dest.SupplementaryArea, opt => opt.MapFrom(src => src.SupplementaryArea))
+             .ForMember(dest => dest.PlotArea, opt => opt.MapFrom(src => src.PlotArea))
+             .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
+             .ForMember(dest => dest.NumberOfRooms, opt => opt.MapFrom(src => src.NumberOfRooms))
+             .ForMember(dest => dest.MonthlyFee, opt => opt.MapFrom(src => src.MonthlyFee))
+             .ForMember(dest => dest.YearlyOperatingCost, opt => opt.MapFrom(src => src.YearlyOperatingCost))
+             .ForMember(dest => dest.YearBuilt, opt => opt.MapFrom(src => src.YearBuilt))
+             .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ImageUrls))
+             .ForMember(dest => dest.TypeOfProperty, opt => opt.MapFrom(src => src.TypeOfProperty))
+             .ForMember(dest => dest.RealtorId, opt => opt.MapFrom(src => src.RealtorId))
+
+             // Ignore reverse-mapped properties not sent from client (like navigation props)
+             .ForMember(dest => dest.Municipality, opt => opt.Ignore())
+             .ForMember(dest => dest.Realtor, opt => opt.Ignore());
+
+            CreateMap<PropertyImage, PropertyImageDto>()
+              .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl))
+              .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+              .ForMember(dest => dest.PropertyForSaleId, opt => opt.MapFrom(src => src.PropertyForSaleId))
+              .ReverseMap();
+
 
             CreateMap<PropertyForSale, CreatePropertyForSaleDTO>()
               .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Address))

@@ -8,7 +8,7 @@ namespace BostadzPortalenWebAPI.Models
         public string Name { get; set; }
 
         // En kommun kan ha flera bostäder
-        [JsonIgnore]
+        
         public virtual List<PropertyForSale>? PropertiesForSale { get; set; }
     }
 }

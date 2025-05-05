@@ -55,7 +55,7 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
             return property;
         }
 
-        public async Task UpdatePropertyAsync(int propertyId, PropertyForSaleDetailsDTO property)
+        public async Task UpdatePropertyAsync(int propertyId, PropertyForSaleUpdateDto property)
         {
             //var proptosend = mapper.Map<PropertyForSale>(property);
             await httpClient.PropertyForSalePUTAsync(propertyId, property);

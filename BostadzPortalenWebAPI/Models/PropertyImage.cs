@@ -10,7 +10,7 @@ namespace BostadzPortalenWebAPI.Models
 
         public int PropertyForSaleId { get; set; }
 
-        [JsonIgnore]
+       
         public PropertyForSale PropertyForSale { get; set; }
 
 
