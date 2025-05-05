@@ -24,7 +24,6 @@ namespace BostadzPortalenClient.Providers
 
             var savedToken = await localStorage.GetItemAsync<string>("accessToken");
 
-
             if(savedToken == null)
             {
                 return new AuthenticationState(user);
@@ -32,7 +31,7 @@ namespace BostadzPortalenClient.Providers
 
             var tokenContent = jwtTokenHandler.ReadJwtToken(savedToken);
 
-            if(tokenContent.ValidTo < DateTime.Now)
+            if(tokenContent.ValidTo < DateTime.UtcNow)
             {
                 return new AuthenticationState(user);
             }
@@ -47,9 +46,8 @@ namespace BostadzPortalenClient.Providers
         {
             var claims = await GetClaims();
             var user = new ClaimsPrincipal(new ClaimsIdentity(claims, "jwt"));
-            var authState = new AuthenticationState(user);
-            
-            NotifyAuthenticationStateChanged(Task.FromResult(authState));
+            var authState = Task.FromResult(new AuthenticationState(user));
+            NotifyAuthenticationStateChanged(authState);
 
             Console.WriteLine("Användaren har loggats in");
         }

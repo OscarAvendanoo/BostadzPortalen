@@ -1,5 +1,6 @@
 ﻿@inject AuthenticationStateProvider authenticationStateProvider
 @inject IAuthenticationService authService
+@attribute [Authorize(Roles ="Admin, Realtor")]
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top mb-5">
     <div class="container-fluid">
@@ -32,7 +33,7 @@
                 </li>
             </ul>
             <div class="ms-auto d-flex gap-2">
-                <p>Välkommen @userName</p>
+                
                 <NavLink @onclick=LogOut class="btn main-btn">Logga ut</NavLink>
                 <NavLink href="/users/registerFirstRealtor" class="btn main-btn">Register (Admin)</NavLink>
                 @* <NavLink href="/users/register" class="btn main-btn">Register</NavLink> *@
@@ -43,8 +44,8 @@
 
 @code {
 
-    private ClaimsPrincipal? user;
-    private string? userName;
+    // private ClaimsPrincipal? user;
+    // private string? userName;
 
     private async Task LogOut()
     {

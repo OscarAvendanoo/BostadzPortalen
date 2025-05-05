@@ -42,7 +42,7 @@ namespace BostadzPortalenWebAPI.Controllers
                     LastName = userDto.LastName,
                     AgencyId = userDto.AgencyId,
                     EmailConfirmed = true
-                    
+
 
                 };
 
@@ -81,7 +81,7 @@ namespace BostadzPortalenWebAPI.Controllers
                     return Unauthorized(userDto);
                 }
 
-                
+
                 //skapa en DTOklass AuthResponse med props: UserId, Token, Email
 
                 string tokenString = await GenerateToken(user);
@@ -116,7 +116,8 @@ namespace BostadzPortalenWebAPI.Controllers
         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         new Claim(JwtRegisteredClaimNames.Email, user.Email),
         new Claim("uid", user.Id)
-    }.Union(roleClaims)
+    }
+            .Union(roleClaims)
              .Union(userClaims);
 
             var token = new JwtSecurityToken(

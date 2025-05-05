@@ -9,12 +9,14 @@ namespace BostadzPortalenClient
         {
             CreateMap<PropertyForSale, PropertyForSaleOverviewDTO>()
                 .ForMember(dest => dest.MunicipalityName, opt => opt.MapFrom(src => src.Municipality.Name))
-                .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ImageUrls ?? new List<string>()));
+                .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ImageUrls ?? new List<string>()))
+                .ReverseMap(); 
 
             CreateMap<PropertyForSale, PropertyForSaleDetailsDTO>()
                .ForMember(dest => dest.MunicipalityName, opt => opt.MapFrom(src => src.Municipality.Name))
                .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ImageUrls ?? new List<string>()))
-               .ForMember(dest => dest.RealEstateAgency, opt => opt.MapFrom(src => src.Realtor.Agency));
+               .ForMember(dest => dest.RealEstateAgency, opt => opt.MapFrom(src => src.Realtor.Agency))
+               .ReverseMap();
         }
     }
 }

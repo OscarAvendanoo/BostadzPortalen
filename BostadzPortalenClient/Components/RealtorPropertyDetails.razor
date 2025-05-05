@@ -1,9 +1,9 @@
 ﻿@* @page "/realtorPropertyDetails/{Id:int}" *@
 @using AutoMapper
-@inject PropertyForSaleService propService
+@inject IPropertyForSaleService propService
 @inject IMapper mapper
 @inject NavigationManager navManager
-@* @attribute [Authorize(Roles="Admin, Realtor")] *@
+@attribute [Authorize(Roles = "Realtor")]
 
 
 <EditForm Model="@realEstate" OnValidSubmit="SaveChanges">
@@ -26,7 +26,13 @@
 
             <div class="form-group">
                 <label>Typ av bostad</label>
-                <InputNumber @bind-Value="realEstate.TypeOfProperty" class="form-control" />
+                <InputSelect @bind-Value="realEstate.TypeOfProperty">
+                    @foreach (var type in Enum.GetValues(typeof(TypeOfPropertyEnum)))
+                    {
+                        <option value="@type">@type</option>
+                    }
+                </InputSelect>
+
             </div>
 
             <div class="form-group">
@@ -81,10 +87,14 @@
         </div>
 
         <div class="d-flex flex-wrap justify-content-center align-items-center col-6">
+
             @foreach (var picture in realEstate.ImageUrls)
             {
-                <img src="@picture" class="img-thumbnail m-1" style="max-width: 150px;" />
+                @* <img src="picture" class="img-thumbnail m-1" style="max-width: 150px;" /> *@
+                <p>@picture</p>
             }
+
+
         </div>
 
     </div>
@@ -114,17 +124,22 @@
     [Parameter]
     public int Id { get; set; }
 
-    private PropertyForSaleDetailsDTO realEstate { get; set; }
+    private PropertyForSaleDetailsDTO realEstate { get; set; } = new PropertyForSaleDetailsDTO();
 
     protected override async Task OnInitializedAsync()
     {
         realEstate = await propService.GetPropertyDetailsDTOByIdAsync(Id);
+        Console.WriteLine($"Address: {realEstate?.Address}");
+        Console.WriteLine($"Realtor.FirstName: {realEstate?.Realtor?.FirstName}");
+        Console.WriteLine($"RealEstateAgency.AgencyName: {realEstate?.RealEstateAgency?.AgencyName}");
+
     }
 
     private async Task SaveChanges()
     {
-        var estate = mapper.Map<PropertyForSale>(realEstate);
-        await propService.UpdatePropertyAsync(Id, estate);
+        
+        
+        await propService.UpdatePropertyAsync(realEstate.PropertyForSaleId, realEstate);
         navManager.NavigateTo("/PropertiesTable");
     }
 
