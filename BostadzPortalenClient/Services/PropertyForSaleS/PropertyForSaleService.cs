@@ -85,5 +85,10 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
             await this.httpClient.PropertyForSalePOSTAsync(dto);
             return true;
         }
+        public async Task<IEnumerable<PropertyForSaleOverviewDTO>> GetMyListingsAsync()
+        {
+            return await httpClient.GetMyListingsAsync();
+        }
+
     }
 }
