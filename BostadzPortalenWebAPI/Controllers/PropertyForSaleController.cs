@@ -75,7 +75,6 @@ namespace BostadzPortalenWebAPI.Controllers
         public async Task<ActionResult<List<PropertyForSaleOverviewDTO>>> GetAllPropertyOverviewDTOAsync()
         {
             var properties = await _propertyForSaleRepository.GetAllWithIncludesAsync();
-            //var properties = await _propertyForSaleRepository.GetAllPropertyOverviewDTOAsync();
             if (properties == null || !properties.Any())
             {
                 return NotFound();

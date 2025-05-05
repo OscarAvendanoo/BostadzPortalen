@@ -19,6 +19,7 @@ namespace BostadzPortalenWebAPI.DTO
         public int YearBuilt { get; set; }
         public List<PropertyImage> ImageUrls { get; set; } = new List<PropertyImage>();
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
+        public string PropertyTypeString { get; set; } //for users to be able to read what the Enum is
         public string RealtorFullName { get; set; }
         public string RealtorId { get; set; }
         public string RealtorPicture { get; set; }
@@ -27,7 +28,5 @@ namespace BostadzPortalenWebAPI.DTO
         public string AgencyLogo { get; set; }
 
         //Might want to add things like (access to: laundry machine / dryer / dishwasher / garage / etc)
-        //public Realtor Realtor { get; set; }
-        //public RealEstateAgency RealEstateAgency { get; set; }
     }
 }
