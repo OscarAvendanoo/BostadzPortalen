@@ -49,6 +49,7 @@ namespace BostadzPortalenWebAPI.Mappings
 
             //Author: Johan Nelin
             CreateMap<PropertyForSale, PropertyForSaleDetailsDTO>()
+                .ForMember(dest => dest.PropertyForSaleId, opt => opt.MapFrom(src => src.PropertyForSaleId))
                 .ForMember(dest => dest.Address, opt => opt.MapFrom(src=>src.Address))
                 .ForMember(dest => dest.RealtorId, opt => opt.MapFrom(src => src.Realtor.Id))
                 .ForMember(dest => dest.RealtorFullName, opt => opt.MapFrom(src => src.Realtor.FirstName + " " + src.Realtor.LastName))
