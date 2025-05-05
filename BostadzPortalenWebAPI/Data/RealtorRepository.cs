@@ -9,7 +9,7 @@ namespace BostadzPortalenWebAPI.Data
     {
         private readonly ApplicationDbContext context;
 
-        public RealtorRepository(ApplicationDbContext context) : base(context) 
+        public RealtorRepository(ApplicationDbContext context) : base(context)
         {
             this.context = context;
         }
@@ -17,10 +17,10 @@ namespace BostadzPortalenWebAPI.Data
         public async Task<List<Realtor>> GetAllWithIncludesAsync()
         {
             return await context.Realtors
-                .Include(r=>r.Agency)
-                .Include(r=>r.Properties)
+                .Include(r => r.Agency)
+                .Include(r => r.Properties)
                 .ToListAsync();
-        } 
+        }
 
         //public async Task<Realtor> GetByIdIncludesAsync(int id)
         //{
@@ -36,18 +36,47 @@ namespace BostadzPortalenWebAPI.Data
             return await context.Realtors
                 .Include(r => r.Agency)
                 .Include(r => r.Properties)
-                .ThenInclude(r=>r.Municipality)
-                .ThenInclude(r=>r.PropertiesForSale)
+                    .ThenInclude(r => r.Municipality)
+                        .ThenInclude(r => r.PropertiesForSale)
                 .Where(r => r.FirstName == firstName || r.LastName == lastName).FirstOrDefaultAsync();
         }
 
-        public Task<Realtor> GetRealtorByGuidAsync(string guidID)
+        public async Task<Realtor> GetRealtorByGuidAsync(string guidID)
         {
-                return context.Realtors
-            .Include(r => r.Agency)
-            .Include(r => r.Properties)
-            .FirstOrDefaultAsync(r => r.Id == guidID);
+            return await context.Realtors
+                .Include(r => r.Agency)
+                .Include(r => r.Properties)
+                    .ThenInclude(p=>p.Municipality)
+                .FirstOrDefaultAsync(r => r.Id == guidID);
         }
+
+        public async Task<List<PropertyForSaleOverviewDTO>> GetOverviewDTOByRealtorIdAsync(string guidID)
+        {
+            var realtor = await GetRealtorByGuidAsync(guidID);
+            var overviewDTOs = new List<PropertyForSaleOverviewDTO>();
+            foreach (var property in realtor.Properties)
+            {
+                overviewDTOs.Add(new PropertyForSaleOverviewDTO()
+                {
+                    PropertyForSaleId = property.PropertyForSaleId,
+                    Address = property.Address,
+                    MunicipalityName = property.Municipality.Name,
+                    AskingPrice = property.AskingPrice,
+                    LivingArea = property.LivingArea,
+                    SupplementaryArea = property.SupplementaryArea,
+                    PlotArea = property.PlotArea,
+                    Description = property.Description,
+                    NumberOfRooms = property.NumberOfRooms,
+                    MonthlyFee = property.MonthlyFee,
+                    YearlyOperatingCost = property.YearlyOperatingCost,
+                    YearBuilt = property.YearBuilt,
+                    ImageUrls = property.ImageUrls,
+                    TypeOfProperty = property.TypeOfProperty,
+                });
+            }
+            return overviewDTOs;
+        }
+
 
         //public async Task<IEnumerable<PropertyForSale>> GetListedPropertiesAsync(int id) //osäker på string på id eller hur vi ska gå tillväga??
         //{

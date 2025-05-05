@@ -8,3 +8,4 @@
         Fritidshus = 3
     }
 }
+ 

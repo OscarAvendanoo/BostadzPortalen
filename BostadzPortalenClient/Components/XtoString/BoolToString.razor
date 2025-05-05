@@ -1,0 +1,12 @@
+﻿@if(inputBool)
+{
+	<p>Ja</p>
+}
+else
+{
+	<p>Nej</p>
+}
+
+@code {
+	[Parameter] public bool inputBool { get; set; }
+}

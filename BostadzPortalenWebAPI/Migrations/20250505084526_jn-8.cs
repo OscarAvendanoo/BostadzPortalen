@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BostadzPortalenWebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class jn4 : Migration
+    public partial class jn8 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -213,7 +213,6 @@ namespace BostadzPortalenWebAPI.Migrations
                     MonthlyFee = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     YearlyOperatingCost = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     YearBuilt = table.Column<int>(type: "int", nullable: false),
-                    ImageUrls = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RealtorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     TypeOfProperty = table.Column<int>(type: "int", nullable: false)
                 },
@@ -278,8 +277,8 @@ namespace BostadzPortalenWebAPI.Migrations
                 columns: new[] { "RealEstateAgencyId", "AgencyDescription", "AgencyLogoUrl", "AgencyName" },
                 values: new object[,]
                 {
-                    { 1, "Sveriges näst bästa mäklarbyrå", "BilderKommerSen", "Gottfridsson" },
-                    { 2, "Skåne är den bästa platsen på Gotland", "BilderKommerSen", "Skanebo" }
+                    { 1, "Sveriges näst bästa mäklarbyrå", "https://driftservice.blob.core.windows.net/agency-home-solution/5f946ff9-b99b-4e50-96f8-492a34ccbd47_logo", "Gottfridsson" },
+                    { 2, "Skåne är den bästa platsen på Gotland", "https://fatcamp.io/xn--mklare-bua.se/images/artiklar/makl.samfundet.jpg?width=1000", "Skanebo" }
                 });
 
             migrationBuilder.InsertData(
@@ -287,9 +286,9 @@ namespace BostadzPortalenWebAPI.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "AgencyId", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileImageUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, 2, "5dedaad9-2f53-478b-8197-e306645e53c6", "Realtor", "realtor@demoapi.com", true, "System", "Realtor", false, null, "REALTOR@DEMOAPI.COM", "REALTOR@DEMOAPI.COM", "AQAAAAIAAYagAAAAEETwdLwuGKX4iRMq2TmbtTrBz8ZqjgPZWNIr4ErD1I7kRMwrJ3K76zi0MOpfBQgqrA==", "0722661922", false, "NoPicUser.png", "8db780df-ac97-425f-91eb-13fd3a9b9770", false, "realtor@demoapi.com" },
-                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, 1, "cd277ce4-34c4-4098-8204-dff9e1309e9a", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEFLEKpU7JLjgzers1Mfk2BZ1/Gj0J4/LpgIAgS4KsSSdGFNgHoDu2X62KlbbDHxRZQ==", "0722661922", false, "NoPicUser.png", "b9601e9c-90d6-459b-abf0-59409d38bf46", false, "user@demoapi.com" },
-                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, 1, "556fdb6a-ea7e-4dfc-9f1d-a0dea302649f", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEIyXLY4QkBqrtChtZqpe+qKVm1/rTlC63uAseySJUozBigsGxLpUz93o0a6QYYezHQ==", "0722661920", false, "NoPicUser.png", "a13e85a0-06fb-4ebc-b6df-079c8b82e07a", false, "admin@demoapi.com" }
+                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, 2, "a00a7dc2-12e2-4eba-9ef4-0b2924af18f6", "Realtor", "realtor@demoapi.com", true, "System", "Realtor", false, null, "REALTOR@DEMOAPI.COM", "REALTOR@DEMOAPI.COM", "AQAAAAIAAYagAAAAEL0vK3u4uuq3akGY0qwVTB4KbPR7htWdXTwMNln/8bBEK96uV8y4Zual3NsCNFXffQ==", "0722661922", false, "https://bilder.hemnet.se/images/broker_profile_large/d8/50/d850bd83227eb78f123af53871614efd.jpg", "527f3972-22a1-4e3b-84d6-139e933b4c97", false, "realtor@demoapi.com" },
+                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, 1, "eb474526-ddf8-4fde-b2be-5af0aa40b782", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEAVkvsHMZWFJT44Kt4H6U2bSYwzmEi3a8hWtI/BpuERnxDTZkyZKUwJKVMkhrSMdKg==", "0722661922", false, "https://bilder.hemnet.se/images/broker_profile_large/9b/10/9b10a04e47ec5804594aef06016ceb5b.jpg", "2bb446e5-3db2-4c19-9fa4-79ec9a70128a", false, "user@demoapi.com" },
+                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, 1, "03251133-4d27-4778-855b-556b10885ff3", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEACQOz8ifjb82lxqF1mYcvfg4lEo85VDFMP+0JRkIUWt7mjxRlJXw2QC++6t8yftXw==", "0722661920", false, "https://genslerzudansdentistry.com/wp-content/uploads/2015/11/anonymous-user.png", "f2151a4a-7c0a-486f-8a52-55fd908ebbeb", false, "admin@demoapi.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -304,12 +303,25 @@ namespace BostadzPortalenWebAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "PropertiesForSale",
-                columns: new[] { "PropertyForSaleId", "Address", "AskingPrice", "Description", "ImageUrls", "LivingArea", "MonthlyFee", "MunicipalityId", "NumberOfRooms", "PlotArea", "RealtorId", "SupplementaryArea", "TypeOfProperty", "YearBuilt", "YearlyOperatingCost" },
+                columns: new[] { "PropertyForSaleId", "Address", "AskingPrice", "Description", "LivingArea", "MonthlyFee", "MunicipalityId", "NumberOfRooms", "PlotArea", "RealtorId", "SupplementaryArea", "TypeOfProperty", "YearBuilt", "YearlyOperatingCost" },
                 values: new object[,]
                 {
-                    { 1, "Wanker Street 69", 500000m, "It's a place to live", "[\"~/Pictures/image1.jpg\",\"~/Pictures/image2.jpg\"]", 24, 5000m, 1, 1, 8, "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 8, 0, 1999, 1000m },
-                    { 2, "Kungsgatan 4", 1000000m, "Fin utsikt", "[\"~/Pictures/image3.jpg\",\"~/Pictures/image4.jpg\"]", 24, 10000m, 2, 1, 8, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8, 0, 1999, 1000m },
-                    { 3, "Kungsgatan 16", 7000000m, "Bättre än kungsgatan 4", "[\"~/Pictures/image5.jpg\",\"~/Pictures/image6.jpg\"]", 64, 10000m, 2, 4, 8, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8, 2, 1950, 1000m }
+                    { 1, "Wanker Street 69", 500000m, "It's a place to live", 24, 5000m, 1, 1, 8, "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 8, 0, 1999, 1000m },
+                    { 2, "Kungsgatan 4", 1000000m, "Fin utsikt", 24, 10000m, 2, 1, 8, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8, 0, 1999, 1000m },
+                    { 3, "Kungsgatan 16", 7000000m, "Bättre än kungsgatan 4", 64, 10000m, 2, 4, 8, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8, 2, 1950, 1000m }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PropertyImages",
+                columns: new[] { "Id", "ImageUrl", "PropertyForSaleId" },
+                values: new object[,]
+                {
+                    { 1, "https://bilder.hemnet.se/images/itemgallery_cut/8c/db/8cdb9b8866cc65d5ec941a56b31ba634.jpg", 1 },
+                    { 2, "https://bilder.hemnet.se/images/itemgallery_cut/40/f5/40f595711fdb0cc0ebdbd5ee80be8929.jpg", 2 },
+                    { 3, "https://bilder.hemnet.se/images/itemgallery_cut/89/89/898947735c6b46af72a4556dabadf07a.jpg", 3 },
+                    { 4, "https://bilder.hemnet.se/images/itemgallery_cut/09/e2/09e29480a003367d9dc3b139de9c416d.jpg", 1 },
+                    { 5, "https://qasa-static-prod.s3-eu-west-1.amazonaws.com/img/5c5dd162d2ac084603a87e1c8d9f16bd1d93039a57b06ddca34f8aee46e4b88e.jpg", 2 },
+                    { 6, "https://bcdn.se/images/cache/33121851_960x640.jpg", 3 }
                 });
 
             migrationBuilder.CreateIndex(

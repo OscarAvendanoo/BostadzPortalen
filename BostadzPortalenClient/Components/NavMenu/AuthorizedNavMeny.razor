@@ -1,0 +1,65 @@
+﻿@inject AuthenticationStateProvider authenticationStateProvider
+@inject IAuthenticationService authService
+@attribute [Authorize(Roles ="Admin, Realtor")]
+
+<nav class="navbar navbar-expand-lg fixed-top mb-5">
+    <div class="container-fluid">
+        <NavLink class="navbar-brand" href="/"><img src="/favicon bostadzportalen NOBG/web-app-manifest-192x192.png" style="width: 100px; height: 100px;"></NavLink>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-link">
+                    <NavLink class="nav-link" aria-current="page" href="/">Sök bostad</NavLink>
+                </li>
+                <li class="nav-link">
+                    <NavLink class="nav-link" aria-current="page" href="/properties/index/{uid}">Mina bostäder</NavLink>
+                </li>
+                <li class="nav-link">
+                    <NavLink class="nav-link" href="news">Nyheter</NavLink>
+                </li>
+                <li class="nav-link dropdown">
+                    <button class="nav-link dropdown-toggle main-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sälja bostad
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" target="_blank" href="https://youtu.be/xvFZjo5PgG0?si=Gn9DnI6v1vq9xCol">Sälja bostad</a></li>
+                        <li><a class="dropdown-item" target="_blank" href="https://youtu.be/xvFZjo5PgG0?si=Gn9DnI6v1vq9xCol">Värdera din kunds bostad</a></li>
+                        <li><a class="dropdown-item" target="_blank" href="https://youtu.be/xvFZjo5PgG0?si=Gn9DnI6v1vq9xCol">Annonsera bostad på Bostadzportalen</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="ms-auto d-flex gap-2">
+                
+                <NavLink @onclick=LogOut class="btn main-btn">Logga ut</NavLink>
+                <NavLink href="/users/registerFirstRealtor" class="btn main-btn">Register (Admin)</NavLink>
+                @* <NavLink href="/users/register" class="btn main-btn">Register</NavLink> *@
+            </div>
+        </div>
+    </div>
+</nav>
+
+@code {
+
+    // private ClaimsPrincipal? user;
+    // private string? userName;
+
+    private async Task LogOut()
+    {
+        await authService.Logout();
+    }
+
+
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     var authState = await authenticationStateProvider.GetAuthenticationStateAsync();
+    //     user = authState.User;
+
+    //     userName = user?.FindFirst("FirstName")?.Value;
+    // }
+}
+
+

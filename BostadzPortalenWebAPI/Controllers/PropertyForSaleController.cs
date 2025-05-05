@@ -1,7 +1,7 @@
 
 using BostadzPortalenWebAPI.Data;
 
-﻿using AutoMapper;
+using AutoMapper;
 
 using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
@@ -21,7 +21,7 @@ namespace BostadzPortalenWebAPI.Controllers
         private readonly IMapper mapper;
         private readonly ApplicationDbContext _context;
 
-      
+
 
 
 
@@ -34,16 +34,16 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         // Author: Oscar
-     
+
         [HttpGet("{id}")]
         public async Task<ActionResult<PropertyForSale>> GetProperty(int id)
         {
             var property = await _propertyForSaleRepository.GetByIDAsync(id);
             if (property == null)
             {
-                return NotFound(); 
+                return NotFound();
             }
-            return Ok(property); 
+            return Ok(property);
         }
 
         // Author: Oscar
@@ -54,9 +54,9 @@ namespace BostadzPortalenWebAPI.Controllers
             var properties = await _propertyForSaleRepository.GetAllWithIncludesAsync();
             if (properties == null || !properties.Any())
             {
-                return NotFound(); 
+                return NotFound();
             }
-            return Ok(properties); 
+            return Ok(properties);
         }
 
         //Author: Kevin
@@ -74,22 +74,29 @@ namespace BostadzPortalenWebAPI.Controllers
         [HttpGet("GetAllPropertyOverviewDTOAsync")]
         public async Task<ActionResult<List<PropertyForSaleOverviewDTO>>> GetAllPropertyOverviewDTOAsync()
         {
-            var properties = await _propertyForSaleRepository.GetAllPropertyOverviewDTOAsync();
+            var properties = await _propertyForSaleRepository.GetAllWithIncludesAsync();
             if (properties == null || !properties.Any())
             {
                 return NotFound();
             }
-            return Ok(properties);
+            var allDTOs = new List<PropertyForSaleOverviewDTO>();
+            foreach (var property in properties)
+            {
+                allDTOs.Add(mapper.Map<PropertyForSaleOverviewDTO>(property));
+            }
+
+            return Ok(allDTOs);
         }
         [HttpGet("GetPropertyByIdDetailsDTOAsync/{id}")]
         public async Task<ActionResult<PropertyForSaleDetailsDTO>> GetPropertyByIdDetailsDTOAsync(int id)
         {
-            var property = await _propertyForSaleRepository.GetPropertyByIdDTOAsync(id);
+            var property = await _propertyForSaleRepository.GetByIDIncludesAsync(id);
             if (property == null)
             {
                 return NotFound();
             }
-            return Ok(property);
+            var dto = mapper.Map<PropertyForSaleDetailsDTO>(property);
+            return Ok(dto);
         }
 
         // Author: JOna
@@ -102,7 +109,7 @@ namespace BostadzPortalenWebAPI.Controllers
                 return BadRequest("Invalid input.");
 
             // Hämta användarens id från token
-            var userId = User.FindFirst("uid")?.Value; 
+            var userId = User.FindFirst("uid")?.Value;
 
             if (string.IsNullOrEmpty(userId))
                 return Unauthorized("User ID not found in token.");
@@ -128,10 +135,10 @@ namespace BostadzPortalenWebAPI.Controllers
             property.RealtorId = userId; //  RealtorId från den inloggade användaren 
             property.Realtor = realtor;  //  Realtor (hela objektet) på fastigheten
 
-            
+
             await _propertyForSaleRepository.AddAsync(property);
 
-            
+
             return CreatedAtAction(nameof(GetProperty), new { id = property.PropertyForSaleId }, property);
         }
 
@@ -140,7 +147,7 @@ namespace BostadzPortalenWebAPI.Controllers
         // Author: Jona
         // PUT api/<PropertyForSaleController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<PropertyForSale>> UpdateProperty(int id, [FromBody] PropertyForSale updatedPropertyForSale)
+        public async Task<ActionResult> UpdateProperty(int id, [FromBody] PropertyForSaleUpdateDto updatedPropertyForSale)
         {
             if (updatedPropertyForSale == null)
             {
@@ -151,9 +158,13 @@ namespace BostadzPortalenWebAPI.Controllers
             {
                 return NotFound();
             }
-            updatedPropertyForSale.PropertyForSaleId = id; // Ensure the ID is set correctly
-            await _propertyForSaleRepository.UpdateAsync(updatedPropertyForSale);
+         
+            mapper.Map(updatedPropertyForSale, existingProperty);
+             
+            await _propertyForSaleRepository.UpdateAsync(existingProperty);
             return NoContent(); //204 whop 
+    
+
         }
         // Author: Jonaaa
         // DELETE api/<PropertyForSaleController>/5
@@ -166,7 +177,7 @@ namespace BostadzPortalenWebAPI.Controllers
                 return NotFound();
             }
             await _propertyForSaleRepository.DeleteAsync(propertyToDelete);
-            return NoContent(); 
+            return NoContent();
         }
         // author: Oscar
         [HttpPost("search")]
@@ -191,9 +202,19 @@ namespace BostadzPortalenWebAPI.Controllers
                 query = query.Where(p => p.Municipality.Name.Contains(searchRequest.MunicipalityName));
             }
 
-            var properties = await query.ToListAsync();
 
-            return Ok(properties);
+            try
+            {
+                var properties = await query.ToListAsync();
+                return Ok(properties);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERROR: " + ex.Message);
+                throw;
+            }
+
+
         }
     }
 }

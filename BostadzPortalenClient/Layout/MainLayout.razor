@@ -3,7 +3,18 @@
 <div class="page">
     <main>
         
-        <NavMenu />
+        <AuthorizeView>
+            <NotAuthorized>
+                <NotAuthNavMeny>
+                </NotAuthNavMeny>
+            </NotAuthorized>
+            <Authorized>
+                <AuthorizedNavMeny>
+                </AuthorizedNavMeny>
+            </Authorized>
+
+        </AuthorizeView>
+
 
         <article class="content px-4 mt-5">
             @Body

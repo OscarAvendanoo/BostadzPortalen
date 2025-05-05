@@ -1,4 +1,5 @@
-﻿@inject NavigationManager Navigation;
+﻿@using BostadzPortalenClient.Components.XtoString
+@inject NavigationManager Navigation;
 @* Author: Johan Nelin *@
 
 @if (propertyList == null)
@@ -24,16 +25,17 @@ else
             @foreach (var item in propertyList)
             {
                 <tr>
+
                     <td> @item.MunicipalityName </td>
-                    <td> @item.Address </td>
+                    <td> <a href="/properties/details/@item.PropertyForSaleId">@item.Address</a> </td>
                     <td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(item.AskingPrice)"></DecimalToStringSEK> </td>
                     <td> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(item.MonthlyFee)"></DecimalToStringSEK>
                     </td>
-                    <td> @item.TypeOfProperty </td>
+                    <td> @item.PropertyTypeString </td>
                     <td> <IntToString_m2 inputInt="@item.LivingArea"></IntToString_m2> </td>
                     <td> <IntToString_m2 inputInt="@item.PlotArea"></IntToString_m2> </td>
                     <td> @item.NumberOfRooms </td>
-                    <td><a href="/properties/details/@item.PropertyForSaleId">Detaljer</a></td>
+                    @* <td><a href="/properties/details/@item.PropertyForSaleId">Detaljer</a></td> *@
                 </tr>
             }
         </tbody>

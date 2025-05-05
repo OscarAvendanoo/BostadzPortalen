@@ -25,6 +25,7 @@ namespace BostadzPortalenClient
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7291/") });
 
             builder.Services.AddAutoMapper(typeof(Program));
+            builder.Services.AddBlazorBootstrap(); //JN: to make the slideshow work
 
             builder.Services.AddScoped<ApiService>();
 
@@ -32,8 +33,11 @@ namespace BostadzPortalenClient
             builder.Services.AddBlazoredLocalStorage();
 
             builder.Services.AddScoped<ApiAuthenticationStateProvider>();
-            builder.Services.AddScoped<AuthenticationStateProvider>(p =>
-            p.GetRequiredService<ApiAuthenticationStateProvider>());
+            builder.Services.AddScoped<AuthenticationStateProvider, ApiAuthenticationStateProvider>();
+
+
+            //builder.Services.AddScoped<AuthenticationStateProvider>(p =>
+            //p.GetRequiredService<ApiAuthenticationStateProvider>());
             builder.Services.AddAuthorizationCore();
             builder.Services.AddScoped<IClient, Client>();
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
