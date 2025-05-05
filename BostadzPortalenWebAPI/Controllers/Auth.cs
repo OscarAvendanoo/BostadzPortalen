@@ -35,6 +35,8 @@ namespace BostadzPortalenWebAPI.Controllers
                     UserName = userDto.Email,
                     Email = userDto.Email,
                     EmailConfirmed = true
+
+
                     // Lägg till FirstName, LastName, AgencyId här om du har det i ApiUser
                 };
 
@@ -71,6 +73,8 @@ namespace BostadzPortalenWebAPI.Controllers
                     return Unauthorized("Fel e-post");
                 }
 
+
+                //skapa en DTOklass AuthResponse med props: UserId, Token, Email
                 var passwordIsValid = await userManager.CheckPasswordAsync(user, userDto.Password);
                 if (!passwordIsValid)
                 {
@@ -105,6 +109,14 @@ namespace BostadzPortalenWebAPI.Controllers
             var userClaims = await userManager.GetClaimsAsync(user);
 
             var claims = new List<Claim>
+    {
+        new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+        new Claim(JwtRegisteredClaimNames.Email, user.Email),
+        new Claim("uid", user.Id)
+    }
+            .Union(roleClaims)
+             .Union(userClaims);
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),

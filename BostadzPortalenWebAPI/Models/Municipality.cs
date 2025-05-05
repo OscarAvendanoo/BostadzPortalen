@@ -1,4 +1,6 @@
-﻿namespace BostadzPortalenWebAPI.Models
+﻿using System.Text.Json.Serialization;
+
+namespace BostadzPortalenWebAPI.Models
 {
     //author: Ledion
     public class Municipality
@@ -7,6 +9,7 @@
         public string Name { get; set; }
 
         // En kommun kan ha flera bostäder
+        
         public virtual List<PropertyForSale>? PropertiesForSale { get; set; }
     }
 }

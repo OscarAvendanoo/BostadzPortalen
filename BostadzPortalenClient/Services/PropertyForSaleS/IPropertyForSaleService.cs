@@ -1,6 +1,7 @@
 ﻿using BostadzPortalenClient.Services.Base;
 
 
+
 namespace BostadzPortalenClient.Services.PropertyForSaleS
 {
     public interface IPropertyForSaleService
@@ -11,12 +12,12 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
 
 
         Task<PropertyForSale> GetPropertyAsync(int id);
-        Task UpdatePropertyAsync(int propertyId, PropertyForSale property);
+        Task UpdatePropertyAsync(int propertyId, PropertyForSaleUpdateDto property);
 
 
         Task<bool> AddPropertyForSaleAsync(CreatePropertyForSaleDTO dto);
 
-       
+        Task<IEnumerable<PropertyForSale>> GetPropertiesByRealtor(string id);
 
 
 
