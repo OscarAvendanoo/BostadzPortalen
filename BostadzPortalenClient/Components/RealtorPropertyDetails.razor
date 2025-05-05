@@ -129,9 +129,7 @@
     protected override async Task OnInitializedAsync()
     {
         realEstate = await propService.GetPropertyDetailsDTOByIdAsync(Id);
-        Console.WriteLine($"Address: {realEstate?.Address}");
-        Console.WriteLine($"Realtor.FirstName: {realEstate?.Realtor?.FirstName}");
-        Console.WriteLine($"RealEstateAgency.AgencyName: {realEstate?.RealEstateAgency?.AgencyName}");
+        
 
     }
 
