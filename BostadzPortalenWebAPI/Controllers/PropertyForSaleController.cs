@@ -246,7 +246,7 @@ namespace BostadzPortalenWebAPI.Controllers
                     MonthlyFee = p.MonthlyFee,
                     YearlyOperatingCost = p.YearlyOperatingCost,
                     YearBuilt = p.YearBuilt,
-                    ImageUrls = new List<string>(), // Lägg in riktiga bilder om du har det
+                    //ImageUrls = new List<string>(), // Lägg in riktiga bilder om du har det
                     TypeOfProperty = p.TypeOfProperty
                 }).ToListAsync();
 

@@ -11,14 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BostadzPortalenWebAPI.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
-<<<<<<<< HEAD:BostadzPortalenWebAPI/Migrations/20250430132804_InitialCleanStaticSeed.Designer.cs
     [Migration("20250430132804_InitialCleanStaticSeed")]
-    partial class InitialCleanStaticSeed
+    partial class InitialCleanStaticSeed;
 ========
     [Migration("20250505084526_jn-8")]
     partial class jn8
->>>>>>>> 9a7e897b48ecda4dce64e76f20d7f7fdc5c576c9:BostadzPortalenWebAPI/Migrations/20250505084526_jn-8.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
