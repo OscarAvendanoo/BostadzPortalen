@@ -9,7 +9,7 @@ using System.Security.Claims;
 using System.Text;
 
 namespace BostadzPortalenWebAPI.Controllers
-{
+{ //Author Ledion
     [Route("api/[controller]")]
     [ApiController]
     public class Auth : ControllerBase

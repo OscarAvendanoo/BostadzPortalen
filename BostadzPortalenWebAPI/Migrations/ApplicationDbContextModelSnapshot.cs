@@ -346,6 +346,20 @@ namespace BostadzPortalenWebAPI.Migrations
                             AgencyDescription = "Skåne är den bästa platsen på Gotland",
                             AgencyLogoUrl = "https://fatcamp.io/xn--mklare-bua.se/images/artiklar/makl.samfundet.jpg?width=1000",
                             AgencyName = "Skanebo"
+                        },
+                        new
+                        {
+                            RealEstateAgencyId = 3,
+                            AgencyDescription = "Sveriges näst bästa mäklarbyrå",
+                            AgencyLogoUrl = "BilderKommerSen",
+                            AgencyName = "Gottfridsson"
+                        },
+                        new
+                        {
+                            RealEstateAgencyId = 4,
+                            AgencyDescription = "Skåne är den bästa platsen på Gotland",
+                            AgencyLogoUrl = "BilderKommerSen",
+                            AgencyName = "Skanebo"
                         });
                 });
 
@@ -538,7 +552,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92d637e6-6a8d-421e-a118-7a29d0edc1e7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "03251133-4d27-4778-855b-556b10885ff3",
+                            ConcurrencyStamp = "d16f73c8-9f8d-4dc7-9d47-e775caadb6a5",
                             Email = "admin@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -546,10 +560,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@DEMOAPI.COM",
                             NormalizedUserName = "ADMIN@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEACQOz8ifjb82lxqF1mYcvfg4lEo85VDFMP+0JRkIUWt7mjxRlJXw2QC++6t8yftXw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF6oFKaPYv7dY6S49UYErceG71LgqY4NQnl65ID7GEx1UAcL7IeuWnI1fBAGgW6Aow==",
                             PhoneNumber = "0722661920",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f2151a4a-7c0a-486f-8a52-55fd908ebbeb",
+                            SecurityStamp = "b2c08c00-a0f2-481a-ad52-74cf4207534f",
                             TwoFactorEnabled = false,
                             UserName = "admin@demoapi.com",
                             AgencyId = 1,
@@ -559,7 +573,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92b88e50-795f-4df6-90e0-8a7d9a179cb0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "eb474526-ddf8-4fde-b2be-5af0aa40b782",
+                            ConcurrencyStamp = "d43bca50-ba9e-43a9-9696-9eb91912f49e",
                             Email = "user@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -567,10 +581,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@DEMOAPI.COM",
                             NormalizedUserName = "USER@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAVkvsHMZWFJT44Kt4H6U2bSYwzmEi3a8hWtI/BpuERnxDTZkyZKUwJKVMkhrSMdKg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF6oFKaPYv7dY6S49UYErceG71LgqY4NQnl65ID7GEx1UAcL7IeuWnI1fBAGgW6Aow==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2bb446e5-3db2-4c19-9fa4-79ec9a70128a",
+                            SecurityStamp = "8bf0484e-c504-43c0-865f-15e592c17374",
                             TwoFactorEnabled = false,
                             UserName = "user@demoapi.com",
                             AgencyId = 1,
@@ -580,7 +594,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "87efc5ac-77d8-4729-b3d6-3309dc88e88d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a00a7dc2-12e2-4eba-9ef4-0b2924af18f6",
+                            ConcurrencyStamp = "7d8f7cfa-6c63-4795-8406-660dc3a5e9b0",
                             Email = "realtor@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -588,10 +602,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "REALTOR@DEMOAPI.COM",
                             NormalizedUserName = "REALTOR@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEL0vK3u4uuq3akGY0qwVTB4KbPR7htWdXTwMNln/8bBEK96uV8y4Zual3NsCNFXffQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF6oFKaPYv7dY6S49UYErceG71LgqY4NQnl65ID7GEx1UAcL7IeuWnI1fBAGgW6Aow==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "527f3972-22a1-4e3b-84d6-139e933b4c97",
+                            SecurityStamp = "32aa14d5-67e0-42a5-8d79-7a541b5b5536",
                             TwoFactorEnabled = false,
                             UserName = "realtor@demoapi.com",
                             AgencyId = 2,
