@@ -92,7 +92,7 @@
     <InputSelect class="form-control" @bind-Value="newProperty.TypeOfProperty">
         @foreach (TypeOfPropertyEnum val in Enum.GetValues(typeof(TypeOfPropertyEnum)))
         {
-            <option value="@val">@GetDisplayName(val)</option>
+            <option value="@val">@val</option>
         }
     </InputSelect>
 
@@ -130,17 +130,17 @@
     private List<Municipality> municipalities = new();
 
     // Testar denna för att slippa sifforna
-    string GetDisplayName(TypeOfPropertyEnum value)
-    {
-        return value switch
-        {
-            TypeOfPropertyEnum._0 => "Bostadsrättslägenhet",
-            TypeOfPropertyEnum._1 => "Bostadsrättsradhus",
-            TypeOfPropertyEnum._2 => "Villa",
-            TypeOfPropertyEnum._3 => "Fritidshus",
-            _ => value.ToString()
-        };
-    }
+    // string GetDisplayName(TypeOfPropertyEnum value)
+    // {
+    //     return value switch
+    //     {
+    //         TypeOfPropertyEnum._0 => "Bostadsrättslägenhet",
+    //         TypeOfPropertyEnum._1 => "Bostadsrättsradhus",
+    //         TypeOfPropertyEnum._2 => "Villa",
+    //         TypeOfPropertyEnum._3 => "Fritidshus",
+    //         _ => value.ToString()
+    //     };
+    // }
 
     protected override async Task OnInitializedAsync()
     {

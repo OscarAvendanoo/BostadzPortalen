@@ -88,11 +88,18 @@
 
         <div class="d-flex flex-wrap justify-content-center align-items-center col-6">
 
-            @foreach (var picture in realEstate.ImageUrls)
+            @if (realEstate.ImageUrls != null)
             {
-                @* <img src="picture" class="img-thumbnail m-1" style="max-width: 150px;" /> *@
-                <p>@picture</p>
+                @foreach (var picture in realEstate.ImageUrls)
+                {
+                    <p>@picture.ToString()</p>
+                }
             }
+            else
+            {
+                <p>Inga bilder tillgängliga.</p>
+            }
+
 
 
         </div>
@@ -102,15 +109,14 @@
     <div class="mt-4">
         <div class="form-group">
             <label>Mäklare</label>
-            <InputText @bind-Value="realEstate.Realtor.FirstName" class="form-control mb-2" placeholder="Förnamn" />
-            <InputText @bind-Value="realEstate.Realtor.LastName" class="form-control mb-2" placeholder="Efternamn" />
-            <img src="/Pictures/@realEstate.Realtor.ProfileImageUrl" class="img-thumbnail" style="max-width: 100px;" />
+            <InputText @bind-Value="realEstate.RealtorFullName" class="form-control mb-2" placeholder="För och efternamn" />
+            <img src="/Pictures/@realEstate.RealtorPicture" class="img-thumbnail" style="max-width: 100px;" />
         </div>
 
         <div class="form-group mt-3">
             <label>Mäklarbyrå</label>
-            <InputText @bind-Value="realEstate.RealEstateAgency.AgencyName" class="form-control mb-2" />
-            <img src="/Pictures/@realEstate.RealEstateAgency.AgencyLogoUrl" class="img-thumbnail" style="max-width: 100px;" />
+            <InputText @bind-Value="realEstate.AgencyName" class="form-control mb-2" />
+            <img src="/Pictures/@realEstate.AgencyLogo" class="img-thumbnail" style="max-width: 100px;" />
         </div>
     </div>
 

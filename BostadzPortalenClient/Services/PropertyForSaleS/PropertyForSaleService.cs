@@ -11,13 +11,12 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
         private readonly IClient httpClient;
         private readonly IMapper mapper;
 
-        //private readonly ApiService apiService;
+        
 
-        public PropertyForSaleService(IClient httpClient, ApiService apiService, IMapper mapper)
+        public PropertyForSaleService(IClient httpClient, ApiService apiService, IMapper mapper, ILocalStorageService localStorage) : base(localStorage, httpClient)
         {
             this.httpClient = httpClient;
             this.mapper = mapper;
-            //this.apiService = apiService; // Jona
         }
 
         public async Task<IEnumerable<PropertyForSaleOverviewDTO>> GetAllPropertiesForSaleDTOAsync()

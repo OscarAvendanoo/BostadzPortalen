@@ -3,10 +3,10 @@
 @using BostadzPortalenClient.Components
 @using BostadzPortalenClient.Providers
 @using Microsoft.AspNetCore.Components.Authorization
+@using BostadzPortalenClient.Components.XtoString
 @* Author: Johan Nelin *@
 @inject IPropertyForSaleService propService
-@inject ApiAuthenticationStateProvider AuthenticationStateProvider
-@inject NavigationManager navManager
+
 
 
 
@@ -60,8 +60,8 @@
 
 
         <div>
-            <p> Mäklare: @realEstate.Realtor.FirstName @realEstate.Realtor.LastName <img src="/Pictures/@realEstate.Realtor.ProfileImageUrl" /></p>
-            <p> Mäklarbyrå: @realEstate.RealEstateAgency.AgencyName <img src="~/Pictures/@realEstate.RealEstateAgency.AgencyLogoUrl" /></p>
+            <p> Mäklare: @realEstate.RealtorFullName <img src="/Pictures/@realEstate.RealtorPicture" /></p>
+            <p> Mäklarbyrå: @realEstate.AgencyName <img src="~/Pictures/@realEstate.AgencyLogo" /></p>
         </div>
     </NotAuthorized>
 </AuthorizeView>
@@ -81,18 +81,10 @@ else
     [Parameter] public int Id { get; set; }
     private PropertyForSaleDetailsDTO realEstate { get; set; }
 
-    // private AuthenticationState authState;
+    
 
     protected override async Task OnInitializedAsync()
     {
-
-        // var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        // if (authState.User.Identity is { IsAuthenticated: true })
-        // {
-        //     navManager.NavigateTo($"/properties/realtorDetails/{Id}");
-        //     return;
-        // }
-
         realEstate = await propService.GetPropertyDetailsDTOByIdAsync(Id);
     }
 
@@ -103,10 +95,4 @@ else
     //JN: But it requires an nSwag rebuild so...
 }
 
-   @*  private async Task NavigateToRealtorDetails()
-    {
-        hasNavigated = true;
-        navManager.NavigateTo($"/properties/realtorDetails/{Id}");
-
-    }
-} *@
+   
