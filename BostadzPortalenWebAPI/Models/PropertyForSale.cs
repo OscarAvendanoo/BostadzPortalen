@@ -39,7 +39,8 @@ namespace BostadzPortalenWebAPI.Models
         public virtual List<PropertyImage> ImageUrls { get; set; } = new();
         [ForeignKey(nameof(Realtor))]
         public string RealtorId { get; set; }
-        public Realtor Realtor { get; set; } 
+        public Realtor Realtor { get; set; }
+
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
     }
 }
