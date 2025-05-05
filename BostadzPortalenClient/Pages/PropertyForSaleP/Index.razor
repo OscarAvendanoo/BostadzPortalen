@@ -1,17 +1,30 @@
 ﻿@page "/properties/index"
 @* Author: Johan Nelin *@
 @using BostadzPortalenClient.Services
+@using BostadzPortalenClient.Components
 @inject IPropertyForSaleService propService
 
+
 <h3>Index</h3>
+
+<h3>Table</h3>
 <PropertiesTable propertyList="allProperties"></PropertiesTable>
+
+<h3>Cards</h3>
+<div class="row">
+	@foreach (var property in allProperties)
+	{
+		<RealEstateCardComponent realEstate="property"></RealEstateCardComponent>
+	}
+</div>
+
 
 
 @code {
-    private IEnumerable<PropertyForSaleOverviewDTO> allProperties { get; set; }
+	private IEnumerable<PropertyForSaleOverviewDTO> allProperties { get; set; }
 
-    protected override async Task OnInitializedAsync() 
-    {
-        allProperties = await propService.GetAllPropertiesForSaleDTOAsync();
-    }
+	protected override async Task OnInitializedAsync()
+	{
+		allProperties = await propService.GetAllPropertiesForSaleDTOAsync();
+	}
 }

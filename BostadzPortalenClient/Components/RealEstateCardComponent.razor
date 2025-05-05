@@ -1,0 +1,63 @@
+﻿@using BostadzPortalenClient.Components.XtoString
+
+<div class="col-sm-3 mb-3 mb-sm-3 mt-4">
+    <div class="card" style="width: 18rem;">
+        <div class="image-container">
+            <NavLink class="card-img-top" href="@GetLink()">
+                <img src="@realEstate.ImageUrls.First().ImageUrl" class="card-img-top" alt="bild">
+            </NavLink>
+            @* @if (soldProperties.Contains(realEstate.PropertyForSaleId))
+            {
+                <!--Behöver lägga till bool Sold eller nåt för att lagra men detta är väl mest lyxgrej typ-->
+                <div class="sold-overlay">
+                    <span>SOLD</span>
+                </div>
+            } *@
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">@realEstate.Address</h5>
+            <h5 class="card-title">@realEstate.MunicipalityName</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="model-row">
+                    <span style="font-weight:bold;">Byggår</span>
+                    <span>@realEstate.YearBuilt</span>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="model-row">
+                    <span style="font-weight:bold;">Typ av fastighet</span>
+                    <span>@realEstate.TypeOfProperty</span>
+
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="model-row mb-0">
+                    <span style="font-weight:bold;">Boendeyta</span>
+                    <span><IntToString_m2 inputInt="@realEstate.LivingArea"></IntToString_m2> </span>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="model-row mb-0 mt-3">
+                    <span style="font-weight:bold; text-decoration: underline">Utgångspris</span>
+                    <span><DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.AskingPrice)"></DecimalToStringSEK></span>
+                </div>
+            </li>
+        </ul>
+        @* <RemoveButton Id="@realEstate.PropertyForSaleId" OnRemove="RemoveRealEstate" /> *@
+
+        @* <button class="btn btn-danger" @onclick="() => MarkAsSold(realEstate.PropertyForSaleId)">Sälj</button> *@
+    </div>
+</div>
+
+@code {
+    [Parameter] public PropertyForSaleOverviewDTO realEstate { get; set; }
+    public string linkId { get; set; }
+
+    private string GetLink()
+    {
+        linkId = $"/properties/details/{realEstate.PropertyForSaleId}";
+        return linkId;
+    }
+}
