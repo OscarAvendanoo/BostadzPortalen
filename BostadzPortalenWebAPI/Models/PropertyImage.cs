@@ -9,9 +9,10 @@ namespace BostadzPortalenWebAPI.Models
         public string ImageUrl { get; set; } = string.Empty;
 
         public int PropertyForSaleId { get; set; }
+
         [JsonIgnore]
         public PropertyForSale PropertyForSale { get; set; }
-       
+
 
     }
 }

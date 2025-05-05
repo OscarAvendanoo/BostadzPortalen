@@ -135,16 +135,27 @@
     protected override async Task OnInitializedAsync()
     {
         realEstate = await propService.GetPropertyDetailsDTOByIdAsync(Id);
-        
+
 
     }
 
     private async Task SaveChanges()
     {
+        try
+        {
+            await propService.UpdatePropertyAsync(Id, realEstate);
+            navManager.NavigateTo("/PropertiesTable");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Misslyckades att uppdatera produkten. {ex.Message}");
+            
+        }
         
         
-        await propService.UpdatePropertyAsync(realEstate.PropertyForSaleId, realEstate);
-        navManager.NavigateTo("/PropertiesTable");
+
+        await propService.UpdatePropertyAsync(Id, realEstate);
+        navManager.NavigateTo("/PropertiesTable", forceLoad: false);
     }
 
 }
