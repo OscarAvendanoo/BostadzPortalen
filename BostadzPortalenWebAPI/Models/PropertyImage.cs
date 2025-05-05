@@ -1,4 +1,6 @@
-﻿namespace BostadzPortalenWebAPI.Models
+﻿using System.Text.Json.Serialization;
+
+namespace BostadzPortalenWebAPI.Models
 {
     public class PropertyImage
     {
@@ -7,6 +9,7 @@
         public string ImageUrl { get; set; } = string.Empty;
 
         public int PropertyForSaleId { get; set; }
+        [JsonIgnore]
         public PropertyForSale PropertyForSale { get; set; }
        
 

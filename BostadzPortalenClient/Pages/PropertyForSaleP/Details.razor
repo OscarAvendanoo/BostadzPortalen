@@ -1,12 +1,22 @@
 ﻿@page "/properties/details/{Id:int}"
-@* Author: Johan Nelin *@
-
-@using BostadzPortalenClient.Services
-@using BostadzPortalenClient.Pages.PropertyForSaleP
+@using Blazored.LocalStorage
+@using BostadzPortalenClient.Components
+@using BostadzPortalenClient.Providers
+@using Microsoft.AspNetCore.Components.Authorization
 @using BostadzPortalenClient.Components.XtoString
+@* Author: Johan Nelin *@
 @inject IPropertyForSaleService propService
 
-<div class="d-flex align-items-center">
+
+
+
+
+<AuthorizeView>
+    <Authorized>
+        <RealtorPropertyDetails Id="Id"/>
+    </Authorized>
+    <NotAuthorized>
+        <div class="d-flex align-items-center">
 	<div>
 		<h3>@realEstate.Address: @realEstate.MunicipalityName</h3>
 		<p>
@@ -57,15 +67,21 @@
 	</div>
 </div>
 
-
 <div>
 	<p> Mäklare: @realEstate.RealtorFullName <img src="/Pictures/@realEstate.RealtorPicture" /></p>
 	<p> Mäklarbyrå: @realEstate.AgencyName<img src="~/Pictures/@realEstate.AgencyLogo" /></p>
 </div>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+
 
 
 
 @code {
+
 	[Parameter] public int Id { get; set; }
 	private PropertyForSaleDetailsDTO realEstate { get; set; }
 	protected override async Task OnInitializedAsync()
@@ -75,4 +91,7 @@
 		//JN: This will need to change to only include: (RealtorName + RealtorID + RealtorPicture) + (AgencyName + AgencyID + AgencyLogo)
 		//JN: But it requires an nSwag rebuild so...		
 	}
+
 }
+
+   

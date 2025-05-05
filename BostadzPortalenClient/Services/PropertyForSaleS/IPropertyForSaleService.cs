@@ -12,12 +12,12 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
 
 
         Task<PropertyForSale> GetPropertyAsync(int id);
-        Task UpdatePropertyAsync(int propertyId, PropertyForSale property);
+        Task UpdatePropertyAsync(int propertyId, PropertyForSaleDetailsDTO property);
 
 
         Task<bool> AddPropertyForSaleAsync(CreatePropertyForSaleDTO dto);
 
-       
+        Task<IEnumerable<PropertyForSale>> GetPropertiesByRealtor(string id);
 
 
 
