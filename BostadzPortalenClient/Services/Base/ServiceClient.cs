@@ -3075,6 +3075,9 @@ namespace BostadzPortalenClient.Services.Base
         [System.ComponentModel.DataAnnotations.Range(1900, 2147483647)]
         public int YearBuilt { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("imageUrls", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<PropertyImage> ImageUrls { get; set; }
+
         [Newtonsoft.Json.JsonProperty("realtorId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RealtorId { get; set; }
 
@@ -3207,7 +3210,7 @@ namespace BostadzPortalenClient.Services.Base
 
     }
 
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.3.0.0 (NJsonSchema v11.2.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.4.0.0 (NJsonSchema v11.3.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class PropertyForSaleUpdateDto
     {
         [Newtonsoft.Json.JsonProperty("propertyForSaleId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3275,7 +3278,7 @@ namespace BostadzPortalenClient.Services.Base
 
     }
 
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.3.0.0 (NJsonSchema v11.2.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.4.0.0 (NJsonSchema v11.3.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class PropertyImage
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3292,7 +3295,7 @@ namespace BostadzPortalenClient.Services.Base
 
     }
 
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.3.0.0 (NJsonSchema v11.2.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.4.0.0 (NJsonSchema v11.3.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class PropertyImageDto
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
