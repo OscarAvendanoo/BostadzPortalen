@@ -1,6 +1,6 @@
 ﻿@using BostadzPortalenClient.Components.XtoString
 
-<div class="property-card d-flex shadow-sm mb-4 rounded p-3 " >
+<div class="property-card d-flex shadow-sm mb-4 rounded p-3 ">
     <div class="image-container">
         <NavLink class="card-img-top" href="@GetLink()">
             <img src="@realEstate.ImageUrls.First().ImageUrl" class="card-img-top" alt="bild" style="max-width: 400px">
@@ -14,9 +14,10 @@
         <p><strong>Pris:</strong> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.AskingPrice)"></DecimalToStringSEK></p>
         <p><strong>Hyra: </strong><DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.MonthlyFee)"></DecimalToStringSEK></p>
         <p>
-            <strong>Antal rum:</strong> @realEstate.NumberOfRooms   |   
-            <strong>Boarea:</strong> <IntToString_m2 inputInt="@realEstate.LivingArea"></IntToString_m2>   |  
-            <strong>Tomtarea:</strong> <IntToString_m2 inputInt="@realEstate.PlotArea"></IntToString_m2></p>
+            <strong>Antal rum:</strong> @realEstate.NumberOfRooms   |
+            <strong>Boarea:</strong> <IntToString_m2 inputInt="@realEstate.LivingArea"></IntToString_m2>   |
+            <strong>Tomtarea:</strong> <IntToString_m2 inputInt="@realEstate.PlotArea"></IntToString_m2>
+        </p>
         <p><strong>Byggår:</strong> @realEstate.YearBuilt | @realEstate.PropertyTypeString</p>
     </div>
 </div>
