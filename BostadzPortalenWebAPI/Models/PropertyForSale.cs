@@ -8,35 +8,42 @@ namespace BostadzPortalenWebAPI.Models
     public class PropertyForSale
     {
         public int PropertyForSaleId { get; set; }
+
         [Required]
         public string Address { get; set; }
 
         [ForeignKey(nameof(Municipality))]
         public int MunicipalityId { get; set; }
+
         [Required]
         public Municipality Municipality { get; set; }
+
         [Required]
         public decimal AskingPrice { get; set; }
+
         [Required]
         public int LivingArea { get; set; } // kvm
-        // Extra area som inte är inräknat i levnadsarean men som endå bidrar till värdet på fastigheten
+
         public int SupplementaryArea { get; set; } // kvm
-        // Area av tomt
         public int PlotArea { get; set; } // kvm
+
         [Required]
         [MaxLength(1000)]
         public string Description { get; set; }
+
         [Required]
         public int NumberOfRooms { get; set; }
-        // Endast i de fall det finns en månadsavgift, som i bostadsrätter
+
         public decimal MonthlyFee { get; set; }
+
         [Required]
         public decimal YearlyOperatingCost { get; set; }
+
         [Required]
         [Range(1900, int.MaxValue, ErrorMessage = "Year must be a valid 4-digit year.")]
         [RegularExpression(@"^\d{4}$", ErrorMessage = "Year must be a 4-digit number.")]
         public int YearBuilt { get; set; }
-        public virtual List<string>? ImageUrls { get; set; } = new List<string>();
+
         [ForeignKey(nameof(Realtor))]
         public string RealtorId { get; set; }
         public Realtor Realtor { get; set; }
@@ -45,5 +52,3 @@ namespace BostadzPortalenWebAPI.Models
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
     }
 }
-
-

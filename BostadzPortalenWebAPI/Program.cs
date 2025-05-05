@@ -42,8 +42,9 @@ namespace BostadzPortalenWebAPI
             });
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("BostadzPortalenWebAPI"))
+            .ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning)));
 
-            options.UseSqlServer(builder.Configuration.GetConnectionString("BostadzPortalenWebAPI"))); //KH + JN
 
 
             builder.Services.AddIdentityCore<ApiUser>()

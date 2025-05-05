@@ -1,5 +1,6 @@
 ﻿namespace BostadzPortalenWebAPI.Models
 {
+    //author: Ledion
     public class Municipality
     {
         public int Id { get; set; }
