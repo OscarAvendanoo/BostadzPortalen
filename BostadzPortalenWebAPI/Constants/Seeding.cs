@@ -44,7 +44,7 @@ namespace BostadzPortalenWebAPI.Constants
                     RealEstateAgencyId = 1,
                     AgencyName = "Gottfridsson",
                     AgencyDescription = "Sveriges näst bästa mäklarbyrå",
-                    AgencyLogoUrl = "BilderKommerSen",
+                    AgencyLogoUrl = "https://driftservice.blob.core.windows.net/agency-home-solution/5f946ff9-b99b-4e50-96f8-492a34ccbd47_logo",
                     //AgencyRealtors = null
                 },
                 new RealEstateAgency
@@ -52,7 +52,7 @@ namespace BostadzPortalenWebAPI.Constants
                     RealEstateAgencyId = 2,
                     AgencyName = "Skanebo",
                     AgencyDescription = "Skåne är den bästa platsen på Gotland",
-                    AgencyLogoUrl = "BilderKommerSen",
+                    AgencyLogoUrl = "https://fatcamp.io/xn--mklare-bua.se/images/artiklar/makl.samfundet.jpg?width=1000",
                     //AgencyRealtors = null
                 }
                 );
@@ -80,7 +80,7 @@ namespace BostadzPortalenWebAPI.Constants
                     EmailConfirmed = true,
                     AgencyId = 1,
                     PhoneNumber = "0722661920",
-                    ProfileImageUrl = "NoPicUser.png"
+                    ProfileImageUrl = "https://genslerzudansdentistry.com/wp-content/uploads/2015/11/anonymous-user.png"
 
                 },
                 new Realtor
@@ -96,7 +96,7 @@ namespace BostadzPortalenWebAPI.Constants
                     EmailConfirmed = true,
                     AgencyId = 1,
                     PhoneNumber = "0722661922",
-                    ProfileImageUrl = "NoPicUser.png"
+                    ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/9b/10/9b10a04e47ec5804594aef06016ceb5b.jpg"
                 },
                 new Realtor
                 {
@@ -111,7 +111,7 @@ namespace BostadzPortalenWebAPI.Constants
                     EmailConfirmed = true,
                     AgencyId = 2,
                     PhoneNumber = "0722661922",
-                    ProfileImageUrl = "NoPicUser.png"
+                    ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/d8/50/d850bd83227eb78f123af53871614efd.jpg"
                 }
             );
             return builder;
@@ -238,6 +238,24 @@ namespace BostadzPortalenWebAPI.Constants
                 {
                     Id = 3,
                     ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/89/89/898947735c6b46af72a4556dabadf07a.jpg",
+                    PropertyForSaleId = 3
+                },
+                new PropertyImage
+                {
+                    Id = 4,
+                    ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/09/e2/09e29480a003367d9dc3b139de9c416d.jpg",
+                    PropertyForSaleId = 1
+                },
+                new PropertyImage
+                {
+                    Id = 5,
+                    ImageUrl = "https://qasa-static-prod.s3-eu-west-1.amazonaws.com/img/5c5dd162d2ac084603a87e1c8d9f16bd1d93039a57b06ddca34f8aee46e4b88e.jpg",
+                    PropertyForSaleId = 2
+                },
+                new PropertyImage
+                {
+                    Id = 6,
+                    ImageUrl = "https://bcdn.se/images/cache/33121851_960x640.jpg",
                     PropertyForSaleId = 3
                 });
             return builder;
