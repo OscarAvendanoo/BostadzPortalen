@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BostadzPortalenWebAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class jn4 : Migration
+    public partial class jn7 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -213,7 +213,6 @@ namespace BostadzPortalenWebAPI.Migrations
                     MonthlyFee = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     YearlyOperatingCost = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     YearBuilt = table.Column<int>(type: "int", nullable: false),
-                    ImageUrls = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     RealtorId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     TypeOfProperty = table.Column<int>(type: "int", nullable: false)
                 },
@@ -287,9 +286,9 @@ namespace BostadzPortalenWebAPI.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "AgencyId", "ConcurrencyStamp", "Discriminator", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileImageUrl", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, 2, "5dedaad9-2f53-478b-8197-e306645e53c6", "Realtor", "realtor@demoapi.com", true, "System", "Realtor", false, null, "REALTOR@DEMOAPI.COM", "REALTOR@DEMOAPI.COM", "AQAAAAIAAYagAAAAEETwdLwuGKX4iRMq2TmbtTrBz8ZqjgPZWNIr4ErD1I7kRMwrJ3K76zi0MOpfBQgqrA==", "0722661922", false, "NoPicUser.png", "8db780df-ac97-425f-91eb-13fd3a9b9770", false, "realtor@demoapi.com" },
-                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, 1, "cd277ce4-34c4-4098-8204-dff9e1309e9a", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEFLEKpU7JLjgzers1Mfk2BZ1/Gj0J4/LpgIAgS4KsSSdGFNgHoDu2X62KlbbDHxRZQ==", "0722661922", false, "NoPicUser.png", "b9601e9c-90d6-459b-abf0-59409d38bf46", false, "user@demoapi.com" },
-                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, 1, "556fdb6a-ea7e-4dfc-9f1d-a0dea302649f", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEIyXLY4QkBqrtChtZqpe+qKVm1/rTlC63uAseySJUozBigsGxLpUz93o0a6QYYezHQ==", "0722661920", false, "NoPicUser.png", "a13e85a0-06fb-4ebc-b6df-079c8b82e07a", false, "admin@demoapi.com" }
+                    { "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 0, 2, "15a14eed-2cea-4f47-be33-bb21f5604d24", "Realtor", "realtor@demoapi.com", true, "System", "Realtor", false, null, "REALTOR@DEMOAPI.COM", "REALTOR@DEMOAPI.COM", "AQAAAAIAAYagAAAAEEO5EyjKdBNNgnOSI/8Yif8WA0lV2/+ydYEFfPJpUpIWqKf4O2wvD8YOxdrkElQk/g==", "0722661922", false, "NoPicUser.png", "f8afa92e-5a01-4348-92d6-636f45f0dcc1", false, "realtor@demoapi.com" },
+                    { "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 0, 1, "49adb663-04fd-404a-978a-af2ae7772fc0", "Realtor", "user@demoapi.com", true, "System", "User", false, null, "USER@DEMOAPI.COM", "USER@DEMOAPI.COM", "AQAAAAIAAYagAAAAEFWPCp0bxO43AVReUQVMkTaLuyiYyVTkAJIilgo/RxTTVrdjEz3LDuwSTo4uzVp25Q==", "0722661922", false, "NoPicUser.png", "212d58f4-526b-486b-a64d-0639ae6db234", false, "user@demoapi.com" },
+                    { "92d637e6-6a8d-421e-a118-7a29d0edc1e7", 0, 1, "98c056e3-88b3-4ba0-9bf0-17a77ec4708d", "Realtor", "admin@demoapi.com", true, "System", "Admin", false, null, "ADMIN@DEMOAPI.COM", "ADMIN@DEMOAPI.COM", "AQAAAAIAAYagAAAAEMEynk6/zZ7p7L4qC5672zNnETR+Zl4jcV1DOXV7yvPn4Ub+Z3KLqRTVpTvHsgHh9w==", "0722661920", false, "NoPicUser.png", "754f9208-6e36-466a-997d-b95f2d6858c1", false, "admin@demoapi.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -304,12 +303,22 @@ namespace BostadzPortalenWebAPI.Migrations
 
             migrationBuilder.InsertData(
                 table: "PropertiesForSale",
-                columns: new[] { "PropertyForSaleId", "Address", "AskingPrice", "Description", "ImageUrls", "LivingArea", "MonthlyFee", "MunicipalityId", "NumberOfRooms", "PlotArea", "RealtorId", "SupplementaryArea", "TypeOfProperty", "YearBuilt", "YearlyOperatingCost" },
+                columns: new[] { "PropertyForSaleId", "Address", "AskingPrice", "Description", "LivingArea", "MonthlyFee", "MunicipalityId", "NumberOfRooms", "PlotArea", "RealtorId", "SupplementaryArea", "TypeOfProperty", "YearBuilt", "YearlyOperatingCost" },
                 values: new object[,]
                 {
-                    { 1, "Wanker Street 69", 500000m, "It's a place to live", "[\"~/Pictures/image1.jpg\",\"~/Pictures/image2.jpg\"]", 24, 5000m, 1, 1, 8, "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 8, 0, 1999, 1000m },
-                    { 2, "Kungsgatan 4", 1000000m, "Fin utsikt", "[\"~/Pictures/image3.jpg\",\"~/Pictures/image4.jpg\"]", 24, 10000m, 2, 1, 8, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8, 0, 1999, 1000m },
-                    { 3, "Kungsgatan 16", 7000000m, "Bättre än kungsgatan 4", "[\"~/Pictures/image5.jpg\",\"~/Pictures/image6.jpg\"]", 64, 10000m, 2, 4, 8, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8, 2, 1950, 1000m }
+                    { 1, "Wanker Street 69", 500000m, "It's a place to live", 24, 5000m, 1, 1, 8, "92b88e50-795f-4df6-90e0-8a7d9a179cb0", 8, 0, 1999, 1000m },
+                    { 2, "Kungsgatan 4", 1000000m, "Fin utsikt", 24, 10000m, 2, 1, 8, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8, 0, 1999, 1000m },
+                    { 3, "Kungsgatan 16", 7000000m, "Bättre än kungsgatan 4", 64, 10000m, 2, 4, 8, "87efc5ac-77d8-4729-b3d6-3309dc88e88d", 8, 2, 1950, 1000m }
+                });
+
+            migrationBuilder.InsertData(
+                table: "PropertyImages",
+                columns: new[] { "Id", "ImageUrl", "PropertyForSaleId" },
+                values: new object[,]
+                {
+                    { 1, "https://bilder.hemnet.se/images/itemgallery_cut/8c/db/8cdb9b8866cc65d5ec941a56b31ba634.jpg", 1 },
+                    { 2, "https://bilder.hemnet.se/images/itemgallery_cut/40/f5/40f595711fdb0cc0ebdbd5ee80be8929.jpg", 2 },
+                    { 3, "https://bilder.hemnet.se/images/itemgallery_cut/89/89/898947735c6b46af72a4556dabadf07a.jpg", 3 }
                 });
 
             migrationBuilder.CreateIndex(

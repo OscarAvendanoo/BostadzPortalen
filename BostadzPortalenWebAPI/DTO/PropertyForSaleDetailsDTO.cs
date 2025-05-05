@@ -2,6 +2,7 @@
 
 namespace BostadzPortalenWebAPI.DTO
 {
+    //Author: Johan Nelin
     public class PropertyForSaleDetailsDTO
     {
         public int PropertyForSaleId { get; set; }
@@ -16,9 +17,17 @@ namespace BostadzPortalenWebAPI.DTO
         public decimal MonthlyFee { get; set; }
         public decimal YearlyOperatingCost { get; set; }
         public int YearBuilt { get; set; }
-        public List<string> ImageUrls { get; set; } = new List<string>();
+        public List<PropertyImage> ImageUrls { get; set; } = new List<PropertyImage>();
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
-        public Realtor Realtor { get; set; }
-        public RealEstateAgency RealEstateAgency { get; set; }
+        public string RealtorFullName { get; set; }
+        public string RealtorId { get; set; }
+        public string RealtorPicture { get; set; }
+        public string AgencyName { get; set; }
+        public int AgencyId { get; set; }
+        public string AgencyLogo { get; set; }
+
+        //Might want to add things like (access to: laundry machine / dryer / dishwasher / garage / etc)
+        //public Realtor Realtor { get; set; }
+        //public RealEstateAgency RealEstateAgency { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace BostadzPortalenWebAPI.DTO
 {
-    //Author: Kevin
+    //Author: Kevin, Johan Nelin
     public class PropertyForSaleOverviewDTO
     {
         public int PropertyForSaleId { get; set; }
@@ -20,8 +20,9 @@ namespace BostadzPortalenWebAPI.DTO
         public decimal MonthlyFee { get; set; }
         public decimal YearlyOperatingCost { get; set; }
         public int YearBuilt { get; set; }
-        public List<string> ImageUrls { get; set; } = new List<string>();
+        public List<PropertyImage> ImageUrls { get; set; } = new List<PropertyImage>();
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
+        //public string RealtorId { get; set; }
     }
 }
 

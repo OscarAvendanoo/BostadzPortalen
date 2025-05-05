@@ -45,7 +45,7 @@ namespace BostadzPortalenWebAPI.Constants
                     AgencyName = "Gottfridsson",
                     AgencyDescription = "Sveriges näst bästa mäklarbyrå",
                     AgencyLogoUrl = "BilderKommerSen",
-                    AgencyRealtors = null
+                    //AgencyRealtors = null
                 },
                 new RealEstateAgency
                 {
@@ -53,7 +53,7 @@ namespace BostadzPortalenWebAPI.Constants
                     AgencyName = "Skanebo",
                     AgencyDescription = "Skåne är den bästa platsen på Gotland",
                     AgencyLogoUrl = "BilderKommerSen",
-                    AgencyRealtors = null
+                    //AgencyRealtors = null
                 }
                 );
             });
@@ -146,17 +146,18 @@ namespace BostadzPortalenWebAPI.Constants
                 {
                     Id = 1,
                     Name = "Umeå",
-                    PropertiesForSale = null
+                    //PropertiesForSale = null
                 },
                  new Municipality
                  {
                      Id = 2,
                      Name = "Stockholm",
-                     PropertiesForSale = null
+                     //PropertiesForSale = null
                  }
                 );
             return builder;
         }
+       
         public static ModelBuilder PropertyForSaleBuilder(ModelBuilder builder)
         {
             builder.Entity<PropertyForSale>().HasData(
@@ -175,8 +176,8 @@ namespace BostadzPortalenWebAPI.Constants
                     Address = "Wanker Street 69",
                     Description = "It's a place to live",
                     NumberOfRooms = 1,
-                    TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet,
-                    ImageUrls = new List<string>() { "~/Pictures/image1.jpg", "~/Pictures/image2.jpg" }
+                    TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet
+               
                 },
                  new PropertyForSale
                  {
@@ -193,8 +194,8 @@ namespace BostadzPortalenWebAPI.Constants
                      Address = "Kungsgatan 4",
                      Description = "Fin utsikt",
                      NumberOfRooms = 1,
-                     TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet,
-                     ImageUrls = new List<string>() { "~/Pictures/image3.jpg", "~/Pictures/image4.jpg" }
+                     TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet
+                
                  },
                  new PropertyForSale
                  {
@@ -212,10 +213,35 @@ namespace BostadzPortalenWebAPI.Constants
                      Description = "Bättre än kungsgatan 4",
                      NumberOfRooms = 4,
                      TypeOfProperty = TypeOfPropertyEnum.Villa,
-                     ImageUrls = new List<string>() { "~/Pictures/image5.jpg", "~/Pictures/image6.jpg" }
+                 
                  }
                 );
             return builder;
+
         }
+        public static ModelBuilder SeedPropertyImages(this ModelBuilder builder)
+        {
+            builder.Entity<PropertyImage>().HasData(
+                new PropertyImage
+                {
+                    Id = 1,
+                    ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/8c/db/8cdb9b8866cc65d5ec941a56b31ba634.jpg",
+                    PropertyForSaleId = 1
+                },
+                new PropertyImage
+                {
+                    Id = 2,
+                    ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/40/f5/40f595711fdb0cc0ebdbd5ee80be8929.jpg",
+                    PropertyForSaleId = 2
+                },
+                new PropertyImage
+                {
+                    Id = 3,
+                    ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/89/89/898947735c6b46af72a4556dabadf07a.jpg",
+                    PropertyForSaleId = 3
+                });
+            return builder;
+        }
+
     }
 }

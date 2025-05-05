@@ -3,7 +3,9 @@
 @inject IPropertyForSaleService PropertyService
 @inject NavigationManager Navigation
 @inject IJSRuntime JS
+@inject IMuniService MuniService
 
+@* Author: Jona *@
 <h3>Add New Property</h3>
 
 <EditForm Model="newProperty" OnValidSubmit="HandleValidSubmit">
@@ -15,10 +17,22 @@
         <InputText class="form-control" @bind-Value="newProperty.Address" />
     </div>
 
-    <div class="form-group">
+     @* <div class="form-group">
         <label>Municipality ID:</label>
         <InputNumber class="form-control" @bind-Value="newProperty.MunicipalityId" />
+    </div>  *@
+
+    <div class="form-group">
+        <label>Municipality:</label>
+        <InputSelect class="form-control" @bind-Value="newProperty.MunicipalityId">
+            <option value="">-- Välj kommun --</option>
+            @foreach (var municipality in municipalities)
+            {
+                <option value="@municipality.Id">@municipality.Name</option>
+            }
+        </InputSelect>
     </div>
+
 
     <div class="form-group">
         <label>Asking Price:</label>
@@ -65,7 +79,7 @@
         <InputNumber class="form-control" @bind-Value="newProperty.YearBuilt" />
     </div>
 
-    <div class="form-group">
+    @* <div class="form-group">
         <label>Type of Property:</label>
         <InputSelect class="form-control" @bind-Value="newProperty.TypeOfProperty">
             @foreach (var val in Enum.GetValues(typeof(TypeOfPropertyEnum)))
@@ -73,18 +87,28 @@
                 <option value="@val">@val</option>
             }
         </InputSelect>
-    </div>
+    </div> *@
+
+    <InputSelect class="form-control" @bind-Value="newProperty.TypeOfProperty">
+        @foreach (TypeOfPropertyEnum val in Enum.GetValues(typeof(TypeOfPropertyEnum)))
+        {
+            <option value="@val">@GetDisplayName(val)</option>
+        }
+    </InputSelect>
+
 
     <div class="form-group">
         <label>Image URL (add multiple):</label>
         <InputText class="form-control" @bind-Value="imageUrl" />
         <button class="btn btn-secondary mt-2" type="button" @onclick="AddImageUrl">Add Image</button>
-        <ul>
+        <div class="mt-2 d-flex flex-wrap">
             @foreach (var url in newProperty.ImageUrls)
             {
-                <li>@url</li>
+                <div class="me-2 mb-2">
+                    <img src="@url" alt="Preview" style="width: 100px; height: 100px; object-fit: cover;" />
+                </div>
             }
-        </ul>
+        </div>
     </div>
 
     <button class="btn btn-primary mt-3" type="submit">Save</button>
@@ -96,9 +120,37 @@
 }
 
 @code {
-    private CreatePropertyForSaleDTO newProperty = new();
+    private CreatePropertyForSaleDTO newProperty = new()
+        {
+            ImageUrls = new List<string>()
+        };
+
     private string imageUrl = string.Empty;
     private string feedbackMessage = string.Empty;
+    private List<Municipality> municipalities = new();
+
+    // Testar denna för att slippa sifforna
+    string GetDisplayName(TypeOfPropertyEnum value)
+    {
+        return value switch
+        {
+            TypeOfPropertyEnum._0 => "Bostadsrättslägenhet",
+            TypeOfPropertyEnum._1 => "Bostadsrättsradhus",
+            TypeOfPropertyEnum._2 => "Villa",
+            TypeOfPropertyEnum._3 => "Fritidshus",
+            _ => value.ToString()
+        };
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await MuniService.GetAllMunicipalityToListAsync();
+        if (result.Success && result.Data != null)
+        {
+            municipalities = result.Data;
+        }
+    }
+
 
     private async Task HandleValidSubmit()
     {
@@ -128,5 +180,10 @@
             newProperty.ImageUrls.Add(imageUrl);
             imageUrl = string.Empty;
         }
+    }
+
+    private void RemoveImageUrl(string url)
+    {
+        newProperty.ImageUrls.Remove(url);
     }
 }

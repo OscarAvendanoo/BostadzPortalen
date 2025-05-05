@@ -25,6 +25,7 @@ namespace BostadzPortalenClient
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7291/") });
 
             builder.Services.AddAutoMapper(typeof(Program));
+            builder.Services.AddBlazorBootstrap(); //JN: to make the slideshow work
 
             builder.Services.AddScoped<ApiService>();
 

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace BostadzPortalenWebAPI.Mappings
 {
@@ -31,7 +32,7 @@ namespace BostadzPortalenWebAPI.Mappings
             CreateMap<PropertyForSale, PropertyForSaleOverviewDTO>()
                 .ForMember(dest => dest.PropertyForSaleId, opt => opt.MapFrom(src => src.PropertyForSaleId))
                 .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Address))
-                //.ForMember(dest => dest.MunicipalityId, opt => opt.MapFrom(src => src.MunicipalityId))
+                .ForMember(dest => dest.MunicipalityName, opt => opt.MapFrom(src => src.Municipality.Name))
                 .ForMember(dest => dest.AskingPrice, opt => opt.MapFrom(src => src.AskingPrice))
                 .ForMember(dest => dest.LivingArea, opt => opt.MapFrom(src => src.LivingArea))
                 .ForMember(dest => dest.SupplementaryArea, opt => opt.MapFrom(src => src.SupplementaryArea))
@@ -45,6 +46,31 @@ namespace BostadzPortalenWebAPI.Mappings
                 //.ForMember(dest => dest.RealtorId, opt => opt.MapFrom(src => src.RealtorId))
                 .ForMember(dest => dest.TypeOfProperty, opt => opt.MapFrom(src => src.TypeOfProperty))
                 .ReverseMap();
+
+            //Author: Johan Nelin
+            CreateMap<PropertyForSale, PropertyForSaleDetailsDTO>()
+                .ForMember(dest => dest.Address, opt => opt.MapFrom(src=>src.Address))
+                .ForMember(dest => dest.RealtorId, opt => opt.MapFrom(src => src.Realtor.Id))
+                .ForMember(dest => dest.RealtorFullName, opt => opt.MapFrom(src => src.Realtor.FirstName + " " + src.Realtor.LastName))
+                .ForMember(dest => dest.RealtorPicture, opt => opt.MapFrom(src => src.Realtor.ProfileImageUrl))
+                .ForMember(dest => dest.AgencyId, opt => opt.MapFrom(src => src.Realtor.Agency.RealEstateAgencyId))
+                .ForMember(dest => dest.AgencyLogo, opt => opt.MapFrom(src => src.Realtor.Agency.AgencyLogoUrl))
+                .ForMember(dest => dest.AgencyName, opt => opt.MapFrom(src => src.Realtor.Agency.AgencyName))
+                .ForMember(dest => dest.MunicipalityName, opt => opt.MapFrom(src => src.Municipality.Name))
+                .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ImageUrls))
+                .ForMember(dest => dest.AskingPrice, opt => opt.MapFrom(src => src.AskingPrice))
+                .ForMember(dest => dest.MonthlyFee, opt => opt.MapFrom(src => src.MonthlyFee))
+                .ForMember(dest => dest.YearlyOperatingCost, opt => opt.MapFrom(src => src.YearlyOperatingCost))
+                .ForMember(dest => dest.LivingArea, opt => opt.MapFrom(src => src.LivingArea))
+                .ForMember(dest => dest.PlotArea, opt => opt.MapFrom(src => src.PlotArea))
+                .ForMember(dest => dest.SupplementaryArea, opt => opt.MapFrom(src => src.SupplementaryArea))
+                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
+                .ForMember(dest => dest.NumberOfRooms, opt => opt.MapFrom(src => src.NumberOfRooms))
+                .ForMember(dest => dest.PropertyForSaleId, opt => opt.MapFrom(src => src.PropertyForSaleId))
+                .ForMember(dest => dest.TypeOfProperty, opt => opt.MapFrom(src => src.TypeOfProperty))
+                .ForMember(dest => dest.YearBuilt, opt => opt.MapFrom(src => src.YearBuilt))
+                .ReverseMap();
+
 
             CreateMap<PropertyForSale, CreatePropertyForSaleDTO>()
               .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Address))

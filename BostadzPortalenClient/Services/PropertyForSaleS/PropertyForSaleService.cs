@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 
 namespace BostadzPortalenClient.Services.PropertyForSaleS
 {
-    public class PropertyForSaleService: IPropertyForSaleService
+    public class PropertyForSaleService: BaseHttpService, IPropertyForSaleService
     {
         private readonly IClient httpClient;
         private readonly IMapper mapper;
@@ -69,6 +69,7 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
         //}
         public async Task<bool> AddPropertyForSaleAsync(CreatePropertyForSaleDTO dto)
         {
+            await GetBearerToken();
 
             var propertyForSale = new PropertyForSale
             {
@@ -76,6 +77,7 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
                 MunicipalityId = dto.MunicipalityId,
                 AskingPrice = (double)dto.AskingPrice,
                 LivingArea = dto.LivingArea,
+
                 SupplementaryArea = dto.SupplementaryArea ?? 0,
                 PlotArea = dto.PlotArea,
                 Description = dto.Description,
@@ -84,7 +86,8 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
                 YearlyOperatingCost = (double)dto.YearlyOperatingCost,
                 YearBuilt = dto.YearBuilt,
                 TypeOfProperty = dto.TypeOfProperty,
-                ImageUrls = dto.ImageUrls
+                //ImageUrls = dto.ImageUrls behöver ändras
+
             };
 
             // JN: Removed ApiService usage -> Don't know if it works (but this way we can comment-out ApiService entirely)
