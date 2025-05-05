@@ -36,25 +36,25 @@ namespace BostadzPortalenWebAPI.Constants
             builder.Entity<RealEstateAgency>(t =>
             {
                 t.HasData(
-                new RealEstateAgency
-                {
-                    RealEstateAgencyId = 1,
-                    AgencyName = "Gottfridsson",
-                    AgencyDescription = "Sveriges näst bästa mäklarbyrå",
-                    AgencyLogoUrl = "https://driftservice.blob.core.windows.net/agency-home-solution/5f946ff9-b99b-4e50-96f8-492a34ccbd47_logo",
-                    //AgencyRealtors = null
-                },
-                new RealEstateAgency
-                {
-                    RealEstateAgencyId = 2,
-                    AgencyName = "Skanebo",
-                    AgencyDescription = "Skåne är den bästa platsen på Gotland",
-                    AgencyLogoUrl = "https://fatcamp.io/xn--mklare-bua.se/images/artiklar/makl.samfundet.jpg?width=1000",
-                    //AgencyRealtors = null
-                }
                     new RealEstateAgency
                     {
                         RealEstateAgencyId = 1,
+                        AgencyName = "Gottfridsson",
+                        AgencyDescription = "Sveriges näst bästa mäklarbyrå",
+                        AgencyLogoUrl = "https://driftservice.blob.core.windows.net/agency-home-solution/5f946ff9-b99b-4e50-96f8-492a34ccbd47_logo",
+                        //AgencyRealtors = null
+                    },
+                    new RealEstateAgency
+                    {
+                        RealEstateAgencyId = 2,
+                        AgencyName = "Skanebo",
+                        AgencyDescription = "Skåne är den bästa platsen på Gotland",
+                        AgencyLogoUrl = "https://fatcamp.io/xn--mklare-bua.se/images/artiklar/makl.samfundet.jpg?width=1000",
+                        //AgencyRealtors = null
+                    },
+                    new RealEstateAgency
+                    {
+                        RealEstateAgencyId = 3,
                         AgencyName = "Gottfridsson",
                         AgencyDescription = "Sveriges näst bästa mäklarbyrå",
                         AgencyLogoUrl = "BilderKommerSen",
@@ -62,7 +62,7 @@ namespace BostadzPortalenWebAPI.Constants
                     },
                     new RealEstateAgency
                     {
-                        RealEstateAgencyId = 2,
+                        RealEstateAgencyId = 4,
                         AgencyName = "Skanebo",
                         AgencyDescription = "Skåne är den bästa platsen på Gotland",
                         AgencyLogoUrl = "BilderKommerSen",
@@ -72,6 +72,7 @@ namespace BostadzPortalenWebAPI.Constants
             });
             return builder;
         }
+
 
         public static ModelBuilder RealtorBuilder(ModelBuilder builder)
         {
@@ -94,7 +95,7 @@ namespace BostadzPortalenWebAPI.Constants
                     PhoneNumber = "0722661920",
                     ProfileImageUrl = "https://genslerzudansdentistry.com/wp-content/uploads/2015/11/anonymous-user.png"
 
-                    ProfileImageUrl = "NoPicUser.png"
+                    //ProfileImageUrl = "NoPicUser.png"
                 },
                 new Realtor
                 {
@@ -168,16 +169,16 @@ namespace BostadzPortalenWebAPI.Constants
                      //PropertiesForSale = null
                  }
                 );
-                new Municipality
-                {
-                    Id = 2,
-                    Name = "Stockholm",
-                    PropertiesForSale = null
-                }
-            );
+            new Municipality
+            {
+                Id = 2,
+                Name = "Stockholm",
+                PropertiesForSale = null
+            };
+
             return builder;
         }
-       
+
 
         public static ModelBuilder PropertyForSaleBuilder(ModelBuilder builder)
         {
@@ -198,8 +199,8 @@ namespace BostadzPortalenWebAPI.Constants
                     Description = "It's a place to live",
                     NumberOfRooms = 1,
                     TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet
-               
-                    TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet
+
+
                 },
                  new PropertyForSale
                  {
@@ -217,7 +218,7 @@ namespace BostadzPortalenWebAPI.Constants
                      Description = "Fin utsikt",
                      NumberOfRooms = 1,
                      TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet
-                
+
                  },
                  new PropertyForSale
                  {
@@ -235,44 +236,44 @@ namespace BostadzPortalenWebAPI.Constants
                      Description = "Bättre än kungsgatan 4",
                      NumberOfRooms = 4,
                      TypeOfProperty = TypeOfPropertyEnum.Villa,
-                 
+
                  }
                 );
-                new PropertyForSale
-                {
-                    PropertyForSaleId = 2,
-                    MunicipalityId = 2,
-                    RealtorId = SeedGUID.SystemRealtor,
-                    AskingPrice = 1000000,
-                    MonthlyFee = 10000,
-                    YearlyOperatingCost = 1000,
-                    LivingArea = 24,
-                    PlotArea = 8,
-                    SupplementaryArea = 8,
-                    YearBuilt = 1999,
-                    Address = "Kungsgatan 4",
-                    Description = "Fin utsikt",
-                    NumberOfRooms = 1,
-                    TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet
-                },
-                new PropertyForSale
-                {
-                    PropertyForSaleId = 3,
-                    MunicipalityId = 2,
-                    RealtorId = SeedGUID.SystemRealtor,
-                    AskingPrice = 7000000,
-                    MonthlyFee = 10000,
-                    YearlyOperatingCost = 1000,
-                    LivingArea = 64,
-                    PlotArea = 8,
-                    SupplementaryArea = 8,
-                    YearBuilt = 1950,
-                    Address = "Kungsgatan 16",
-                    Description = "Bättre än kungsgatan 4",
-                    NumberOfRooms = 4,
-                    TypeOfProperty = TypeOfPropertyEnum.Villa
-                }
-            );
+            new PropertyForSale
+            {
+                PropertyForSaleId = 2,
+                MunicipalityId = 2,
+                RealtorId = SeedGUID.SystemRealtor,
+                AskingPrice = 1000000,
+                MonthlyFee = 10000,
+                YearlyOperatingCost = 1000,
+                LivingArea = 24,
+                PlotArea = 8,
+                SupplementaryArea = 8,
+                YearBuilt = 1999,
+                Address = "Kungsgatan 4",
+                Description = "Fin utsikt",
+                NumberOfRooms = 1,
+                TypeOfProperty = TypeOfPropertyEnum.Bostadsrättslägenhet
+            };
+            new PropertyForSale
+            {
+                PropertyForSaleId = 3,
+                MunicipalityId = 2,
+                RealtorId = SeedGUID.SystemRealtor,
+                AskingPrice = 7000000,
+                MonthlyFee = 10000,
+                YearlyOperatingCost = 1000,
+                LivingArea = 64,
+                PlotArea = 8,
+                SupplementaryArea = 8,
+                YearBuilt = 1950,
+                Address = "Kungsgatan 16",
+                Description = "Bättre än kungsgatan 4",
+                NumberOfRooms = 4,
+                TypeOfProperty = TypeOfPropertyEnum.Villa
+            };
+        
             return builder;
 
         }
