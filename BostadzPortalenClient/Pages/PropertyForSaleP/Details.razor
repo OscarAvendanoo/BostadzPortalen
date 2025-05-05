@@ -45,17 +45,14 @@
 	<div class="d-flex justify-content-center align-items-center col-6" width="500px">
 		<Carousel>
 			<CarouselItem Active="true">
-				<Image src="/image1.jpg" />
+				<Image src="@realEstate.ImageUrls.First().ImageUrl" />
 			</CarouselItem>
-			<CarouselItem >
-				<Image src="/image2.jpg" />
-			</CarouselItem>
-			@* @foreach (var picture in realEstate.ImageUrls)
+			@foreach(var item in realEstate.ImageUrls.Skip(1))
 			{
-				<CarouselItem Active="true">
-					<Image src="/lyxvilla.jpg" />
+				<CarouselItem>
+					<Image src="@item.ImageUrl" />
 				</CarouselItem>
-			} *@
+			}
 		</Carousel>
 	</div>
 </div>
@@ -76,6 +73,6 @@
 		realEstate = await propService.GetPropertyDetailsDTOByIdAsync(Id);
 		//JN: Currently the DetailsDTO includes entire Realtor + Agency
 		//JN: This will need to change to only include: (RealtorName + RealtorID + RealtorPicture) + (AgencyName + AgencyID + AgencyLogo)
-		//JN: But it requires an nSwag rebuild so...
+		//JN: But it requires an nSwag rebuild so...		
 	}
 }
