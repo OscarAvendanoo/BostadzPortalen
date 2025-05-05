@@ -45,17 +45,14 @@
 	<div class="d-flex justify-content-center align-items-center col-6" width="500px">
 		<Carousel>
 			<CarouselItem Active="true">
-				<Image src="/image1.jpg" />
+				<Image src="@realEstate.ImageUrls.First().ImageUrl" />
 			</CarouselItem>
-			<CarouselItem >
-				<Image src="/image2.jpg" />
-			</CarouselItem>
-			@* @foreach (var picture in realEstate.ImageUrls)
+			@foreach (var picture in realEstate.ImageUrls.Skip(1))
 			{
-				<CarouselItem Active="true">
-					<Image src="/lyxvilla.jpg" />
+				<CarouselItem >
+					<Image src="@picture.ImageUrl" />
 				</CarouselItem>
-			} *@
+			}
 		</Carousel>
 	</div>
 </div>
