@@ -20,7 +20,7 @@
 	<div>
 		<h3>@realEstate.Address: @realEstate.MunicipalityName</h3>
 		<p>
-			@realEstate.TypeOfProperty, byggd @realEstate.YearBuilt.
+			@realEstate.PropertyTypeString, byggd @realEstate.YearBuilt.
 		</p>
 		<p>
 			Beskrivning: @realEstate.Description
@@ -57,10 +57,10 @@
 			<CarouselItem Active="true">
 				<Image src="@realEstate.ImageUrls.First().ImageUrl" />
 			</CarouselItem>
-			@foreach(var item in realEstate.ImageUrls.Skip(1))
+			@foreach (var picture in realEstate.ImageUrls.Skip(1))
 			{
-				<CarouselItem>
-					<Image src="@item.ImageUrl" />
+				<CarouselItem >
+					<Image src="@picture.ImageUrl" />
 				</CarouselItem>
 			}
 		</Carousel>
@@ -68,8 +68,8 @@
 </div>
 
 <div>
-	<p> Mäklare: @realEstate.RealtorFullName <img src="/Pictures/@realEstate.RealtorPicture" /></p>
-	<p> Mäklarbyrå: @realEstate.AgencyName<img src="~/Pictures/@realEstate.AgencyLogo" /></p>
+	<p> Mäklare: @realEstate.RealtorFullName <img src="@realEstate.RealtorPicture" width="100px"/></p>
+	<p> Mäklarbyrå: @realEstate.AgencyName<img src="@realEstate.AgencyLogo" width="100px" /></p>
 </div>
     </NotAuthorized>
 </AuthorizeView>
@@ -89,7 +89,7 @@
 		realEstate = await propService.GetPropertyDetailsDTOByIdAsync(Id);
 		//JN: Currently the DetailsDTO includes entire Realtor + Agency
 		//JN: This will need to change to only include: (RealtorName + RealtorID + RealtorPicture) + (AgencyName + AgencyID + AgencyLogo)
-		//JN: But it requires an nSwag rebuild so...		
+		//JN: But it requires an nSwag rebuild so...
 	}
 
 }

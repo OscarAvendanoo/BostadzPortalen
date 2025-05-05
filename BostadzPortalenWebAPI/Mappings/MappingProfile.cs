@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace BostadzPortalenWebAPI.Mappings
 {
-    //Author: Kevin
+    //Author: Kevin, Johan Nelin
     public class MappingProfile : Profile
     {
         public MappingProfile()
@@ -45,6 +45,7 @@ namespace BostadzPortalenWebAPI.Mappings
                 .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ImageUrls))
                 //.ForMember(dest => dest.RealtorId, opt => opt.MapFrom(src => src.RealtorId))
                 .ForMember(dest => dest.TypeOfProperty, opt => opt.MapFrom(src => src.TypeOfProperty))
+                .ForMember(dest => dest.PropertyTypeString, opt => opt.MapFrom(src => src.TypeOfProperty.ToString()))
                 .ReverseMap();
 
             //Author: Johan Nelin
@@ -68,6 +69,7 @@ namespace BostadzPortalenWebAPI.Mappings
                 .ForMember(dest => dest.NumberOfRooms, opt => opt.MapFrom(src => src.NumberOfRooms))
                 .ForMember(dest => dest.PropertyForSaleId, opt => opt.MapFrom(src => src.PropertyForSaleId))
                 .ForMember(dest => dest.TypeOfProperty, opt => opt.MapFrom(src => src.TypeOfProperty))
+                .ForMember(dest => dest.PropertyTypeString, opt => opt.MapFrom(src => src.TypeOfProperty.ToString()))
                 .ForMember(dest => dest.YearBuilt, opt => opt.MapFrom(src => src.YearBuilt))
                 .ReverseMap();
 

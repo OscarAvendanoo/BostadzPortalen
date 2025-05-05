@@ -3053,6 +3053,9 @@ namespace BostadzPortalenClient.Services.Base
         [Newtonsoft.Json.JsonProperty("typeOfProperty", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("propertyTypeString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PropertyTypeString { get; set; }
+
         [Newtonsoft.Json.JsonProperty("realtorFullName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RealtorFullName { get; set; }
 
@@ -3117,6 +3120,12 @@ namespace BostadzPortalenClient.Services.Base
 
         [Newtonsoft.Json.JsonProperty("typeOfProperty", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("propertyTypeString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PropertyTypeString { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("realtorId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RealtorId { get; set; }
 
     }
 

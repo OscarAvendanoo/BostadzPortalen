@@ -287,6 +287,24 @@ namespace BostadzPortalenWebAPI.Migrations
                             Id = 3,
                             ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/89/89/898947735c6b46af72a4556dabadf07a.jpg",
                             PropertyForSaleId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/09/e2/09e29480a003367d9dc3b139de9c416d.jpg",
+                            PropertyForSaleId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ImageUrl = "https://qasa-static-prod.s3-eu-west-1.amazonaws.com/img/5c5dd162d2ac084603a87e1c8d9f16bd1d93039a57b06ddca34f8aee46e4b88e.jpg",
+                            PropertyForSaleId = 2
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ImageUrl = "https://bcdn.se/images/cache/33121851_960x640.jpg",
+                            PropertyForSaleId = 3
                         });
                 });
 
@@ -319,14 +337,14 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             RealEstateAgencyId = 1,
                             AgencyDescription = "Sveriges näst bästa mäklarbyrå",
-                            AgencyLogoUrl = "BilderKommerSen",
+                            AgencyLogoUrl = "https://driftservice.blob.core.windows.net/agency-home-solution/5f946ff9-b99b-4e50-96f8-492a34ccbd47_logo",
                             AgencyName = "Gottfridsson"
                         },
                         new
                         {
                             RealEstateAgencyId = 2,
                             AgencyDescription = "Skåne är den bästa platsen på Gotland",
-                            AgencyLogoUrl = "BilderKommerSen",
+                            AgencyLogoUrl = "https://fatcamp.io/xn--mklare-bua.se/images/artiklar/makl.samfundet.jpg?width=1000",
                             AgencyName = "Skanebo"
                         });
                 });
@@ -520,7 +538,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92d637e6-6a8d-421e-a118-7a29d0edc1e7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "69983f81-732c-4206-b060-e5ba9919cd60",
+                            ConcurrencyStamp = "03251133-4d27-4778-855b-556b10885ff3",
                             Email = "admin@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -528,20 +546,20 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@DEMOAPI.COM",
                             NormalizedUserName = "ADMIN@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEL+wOq2nSeFK0+TX+7bb2m98xK85ewbXQod95F3m8rnQ76bgFC9PpuHzMJzByTbQww==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEACQOz8ifjb82lxqF1mYcvfg4lEo85VDFMP+0JRkIUWt7mjxRlJXw2QC++6t8yftXw==",
                             PhoneNumber = "0722661920",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "50786458-9171-42b7-ae6d-dea50af9cf35",
+                            SecurityStamp = "f2151a4a-7c0a-486f-8a52-55fd908ebbeb",
                             TwoFactorEnabled = false,
                             UserName = "admin@demoapi.com",
                             AgencyId = 1,
-                            ProfileImageUrl = "NoPicUser.png"
+                            ProfileImageUrl = "https://genslerzudansdentistry.com/wp-content/uploads/2015/11/anonymous-user.png"
                         },
                         new
                         {
                             Id = "92b88e50-795f-4df6-90e0-8a7d9a179cb0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4bab7e8e-9b27-470c-8456-b64f1e821078",
+                            ConcurrencyStamp = "eb474526-ddf8-4fde-b2be-5af0aa40b782",
                             Email = "user@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -549,20 +567,20 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "USER@DEMOAPI.COM",
                             NormalizedUserName = "USER@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOs3fNpYqnsam+IdRat8KcQug4ORLjvJH5lnTYozbRPzxNVCCy3O/qkWfgXDn1f+cg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAVkvsHMZWFJT44Kt4H6U2bSYwzmEi3a8hWtI/BpuERnxDTZkyZKUwJKVMkhrSMdKg==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b31dd45e-3af4-49d2-9209-18d52375b4cd",
+                            SecurityStamp = "2bb446e5-3db2-4c19-9fa4-79ec9a70128a",
                             TwoFactorEnabled = false,
                             UserName = "user@demoapi.com",
                             AgencyId = 1,
-                            ProfileImageUrl = "NoPicUser.png"
+                            ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/9b/10/9b10a04e47ec5804594aef06016ceb5b.jpg"
                         },
                         new
                         {
                             Id = "87efc5ac-77d8-4729-b3d6-3309dc88e88d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a506bdb1-7eb7-40a1-9c3a-68544048e5c4",
+                            ConcurrencyStamp = "a00a7dc2-12e2-4eba-9ef4-0b2924af18f6",
                             Email = "realtor@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -570,14 +588,14 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "REALTOR@DEMOAPI.COM",
                             NormalizedUserName = "REALTOR@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEE1JdSjWO/sVyH0Oymj1Oi+spHWwTErl8gEZP3vcPuw4g/dl3PvCmC8/nqyeh7sAYQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEL0vK3u4uuq3akGY0qwVTB4KbPR7htWdXTwMNln/8bBEK96uV8y4Zual3NsCNFXffQ==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "652bf915-f8fe-432c-8a51-26b91238c498",
+                            SecurityStamp = "527f3972-22a1-4e3b-84d6-139e933b4c97",
                             TwoFactorEnabled = false,
                             UserName = "realtor@demoapi.com",
                             AgencyId = 2,
-                            ProfileImageUrl = "NoPicUser.png"
+                            ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/d8/50/d850bd83227eb78f123af53871614efd.jpg"
                         });
                 });
 
