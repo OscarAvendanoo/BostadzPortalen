@@ -4,6 +4,7 @@
 @inject IPropertyForSaleService propService
 @inject IMapper mapper
 @inject NavigationManager navManager
+@inject ApiAuthenticationStateProvider stateProvider
 @* @attribute [Authorize(Roles = "Realtor")] *@
 
 
@@ -26,9 +27,10 @@
             </div>
 
             <div class="form-group fw-bold">
-                <label>Typ av bostad</label>
+                <label class="me-3 mb-1">Typ av bostad</label>
+                <br/>
                 <InputSelect @bind-Value="realEstate.TypeOfProperty" class="p-1">
-                    @foreach (var type in Enum.GetValues(typeof(TypeOfPropertyEnum)))
+                    @foreach (var type in Enum.GetValues<TypeOfPropertyEnum>())
                     {
                         <option value="@type">@type</option>
                     }
@@ -158,16 +160,19 @@
 @code {
     [Parameter]
     public int Id { get; set; }
-
+    private string? userId;
     private PropertyForSaleDetailsDTO realEstate { get; set; } = new PropertyForSaleDetailsDTO();
     private PropertyForSaleUpdateDto realEstateUpdated { get; set; } = new PropertyForSaleUpdateDto();
     private string ImageUrl = string.Empty;
     private PropertyImage Image;
 
+
     protected override async Task OnInitializedAsync()
     {
         realEstate = await propService.GetPropertyDetailsDTOByIdAsync(Id);
 
+        var user = await stateProvider.GetAuthenticationStateAsync();
+        userId = user.User.FindFirst("uid")?.Value;
 
     }
 
@@ -178,13 +183,14 @@
         try
         {
             await propService.UpdatePropertyAsync(Id, realEstateUpdated);
-            navManager.NavigateTo("/");
+            
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Misslyckades att uppdatera produkten. {ex.Message}");
 
         }
+        navManager.NavigateTo($"/realtorobjects/{userId}");
 
 
 
@@ -205,7 +211,7 @@
         }
         
         
-        navManager.NavigateTo("/");
+        navManager.NavigateTo($"/realtorobjects/{userId}");
     }
 
     // private void AddImageUrl()

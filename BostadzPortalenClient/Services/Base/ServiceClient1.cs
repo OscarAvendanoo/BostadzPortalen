@@ -2954,6 +2954,8 @@ namespace BostadzPortalenClient.Services.Base
         public System.Collections.Generic.ICollection<string> ImageUrls { get; set; }
 
         [Newtonsoft.Json.JsonProperty("typeOfProperty", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
 
     }
@@ -2971,6 +2973,7 @@ namespace BostadzPortalenClient.Services.Base
         public int Day { get; set; }
 
         [Newtonsoft.Json.JsonProperty("dayOfWeek", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public DayOfWeek DayOfWeek { get; set; }
 
         [Newtonsoft.Json.JsonProperty("dayOfYear", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2985,19 +2988,26 @@ namespace BostadzPortalenClient.Services.Base
     public enum DayOfWeek
     {
 
-        _0 = 0,
+        [System.Runtime.Serialization.EnumMember(Value = @"Sunday")]
+        Sunday = 0,
 
-        _1 = 1,
+        [System.Runtime.Serialization.EnumMember(Value = @"Monday")]
+        Monday = 1,
 
-        _2 = 2,
+        [System.Runtime.Serialization.EnumMember(Value = @"Tuesday")]
+        Tuesday = 2,
 
-        _3 = 3,
+        [System.Runtime.Serialization.EnumMember(Value = @"Wednesday")]
+        Wednesday = 3,
 
-        _4 = 4,
+        [System.Runtime.Serialization.EnumMember(Value = @"Thursday")]
+        Thursday = 4,
 
-        _5 = 5,
+        [System.Runtime.Serialization.EnumMember(Value = @"Friday")]
+        Friday = 5,
 
-        _6 = 6,
+        [System.Runtime.Serialization.EnumMember(Value = @"Saturday")]
+        Saturday = 6,
 
     }
 
@@ -3085,6 +3095,7 @@ namespace BostadzPortalenClient.Services.Base
         public Realtor Realtor { get; set; }
 
         [Newtonsoft.Json.JsonProperty("typeOfProperty", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
 
     }
@@ -3132,6 +3143,7 @@ namespace BostadzPortalenClient.Services.Base
         public System.Collections.Generic.ICollection<PropertyImage> ImageUrls { get; set; }
 
         [Newtonsoft.Json.JsonProperty("typeOfProperty", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
 
         [Newtonsoft.Json.JsonProperty("propertyTypeString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3200,6 +3212,7 @@ namespace BostadzPortalenClient.Services.Base
         public System.Collections.Generic.ICollection<PropertyImage> ImageUrls { get; set; }
 
         [Newtonsoft.Json.JsonProperty("typeOfProperty", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
 
         [Newtonsoft.Json.JsonProperty("propertyTypeString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3253,6 +3266,7 @@ namespace BostadzPortalenClient.Services.Base
         public System.Collections.Generic.ICollection<PropertyImageDto> ImageUrls { get; set; }
 
         [Newtonsoft.Json.JsonProperty("typeOfProperty", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
 
         [Newtonsoft.Json.JsonProperty("propertyTypeString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3443,13 +3457,17 @@ namespace BostadzPortalenClient.Services.Base
     public enum TypeOfPropertyEnum
     {
 
-        _0 = 0,
+        [System.Runtime.Serialization.EnumMember(Value = @"Bostadsrättslägenhet")]
+        Bostadsrättslägenhet = 0,
 
-        _1 = 1,
+        [System.Runtime.Serialization.EnumMember(Value = @"Bostadsrättsradhus")]
+        Bostadsrättsradhus = 1,
 
-        _2 = 2,
+        [System.Runtime.Serialization.EnumMember(Value = @"Villa")]
+        Villa = 2,
 
-        _3 = 3,
+        [System.Runtime.Serialization.EnumMember(Value = @"Fritidshus")]
+        Fritidshus = 3,
 
     }
 
