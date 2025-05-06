@@ -107,8 +107,10 @@ namespace BostadzPortalenWebAPI.Data
         {
             return await _context.PropertiesForSale
                 .Where(p => p.RealtorId == realtorId)
+                .Include(p => p.Realtor)
+                    .ThenInclude(r => r.Agency)
                 .Include(p => p.Municipality)
-                //.Include(p => p.Images)
+                .Include(p => p.ImageUrls)
                 .ToListAsync();
         }
 

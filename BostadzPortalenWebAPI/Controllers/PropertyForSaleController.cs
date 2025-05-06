@@ -229,7 +229,7 @@ namespace BostadzPortalenWebAPI.Controllers
                 return Unauthorized("Ingen användar-ID hittades i token.");
             }
 
-            var myProperties = await _propertyForSaleRepository.GetAllWithIncludesAsync();
+            var myProperties = await _propertyForSaleRepository.GetByRealtorAsync(userId);
             var myPropertiesDto = new List<PropertyForSaleOverviewDTO>();
             foreach(var property in myProperties)
             {
