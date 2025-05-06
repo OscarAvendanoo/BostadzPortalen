@@ -23,7 +23,7 @@
                 @if (!string.IsNullOrEmpty(userId))
                 {
                     <li class="nav-link">
-                        <NavLink class="nav-link" href="@($"/realtorobjects/{userId}")">Mina objekt</NavLink>
+                        <NavLink class="nav-link" href="@($"/properties/index/{userId}")">Mina objekt</NavLink>
                     </li>
                 }
 
@@ -63,6 +63,8 @@
         var authState = await authenticationStateTask;
         var user = authState.User;
         userId = user.FindFirst("uid")?.Value;
+
+        
     }
 
     private async Task LogOut()

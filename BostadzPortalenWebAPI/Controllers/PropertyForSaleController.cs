@@ -235,6 +235,7 @@ namespace BostadzPortalenWebAPI.Controllers
                 .Select(p => new PropertyForSaleOverviewDTO
                 {
                     PropertyForSaleId = p.PropertyForSaleId,
+                    
                     Address = p.Address,
                     MunicipalityName = p.Municipality.Name,
                     AskingPrice = p.AskingPrice,
@@ -246,9 +247,11 @@ namespace BostadzPortalenWebAPI.Controllers
                     MonthlyFee = p.MonthlyFee,
                     YearlyOperatingCost = p.YearlyOperatingCost,
                     YearBuilt = p.YearBuilt,
-                    //ImageUrls = new List<string>(), // Lägg in riktiga bilder om du har det
+                    ImageUrls = p.ImageUrls, // Lägg in riktiga bilder om du har det
                     TypeOfProperty = p.TypeOfProperty
                 }).ToListAsync();
+
+            
 
             return Ok(myProperties);
         }

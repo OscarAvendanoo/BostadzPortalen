@@ -1,12 +1,11 @@
 ﻿@using BostadzPortalenClient.Components.XtoString
 @inject NavigationManager Navigation;
-@* Author: Johan Nelin *@
+@* Author: Kevin *@
 
 @if (propertyList == null)
 {
     <p><em>Loading...</em></p>
 }
-
 else
 {
     <table class="table">
@@ -47,10 +46,12 @@ else
 
 @code {
     [Parameter] public IEnumerable<PropertyForSaleOverviewDTO> propertyList { get; set; }
-    
+    [Parameter]
+    public string? RealtorId { get; set; }
+
     private void NavigateToDetails(int id) => Navigation.NavigateTo($"/properties/details/{id}");
 
-    
+  
 
 
 }
