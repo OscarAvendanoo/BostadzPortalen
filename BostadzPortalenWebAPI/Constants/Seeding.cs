@@ -77,7 +77,10 @@ namespace BostadzPortalenWebAPI.Constants
         public static ModelBuilder RealtorBuilder(ModelBuilder builder)
         {
             // Hårdkodad hash för "Test123!"
-            string hash = "AQAAAAEAACcQAAAAEF6oFKaPYv7dY6S49UYErceG71LgqY4NQnl65ID7GEx1UAcL7IeuWnI1fBAGgW6Aow==";
+            //string hash = "AQAAAAEAACcQAAAAEF6oFKaPYv7dY6S49UYErceG71LgqY4NQnl65ID7GEx1UAcL7IeuWnI1fBAGgW6Aow==";
+            
+            //Hasher for passwords
+            var hasher = new PasswordHasher<Realtor>();
 
             builder.Entity<Realtor>().HasData(
                 new Realtor
@@ -89,7 +92,7 @@ namespace BostadzPortalenWebAPI.Constants
                     NormalizedUserName = "ADMIN@DEMOAPI.COM",
                     FirstName = "System",
                     LastName = "Admin",
-                    PasswordHash = hash,
+                    PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
                     AgencyId = 1,
                     PhoneNumber = "0722661920",
@@ -106,7 +109,7 @@ namespace BostadzPortalenWebAPI.Constants
                     NormalizedUserName = "USER@DEMOAPI.COM",
                     FirstName = "System",
                     LastName = "User",
-                    PasswordHash = hash,
+                    PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
                     AgencyId = 1,
                     PhoneNumber = "0722661922",
@@ -121,7 +124,7 @@ namespace BostadzPortalenWebAPI.Constants
                     NormalizedUserName = "REALTOR@DEMOAPI.COM",
                     FirstName = "System",
                     LastName = "Realtor",
-                    PasswordHash = hash,
+                    PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
                     AgencyId = 2,
                     PhoneNumber = "0722661922",

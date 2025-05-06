@@ -229,28 +229,40 @@ namespace BostadzPortalenWebAPI.Controllers
                 return Unauthorized("Ingen användar-ID hittades i token.");
             }
 
-            var myProperties = await _propertyForSaleRepository
-                .QueryPropertiesWithIncludes()
-                .Where(p => p.RealtorId == userId)
-                .Select(p => new PropertyForSaleOverviewDTO
-                {
-                    PropertyForSaleId = p.PropertyForSaleId,
-                    Address = p.Address,
-                    MunicipalityName = p.Municipality.Name,
-                    AskingPrice = p.AskingPrice,
-                    LivingArea = p.LivingArea,
-                    SupplementaryArea = p.SupplementaryArea,
-                    PlotArea = p.PlotArea,
-                    Description = p.Description,
-                    NumberOfRooms = p.NumberOfRooms,
-                    MonthlyFee = p.MonthlyFee,
-                    YearlyOperatingCost = p.YearlyOperatingCost,
-                    YearBuilt = p.YearBuilt,
-                    //ImageUrls = new List<string>(), // Lägg in riktiga bilder om du har det
-                    TypeOfProperty = p.TypeOfProperty
-                }).ToListAsync();
+            var myProperties = await _propertyForSaleRepository.GetAllWithIncludesAsync();
+            var myPropertiesDto = new List<PropertyForSaleOverviewDTO>();
+            foreach(var property in myProperties)
+            {
+                var dto = mapper.Map<PropertyForSaleOverviewDTO>(property);
+                myPropertiesDto.Add(dto); 
+            }
 
-            return Ok(myProperties);
+
+            //var myProperties = await _propertyForSaleRepository
+            //    .QueryPropertiesWithIncludes()
+            //    .Where(p => p.RealtorId == userId)
+            //    .Select(p => new PropertyForSaleOverviewDTO
+            //    {
+            //        PropertyForSaleId = p.PropertyForSaleId,
+                    
+            //        Address = p.Address,
+            //        MunicipalityName = p.Municipality.Name,
+            //        AskingPrice = p.AskingPrice,
+            //        LivingArea = p.LivingArea,
+            //        SupplementaryArea = p.SupplementaryArea,
+            //        PlotArea = p.PlotArea,
+            //        Description = p.Description,
+            //        NumberOfRooms = p.NumberOfRooms,
+            //        MonthlyFee = p.MonthlyFee,
+            //        YearlyOperatingCost = p.YearlyOperatingCost,
+            //        YearBuilt = p.YearBuilt,
+            //        ImageUrls = p.ImageUrls, // Lägg in riktiga bilder om du har det
+            //        TypeOfProperty = p.TypeOfProperty
+            //    }).ToListAsync();
+
+            
+
+            return Ok(myPropertiesDto);
         }
 
 
