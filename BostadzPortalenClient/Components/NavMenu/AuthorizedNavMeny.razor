@@ -1,6 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Authorization
 @using System.Security.Claims
+@using BostadzPortalenClient.Components
 @inject AuthenticationStateProvider authenticationStateProvider
 @inject IAuthenticationService authService
 @attribute [Authorize(Roles = "Admin, Realtor")]
@@ -16,13 +17,13 @@
             <ul class="navbar-nav">
 
                 <li class="nav-link">
-                    <NavLink class="nav-link" aria-current="page" href="/">Sök bostad</NavLink>
+                    <NavLink class="nav-link" aria-current="page" href="/search/home">Sök bostad</NavLink>
                 </li>
 
                 @if (!string.IsNullOrEmpty(userId))
                 {
                     <li class="nav-link">
-                        <NavLink class="nav-link" href="@($"/realtorobjects/{userId}")">Mina objekt</NavLink>
+                        <NavLink class="nav-link" href="@($"/properties/index/{userId}")">Mina objekt</NavLink>
                     </li>
                 }
 
@@ -57,11 +58,14 @@
     [CascadingParameter]
     private Task<AuthenticationState> authenticationStateTask { get; set; }
 
+
     protected override async Task OnInitializedAsync()
     {
         var authState = await authenticationStateTask;
         var user = authState.User;
         userId = user.FindFirst("uid")?.Value;
+
+        
     }
 
     private async Task LogOut()
