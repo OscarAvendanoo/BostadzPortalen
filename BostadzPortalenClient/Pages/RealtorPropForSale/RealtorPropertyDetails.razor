@@ -1,5 +1,6 @@
 ﻿@page "/realtor/property/details/{Id:int}"
 @using AutoMapper
+@using BlazorBootstrap
 @inject IPropertyForSaleService propService
 @inject IMapper mapper
 @inject NavigationManager navManager
@@ -14,19 +15,19 @@
 
         <div class="col-6">
 
-            <div class="form-group">
+            <div class="form-group fw-bold">
                 <label>Adress</label>
                 <InputText @bind-Value="realEstate.Address" class="form-control" />
             </div>
 
-            <div class="form-group">
+            <div class="form-group fw-bold">
                 <label>Kommun</label>
                 <InputText @bind-Value="realEstate.MunicipalityName" class="form-control" />
             </div>
 
-            <div class="form-group">
+            <div class="form-group fw-bold">
                 <label>Typ av bostad</label>
-                <InputSelect @bind-Value="realEstate.TypeOfProperty">
+                <InputSelect @bind-Value="realEstate.TypeOfProperty" class="p-1">
                     @foreach (var type in Enum.GetValues(typeof(TypeOfPropertyEnum)))
                     {
                         <option value="@type">@type</option>
@@ -35,93 +36,119 @@
 
             </div>
 
-            <div class="form-group">
+            <div class="form-group fw-bold">
                 <label>Byggår</label>
                 <InputNumber @bind-Value="realEstate.YearBuilt" class="form-control" />
             </div>
 
-            <div class="form-group">
+            <div class="form-group fw-bold">
                 <label>Beskrivning</label>
                 <InputTextArea @bind-Value="realEstate.Description" class="form-control" />
             </div>
-
-            <table class="table mt-3">
-                <thead>
-                    <tr>
-                        <th>Pris</th>
-                        <th>Hyra</th>
-                        <th>Års kostnad</th>
-                        <th>Bostadsarea</th>
-                        <th>Utomhusarea</th>
-                        <th>Tillkommande area</th>
-                        <th>Antal rum</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <InputNumber @bind-Value="realEstate.AskingPrice" class="form-control" />
-                        </td>
-                        <td>
-                            <InputNumber @bind-Value="realEstate.MonthlyFee" class="form-control" />
-                        </td>
-                        <td>
-                            <InputNumber @bind-Value="realEstate.YearlyOperatingCost" class="form-control" />
-                        </td>
-                        <td>
-                            <InputNumber @bind-Value="realEstate.LivingArea" class="form-control" />
-                        </td>
-                        <td>
-                            <InputNumber @bind-Value="realEstate.PlotArea" class="form-control" />
-                        </td>
-                        <td>
-                            <InputNumber @bind-Value="realEstate.SupplementaryArea" class="form-control" />
-                        </td>
-                        <td>
-                            <InputNumber @bind-Value="realEstate.NumberOfRooms" class="form-control" />
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
         </div>
 
-        <div class="d-flex flex-wrap justify-content-center align-items-center col-6">
+
+        <div class="d-flex flex-wrap justify-content-center align-items-center col-4 mx-auto">
+
+
 
             @if (realEstate.ImageUrls != null)
             {
                 @foreach (var picture in realEstate.ImageUrls)
                 {
-                    <p>@picture.ToString()</p>
+                    <Image src="@realEstate.ImageUrls.First().ImageUrl" />
                 }
             }
             else
             {
                 <p>Inga bilder tillgängliga.</p>
             }
+            @* <div class="form-group">
+                <label>Image URL (add multiple):</label>
+                <InputText class="form-control" @bind-Value="ImageUrl" />
+                <button class="btn btn-secondary mt-2" type="button" @onclick="AddImageUrl">Add Image</button>
+
+                <div class="mt-2 d-flex flex-wrap">
+                    @foreach (var url in realEstate.ImageUrls)
+                    {
+                        <div class="me-2 mb-2">
+                            <img src="@url" alt="Preview" style="width: 100px; height: 100px; object-fit: cover;" />
+                            <RemoveButton Id="url.Id" OnRemove="RemoveImageUrl">Remove Image</RemoveButton>
+                        </div>
+                    }
+                </div>
+            </div> *@
+
 
 
 
         </div>
-
     </div>
 
+    <div class="d-flex flex-wrap align-items-start col-12">
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th>Pris</th>
+                    <th>Hyra</th>
+                    <th>Års kostnad</th>
+                    <th>Bostadsarea</th>
+                    <th>Utomhusarea</th>
+                    <th>Tillkommande area</th>
+                    <th>Antal rum</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <InputNumber @bind-Value="realEstate.AskingPrice" class="form-control" />
+                    </td>
+                    <td>
+                        <InputNumber @bind-Value="realEstate.MonthlyFee" class="form-control" />
+                    </td>
+                    <td>
+                        <InputNumber @bind-Value="realEstate.YearlyOperatingCost" class="form-control" />
+                    </td>
+                    <td>
+                        <InputNumber @bind-Value="realEstate.LivingArea" class="form-control" />
+                    </td>
+                    <td>
+                        <InputNumber @bind-Value="realEstate.PlotArea" class="form-control" />
+                    </td>
+                    <td>
+                        <InputNumber @bind-Value="realEstate.SupplementaryArea" class="form-control" />
+                    </td>
+                    <td>
+                        <InputNumber @bind-Value="realEstate.NumberOfRooms" class="form-control" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
     <div class="mt-4">
-        <div class="form-group">
+        <div class="form-group fw-bold">
             <label>Mäklare</label>
             <InputText @bind-Value="realEstate.RealtorFullName" class="form-control mb-2" placeholder="För och efternamn" />
             <img src="/Pictures/@realEstate.RealtorPicture" class="img-thumbnail" style="max-width: 100px;" />
         </div>
 
-        <div class="form-group mt-3">
+        <div class="form-group mt-3 fw-bold">
             <label>Mäklarbyrå</label>
             <InputText @bind-Value="realEstate.AgencyName" class="form-control mb-2" />
             <img src="/Pictures/@realEstate.AgencyLogo" class="img-thumbnail" style="max-width: 100px;" />
         </div>
     </div>
-
-    <button type="submit" class="btn btn-primary mt-3">Spara ändringar</button>
-    <RemoveButton/>
+    <div class="mt-3">
+        <button type="submit" class="btn main-btn">Spara ändringar</button>
+        <RemoveButton Id="Id" OnRemove="@RemoveRealEstate" />
+    </div>
 </EditForm>
 
 
@@ -132,12 +159,14 @@
 
     private PropertyForSaleDetailsDTO realEstate { get; set; } = new PropertyForSaleDetailsDTO();
     private PropertyForSaleUpdateDto realEstateUpdated { get; set; } = new PropertyForSaleUpdateDto();
+    private string ImageUrl = string.Empty;
+    private PropertyImage Image;
 
     protected override async Task OnInitializedAsync()
     {
         realEstate = await propService.GetPropertyDetailsDTOByIdAsync(Id);
 
-        
+
     }
 
     private async Task SaveChanges()
@@ -152,13 +181,39 @@
         catch (Exception ex)
         {
             Console.WriteLine($"Misslyckades att uppdatera produkten. {ex.Message}");
-            
+
         }
-        
-        
+
+
 
         // await propService.UpdatePropertyAsync(Id, realEstate);
         // navManager.NavigateTo("/PropertiesTable", forceLoad: false);
     }
+    private async Task RemoveRealEstate(int id)
+    {
+        await propService.DeletePropertyForSale(id);
+        // PropertiesForSale.RemoveAll(p => p.PropertyForSaleId == id);
+        StateHasChanged();
+        navManager.NavigateTo("/");
+    }
+
+    // private void AddImageUrl()
+    // {
+    //     if (!string.IsNullOrWhiteSpace(ImageUrl))
+    //     {
+    //         Image = new PropertyImage
+    //             {
+    //                 ImageUrl = ImageUrl,
+    //                 PropertyForSaleId = realEstateUpdated.PropertyForSaleId
+    //             };
+    //         realEstate.ImageUrls.Add(Image);
+    //         ImageUrl = string.Empty;
+    //     }
+    // }
+
+    // private async Task RemoveImageUrl(int id)
+    // {
+    //     realEstate.ImageUrls.Remove(Image);
+    // }
 
 }
