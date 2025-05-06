@@ -30,19 +30,22 @@ namespace BostadzPortalenWebAPI.Controllers
         {
             try
             {
-                var user = new ApiUser
+                //var realtor = mapper.Map<Realtor>(realtorDto);
+                Realtor user = new Realtor()
                 {
                     UserName = userDto.Email,
                     Email = userDto.Email,
+                    FirstName = userDto.FirstName,
+                    LastName = userDto.LastName,
+                    AgencyId = userDto.AgencyId,
                     EmailConfirmed = true
 
 
-                    // Lägg till FirstName, LastName, AgencyId här om du har det i ApiUser
                 };
 
                 var result = await userManager.CreateAsync(user, userDto.Password);
 
-                if (!result.Succeeded)
+                if (result.Succeeded == false)
                 {
                     foreach (var error in result.Errors)
                     {
@@ -50,13 +53,13 @@ namespace BostadzPortalenWebAPI.Controllers
                     }
                     return BadRequest(ModelState);
                 }
-
                 await userManager.AddToRoleAsync(user, "Realtor");
 
                 return Accepted();
             }
-            catch
+            catch (Exception ex)
             {
+
                 return Problem($"Something went wrong in the {nameof(Register)}", statusCode: 500);
             }
         }
