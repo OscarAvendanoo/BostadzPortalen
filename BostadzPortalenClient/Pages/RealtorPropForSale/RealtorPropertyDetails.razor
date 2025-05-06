@@ -1,4 +1,4 @@
-﻿@page "/realtorPropertyDetails/{Id:int}"
+﻿@page "/realtor/property/details/{Id:int}"
 @using AutoMapper
 @inject IPropertyForSaleService propService
 @inject IMapper mapper
@@ -121,7 +121,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary mt-3">Spara ändringar</button>
-
+    <RemoveButton/>
 </EditForm>
 
 
@@ -147,7 +147,7 @@
         try
         {
             await propService.UpdatePropertyAsync(Id, realEstateUpdated);
-            navManager.NavigateTo("/PropertiesTable");
+            navManager.NavigateTo("/");
         }
         catch (Exception ex)
         {
