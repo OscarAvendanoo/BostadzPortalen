@@ -44,8 +44,15 @@
 
             <div class="ms-auto d-flex gap-2">
                 <NavLink @onclick="LogOut" class="btn main-btn">Logga ut</NavLink>
-                <NavLink href="/users/registerFirstRealtor" class="btn main-btn">Register (Admin)</NavLink>
-                @* <NavLink href="/users/register" class="btn main-btn">Register</NavLink> *@
+                @if (theUser?.IsInRole("Admin") == true)
+                {
+                    <NavLink href="/users/registerFirstRealtor" class="btn main-btn">Register (Admin)</NavLink>
+                }
+               
+                @if(theUser?.IsInRole("Realtor") == true){
+                    <NavLink href="/users/register" class="btn main-btn">Register</NavLink>
+                }
+              
             </div>
         </div>
     </div>
@@ -53,7 +60,7 @@
 
 @code {
     private string? userId;
-
+    private ClaimsPrincipal? theUser;
     [CascadingParameter]
     private Task<AuthenticationState> authenticationStateTask { get; set; }
 
@@ -61,6 +68,7 @@
     {
         var authState = await authenticationStateTask;
         var user = authState.User;
+        theUser = user;
         userId = user.FindFirst("uid")?.Value;
     }
 
