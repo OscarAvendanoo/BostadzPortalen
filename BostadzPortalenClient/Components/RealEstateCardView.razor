@@ -79,7 +79,7 @@
             if (!string.IsNullOrEmpty(RealtorId))
             {
                 // Hämtar endast objekt som tillhör den inloggade mäklaren (via token, inte filtrering manuellt)
-                PropertiesForSale = await propService.GetMyListingsAsync();
+                // PropertiesForSale = await propService.GetMyListingsAsync();
             }
             else
             {
