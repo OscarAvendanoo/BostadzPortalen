@@ -1,10 +1,18 @@
 ﻿@inject IPropertyForSaleService propService
 
 <div class="row">
-    @foreach (var property in PropertiesForSale)
+    @if(PropertiesForSale == null)
     {
-        <RealEstateCardComponent realEstate="property"></RealEstateCardComponent>
+        <p>Laddar...</p>
     }
+    else
+    {
+        @foreach (var property in PropertiesForSale)
+        {
+            <RealEstateCardComponent realEstate="property"></RealEstateCardComponent>
+        }
+    }
+    
 </div>
 
 @code {
