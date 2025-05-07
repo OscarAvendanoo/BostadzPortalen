@@ -129,35 +129,41 @@ code {
     background-color: var(--dark-turqouise);
 }
 
-.a-link {
+.a-link, .nav-link {
     color: var(--light-yellow);
     padding: 5px;
     margin: 3px;
     text-decoration: none;
 }
 
-a.nav-link {
+    .nav-link:focus,
+    .nav-link:active {
+        color: var(--dark-yellow);
+    }
+
+    .nav-link:hover {
+        color: inherit;
+    }
+
+.dropdown-toggle:hover {
+    color: var(--dark-turqouise);
+    background-color: var(--dark-yellow);
+}
+
+.navbar-nav .nav-link.active,
+.nav-tabs .nav-link.active {
     color: var(--light-yellow);
 }
 
-.nav-link:focus {
+.navbar-nav .nav-link:hover,
+.nav-tabs .nav-link:hover {
     color: var(--dark-yellow);
 }
 
-.nav-link:hover {
-    color: var(--dark-yellow);
-}
 
-nav-item.a-link {
-    color: var(--light-yellow);
-}
 
-.navbar a {
-    color: var(--light-yellow);
-}
 
 /*BUTTON*/
-
 .main-btn {
     background-color: var(--dark-turqouise);
     color: var(--light-yellow);
@@ -288,9 +294,14 @@ nav-item.a-link {
     background-color: var(--dark-turqouise);
 }
 
+.navbar-nav .nav-link.show {
+    color: var(--dark-yellow);
+    background-color: var(--dark-turqouise);
+}
+
 /* Styla länkarna i dropdownen */
 .dropdown-item {
-    color: var(--dark-yellow);
+    color: var(--light-yellow);
     padding: 0.75rem 1.5rem;
     transition: background-color 0.2s ease;
 }

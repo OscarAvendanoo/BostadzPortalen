@@ -1,0 +1,26 @@
+﻿@inject IPropertyForSaleService propService
+
+<div class="row">
+    @if(PropertiesForSale == null)
+    {
+        <p>Laddar...</p>
+    }
+    else
+    {
+        @foreach (var property in PropertiesForSale)
+        {
+            <RealEstateCardComponent realEstate="property"></RealEstateCardComponent>
+        }
+    }
+    
+</div>
+
+@code {
+    [Parameter]	public string RealtorId { get; set; }
+    public List<PropertyForSaleOverviewDTO> PropertiesForSale { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        PropertiesForSale = await propService.GetMyListingsAsync();
+    }
+}

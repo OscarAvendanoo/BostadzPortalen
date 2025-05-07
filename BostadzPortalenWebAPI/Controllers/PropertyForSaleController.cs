@@ -8,6 +8,7 @@ using BostadzPortalenWebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using BostadzPortalenWebAPI.Data.Interface;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,17 +21,14 @@ namespace BostadzPortalenWebAPI.Controllers
         private readonly IPropertyForSaleRepository _propertyForSaleRepository;
         private readonly IMapper mapper;
         private readonly ApplicationDbContext _context;
+        private readonly IPropertyImageRepository imageRepo;
 
-
-
-
-
-        public PropertyForSaleController(IPropertyForSaleRepository propertyForSaleRepository, IMapper mapper, ApplicationDbContext context)
+        public PropertyForSaleController(IPropertyForSaleRepository propertyForSaleRepository, IMapper mapper, ApplicationDbContext context, IPropertyImageRepository imageRepo)
         {
             _propertyForSaleRepository = propertyForSaleRepository;
             this.mapper = mapper;
             _context = context;
-
+            this.imageRepo = imageRepo;
         }
 
         // Author: Oscar
@@ -230,7 +228,7 @@ namespace BostadzPortalenWebAPI.Controllers
                 return Unauthorized("Ingen användar-ID hittades i token.");
             }
 
-            var myProperties = await _propertyForSaleRepository.GetAllWithIncludesAsync();
+            var myProperties = await _propertyForSaleRepository.GetByRealtorAsync(userId);
             var myPropertiesDto = new List<PropertyForSaleOverviewDTO>();
             foreach(var property in myProperties)
             {
@@ -264,6 +262,30 @@ namespace BostadzPortalenWebAPI.Controllers
             
 
             return Ok(myPropertiesDto);
+        }
+
+        [HttpDelete("DeletePicture")]
+        [Authorize(Roles ="Realtor, Admin")]
+        public async Task DeletePictureAsync(int id)
+        {
+            
+            await imageRepo.DeleteAsync(await imageRepo.GetPicture(id));
+        }
+
+        [HttpPut("UnlinkPicture/{id}")]
+        public async Task<IActionResult> UnlinkImageFromProperty(int id)
+        {
+            var image = await _context.PropertyImages.FindAsync(id);
+            if (image == null)
+            {
+                return NotFound();
+            }
+
+
+            image.PropertyForSaleId = null;
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
 
 

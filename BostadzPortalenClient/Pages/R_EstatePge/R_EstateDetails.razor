@@ -1,0 +1,50 @@
+﻿@page "/properties/details/{Id:int}"
+@using BlazorBootstrap
+@using Blazored.LocalStorage
+@using Microsoft.AspNetCore.Components.Authorization
+@using BostadzPortalenClient.Components.R_Estate
+@* Author: Johan Nelin *@
+@inject IPropertyForSaleService propService
+@inject ApiAuthenticationStateProvider AuthenticationStateProvider
+
+
+<div>
+	@if (authState is null)
+	{
+		<p>Laddar...</p>
+	}
+	else if (authState.User.Identity.IsAuthenticated)
+	{
+		<NavLink href="@GetLink()">Redigera</NavLink>
+		<p />
+		<R_EstateDisplayDetails realEstate="realEstate"></R_EstateDisplayDetails>
+	}
+	else
+	{
+		<R_EstateDisplayDetails realEstate="realEstate"></R_EstateDisplayDetails>
+	}
+</div>
+
+@code {
+
+	[Parameter] public int Id { get; set; }
+	private PropertyForSaleDetailsDTO realEstate { get; set; }
+	public string linkId { get; set; }
+	private AuthenticationState? authState;
+
+	protected override async Task OnInitializedAsync()
+	{
+		//JN: check user-token -> FUTURE: make it so that only correct Agency can edit
+		authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+		
+		realEstate = await propService.GetPropertyDetailsDTOByIdAsync(Id);
+	}
+
+	private string GetLink()
+	{
+		linkId = $"/realtor/property/edit/{Id}";
+		return linkId;
+	}
+}
+
+

@@ -182,6 +182,24 @@ namespace BostadzPortalenClient.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeletePictureAsync(int? id);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeletePictureAsync(int? id, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task UnlinkPictureAsync(int id);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task UnlinkPictureAsync(int id, System.Threading.CancellationToken cancellationToken);
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RealEstateAgency>> RealEstateAgencyAllAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1688,6 +1706,161 @@ namespace BostadzPortalenClient.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task DeletePictureAsync(int? id)
+        {
+            return DeletePictureAsync(id, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task DeletePictureAsync(int? id, System.Threading.CancellationToken cancellationToken)
+        {
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Method = new System.Net.Http.HttpMethod("DELETE");
+
+                    var urlBuilder_ = new System.Text.StringBuilder();
+                
+                    // Operation Path: "api/PropertyForSale/DeletePicture"
+                    urlBuilder_.Append("api/PropertyForSale/DeletePicture");
+                    urlBuilder_.Append('?');
+                    if (id != null)
+                    {
+                        urlBuilder_.Append(System.Uri.EscapeDataString("id")).Append('=').Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture))).Append('&');
+                    }
+                    urlBuilder_.Length--;
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>>();
+                        foreach (var item_ in response_.Headers)
+                            headers_[item_.Key] = item_.Value;
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual System.Threading.Tasks.Task UnlinkPictureAsync(int id)
+        {
+            return UnlinkPictureAsync(id, System.Threading.CancellationToken.None);
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        public virtual async System.Threading.Tasks.Task UnlinkPictureAsync(int id, System.Threading.CancellationToken cancellationToken)
+        {
+            if (id == null)
+                throw new System.ArgumentNullException("id");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                {
+                    request_.Content = new System.Net.Http.StringContent(string.Empty, System.Text.Encoding.UTF8, "application/json");
+                    request_.Method = new System.Net.Http.HttpMethod("PUT");
+
+                    var urlBuilder_ = new System.Text.StringBuilder();
+                
+                    // Operation Path: "api/PropertyForSale/UnlinkPicture/{id}"
+                    urlBuilder_.Append("api/PropertyForSale/UnlinkPicture/");
+                    urlBuilder_.Append(System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = new System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>>();
+                        foreach (var item_ in response_.Headers)
+                            headers_[item_.Key] = item_.Value;
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <returns>Success</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<RealEstateAgency>> RealEstateAgencyAllAsync()
         {
             return RealEstateAgencyAllAsync(System.Threading.CancellationToken.None);
@@ -2954,6 +3127,8 @@ namespace BostadzPortalenClient.Services.Base
         public System.Collections.Generic.ICollection<string> ImageUrls { get; set; }
 
         [Newtonsoft.Json.JsonProperty("typeOfProperty", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
 
     }
@@ -2971,6 +3146,7 @@ namespace BostadzPortalenClient.Services.Base
         public int Day { get; set; }
 
         [Newtonsoft.Json.JsonProperty("dayOfWeek", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public DayOfWeek DayOfWeek { get; set; }
 
         [Newtonsoft.Json.JsonProperty("dayOfYear", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2985,19 +3161,26 @@ namespace BostadzPortalenClient.Services.Base
     public enum DayOfWeek
     {
 
-        _0 = 0,
+        [System.Runtime.Serialization.EnumMember(Value = @"Sunday")]
+        Sunday = 0,
 
-        _1 = 1,
+        [System.Runtime.Serialization.EnumMember(Value = @"Monday")]
+        Monday = 1,
 
-        _2 = 2,
+        [System.Runtime.Serialization.EnumMember(Value = @"Tuesday")]
+        Tuesday = 2,
 
-        _3 = 3,
+        [System.Runtime.Serialization.EnumMember(Value = @"Wednesday")]
+        Wednesday = 3,
 
-        _4 = 4,
+        [System.Runtime.Serialization.EnumMember(Value = @"Thursday")]
+        Thursday = 4,
 
-        _5 = 5,
+        [System.Runtime.Serialization.EnumMember(Value = @"Friday")]
+        Friday = 5,
 
-        _6 = 6,
+        [System.Runtime.Serialization.EnumMember(Value = @"Saturday")]
+        Saturday = 6,
 
     }
 
@@ -3085,6 +3268,7 @@ namespace BostadzPortalenClient.Services.Base
         public Realtor Realtor { get; set; }
 
         [Newtonsoft.Json.JsonProperty("typeOfProperty", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
 
     }
@@ -3132,6 +3316,7 @@ namespace BostadzPortalenClient.Services.Base
         public System.Collections.Generic.ICollection<PropertyImage> ImageUrls { get; set; }
 
         [Newtonsoft.Json.JsonProperty("typeOfProperty", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
 
         [Newtonsoft.Json.JsonProperty("propertyTypeString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3200,6 +3385,7 @@ namespace BostadzPortalenClient.Services.Base
         public System.Collections.Generic.ICollection<PropertyImage> ImageUrls { get; set; }
 
         [Newtonsoft.Json.JsonProperty("typeOfProperty", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
 
         [Newtonsoft.Json.JsonProperty("propertyTypeString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3253,6 +3439,7 @@ namespace BostadzPortalenClient.Services.Base
         public System.Collections.Generic.ICollection<PropertyImageDto> ImageUrls { get; set; }
 
         [Newtonsoft.Json.JsonProperty("typeOfProperty", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
 
         [Newtonsoft.Json.JsonProperty("propertyTypeString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3287,8 +3474,8 @@ namespace BostadzPortalenClient.Services.Base
         [Newtonsoft.Json.JsonProperty("imageUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ImageUrl { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("propertyForSaleId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int PropertyForSaleId { get; set; }
+        [Newtonsoft.Json.JsonProperty("propertyForSaleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? PropertyForSaleId { get; set; }
 
         [Newtonsoft.Json.JsonProperty("propertyForSale", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public PropertyForSale PropertyForSale { get; set; }
@@ -3443,13 +3630,17 @@ namespace BostadzPortalenClient.Services.Base
     public enum TypeOfPropertyEnum
     {
 
-        _0 = 0,
+        [System.Runtime.Serialization.EnumMember(Value = @"Bostadsrättslägenhet")]
+        Bostadsrättslägenhet = 0,
 
-        _1 = 1,
+        [System.Runtime.Serialization.EnumMember(Value = @"Bostadsrättsradhus")]
+        Bostadsrättsradhus = 1,
 
-        _2 = 2,
+        [System.Runtime.Serialization.EnumMember(Value = @"Villa")]
+        Villa = 2,
 
-        _3 = 3,
+        [System.Runtime.Serialization.EnumMember(Value = @"Fritidshus")]
+        Fritidshus = 3,
 
     }
 
