@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
+using BostadzPortalenWebAPI.Data.Interface;
 using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using System.Net;
 
-namespace BostadzPortalenWebAPI.Data
+namespace BostadzPortalenWebAPI.Data.Repo
 {
     //Author: Oscar och Jonathan
 
@@ -49,9 +50,9 @@ namespace BostadzPortalenWebAPI.Data
         {
             var model = await GetByIDIncludesAsync(id); //doesn't give the agency, despite ThenInclude
             //added method to grab the agency of the realtor for the DTO
-            var model2 = await _context.Realtors 
-                .Include(r=>r.Agency)
-                .Where(r=>r.Id == model.RealtorId)
+            var model2 = await _context.Realtors
+                .Include(r => r.Agency)
+                .Where(r => r.Id == model.RealtorId)
                 .FirstOrDefaultAsync();
 
             var dto = new PropertyForSaleDetailsDTO()
@@ -145,9 +146,9 @@ namespace BostadzPortalenWebAPI.Data
                 .ThenInclude(r => r.Agency)
                 .Include(p => p.ImageUrls);
 
-               
+
         }
 
-        
+
     }
 }

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BostadzPortalenWebAPI.Data;
+using BostadzPortalenWebAPI.Data.Interface;
 using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
 using Microsoft.AspNetCore.Http;

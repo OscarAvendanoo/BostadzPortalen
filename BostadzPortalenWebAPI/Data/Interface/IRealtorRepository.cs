@@ -2,7 +2,7 @@
 using BostadzPortalenWebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BostadzPortalenWebAPI.Data
+namespace BostadzPortalenWebAPI.Data.Interface
 {
     //Author: Kevin
     public interface IRealtorRepository : IRepository<Realtor>
