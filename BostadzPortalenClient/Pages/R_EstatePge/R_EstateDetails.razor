@@ -1,114 +1,50 @@
 ﻿@page "/properties/details/{Id:int}"
 @using BlazorBootstrap
 @using Blazored.LocalStorage
-@using BostadzPortalenClient.Components
-@using BostadzPortalenClient.Pages.R_EstatePge
-@using BostadzPortalenClient.Providers
 @using Microsoft.AspNetCore.Components.Authorization
-@using BostadzPortalenClient.Components.XtoString
 @using BostadzPortalenClient.Components.R_Estate
 @* Author: Johan Nelin *@
 @inject IPropertyForSaleService propService
-@inject NavigationManager navManager
+@inject ApiAuthenticationStateProvider AuthenticationStateProvider
 
 
-
-
-
-<AuthorizeView>
-	<Authorized>
-		@Redirect()
-	</Authorized>
-	<NotAuthorized>
-		<div class="d-flex align-items-center">
-			<div>
-				<h3>@realEstate.Address: @realEstate.MunicipalityName</h3>
-				<p>
-					@realEstate.PropertyTypeString, byggd @realEstate.YearBuilt.
-				</p>
-				<hr divider />
-				<p>Beskrivning:</p>
-				<p>@realEstate.Description</p>
-				<hr divider />
-
-				<table class="table">
-					<tbody>
-						<tr>
-							<td> Pris: <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.AskingPrice)"></DecimalToStringSEK> </td>
-						</tr>
-						<tr>
-							<td> Hyra: <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.MonthlyFee)"></DecimalToStringSEK> </td>
-						</tr>
-						<tr>
-							<td> Års kostnad: <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.YearlyOperatingCost)"></DecimalToStringSEK> </td>
-						</tr>
-						<tr>
-							<td> Bostads area: <IntToString_m2 inputInt="@realEstate.LivingArea"></IntToString_m2> </td>
-						</tr>
-						<tr>
-							<td> Utomhus area: <IntToString_m2 inputInt="@realEstate.PlotArea"></IntToString_m2> </td>
-						</tr>
-						<tr>
-							<td> Tillkommande area: <IntToString_m2 inputInt="@realEstate.SupplementaryArea"></IntToString_m2> </td>
-						</tr>
-						<tr>
-							<td> Antal rum: @realEstate.NumberOfRooms </td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="d-flex justify-content-center align-items-center col-6" width="500px">
-				<Carousel>
-					<CarouselItem Active="true">
-						<Image src="@realEstate.ImageUrls.First().ImageUrl" />
-					</CarouselItem>
-					@foreach (var picture in realEstate.ImageUrls.Skip(1))
-					{
-						<CarouselItem>
-							<Image src="@picture.ImageUrl" />
-						</CarouselItem>
-					}
-				</Carousel>
-			</div>
-
-		</div>
-
-		<div>
-			<hr class=" divider" />
-			<h3>Ansvariga: </h3>
-			<RealtorAndAgencyDisplayCard realEstate="realEstate"></RealtorAndAgencyDisplayCard>
-		</div>
-		<div>
-			<hr class=" divider" />
-			<h3>Plats: </h3>
-			<div><BostadzPortalenClient.Components.Google.GoogleEmbed></BostadzPortalenClient.Components.Google.GoogleEmbed></div>
-		</div>
-	</NotAuthorized>
-</AuthorizeView>
-
-
-
-
-
-
+<div>
+	@if (authState is null)
+	{
+		<p>Laddar...</p>
+	}
+	else if (authState.User.Identity.IsAuthenticated)
+	{
+		<NavLink href="@GetLink()">Redigera</NavLink>
+		<p />
+		<R_EstateDisplayDetails realEstate="realEstate"></R_EstateDisplayDetails>
+	}
+	else
+	{
+		<R_EstateDisplayDetails realEstate="realEstate"></R_EstateDisplayDetails>
+	}
+</div>
 
 @code {
 
 	[Parameter] public int Id { get; set; }
 	private PropertyForSaleDetailsDTO realEstate { get; set; }
+	public string linkId { get; set; }
+	private AuthenticationState? authState;
+
 	protected override async Task OnInitializedAsync()
 	{
+		//JN: check user-token -> FUTURE: make it so that only correct Agency can edit
+		authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+		
 		realEstate = await propService.GetPropertyDetailsDTOByIdAsync(Id);
-		//JN: Currently the DetailsDTO includes entire Realtor + Agency
-		//JN: This will need to change to only include: (RealtorName + RealtorID + RealtorPicture) + (AgencyName + AgencyID + AgencyLogo)
-		//JN: But it requires an nSwag rebuild so...
 	}
 
-	private async Task Redirect()
+	private string GetLink()
 	{
-		navManager.NavigateTo($"/realtor/property/edit/{Id}");
+		linkId = $"/realtor/property/edit/{Id}";
+		return linkId;
 	}
-
 }
 
 
