@@ -112,13 +112,10 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
             return result.ToList(); 
         }
 
-        
-
-
-
-
-
-
+        public async Task UnlinkPicture(int id)
+        {
+            await httpClient.UnlinkPictureAsync(id);
+        }
 
     }
 }

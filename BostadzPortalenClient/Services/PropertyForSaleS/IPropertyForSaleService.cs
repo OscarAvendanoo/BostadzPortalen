@@ -21,6 +21,8 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
 
         Task<IEnumerable<PropertyForSale>> GetPropertiesByRealtor(string id);
 
+        Task UnlinkPicture(int id);
+
 
 
     }

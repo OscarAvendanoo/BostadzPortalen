@@ -1,12 +1,13 @@
 ﻿using BostadzPortalenWebAPI.Models;
 using BostadzPortalenWebAPI.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BostadzPortalenWebAPI.Data
 {
     // Author: Jona
     public interface IPropertyImageRepository : IRepository<PropertyImage>
     {
-        // Vi får se om vi slänger in något här
+        Task<PropertyImage> GetPicture(int id);
     }
         
     

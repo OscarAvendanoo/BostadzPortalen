@@ -1,5 +1,6 @@
 ﻿using BostadzPortalenWebAPI.Models;
 using BostadzPortalenWebAPI.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BostadzPortalenWebAPI.Data
 {
@@ -11,5 +12,13 @@ namespace BostadzPortalenWebAPI.Data
         {
             this._context = context;
         }
+
+        public async Task<PropertyImage> GetPicture(int id)
+        {
+            return _context.PropertyImages.Where(im => im.Id == id).FirstOrDefault() ?? new PropertyImage();
+        }
+
+        
+
     }
 }
