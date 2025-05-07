@@ -1,0 +1,40 @@
+﻿@* Author: Johan Nelin *@
+
+<div class="d-flex" style="width:30rem">
+	<div class="realtor-card d-flex col-sm-6">
+		<div class="image-container">
+			<NavLink class="card-img-top">
+				<img src="@realEstate.RealtorPicture" height="50" />
+			</NavLink>
+		</div>
+		<div class="realtor-details ms-3">
+			<h5>
+				Mäklare
+			</h5>
+			<p>@realEstate.RealtorFullName</p>
+		</div>
+	</div>
+	<div class="realtor-card d-flex col-sm-6 ">
+		<div class="image-container">
+			<NavLink class="card-img-top" href="@GetLink()">
+				<img src="@realEstate.AgencyLogo" height="50" />
+			</NavLink>
+		</div>
+		<div class="realtor-details ms-3">
+			<h5>
+				Mäklarbyrå
+			</h5>
+			<p>@realEstate.AgencyName</p>
+		</div>
+	</div>
+</div>
+
+@code {
+	[Parameter] public PropertyForSaleDetailsDTO realEstate { get; set; }
+	public string linkId { get; set; }
+	private string GetLink()
+	{
+		linkId = $"/agency/details/{realEstate.AgencyId}";
+		return linkId;
+	}
+}
