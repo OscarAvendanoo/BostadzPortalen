@@ -32,6 +32,7 @@ namespace BostadzPortalenWebAPI
 
             builder.Services.AddSwaggerGen();
 
+            //Löser översättning av Enums : KEVIN
             builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {

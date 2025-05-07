@@ -1,10 +1,12 @@
 ﻿@page "/realtor/property/details/{Id:int}"
 @using AutoMapper
 @using BlazorBootstrap
+@using static System.Net.WebRequestMethods
 @inject IPropertyForSaleService propService
 @inject IMapper mapper
 @inject NavigationManager navManager
 @inject ApiAuthenticationStateProvider stateProvider
+@inject IClient client
 @* @attribute [Authorize(Roles = "Realtor")] *@
 
 
@@ -52,37 +54,26 @@
 
         <div class="d-flex flex-wrap justify-content-center align-items-center col-4 mx-auto">
 
-
-
-            @if (realEstate.ImageUrls != null)
-            {
-                @foreach (var picture in realEstate.ImageUrls)
-                {
-                    <Image src="@realEstate.ImageUrls.First().ImageUrl" />
-                }
-            }
-            else
-            {
-                <p>Inga bilder tillgängliga.</p>
-            }
-            @* <div class="form-group">
-                <label>Image URL (add multiple):</label>
-                <InputText class="form-control" @bind-Value="ImageUrl" />
-                <button class="btn btn-secondary mt-2" type="button" @onclick="AddImageUrl">Add Image</button>
-
+            <div class="form-group">
                 <div class="mt-2 d-flex flex-wrap">
                     @foreach (var url in realEstate.ImageUrls)
                     {
                         <div class="me-2 mb-2">
-                            <img src="@url" alt="Preview" style="width: 100px; height: 100px; object-fit: cover;" />
-                            <RemoveButton Id="url.Id" OnRemove="RemoveImageUrl">Remove Image</RemoveButton>
+                            <img src="@url.ImageUrl" alt="Preview" style="width: 100px; height: 100px; object-fit: cover;" />
+                            <br />
+                            <div class="d-flex justify-content-center mt-1">
+                            <RemoveButton Id="@url.Id" OnRemove="RemoveImageUrl" />
+                            </div>
                         </div>
+
                     }
                 </div>
-            </div> *@
+                <label>Image URL (add multiple):</label>
+                <InputText class="form-control" @bind-Value="ImageUrl" />
+                <button class="btn btn-secondary mt-2" type="button" @onclick="AddImageUrl">Add Image</button>
 
-
-
+                
+            </div>
 
         </div>
     </div>
@@ -166,6 +157,34 @@
     private string ImageUrl = string.Empty;
     private PropertyImage Image;
 
+    private void AddImageUrl()
+    {
+        if (!string.IsNullOrWhiteSpace(ImageUrl))
+        {
+            Image = new PropertyImage
+                {
+                    ImageUrl = ImageUrl,
+                    PropertyForSaleId = realEstateUpdated.PropertyForSaleId
+                };
+            realEstate.ImageUrls.Add(Image);
+            ImageUrl = string.Empty;
+        }
+    }
+
+    private async Task RemoveImageUrl(int id)
+    {
+   
+        var imageToRemove = realEstate.ImageUrls.FirstOrDefault(i => i.Id == id);
+        if (imageToRemove != null)
+        {
+            realEstate.ImageUrls.Remove(imageToRemove);
+            await propService.UnlinkPicture(id);
+        }
+
+        StateHasChanged();
+   
+    }
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -193,9 +212,6 @@
         navManager.NavigateTo($"/realtorobjects/{userId}");
 
 
-
-        // await propService.UpdatePropertyAsync(Id, realEstate);
-        // navManager.NavigateTo("/PropertiesTable", forceLoad: false);
     }
     private async Task RemoveRealEstate(int id)
     {
@@ -214,23 +230,6 @@
         navManager.NavigateTo($"/realtorobjects/{userId}");
     }
 
-    // private void AddImageUrl()
-    // {
-    //     if (!string.IsNullOrWhiteSpace(ImageUrl))
-    //     {
-    //         Image = new PropertyImage
-    //             {
-    //                 ImageUrl = ImageUrl,
-    //                 PropertyForSaleId = realEstateUpdated.PropertyForSaleId
-    //             };
-    //         realEstate.ImageUrls.Add(Image);
-    //         ImageUrl = string.Empty;
-    //     }
-    // }
-
-    // private async Task RemoveImageUrl(int id)
-    // {
-    //     realEstate.ImageUrls.Remove(Image);
-    // }
+    
 
 }

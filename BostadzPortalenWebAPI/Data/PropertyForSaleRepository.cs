@@ -147,5 +147,7 @@ namespace BostadzPortalenWebAPI.Data
 
                
         }
+
+        
     }
 }

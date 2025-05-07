@@ -20,17 +20,14 @@ namespace BostadzPortalenWebAPI.Controllers
         private readonly IPropertyForSaleRepository _propertyForSaleRepository;
         private readonly IMapper mapper;
         private readonly ApplicationDbContext _context;
+        private readonly IPropertyImageRepository imageRepo;
 
-
-
-
-
-        public PropertyForSaleController(IPropertyForSaleRepository propertyForSaleRepository, IMapper mapper, ApplicationDbContext context)
+        public PropertyForSaleController(IPropertyForSaleRepository propertyForSaleRepository, IMapper mapper, ApplicationDbContext context, IPropertyImageRepository imageRepo)
         {
             _propertyForSaleRepository = propertyForSaleRepository;
             this.mapper = mapper;
             _context = context;
-
+            this.imageRepo = imageRepo;
         }
 
         // Author: Oscar
@@ -263,6 +260,30 @@ namespace BostadzPortalenWebAPI.Controllers
             
 
             return Ok(myPropertiesDto);
+        }
+
+        [HttpDelete("DeletePicture")]
+        [Authorize(Roles ="Realtor, Admin")]
+        public async Task DeletePictureAsync(int id)
+        {
+            
+            await imageRepo.DeleteAsync(await imageRepo.GetPicture(id));
+        }
+
+        [HttpPut("UnlinkPicture/{id}")]
+        public async Task<IActionResult> UnlinkImageFromProperty(int id)
+        {
+            var image = await _context.PropertyImages.FindAsync(id);
+            if (image == null)
+            {
+                return NotFound();
+            }
+
+
+            image.PropertyForSaleId = null;
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
 
 
