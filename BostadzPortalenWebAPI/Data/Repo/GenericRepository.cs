@@ -1,10 +1,10 @@
-﻿using BostadzPortalenWebAPI.Models;
-using BostadzPortalenWebAPI.Data;
+﻿using BostadzPortalenWebAPI.Data.Interface;
+using BostadzPortalenWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 
 // Author: Oscar Avendano
-namespace BostadzPortalenWebAPI.Data
+namespace BostadzPortalenWebAPI.Data.Repo
 
 {
     public abstract class GenericRepository<T> : IRepository<T> where T : class
@@ -19,9 +19,9 @@ namespace BostadzPortalenWebAPI.Data
         public async Task<T> AddAsync(T entity)
         {
             var addedEntity = await _context.AddAsync(entity);
-            
+
             await _context.SaveChangesAsync();
-           
+
             return addedEntity.Entity;
         }
 

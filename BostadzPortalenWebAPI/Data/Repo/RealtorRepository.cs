@@ -1,8 +1,9 @@
-﻿using BostadzPortalenWebAPI.DTO;
+﻿using BostadzPortalenWebAPI.Data.Interface;
+using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BostadzPortalenWebAPI.Data
+namespace BostadzPortalenWebAPI.Data.Repo
 {
     //Author: Kevin
     public class RealtorRepository : GenericRepository<Realtor>, IRealtorRepository
@@ -46,7 +47,7 @@ namespace BostadzPortalenWebAPI.Data
             return await context.Realtors
                 .Include(r => r.Agency)
                 .Include(r => r.Properties)
-                    .ThenInclude(p=>p.Municipality)
+                    .ThenInclude(p => p.Municipality)
                 .FirstOrDefaultAsync(r => r.Id == guidID);
         }
 

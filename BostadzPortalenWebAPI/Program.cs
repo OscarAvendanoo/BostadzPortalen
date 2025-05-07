@@ -11,6 +11,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
+using BostadzPortalenWebAPI.Data.Interface;
+using BostadzPortalenWebAPI.Data.Repo;
 
 
 namespace BostadzPortalenWebAPI

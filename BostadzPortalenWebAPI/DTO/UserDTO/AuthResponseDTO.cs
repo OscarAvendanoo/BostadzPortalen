@@ -1,4 +1,4 @@
-﻿namespace BostadzPortalenWebAPI.DTO
+﻿namespace BostadzPortalenWebAPI.DTO.UserDTO
 {
     public class AuthResponseDTO
     {
