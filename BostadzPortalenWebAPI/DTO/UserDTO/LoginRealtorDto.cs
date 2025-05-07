@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BostadzPortalenWebAPI.DTO
+namespace BostadzPortalenWebAPI.DTO.UserDTO
 {
     public class LoginRealtorDto
     {
@@ -8,7 +8,7 @@ namespace BostadzPortalenWebAPI.DTO
         [EmailAddress]
         public string Email { get; set; }
         [Required]
-        public string Password { get; set; }  
+        public string Password { get; set; }
 
     }
 }

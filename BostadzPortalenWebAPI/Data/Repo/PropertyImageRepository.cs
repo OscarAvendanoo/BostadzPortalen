@@ -1,8 +1,8 @@
 ﻿using BostadzPortalenWebAPI.Models;
-using BostadzPortalenWebAPI.Data;
 using Microsoft.AspNetCore.Mvc;
+using BostadzPortalenWebAPI.Data.Interface;
 
-namespace BostadzPortalenWebAPI.Data
+namespace BostadzPortalenWebAPI.Data.Repo
 {
     // Author: Jona
     public class PropertyImageRepository : GenericRepository<PropertyImage>, IPropertyImageRepository
@@ -10,7 +10,7 @@ namespace BostadzPortalenWebAPI.Data
         private readonly ApplicationDbContext _context;
         public PropertyImageRepository(ApplicationDbContext context) : base(context)
         {
-            this._context = context;
+            _context = context;
         }
 
         public async Task<PropertyImage> GetPicture(int id)
@@ -18,7 +18,7 @@ namespace BostadzPortalenWebAPI.Data
             return _context.PropertyImages.Where(im => im.Id == id).FirstOrDefault() ?? new PropertyImage();
         }
 
-        
+
 
     }
 }

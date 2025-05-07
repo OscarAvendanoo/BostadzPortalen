@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace BostadzPortalenWebAPI.Data
+namespace BostadzPortalenWebAPI.Data.Interface
 {
     // Author: Oscar Avendano
     public interface IRepository<T>

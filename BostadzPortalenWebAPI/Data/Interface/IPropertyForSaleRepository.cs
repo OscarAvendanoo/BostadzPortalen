@@ -1,9 +1,9 @@
 ﻿using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
 
-namespace BostadzPortalenWebAPI.Data
+namespace BostadzPortalenWebAPI.Data.Interface
 {
-    public interface IPropertyForSaleRepository: IRepository<PropertyForSale>
+    public interface IPropertyForSaleRepository : IRepository<PropertyForSale>
     {
         Task<List<PropertyForSale>> GetAllWithIncludesAsync();
         Task<List<PropertyForSaleOverviewDTO>> GetAllPropertyOverviewDTOAsync();

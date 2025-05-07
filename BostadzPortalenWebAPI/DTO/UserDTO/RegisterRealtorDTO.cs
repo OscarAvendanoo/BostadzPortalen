@@ -1,7 +1,7 @@
 ﻿using BostadzPortalenWebAPI.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace BostadzPortalenWebAPI.DTO
+namespace BostadzPortalenWebAPI.DTO.UserDTO
 {
     //Author: Kevin
     public class RegisterRealtorDTO
@@ -18,6 +18,6 @@ namespace BostadzPortalenWebAPI.DTO
         [Required]
         public int AgencyId { get; set; }
 
-        
+
     }
 }

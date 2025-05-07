@@ -1,7 +1,8 @@
-﻿using BostadzPortalenWebAPI.Models;
+﻿using BostadzPortalenWebAPI.Data.Interface;
+using BostadzPortalenWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BostadzPortalenWebAPI.Data
+namespace BostadzPortalenWebAPI.Data.Repo
 {
     //Author: Johan Nelin
     public class RealEstateAgencyRepository : GenericRepository<RealEstateAgency>, IRealEstateAgencyRepository
