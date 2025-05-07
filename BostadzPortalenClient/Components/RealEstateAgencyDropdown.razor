@@ -28,8 +28,8 @@
     {
         try
         {
-            var agencies = await agencyService.GetAllAgenciesAsync();/* apiService.Get<List<RealEstateAgency>>("RealEstateAgency"); */
-            realEstateAgencies = agencies;
+            realEstateAgencies = await agencyService.GetAllAgenciesAsync();/* apiService.Get<List<RealEstateAgency>>("RealEstateAgency"); */
+            
         }
         catch (Exception ex)
         {

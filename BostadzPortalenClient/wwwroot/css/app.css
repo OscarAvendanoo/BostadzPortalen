@@ -136,7 +136,41 @@ code {
     text-decoration: none;
 }
 
-a.nav-link {
+.a.nav-link:active {
+    color: var(--dark-yellow);
+}
+
+.nav-link {
+    color: var(--light-yellow);
+}
+
+    .nav-link:focus {
+        color: var(--dark-yellow);
+    }
+    .nav-link:hover{
+        color: inherit;
+    }
+
+
+.navbar-nav .nav-link.active {
+    color: var(--light-yellow);
+}
+.navbar-nav .nav-link:hover {
+    color: var(--dark-yellow);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--light-yellow);
+}
+.nav-tabs .nav-link:hover {
+    color: var(--dark-yellow);
+}
+
+/*.card-header-tabs .nav-link.active{
+    color: var(--dark-yellow);
+}*/
+
+/*a.nav-link {
     color: var(--light-yellow);
 }
 
@@ -144,7 +178,7 @@ a.nav-link {
     color: var(--dark-yellow);
 }
 
-.nav-link:hover {
+.nav-item:hover {
     color: var(--dark-yellow);
 }
 
@@ -154,10 +188,10 @@ nav-item.a-link {
 
 .navbar a {
     color: var(--light-yellow);
-}
+}*/
+
 
 /*BUTTON*/
-
 .main-btn {
     background-color: var(--dark-turqouise);
     color: var(--light-yellow);

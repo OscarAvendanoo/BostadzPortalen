@@ -2,12 +2,17 @@
 @using AutoMapper
 @using BlazorBootstrap
 @using static System.Net.WebRequestMethods
+@using BostadzPortalenClient.Components.XtoString
 @inject IPropertyForSaleService propService
 @inject IMapper mapper
 @inject NavigationManager navManager
 @inject ApiAuthenticationStateProvider stateProvider
-@inject IClient client
 @* @attribute [Authorize(Roles = "Realtor")] *@
+
+
+
+<h3>@realEstate.Address | @realEstate.MunicipalityName</h3>
+<hr />
 
 
 <EditForm Model="@realEstate" OnValidSubmit="SaveChanges">
@@ -25,13 +30,18 @@
 
             <div class="form-group fw-bold">
                 <label>Kommun</label>
-                <InputText @bind-Value="realEstate.MunicipalityName" class="form-control" />
+                <InputText @bind-Value="realEstate.MunicipalityName" class="form-control" disabled />
+
+
             </div>
+
+
+
 
             <div class="form-group fw-bold">
                 <label class="me-3 mb-1">Typ av bostad</label>
-                <br/>
-                <InputSelect @bind-Value="realEstate.TypeOfProperty" class="p-1">
+                <br />
+                <InputSelect @bind-Value="realEstate.TypeOfProperty" class="form-control">
                     @foreach (var type in Enum.GetValues<TypeOfPropertyEnum>())
                     {
                         <option value="@type">@type</option>
@@ -56,23 +66,33 @@
 
             <div class="form-group">
                 <div class="mt-2 d-flex flex-wrap">
-                    @foreach (var url in realEstate.ImageUrls)
+                    @if (realEstate.ImageUrls == null)
                     {
-                        <div class="me-2 mb-2">
-                            <img src="@url.ImageUrl" alt="Preview" style="width: 100px; height: 100px; object-fit: cover;" class="img-thumbnail" />
-                            <br />
-                            <div class="d-flex justify-content-center mt-1">
-                            <RemoveButton Id="@url.Id" OnRemove="RemoveImageUrl" />
+                        <p>Laddar...</p>
+                    }
+                    else
+                    {
+                        @foreach (var url in realEstate.ImageUrls)
+                        {
+                            <div class="me-2 mb-2">
+                                <img src="@url.ImageUrl" alt="Preview" style="width: 100px; height: 100px; object-fit: cover;" class="img-thumbnail" />
+                                <br />
+                                <div class="d-flex justify-content-center mt-1">
+                                    <RemoveButton Id="@url.Id" OnRemove="RemoveImageUrl" />
+                                </div>
                             </div>
-                        </div>
+
+                        }
+
+
+                        <InputText class="form-control" @bind-Value="ImageUrl" placeholder="Enter image URL" />
+                        <button class="btn btn-secondary mt-2" type="button" @onclick="AddImageUrl">Ladda upp bild</button>
 
                     }
                 </div>
-                <label>Image URL (add multiple):</label>
-                <InputText class="form-control" @bind-Value="ImageUrl" />
-                <button class="btn btn-secondary mt-2" type="button" @onclick="AddImageUrl">Add Image</button>
 
-                
+
+
             </div>
 
         </div>
@@ -94,25 +114,26 @@
             <tbody>
                 <tr>
                     <td>
-                        <InputNumber @bind-Value="realEstate.AskingPrice" class="form-control" />
+
+                        <InputNumber @bind-Value="realEstate.AskingPrice" class="form-control" placeholder="SEK" />
                     </td>
                     <td>
-                        <InputNumber @bind-Value="realEstate.MonthlyFee" class="form-control" />
+                        <InputNumber @bind-Value="realEstate.MonthlyFee" class="form-control" placeholder="SEK" />
                     </td>
                     <td>
-                        <InputNumber @bind-Value="realEstate.YearlyOperatingCost" class="form-control" />
+                        <InputNumber @bind-Value="realEstate.YearlyOperatingCost" class="form-control" placeholder="SEK" />
                     </td>
                     <td>
-                        <InputNumber @bind-Value="realEstate.LivingArea" class="form-control" />
+                        <InputNumber @bind-Value="realEstate.LivingArea" class="form-control" placeholder="KVM" />
                     </td>
                     <td>
-                        <InputNumber @bind-Value="realEstate.PlotArea" class="form-control" />
+                        <InputNumber @bind-Value="realEstate.PlotArea" class="form-control" placeholder="KVM" />
                     </td>
                     <td>
-                        <InputNumber @bind-Value="realEstate.SupplementaryArea" class="form-control" />
+                        <InputNumber @bind-Value="realEstate.SupplementaryArea" class="form-control" placeholder="KVM" />
                     </td>
                     <td>
-                        <InputNumber @bind-Value="realEstate.NumberOfRooms" class="form-control" />
+                        <InputNumber @bind-Value="realEstate.NumberOfRooms" class="form-control" placeholder="KVM" />
                     </td>
                 </tr>
             </tbody>
@@ -120,12 +141,7 @@
     </div>
 
 
-
-
-
-
-
-    <div class="mt-4">
+    @*  <div class="mt-4">
         <div class="form-group fw-bold">
             <label>Mäklare</label>
             <InputText @bind-Value="realEstate.RealtorFullName" class="form-control mb-2" placeholder="För och efternamn" />
@@ -139,9 +155,10 @@
         </div>
     </div>
     <div class="mt-3">
-        <button type="submit" class="btn main-btn">Spara ändringar</button>
 
-    </div>
+
+    </div> *@
+    <button type="submit" class="btn main-btn">Spara ändringar</button>
 </EditForm>
 <div class="mt-3">
     <RemoveButton Id="Id" OnRemove="@RemoveRealEstate" />
@@ -156,6 +173,7 @@
     private PropertyForSaleUpdateDto realEstateUpdated { get; set; } = new PropertyForSaleUpdateDto();
     private string ImageUrl = string.Empty;
     private PropertyImage Image;
+
 
     private void AddImageUrl()
     {
@@ -173,7 +191,7 @@
 
     private async Task RemoveImageUrl(int id)
     {
-   
+
         var imageToRemove = realEstate.ImageUrls.FirstOrDefault(i => i.Id == id);
         if (imageToRemove != null)
         {
@@ -182,7 +200,7 @@
         }
 
         StateHasChanged();
-   
+
     }
 
 
@@ -202,7 +220,7 @@
         try
         {
             await propService.UpdatePropertyAsync(Id, realEstateUpdated);
-            
+
         }
         catch (Exception ex)
         {
@@ -225,11 +243,11 @@
 
             Console.WriteLine($"Delete failed: {ex.Message}");
         }
-        
-        
+
+
         navManager.NavigateTo($"/realtorobjects/{userId}");
     }
 
-    
+
 
 }
