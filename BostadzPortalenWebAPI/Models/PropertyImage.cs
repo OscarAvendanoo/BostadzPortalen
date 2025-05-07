@@ -11,7 +11,7 @@ namespace BostadzPortalenWebAPI.Models
         public int? PropertyForSaleId { get; set; }
 
        
-        public PropertyForSale PropertyForSale { get; set; }
+        public PropertyForSale? PropertyForSale { get; set; }
 
 
     }
