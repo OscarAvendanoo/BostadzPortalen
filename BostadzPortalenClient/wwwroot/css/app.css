@@ -129,66 +129,38 @@ code {
     background-color: var(--dark-turqouise);
 }
 
-.a-link {
+.a-link, .nav-link {
     color: var(--light-yellow);
     padding: 5px;
     margin: 3px;
     text-decoration: none;
 }
 
-.a.nav-link:active {
-    color: var(--dark-yellow);
-}
-
-.nav-link {
-    color: var(--light-yellow);
-}
-
-    .nav-link:focus {
+    .nav-link:focus,
+    .nav-link:active {
         color: var(--dark-yellow);
     }
-    .nav-link:hover{
+
+    .nav-link:hover {
         color: inherit;
     }
 
-
-.navbar-nav .nav-link.active {
-    color: var(--light-yellow);
-}
-.navbar-nav .nav-link:hover {
-    color: var(--dark-yellow);
+.dropdown-toggle:hover {
+    color: var(--dark-turqouise);
+    background-color: var(--dark-yellow);
 }
 
+.navbar-nav .nav-link.active,
 .nav-tabs .nav-link.active {
     color: var(--light-yellow);
 }
+
+.navbar-nav .nav-link:hover,
 .nav-tabs .nav-link:hover {
     color: var(--dark-yellow);
 }
 
-/*.card-header-tabs .nav-link.active{
-    color: var(--dark-yellow);
-}*/
 
-/*a.nav-link {
-    color: var(--light-yellow);
-}
-
-.nav-link:focus {
-    color: var(--dark-yellow);
-}
-
-.nav-item:hover {
-    color: var(--dark-yellow);
-}
-
-nav-item.a-link {
-    color: var(--light-yellow);
-}
-
-.navbar a {
-    color: var(--light-yellow);
-}*/
 
 
 /*BUTTON*/
@@ -322,9 +294,14 @@ nav-item.a-link {
     background-color: var(--dark-turqouise);
 }
 
+.navbar-nav .nav-link.show {
+    color: var(--dark-yellow);
+    background-color: var(--dark-turqouise);
+}
+
 /* Styla länkarna i dropdownen */
 .dropdown-item {
-    color: var(--dark-yellow);
+    color: var(--light-yellow);
     padding: 0.75rem 1.5rem;
     transition: background-color 0.2s ease;
 }
