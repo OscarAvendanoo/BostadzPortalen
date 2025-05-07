@@ -1,0 +1,10 @@
+﻿@page "/realtorobjects/{RealtorId}"
+@using BostadzPortalenClient.Components.R_Estate
+
+<h1>Dina objekt</h1>
+<hr class=" divider" />
+<RealtorPropertiesOverview RealtorId="@RealtorId" />
+
+@code {
+    [Parameter] public string RealtorId { get; set; }
+}

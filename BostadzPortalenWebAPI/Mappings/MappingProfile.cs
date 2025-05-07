@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BostadzPortalenWebAPI.DTO;
+using BostadzPortalenWebAPI.DTO.UserDTO;
 using BostadzPortalenWebAPI.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 

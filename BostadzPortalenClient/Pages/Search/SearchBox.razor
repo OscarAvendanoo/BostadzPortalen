@@ -1,0 +1,27 @@
+﻿@page "/search/home"
+@using BostadzPortalenClient.Components.Search
+@inject IJSRuntime JS
+
+<div class="d-flex justify-content-center align-items-center col-6">
+    <div class="card w-100">
+        <SearchBoxHeader/>
+
+        <div class="card-body">
+            <RealEstate></RealEstate>
+            <AgencieSearch></AgencieSearch>
+            <RealtorSearch></RealtorSearch>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("setupSearchBoxTabs");
+        }
+    }
+}
