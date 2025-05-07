@@ -25,9 +25,10 @@
 				<p>
 					@realEstate.PropertyTypeString, byggd @realEstate.YearBuilt.
 				</p>
-				<p>
-					Beskrivning: @realEstate.Description
-				</p>
+				<hr divider />
+				<p>Beskrivning:</p>
+				<p>@realEstate.Description</p>
+				<hr divider />
 
 				<table class="table">
 					<tbody>
@@ -62,17 +63,24 @@
 					</CarouselItem>
 					@foreach (var picture in realEstate.ImageUrls.Skip(1))
 					{
-						<CarouselItem >
+						<CarouselItem>
 							<Image src="@picture.ImageUrl" />
 						</CarouselItem>
 					}
 				</Carousel>
 			</div>
+
 		</div>
 
 		<div>
-			<p> Mäklare: @realEstate.RealtorFullName <img src="@realEstate.RealtorPicture" width="100px"/></p>
-			<p> Mäklarbyrå: @realEstate.AgencyName<img src="@realEstate.AgencyLogo" width="100px" /></p>
+			<hr class=" divider" />
+			<h3>Ansvariga: </h3>
+			<RealtorAndAgencyDisplayCard realEstate="realEstate"></RealtorAndAgencyDisplayCard>
+		</div>
+		<div>
+			<hr class=" divider" />
+			<h3>Plats: </h3>
+			<div><BostadzPortalenClient.Components.Google.GoogleEmbed></BostadzPortalenClient.Components.Google.GoogleEmbed></div>
 		</div>
 	</NotAuthorized>
 </AuthorizeView>
@@ -102,4 +110,4 @@
 
 }
 
-   
+
