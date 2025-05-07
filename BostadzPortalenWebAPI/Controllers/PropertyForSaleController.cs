@@ -184,10 +184,11 @@ namespace BostadzPortalenWebAPI.Controllers
             var query = _propertyForSaleRepository.QueryPropertiesWithIncludes();
 
 
-            if (searchRequest.TypeOfProperty.HasValue)
+            if (searchRequest.TypeOfProperty.HasValue && searchRequest.TypeOfProperty != 4)
             {
-                var propertyTypeEnum = (TypeOfPropertyEnum)searchRequest.TypeOfProperty.Value;
-                query = query.Where(p => p.TypeOfProperty == propertyTypeEnum);
+                    var propertyTypeEnum = (TypeOfPropertyEnum)searchRequest.TypeOfProperty.Value;
+                    query = query.Where(p => p.TypeOfProperty == propertyTypeEnum);
+              
             }
 
             if (searchRequest.MinPrice.HasValue)
@@ -195,7 +196,7 @@ namespace BostadzPortalenWebAPI.Controllers
                 query = query.Where(p => p.AskingPrice >= searchRequest.MinPrice.Value);
             }
 
-            if (!string.IsNullOrWhiteSpace(searchRequest.MunicipalityName))
+            if (!string.IsNullOrWhiteSpace(searchRequest.MunicipalityName) && searchRequest.MunicipalityName != "Alla")
             {
                 query = query.Where(p => p.Municipality.Name.Contains(searchRequest.MunicipalityName));
             }
