@@ -1,20 +1,21 @@
 ﻿
 using Blazored.LocalStorage;
-
 using BostadzPortalenClient.Models;
+using BostadzPortalenClient.Services.Base;
+using BostadzPortalenClient.Waste.ApiService;
 using Newtonsoft.Json;
 
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace BostadzPortalenClient.Services.Base
+namespace BostadzPortalenClient.Services.SearchSrvc
 {
     // Author: Oscar 
     public class SearchResultService : BaseHttpService, ISearchResultService
     {
         private readonly IClient client;
-       
+
         public List<PropertyForSale> Results { get; set; } = new();
-        public SearchResultService(ILocalStorageService localStorage, IClient client, IApiService apiService) : base(localStorage, client)
+        public SearchResultService(ILocalStorageService localStorage, IClient client) : base(localStorage, client)
         {
             this.client = client;
         }
@@ -28,7 +29,7 @@ namespace BostadzPortalenClient.Services.Base
 
                 if (data != null && data.Any())
                 {
-                    
+
                     response.Data = data.ToList();
                     response.Success = true;
                     Results = response.Data;
@@ -45,13 +46,13 @@ namespace BostadzPortalenClient.Services.Base
                 response = ConvertApiExceptions<List<PropertyForSale>>(ex);
             }
 
-            
+
             return response;
         }
 
-            public async Task<List<PropertyForSale>> GetSearchResults()
-            {
-                return Results;
-            }
+        public async Task<List<PropertyForSale>> GetSearchResults()
+        {
+            return Results;
+        }
     }
 }

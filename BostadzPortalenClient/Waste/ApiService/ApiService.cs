@@ -5,7 +5,7 @@ using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
 using BostadzPortalenClient.Services.Base;
 
-namespace BostadzPortalenClient.Services
+namespace BostadzPortalenClient.Waste.ApiService
 {
     public class ApiService : IApiService
     {

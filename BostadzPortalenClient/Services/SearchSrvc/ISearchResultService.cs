@@ -1,7 +1,7 @@
 ﻿using BostadzPortalenClient.Models;
+using BostadzPortalenClient.Services.Base;
 
-
-namespace BostadzPortalenClient.Services.Base
+namespace BostadzPortalenClient.Services.SearchSrvc
 {
 
     // Author Oscar

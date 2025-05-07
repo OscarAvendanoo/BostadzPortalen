@@ -1,4 +1,6 @@
-﻿namespace BostadzPortalenClient.Services.Base.AgencyService
+﻿using BostadzPortalenClient.Services.Base;
+
+namespace BostadzPortalenClient.Services.AgencyService
 {
     public interface IAgencyService
     {

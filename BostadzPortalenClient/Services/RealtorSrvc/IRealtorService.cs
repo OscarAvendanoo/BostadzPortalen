@@ -1,6 +1,7 @@
 ﻿using BostadzPortalenClient.Models;
+using BostadzPortalenClient.Services.Base;
 
-namespace BostadzPortalenClient.Services.Base
+namespace BostadzPortalenClient.Services.RealtorSrvc
 {
     public interface IRealtorService
     {

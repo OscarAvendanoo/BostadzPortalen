@@ -1,7 +1,8 @@
 ﻿using Blazored.LocalStorage;
 using BostadzPortalenClient.Models;
+using BostadzPortalenClient.Services.Base;
 
-namespace BostadzPortalenClient.Services.Base
+namespace BostadzPortalenClient.Services.MunicipalitySrvc
 {
 
     //author: Oscar
@@ -21,7 +22,7 @@ namespace BostadzPortalenClient.Services.Base
             {
                 //await GetBearerToken();
                 var data = await client.GetAllMuniAsync();
-                
+
 
                 response = new Response<List<Municipality>>
                 {
