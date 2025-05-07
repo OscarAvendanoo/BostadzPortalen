@@ -1,13 +1,17 @@
 using Blazored.LocalStorage;
 using BostadzPortalenClient.Services.Authentication;
 using BostadzPortalenClient.Services.Base;
-using BostadzPortalenClient.Services.PropertyForSaleS;
+using BostadzPortalenClient.Services.R_EstateSrvc;
 using BostadzPortalenClient.Providers;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using BostadzPortalenClient.Services;
-using BostadzPortalenClient.Services.Base.AgencyService;
+//using BostadzPortalenClient.Waste.ApiService;
+using System.Net.NetworkInformation;
+using BostadzPortalenClient.Services.MunicipalitySrvc;
+using BostadzPortalenClient.Services.AgencyService;
+using BostadzPortalenClient.Services.RealtorSrvc;
+using BostadzPortalenClient.Services.SearchSrvc;
 
 
 
@@ -27,7 +31,7 @@ namespace BostadzPortalenClient
             builder.Services.AddAutoMapper(typeof(Program));
             builder.Services.AddBlazorBootstrap(); //JN: to make the slideshow work
 
-            builder.Services.AddScoped<ApiService>();
+            //builder.Services.AddScoped<ApiService>();
 
 
             builder.Services.AddBlazoredLocalStorage();
@@ -41,7 +45,7 @@ namespace BostadzPortalenClient
             builder.Services.AddAuthorizationCore();
             builder.Services.AddScoped<IClient, Client>();
             builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
-            builder.Services.AddScoped<IApiService, ApiService>();
+            //builder.Services.AddScoped<IApiService, ApiService>();
 
             builder.Services.AddScoped<IMuniService, MuniService>();
             builder.Services.AddScoped<IRealtorService, RealtorService>();

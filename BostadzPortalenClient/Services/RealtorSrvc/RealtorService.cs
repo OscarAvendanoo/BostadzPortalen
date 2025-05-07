@@ -1,19 +1,18 @@
 ﻿using Blazored.LocalStorage;
-using BostadzPortalenClient.Services.Base;
 using BostadzPortalenClient.Models;
+using BostadzPortalenClient.Waste.ApiService;
+using BostadzPortalenClient.Services.Base;
 
 
-namespace BostadzPortalenClient.Services.Base
+namespace BostadzPortalenClient.Services.RealtorSrvc
 {
     public class RealtorService : BaseHttpService, IRealtorService
     {
         private readonly IClient client;
-        private readonly IApiService apiService;
 
-        public RealtorService(ILocalStorageService localStorage, IClient client, IApiService apiService) : base(localStorage, client)
+        public RealtorService(ILocalStorageService localStorage, IClient client) : base(localStorage, client)
         {
             this.client = client;
-            this.apiService = apiService;
         }
         // author: Oscar
         public async Task<Response<Realtor>> GetCurrentRealtor()
@@ -39,11 +38,12 @@ namespace BostadzPortalenClient.Services.Base
 
         public async Task<Realtor> FindRealtor(string firstName, string lastName)
         {
-            var realtor = await apiService.Get<Realtor>($"realtor/FindRealtorByName/{firstName}/{lastName}");
+            // Get DTO instead of Full-Realtor
+            var realtor = await client.FindRealtorByNameAsync(firstName,lastName);
             return realtor;
-            
+
         }
 
-        
+
     }
 }

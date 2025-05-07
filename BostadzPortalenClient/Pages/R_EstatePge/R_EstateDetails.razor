@@ -2,10 +2,11 @@
 @using BlazorBootstrap
 @using Blazored.LocalStorage
 @using BostadzPortalenClient.Components
-@using BostadzPortalenClient.Pages.RealtorPropForSale
+@using BostadzPortalenClient.Pages.R_EstatePge
 @using BostadzPortalenClient.Providers
 @using Microsoft.AspNetCore.Components.Authorization
 @using BostadzPortalenClient.Components.XtoString
+@using BostadzPortalenClient.Components.R_Estate
 @* Author: Johan Nelin *@
 @inject IPropertyForSaleService propService
 @inject NavigationManager navManager
@@ -105,7 +106,7 @@
 
 	private async Task Redirect()
 	{
-		navManager.NavigateTo($"/realtor/property/details/{Id}");
+		navManager.NavigateTo($"/realtor/property/edit/{Id}");
 	}
 
 }

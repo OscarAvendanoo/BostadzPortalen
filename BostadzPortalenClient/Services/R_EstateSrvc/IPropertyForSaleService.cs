@@ -2,7 +2,7 @@
 
 
 
-namespace BostadzPortalenClient.Services.PropertyForSaleS
+namespace BostadzPortalenClient.Services.R_EstateSrvc
 {
     public interface IPropertyForSaleService
     {
