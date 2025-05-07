@@ -1,8 +1,6 @@
 ﻿<!--Author: Kevin-->
 @using BostadzPortalenClient.Services
 @using Newtonsoft.Json
-@using BostadzPortalenClient.Components.XtoString
-@inject IApiService apiService
 @inject IPropertyForSaleService propService
 
 <div class="row">
@@ -37,7 +35,6 @@
                         <div class="model-row">
                             <span style="font-weight:bold;">Typ av fastighet</span>
                             <span>@realEstate.TypeOfProperty</span>
-
                         </div>
                     </li>
                     <li class="list-group-item">
@@ -54,7 +51,6 @@
                     </li>
                 </ul>
                 @* <RemoveButton Id="@realEstate.PropertyForSaleId" OnRemove="RemoveRealEstate" /> *@
-
                 <button class="btn btn-danger" @onclick="() => MarkAsSold(realEstate.PropertyForSaleId)">Sälj</button>
             </div>
         </div>
@@ -76,43 +72,31 @@
         soldProperties.Add(propertyId);
     }
 
-
-    //Givetvis inte optimal då man behövr expeonera ID men fyller funktionen??
-
     private async Task LoadRealEstates()
     {
-        var id = RealtorId;
-        var realEstates = await propService.GetAllPropertiesForSaleDTOAsync(); 
-
-        if (id == null)
+        try
         {
-            try
+            if (!string.IsNullOrEmpty(RealtorId))
             {
+                // Hämtar endast objekt som tillhör den inloggade mäklaren (via token, inte filtrering manuellt)
+                // PropertiesForSale = await propService.GetMyListingsAsync();
+            }
+            else
+            {
+                var realEstates = await propService.GetAllPropertiesForSaleDTOAsync();
+
                 if (realEstates != null)
                 {
-                    if (Amount != null)
-                    {
+                    if (Amount != 0)
                         PropertiesForSale = realEstates.OrderByDescending(r => r.AskingPrice).Take(Amount).ToList();
-                    }
-
-                    PropertiesForSale = realEstates.OrderByDescending(r => r.AskingPrice).ToList();
-
+                    else
+                        PropertiesForSale = realEstates.OrderByDescending(r => r.AskingPrice).ToList();
                 }
-
-                else
-                {
-                    Console.WriteLine($"Status code:");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Fel vid hämtning av agencies: {ex.Message}");
             }
         }
-        else
+        catch (Exception ex)
         {
-            //PropertiesForSale = realEstates.Where(p=>p.RealtorId == id).OrderBy(prop => prop.MunicipalityName).ToList();
-            //JN: This needs a change in the overviewDTO to function -> (another nSwag build)
+            Console.WriteLine($"Fel vid hämtning av fastigheter: {ex.Message}");
         }
     }
 
@@ -123,11 +107,8 @@
 
     private async Task RemoveRealEstate(int id)
     {
-        await apiService.Delete($"propertyforsale/{id}");
+        await propService.DeletePropertyForSale(id);
         PropertiesForSale.RemoveAll(p => p.PropertyForSaleId == id);
+        StateHasChanged();
     }
-
-
-    
-
 }

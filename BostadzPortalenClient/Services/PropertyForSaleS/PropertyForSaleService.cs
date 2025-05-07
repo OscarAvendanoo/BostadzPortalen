@@ -1,19 +1,22 @@
-﻿using Blazored.LocalStorage;
+﻿using AutoMapper;
+using Blazored.LocalStorage;
 using BostadzPortalenClient.Services.Base;
 using Microsoft.AspNetCore.Components.Authorization;
 //Author: Johan Nelin
 
 namespace BostadzPortalenClient.Services.PropertyForSaleS
 {
-    public class PropertyForSaleService: IPropertyForSaleService
+    public class PropertyForSaleService: BaseHttpService, IPropertyForSaleService
     {
         private readonly IClient httpClient;
-        //private readonly ApiService apiService;
+        private readonly IMapper mapper;
 
-        public PropertyForSaleService(IClient httpClient, ApiService apiService)
+        
+
+        public PropertyForSaleService(IClient httpClient, ApiService apiService, IMapper mapper, ILocalStorageService localStorage) : base(localStorage, httpClient)
         {
             this.httpClient = httpClient;
-            //this.apiService = apiService; // Jona
+            this.mapper = mapper;
         }
 
         public async Task<IEnumerable<PropertyForSaleOverviewDTO>> GetAllPropertiesForSaleDTOAsync()
@@ -47,12 +50,14 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
 
         public async Task<PropertyForSale> GetPropertyAsync(int id)
         {
-            var property = await httpClient.PropertyForSaleGETAsync(id);
+            var properties = await httpClient.GetAllPropertiesIncludeAllAsync();
+            var property = properties.Where(p => p.PropertyForSaleId == id).FirstOrDefault();
             return property;
         }
 
-        public async Task UpdatePropertyAsync(int propertyId, PropertyForSale property)
+        public async Task UpdatePropertyAsync(int propertyId, PropertyForSaleUpdateDto property)
         {
+            //var proptosend = mapper.Map<PropertyForSale>(property);
             await httpClient.PropertyForSalePUTAsync(propertyId, property);
         }
 
@@ -63,6 +68,7 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
         //}
         public async Task<bool> AddPropertyForSaleAsync(CreatePropertyForSaleDTO dto)
         {
+            await GetBearerToken();
 
             var propertyForSale = new PropertyForSale
             {
@@ -87,5 +93,32 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
             await this.httpClient.PropertyForSalePOSTAsync(dto);
             return true;
         }
+
+        //TEST KEVIN
+
+        public async Task<IEnumerable<PropertyForSale>> GetPropertiesByRealtor(string id)
+        {
+            
+            
+            var properties = await httpClient.GetAllPropertiesIncludeAllAsync();
+            var myProps = properties.Where(p => p.RealtorId == id).ToList();
+            
+            return myProps;
+        }
+        public async Task<List<PropertyForSaleOverviewDTO>> GetMyListingsAsync()
+        {
+            await GetBearerToken();
+            var result = await httpClient.GetMyListingsAsync();
+            return result.ToList(); 
+        }
+
+        
+
+
+
+
+
+
+
     }
 }

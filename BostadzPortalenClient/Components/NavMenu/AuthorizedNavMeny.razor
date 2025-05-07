@@ -1,0 +1,83 @@
+﻿@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Authorization
+@using System.Security.Claims
+@using BostadzPortalenClient.Components
+@inject AuthenticationStateProvider authenticationStateProvider
+@inject IAuthenticationService authService
+@attribute [Authorize(Roles = "Admin, Realtor")]
+
+<nav class="navbar navbar-expand-lg fixed-top mb-5">
+    <div class="container-fluid">
+        <NavLink class="navbar-brand" href="/"><img src="/favicon bostadzportalen NOBG/web-app-manifest-192x192.png" style="width: 100px; height: 100px;"></NavLink>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+
+                <li class="nav-link">
+                    <NavLink class="nav-link" aria-current="page" href="/search/home">Sök bostad</NavLink>
+                </li>
+
+                @if (!string.IsNullOrEmpty(userId))
+                {
+                    <li class="nav-link">
+                        <NavLink class="nav-link" href="@($"/properties/index/{userId}")">Mina objekt</NavLink>
+                    </li>
+                }
+
+                <li class="nav-link">
+                    <NavLink class="nav-link" href="news">Nyheter</NavLink>
+                </li>
+
+                <li class="nav-link dropdown">
+                    <button class="nav-link dropdown-toggle main-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sälja bostad
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" target="_blank" href="https://youtu.be/xvFZjo5PgG0?si=Gn9DnI6v1vq9xCol">Sälja bostad</a></li>
+                        <li><a class="dropdown-item" target="_blank" href="https://youtu.be/xvFZjo5PgG0?si=Gn9DnI6v1vq9xCol">Värdera din kunds bostad</a></li>
+                        <li><a class="dropdown-item" target="_blank" href="https://youtu.be/xvFZjo5PgG0?si=Gn9DnI6v1vq9xCol">Annonsera bostad på Bostadzportalen</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="ms-auto d-flex gap-2">
+                <NavLink @onclick="LogOut" class="btn main-btn">Logga ut</NavLink>
+                @if (theUser?.IsInRole("Admin") == true)
+                {
+                    <NavLink href="/users/registerFirstRealtor" class="btn main-btn">Register (Admin)</NavLink>
+                }
+               
+                @if(theUser?.IsInRole("Realtor") == true){
+                    <NavLink href="/users/register" class="btn main-btn">Register</NavLink>
+                }
+              
+            </div>
+        </div>
+    </div>
+</nav>
+
+@code {
+    private string? userId;
+    private ClaimsPrincipal? theUser;
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await authenticationStateTask;
+        var user = authState.User;
+        theUser = user;
+        userId = user.FindFirst("uid")?.Value;
+
+        
+    }
+
+    private async Task LogOut()
+    {
+        await authService.Logout();
+    }
+}

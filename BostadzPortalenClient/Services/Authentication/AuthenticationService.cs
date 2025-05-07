@@ -1,9 +1,11 @@
 ﻿
 using Blazored.LocalStorage;
+using BostadzPortalenClient.Models;
 using BostadzPortalenClient.Providers;
 using BostadzPortalenClient.Services.Base;
 
 using Microsoft.AspNetCore.Components.Authorization;
+using Newtonsoft.Json;
 
 
 
@@ -24,6 +26,7 @@ namespace BostadzPortalenClient.Services.Authentication
         }
         public async Task<bool> AuthenticateAsync(LoginRealtorDto realtorDto)
         {
+            
             var response = await httpClient.LoginAsync(realtorDto);
 
             await localStorage.SetItemAsync("accessToken", response.Token);

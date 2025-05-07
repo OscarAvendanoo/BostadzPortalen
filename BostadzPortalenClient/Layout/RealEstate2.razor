@@ -1,4 +1,4 @@
-@using BostadzPortalenClient.Models
+﻿@using BostadzPortalenClient.Models
 
 @inject IClient httpClient
 @inject IMuniService MuniService
@@ -8,16 +8,16 @@
 <!--Author: Kevin-->
 
 
-    <div id="homes" class="tab-content active">
-        <div class="row g-12">
-          @*   <!-- Plats -->
-            <div class="col-md-12 mt-3">
-                <label class="form-label">Plats</label>
-                <input type="text" class="form-control" placeholder="Ange område, t.ex. Stockholm">
-            </div> *@
+<div id="homes" class="tab-content active">
+    <div class="row g-12">
+        @*   <!-- Plats -->
+        <div class="col-md-12 mt-3">
+        <label class="form-label">Plats</label>
+        <input type="text" class="form-control" placeholder="Ange område, t.ex. Stockholm">
+        </div> *@
 
-            <!-- Bostadstyp -->
-            <div class="col-md-12 mt-3">
+        <!-- Bostadstyp -->
+        <div class="col-md-12 mt-3">
             <label class="form-label">Bostadstyp</label>
             <select class="form-select" @bind="selectedPropertyType">
                 <option value="">Alla</option>
@@ -26,49 +26,49 @@
                 <option value="Villa">Villa</option>
                 <option value="Fritidshus">Fritidshus</option>
             </select>
-            </div>
+        </div>
 
-            <!-- Pris från -->
-            <div class="col-md-12 mt-3">
-                <label class="form-label">Pris från</label>
+        <!-- Pris från -->
+        <div class="col-md-12 mt-3">
+            <label class="form-label">Pris från</label>
             <select class="form-select" @bind="selectedPrice">
                 <option value="0">Ingen min</option>
                 <option value="500000">500 000 kr</option>
                 <option value="1000000">1 000 000 kr</option>
-                <option value ="2000000">2 000 000 kr</option>
-                </select>
-            </div>
+                <option value="2000000">2 000 000 kr</option>
+            </select>
+        </div>
 
-            @* <!-- Min antal rum -->
-            <div class="col-md-12 mt-3">
-                <label class="form-label">Min antal rum</label>
-                <select class="form-select">
-                    <option>Inga krav</option>
-                    <option>1+</option>
-                    <option>2+</option>
-                    <option>3+</option>
-                    <option>4+</option>
-                </select>
-            </div> *@
+        @* <!-- Min antal rum -->
+        <div class="col-md-12 mt-3">
+        <label class="form-label">Min antal rum</label>
+        <select class="form-select">
+        <option>Inga krav</option>
+        <option>1+</option>
+        <option>2+</option>
+        <option>3+</option>
+        <option>4+</option>
+        </select>
+        </div> *@
 
         <!-- Kommun -->
-            <div class="col-md-12 mt-3">
-                <label class="form-label">Kommun</label>
-                <select class="form-select" @bind="selectedMunicipality">
-                <option value ="">Alla</option>
-                    @foreach (var municipality in municipalities)
-                    {
-                        <option value="@municipality.Name">@municipality.Name</option>
-                    }
-                </select>
-            </div>
+        <div class="col-md-12 mt-3">
+            <label class="form-label">Kommun</label>
+            <select class="form-select" @bind="selectedMunicipality">
+                <option value="">Alla</option>
+                @foreach (var municipality in municipalities)
+                {
+                    <option value="@municipality.Name">@municipality.Name</option>
+                }
+            </select>
+        </div>
 
-            <!-- Sök-knapp -->
-            <div class="col-12 d-flex justify-content-center mt-4">
+        <!-- Sök-knapp -->
+        <div class="col-12 d-flex justify-content-center mt-4">
             <button class="btn main-btn w-50" @onclick="SearchAsync">Sök</button>
-            </div>
         </div>
     </div>
+</div>
 
 
 
@@ -78,7 +78,7 @@
     private int selectedPrice;
     private string selectedPropertyType;
     private int selectedPropertyTypeInt;
-    
+
 
     string message = string.Empty;
 
@@ -100,7 +100,7 @@
 
         }
     }
-    
+
 
     [Parameter] public EventCallback SearchChanged { get; set; }
 
@@ -142,8 +142,7 @@
         if (response.Success)
         {
             await SearchChanged.InvokeAsync();
-            navManager.NavigateTo("/search-results");
-
+       
 
         }
         else
@@ -153,5 +152,3 @@
         }
     }
 }
-
-

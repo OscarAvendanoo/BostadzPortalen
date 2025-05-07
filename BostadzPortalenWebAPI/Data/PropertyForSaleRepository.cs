@@ -68,7 +68,7 @@ namespace BostadzPortalenWebAPI.Data
                 MonthlyFee = model.MonthlyFee,
                 YearlyOperatingCost = model.YearlyOperatingCost,
                 YearBuilt = model.YearBuilt,
-                ImageUrls = model.ImageUrls,
+                //ImageUrls = model.ImageUrls,
                 TypeOfProperty = model.TypeOfProperty,
                 AgencyId = model2.Agency.RealEstateAgencyId,
                 AgencyLogo = model2.Agency.AgencyLogoUrl,

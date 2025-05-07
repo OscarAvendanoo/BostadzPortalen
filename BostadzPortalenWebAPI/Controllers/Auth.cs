@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -10,25 +9,23 @@ using System.Security.Claims;
 using System.Text;
 
 namespace BostadzPortalenWebAPI.Controllers
-{
-    //Author: ALL
+{ //Author Ledion
     [Route("api/[controller]")]
     [ApiController]
     public class Auth : ControllerBase
     {
         private readonly UserManager<ApiUser> userManager;
-        private readonly IMapper mapper;
         private readonly IConfiguration configuration;
+        private readonly IMapper mapper;
 
-        public Auth(UserManager<ApiUser> userManager, IMapper mapper, IConfiguration configuration)
+        public Auth(UserManager<ApiUser> userManager, IConfiguration configuration, IMapper mapper)
         {
             this.userManager = userManager;
-            this.mapper = mapper;
             this.configuration = configuration;
+            this.mapper = mapper;
         }
 
-        [HttpPost]
-        [Route("register")]
+        [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterRealtorDTO userDto)
         {
             try
@@ -42,7 +39,7 @@ namespace BostadzPortalenWebAPI.Controllers
                     LastName = userDto.LastName,
                     AgencyId = userDto.AgencyId,
                     EmailConfirmed = true
-                    
+
 
                 };
 
@@ -67,39 +64,43 @@ namespace BostadzPortalenWebAPI.Controllers
             }
         }
 
-        [HttpPost]
-        [Route("login")]
+        [HttpPost("login")]
         public async Task<ActionResult<AuthResponseDTO>> Login(LoginRealtorDto userDto)
         {
             try
             {
                 var user = await userManager.FindByEmailAsync(userDto.Email);
-                var passwordIsValid = await userManager.CheckPasswordAsync(user, userDto.Password);
 
-                if (user == null || passwordIsValid == false)
+                if (user == null)
                 {
-                    return Unauthorized(userDto);
+                    return Unauthorized("Fel e-post");
                 }
 
-                
+
                 //skapa en DTOklass AuthResponse med props: UserId, Token, Email
+                var passwordIsValid = await userManager.CheckPasswordAsync(user, userDto.Password);
+                if (!passwordIsValid)
+                {
+                    return Unauthorized("Fel lösenord");
+                }
 
                 string tokenString = await GenerateToken(user);
 
                 var response = new AuthResponseDTO
                 {
-                    Email = userDto.Email,
+                    Email = user.Email,
                     Token = tokenString,
                     UserId = user.Id
                 };
 
                 return Ok(response);
             }
-            catch
+            catch (Exception ex)
             {
-                return Problem($"Something went wrong in the {nameof(Login)}", statusCode: 500);
+                return Problem($"Something went wrong in the {nameof(Login)}: {ex.Message}", statusCode: 500);
             }
         }
+
 
         private async Task<string> GenerateToken(ApiUser user)
         {
@@ -107,17 +108,18 @@ namespace BostadzPortalenWebAPI.Controllers
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var roles = await userManager.GetRolesAsync(user);
-            var roleClaims = roles.Select(q => new Claim(ClaimTypes.Role, q)).ToList();
-
+            var roleClaims = roles.Select(role => new Claim(ClaimTypes.Role, role)).ToList();
             var userClaims = await userManager.GetClaimsAsync(user);
+
             var claims = new List<Claim>
     {
         new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         new Claim(JwtRegisteredClaimNames.Email, user.Email),
         new Claim("uid", user.Id)
-    }.Union(roleClaims)
-             .Union(userClaims);
+    }
+            .Union(roleClaims)
+            .Union(userClaims);
 
             var token = new JwtSecurityToken(
                 issuer: configuration["JwtSettings:Issuer"],
@@ -128,7 +130,6 @@ namespace BostadzPortalenWebAPI.Controllers
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
-
         }
     }
 }

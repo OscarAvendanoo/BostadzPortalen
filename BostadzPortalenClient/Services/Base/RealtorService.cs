@@ -43,5 +43,7 @@ namespace BostadzPortalenClient.Services.Base
             return realtor;
             
         }
+
+        
     }
 }

@@ -74,8 +74,7 @@ namespace BostadzPortalenWebAPI.Controllers
         [HttpGet("GetAllPropertyOverviewDTOAsync")]
         public async Task<ActionResult<List<PropertyForSaleOverviewDTO>>> GetAllPropertyOverviewDTOAsync()
         {
-            var properties = await _propertyForSaleRepository.GetAllAsync();
-            //var properties = await _propertyForSaleRepository.GetAllPropertyOverviewDTOAsync();
+            var properties = await _propertyForSaleRepository.GetAllWithIncludesAsync();
             if (properties == null || !properties.Any())
             {
                 return NotFound();
@@ -148,7 +147,7 @@ namespace BostadzPortalenWebAPI.Controllers
         // Author: Jona
         // PUT api/<PropertyForSaleController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<PropertyForSale>> UpdateProperty(int id, [FromBody] PropertyForSale updatedPropertyForSale)
+        public async Task<ActionResult> UpdateProperty(int id, [FromBody] PropertyForSaleUpdateDto updatedPropertyForSale)
         {
             if (updatedPropertyForSale == null)
             {
@@ -159,9 +158,13 @@ namespace BostadzPortalenWebAPI.Controllers
             {
                 return NotFound();
             }
-            updatedPropertyForSale.PropertyForSaleId = id; // Ensure the ID is set correctly
-            await _propertyForSaleRepository.UpdateAsync(updatedPropertyForSale);
+         
+            mapper.Map(updatedPropertyForSale, existingProperty);
+             
+            await _propertyForSaleRepository.UpdateAsync(existingProperty);
             return NoContent(); //204 whop 
+    
+
         }
         // Author: Jonaaa
         // DELETE api/<PropertyForSaleController>/5
@@ -183,10 +186,11 @@ namespace BostadzPortalenWebAPI.Controllers
             var query = _propertyForSaleRepository.QueryPropertiesWithIncludes();
 
 
-            if (searchRequest.TypeOfProperty.HasValue)
+            if (searchRequest.TypeOfProperty.HasValue && searchRequest.TypeOfProperty != 4)
             {
-                var propertyTypeEnum = (TypeOfPropertyEnum)searchRequest.TypeOfProperty.Value;
-                query = query.Where(p => p.TypeOfProperty == propertyTypeEnum);
+                    var propertyTypeEnum = (TypeOfPropertyEnum)searchRequest.TypeOfProperty.Value;
+                    query = query.Where(p => p.TypeOfProperty == propertyTypeEnum);
+              
             }
 
             if (searchRequest.MinPrice.HasValue)
@@ -194,7 +198,7 @@ namespace BostadzPortalenWebAPI.Controllers
                 query = query.Where(p => p.AskingPrice >= searchRequest.MinPrice.Value);
             }
 
-            if (!string.IsNullOrWhiteSpace(searchRequest.MunicipalityName))
+            if (!string.IsNullOrWhiteSpace(searchRequest.MunicipalityName) && searchRequest.MunicipalityName != "Alla")
             {
                 query = query.Where(p => p.Municipality.Name.Contains(searchRequest.MunicipalityName));
             }
@@ -213,5 +217,57 @@ namespace BostadzPortalenWebAPI.Controllers
 
 
         }
+
+
+        // Author: Ledion 
+        [HttpGet("GetMyListings")]
+        [Authorize(Roles = "Realtor")]
+        public async Task<ActionResult<List<PropertyForSaleOverviewDTO>>> GetMyListings()
+        {
+            var userId = User.FindFirst("uid")?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized("Ingen användar-ID hittades i token.");
+            }
+
+            var myProperties = await _propertyForSaleRepository.GetAllWithIncludesAsync();
+            var myPropertiesDto = new List<PropertyForSaleOverviewDTO>();
+            foreach(var property in myProperties)
+            {
+                var dto = mapper.Map<PropertyForSaleOverviewDTO>(property);
+                myPropertiesDto.Add(dto); 
+            }
+
+
+            //var myProperties = await _propertyForSaleRepository
+            //    .QueryPropertiesWithIncludes()
+            //    .Where(p => p.RealtorId == userId)
+            //    .Select(p => new PropertyForSaleOverviewDTO
+            //    {
+            //        PropertyForSaleId = p.PropertyForSaleId,
+                    
+            //        Address = p.Address,
+            //        MunicipalityName = p.Municipality.Name,
+            //        AskingPrice = p.AskingPrice,
+            //        LivingArea = p.LivingArea,
+            //        SupplementaryArea = p.SupplementaryArea,
+            //        PlotArea = p.PlotArea,
+            //        Description = p.Description,
+            //        NumberOfRooms = p.NumberOfRooms,
+            //        MonthlyFee = p.MonthlyFee,
+            //        YearlyOperatingCost = p.YearlyOperatingCost,
+            //        YearBuilt = p.YearBuilt,
+            //        ImageUrls = p.ImageUrls, // Lägg in riktiga bilder om du har det
+            //        TypeOfProperty = p.TypeOfProperty
+            //    }).ToListAsync();
+
+            
+
+            return Ok(myPropertiesDto);
+        }
+
+
+
+
     }
 }

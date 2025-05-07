@@ -1,17 +1,64 @@
 ﻿@page "/properties/index"
+@page "/properties/index/{Uid?}"
 @* Author: Johan Nelin *@
+@using BostadzPortalenClient.Pages.RealtorPropForSale
 @using BostadzPortalenClient.Services
+@using BostadzPortalenClient.Components
 @inject IPropertyForSaleService propService
+@inject IRealtorService realtorService
+
 
 <h3>Index</h3>
-<PropertiesTable propertyList="allProperties"></PropertiesTable>
+
+<h3>Table</h3>
+<AuthorizeView>
+    <Authorized>
+        <PropertiesTable propertyList="allProperties"> </PropertiesTable>
+    </Authorized>
+    <NotAuthorized>
+        <PropertiesTable propertyList="allProperties"></PropertiesTable>
+    </NotAuthorized>
+</AuthorizeView>
+
+<h3>Cards</h3>
+<hr class=" divider" />
+<div class="row">
+    @if(allProperties != null)
+    {
+        @foreach (var property in allProperties)
+        {
+            <RealEstateCardComponent realEstate="property"></RealEstateCardComponent>
+        }
+    }
+    else
+    {
+        <p>Laddar fastigheter...</p>
+    }
+    
+
+
+
+</div>
+
 
 
 @code {
     private IEnumerable<PropertyForSaleOverviewDTO> allProperties { get; set; }
+    [Parameter]
+    public string? Uid { get; set; }
 
-    protected override async Task OnInitializedAsync() 
+
+
+    protected override async Task OnInitializedAsync()
     {
-        allProperties = await propService.GetAllPropertiesForSaleDTOAsync();
+        if (!string.IsNullOrEmpty(Uid))
+        {
+            allProperties = await propService.GetMyListingsAsync();
+        }
+        else
+        {
+            allProperties = await propService.GetAllPropertiesForSaleDTOAsync();
+        }
+
     }
 }

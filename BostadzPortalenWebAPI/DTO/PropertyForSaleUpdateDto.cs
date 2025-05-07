@@ -1,10 +1,8 @@
 ﻿using BostadzPortalenWebAPI.Models;
-using System.Text.Json.Serialization;
 
 namespace BostadzPortalenWebAPI.DTO
 {
-    //Author: Johan Nelin
-    public class PropertyForSaleDetailsDTO
+    public class PropertyForSaleUpdateDto
     {
         public int PropertyForSaleId { get; set; }
         public string Address { get; set; }
@@ -18,8 +16,8 @@ namespace BostadzPortalenWebAPI.DTO
         public decimal MonthlyFee { get; set; }
         public decimal YearlyOperatingCost { get; set; }
         public int YearBuilt { get; set; }
-       
-        public List<PropertyImage> ImageUrls { get; set; } = new List<PropertyImage>();
+
+        public List<PropertyImageDto> ImageUrls { get; set; } = new List<PropertyImageDto>();
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
         public string PropertyTypeString { get; set; } //for users to be able to read what the Enum is
         public string RealtorFullName { get; set; }

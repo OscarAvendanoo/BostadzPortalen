@@ -2,11 +2,9 @@
 @using BostadzPortalenClient.Components
 
 <h1>Dina objekt</h1>
-
-<RealEstateCardView RealtorId="@RealtorId"/>
+<hr class=" divider" />
+<RealtorPropertiesOverview RealtorId="@RealtorId" />
 
 @code {
-    [Parameter]
-    public string RealtorId { get; set; }
-
+    [Parameter] public string RealtorId { get; set; }
 }
