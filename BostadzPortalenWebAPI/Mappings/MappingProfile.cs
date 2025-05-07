@@ -119,7 +119,7 @@ namespace BostadzPortalenWebAPI.Mappings
               .ReverseMap();
 
              CreateMap<CreatePropertyForSaleDTO, PropertyForSale>()
-            //.ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ImageUrls.Select(url => new PropertyImage { ImageUrl = url }).ToList()))
+            .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ImageUrls.Select(url => new PropertyImage { ImageUrl = url }).ToList())) // Hoppas jag får ha kvar denna <3. / Jona
             .ForMember(dest => dest.RealtorId, opt => opt.Ignore()); // RealtorId is set server-side
 
         }
