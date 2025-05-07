@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using Blazored.LocalStorage;
 using BostadzPortalenClient.Services.Base;
+using BostadzPortalenClient.Waste.ApiService;
 using Microsoft.AspNetCore.Components.Authorization;
 //Author: Johan Nelin
 
-namespace BostadzPortalenClient.Services.PropertyForSaleS
+namespace BostadzPortalenClient.Services.R_EstateSrvc
 {
     public class PropertyForSaleService: BaseHttpService, IPropertyForSaleService
     {
@@ -13,7 +14,7 @@ namespace BostadzPortalenClient.Services.PropertyForSaleS
 
         
 
-        public PropertyForSaleService(IClient httpClient, ApiService apiService, IMapper mapper, ILocalStorageService localStorage) : base(localStorage, httpClient)
+        public PropertyForSaleService(IClient httpClient, IMapper mapper, ILocalStorageService localStorage) : base(localStorage, httpClient)
         {
             this.httpClient = httpClient;
             this.mapper = mapper;

@@ -1,4 +1,4 @@
-﻿namespace BostadzPortalenClient.Services
+﻿namespace BostadzPortalenClient.Waste.ApiService
 {
     public interface IApiService
     {
