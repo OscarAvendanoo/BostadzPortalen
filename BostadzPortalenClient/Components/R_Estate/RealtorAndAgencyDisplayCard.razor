@@ -3,7 +3,7 @@
 <div class="d-flex" style="width:30rem">
 	<div class="realtor-card d-flex col-sm-6">
 		<div class="image-container">
-			<NavLink class="card-img-top">
+			<NavLink class="card-img-top" href="@GetLinkRealtor()">
 				<img src="@realEstate.RealtorPicture" height="50" />
 			</NavLink>
 		</div>
@@ -12,11 +12,13 @@
 				Mäklare
 			</h5>
 			<p>@realEstate.RealtorFullName</p>
+			@* <p>@realEstate.RealtorEmail</p>
+			<p>@realEstate.RealtorPhoneNumber</p> *@
 		</div>
 	</div>
 	<div class="realtor-card d-flex col-sm-6 ">
 		<div class="image-container">
-			<NavLink class="card-img-top" href="@GetLink()">
+			<NavLink class="card-img-top" href="@GetLinkAgency()">
 				<img src="@realEstate.AgencyLogo" height="50" />
 			</NavLink>
 		</div>
@@ -32,9 +34,14 @@
 @code {
 	[Parameter] public PropertyForSaleDetailsDTO realEstate { get; set; }
 	public string linkId { get; set; }
-	private string GetLink()
+	private string GetLinkAgency()
 	{
 		linkId = $"/agency/details/{realEstate.AgencyId}";
+		return linkId;
+	}
+	private string GetLinkRealtor()
+	{
+		linkId = $"/realtor/details/{realEstate.RealtorId}";
 		return linkId;
 	}
 }
