@@ -73,6 +73,8 @@ namespace BostadzPortalenWebAPI.Mappings
                 .ForMember(dest => dest.TypeOfProperty, opt => opt.MapFrom(src => src.TypeOfProperty))
                 .ForMember(dest => dest.PropertyTypeString, opt => opt.MapFrom(src => src.TypeOfProperty.ToString()))
                 .ForMember(dest => dest.YearBuilt, opt => opt.MapFrom(src => src.YearBuilt))
+                .ForMember(dest => dest.RealtorEmail, opt => opt.MapFrom(src => src.Realtor.Email))
+                .ForMember(dest => dest.RealtorPhoneNumber, opt => opt.MapFrom(src => src.Realtor.PhoneNumber))
                 .ReverseMap();
 
             CreateMap<PropertyForSaleUpdateDto, PropertyForSale>()
