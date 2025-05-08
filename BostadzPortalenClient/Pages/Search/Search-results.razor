@@ -5,14 +5,20 @@
 
 @* Author: Oscar *@
 
+<div class="background-image"></div>
+<div class="background-overlay"></div>
+
 <h2 class="my-4"></h2>
-<div class="d-flex justify-content-center align-items-center col-6">
+<div class="d-flex justify-content-center align-items-center">
+    <div class="col-6">
     <div class="card w-100">
+        
         <SearchBoxHeader/>
 
         <div class="card-body">
             <RealEstate2 SearchChanged="OnSearchChanged" />
             
+        </div>
         </div>
     </div>
 </div>
@@ -26,7 +32,7 @@ else if (!properties.Any())
 }
 else
 {
-    <div class="property-list">
+    <div class="property-list mt-3">
         @foreach (var property in pagedProperties)
         {
             <div class="property-card d-flex shadow-sm mb-4 rounded p-3">
