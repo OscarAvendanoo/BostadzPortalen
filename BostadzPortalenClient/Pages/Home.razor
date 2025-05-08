@@ -1,59 +1,60 @@
 ﻿@page "/"
 @using BlazorBootstrap
 @using BostadzPortalenClient.Pages.Search
+@using BostadzPortalenClient.Components.Search
 @inject IPropertyForSaleService propService
 
 <PageTitle>Home</PageTitle>
 
 <div class="d-flex align-items-center">
-	<SearchBox />
+    <div class="d-flex justify-content-center align-items-center col-6">
+        <SearchBox />
+    </div>
 
-	@if(Images == null)
-	{
-		<p>Laddar bilder...</p>
-	}
-	else
-	{
-		<div class="d-flex justify-content-center align-items-center col-6" width="500px">
-			<Carousel>
-				<CarouselItem Active="true">
-					<Image src="@Images.First().ImageUrl.ToString()" />
-				</CarouselItem>
-				@foreach (var picture in Images.Skip(1))
-				{
-					<CarouselItem>
-						<Image src="@picture.ImageUrl" />
-					</CarouselItem>
-				}
-			</Carousel>
-		</div>
-	}
+    <div class="d-flex justify-content-center align-items-center col-6" width="500px">
 
-	@*  <div class="d-flex justify-content-center align-items-center col-6">
-        <a href="/ListAllRealEstates"><img src="/lyxvilla.jpg" class="home-page-img" alt="lyxvilla" /></a>
-    </div> *@
+        @if (Images == null)
+        {
+            <p>Laddar bilder...</p>
+        }
+        else if (Images.Any())
+        {
+            <Carousel>
+                <CarouselItem Active="true">
+                    <Image src="@Images.First().ImageUrl.ToString()" />
+                </CarouselItem>
+                @foreach (var picture in Images.Skip(1))
+                {
+                    <CarouselItem>
+                        <Image src="@picture.ImageUrl" />
+                    </CarouselItem>
+                }
+            </Carousel>
+        }
+        
+    </div>
 </div>
 
 <div class="d-flex mt-5">
-	<h3 class="text-decoration-underline" style="color:var(--dark-turqouise);">Topplista</h3>
+    <h3 class="text-decoration-underline" style="color:var(--dark-turqouise);">Topplista</h3>
 </div>
 @* visa topp fem *@
 @* <RealEstateCardComponent Amount="4" /> *@
 
-@code{
-	private IEnumerable<PropertyForSaleOverviewDTO> allProperties { get; set; }
-	private List<PropertyImage>? Images = new();
+@code {
+    private IEnumerable<PropertyForSaleOverviewDTO> allProperties { get; set; }
+    private List<PropertyImage>? Images = new();
 
-	protected override async Task OnInitializedAsync()
-	{
-		allProperties = await propService.GetAllPropertiesForSaleDTOAsync();
+    protected override async Task OnInitializedAsync()
+    {
+        allProperties = await propService.GetAllPropertiesForSaleDTOAsync();
 
-		foreach(var estate in allProperties)
-		{
-			foreach(var image in estate.ImageUrls)
-			{
-				Images.Add(image);
-			}
-		}
-	}
+        foreach (var estate in allProperties)
+        {
+            foreach (var image in estate.ImageUrls)
+            {
+                Images.Add(image);
+            }
+        }
+    }
 }
