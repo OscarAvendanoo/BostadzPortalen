@@ -1,14 +1,10 @@
-﻿<h3>RegisterFirstRealtor</h3>
-
-@code {
-
-}
-@page "/users/registerfirstrealtor"
+﻿@page "/users/registerfirstrealtor"
 @inject IClient httpClient
 @inject IRealtorService RealtorService
+@inject IAgencyService agencyService
 @inject NavigationManager navManager
 
-<h3>Register new account</h3>
+<h3>Registrera nytt konto</h3>
 
 @if (string.IsNullOrEmpty(message) == false)
 {
@@ -30,28 +26,40 @@
                         <DataAnnotationsValidator />
                         <ValidationSummary />
                         <div class="form-group">
-                            <label for="email">Email Adress</label>
+                            <label for="email">Email</label>
                             <InputText class="form-control" @bind-Value="RegistrationModel.Email" />
                             <ValidationMessage For="@(() => RegistrationModel.Email)" />
                         </div>
                         <div class="form-group">
-                            <label for="firstname">First Name</label>
+                            <label for="firstname">Förnamn</label>
                             <InputText class="form-control" @bind-Value="RegistrationModel.FirstName" />
                             <ValidationMessage For="@(() => RegistrationModel.FirstName)" />
                         </div>
                         <div class="form-group">
-                            <label for="lastname">Last Name</label>
+                            <label for="lastname">Efternamn</label>
                             <InputText class="form-control" @bind-Value="RegistrationModel.LastName" />
                             <ValidationMessage For="@(() => RegistrationModel.LastName)" />
                         </div>
                         <div class="form-group">
-                            <label for="password">Password</label>
+                            <label for="password">Lösenord</label>
                             <InputText class="form-control" type="password" @bind-Value="RegistrationModel.Password" />
                             <ValidationMessage For="@(() => RegistrationModel.Password)" />
                         </div>
                         <div class="form-group">
-                            <label for="AgencyId">AgencyId</label>
-                            <InputNumber class="form-control" @bind-Value="RegistrationModel.AgencyId" />
+                            <label for="AgencyId">Mäklarbyrå</label>
+                            <InputSelect class="form-control" @bind-Value="RegistrationModel.AgencyId">
+                                @if(Agencies == null)
+                                {
+                                    <p>Laddar mäklarbyråer...</p>
+                                }
+                                else
+                                {
+                                    @foreach (var agency in Agencies)
+                                    {
+                                        <option value="@agency.RealEstateAgencyId">@agency.AgencyName</option>
+                                    }
+                                }
+                            </InputSelect>
                             <ValidationMessage For="@(() => RegistrationModel.AgencyId)" />
                         </div>
 
@@ -68,7 +76,15 @@
 @code {
     RegisterRealtorDTO RegistrationModel = new RegisterRealtorDTO();
     string message = string.Empty;
+    private IEnumerable<RealEstateAgency> Agencies { get;  set; }
 
+    protected override async Task OnInitializedAsync()
+    {
+
+        var agencies = await agencyService.GetAllAgenciesAsync();
+        Agencies = agencies;
+
+    }
 
     // Author: ALL
     private async Task HandleRegistration()
