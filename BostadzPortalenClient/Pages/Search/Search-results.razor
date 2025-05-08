@@ -11,7 +11,7 @@
         <SearchBoxHeader/>
 
         <div class="card-body">
-            <RealEstate></RealEstate>
+            <RealEstate2 SearchChanged="OnSearchChanged" />
             
         </div>
     </div>
@@ -76,6 +76,17 @@ else
     private int totalPages;
 
     protected override async Task OnInitializedAsync()
+    
+    {
+        await LoadProperties();
+    }
+    private async Task OnSearchChanged()
+    {
+        // This method will be triggered when RealEstate calls the EventCallback
+        await LoadProperties();
+    }
+
+    protected async Task LoadProperties()
     {
         properties = await SearchResultService.GetSearchResults();
 
