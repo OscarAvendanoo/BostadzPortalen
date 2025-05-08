@@ -19,13 +19,12 @@
         <!-- Bostadstyp -->
         <div class="col-md-12 mt-3">
             <label class="form-label">Bostadstyp</label>
-            <select class="form-select" @bind="selectedPropertyType">
-                <option value="">Alla</option>
-                <option value="Bostadsrättslägenhet">Bostadsrättslägenhet</option>
-                <option value="Bostadsrättsradhus">Bostadsrättsradhus</option>
-                <option value="Villa">Villa</option>
-                <option value="Fritidshus">Fritidshus</option>
-            </select>
+            <InputSelect @bind-Value="selectedPropertyType" class="form-control">
+                @foreach (var type in PropertyEnums)
+                {
+                    <option value="@type">@type</option>
+                }
+            </InputSelect>
         </div>
 
         <!-- Pris från -->
@@ -78,6 +77,7 @@
     private int selectedPrice;
     private string selectedPropertyType;
     private int selectedPropertyTypeInt;
+    private List<TypeOfPropertyEnum> PropertyEnums = new();
 
 
     string message = string.Empty;
@@ -87,7 +87,11 @@
 
         // var response = await MuniService.GetAllMunicipalityToListAsync();
         var response = await MuniService.GetAllMunicipalityToListAsync();
-
+        var enums = await httpClient.GetAllPropertiesIncludeAllAsync();
+        foreach(var props in enums)
+        {
+            PropertyEnums.Add(props.TypeOfProperty);
+        }
 
         if (response.Success)
         {

@@ -272,6 +272,7 @@ namespace BostadzPortalenWebAPI.Controllers
             await imageRepo.DeleteAsync(await imageRepo.GetPicture(id));
         }
 
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [HttpPut("UnlinkPicture/{id}")]
         public async Task<IActionResult> UnlinkImageFromProperty(int id)
         {
