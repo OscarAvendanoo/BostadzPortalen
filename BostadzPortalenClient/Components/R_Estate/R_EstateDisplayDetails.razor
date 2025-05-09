@@ -3,7 +3,87 @@
 @using BostadzPortalenClient.Pages.R_EstatePge
 @using BostadzPortalenClient.Components.XtoString
 
-<div class="d-flex align-items-start">
+<div class="container mt-4">
+    <!-- Övre sektion -->
+    <div class="row">
+        <div class="col-4 d-flex flex-column mt-2" style="height: 100%;">
+            <div class="flex-grow-1">
+                <h3>@realEstate.Address: @realEstate.MunicipalityName</h3>
+                <p>
+                    @realEstate.PropertyTypeString, byggd @realEstate.YearBuilt.
+                </p>
+                <hr divider />
+                <div />
+                <div class="flex-grow-1 overflow-auto">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td class="pe-3">Bostads area:</td>
+                                <td><IntToString_m2 inputInt="@realEstate.LivingArea"></IntToString_m2></td>
+                            </tr>
+                            <tr>
+                                <td class="pe-3">Utomhus area:</td>
+                                <td><IntToString_m2 inputInt="@realEstate.PlotArea"></IntToString_m2></td>
+                            </tr>
+                            <tr>
+                                <td class="pe-3">Tillkommande area:</td>
+                                <td><IntToString_m2 inputInt="@realEstate.SupplementaryArea"></IntToString_m2></td>
+                            </tr>
+                            <tr>
+                                <td class="pe-3">Antal rum:</td>
+                                <td>@realEstate.NumberOfRooms</td>
+                            </tr>
+                            <tr>
+                                <td class="pe-3">Pris:</td>
+                                <td><DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.AskingPrice)"></DecimalToStringSEK></td>
+                            </tr>
+                            <tr>
+                                <td class="pe-3">Hyra:</td>
+                                <td><DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.MonthlyFee)"></DecimalToStringSEK></td>
+                            </tr>
+                            <tr>
+                                <td class="pe-3">Års kostnad:</td>
+                                <td><DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.YearlyOperatingCost)"></DecimalToStringSEK></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-8 d-flex justify-content-center align-items-center">
+            <Carousel>
+                <CarouselItem Active="true">
+                    <Image src="@realEstate.ImageUrls.First().ImageUrl" style="height:400px; border-radius: 15px;" />
+                </CarouselItem>
+                @foreach (var picture in realEstate.ImageUrls.Skip(1))
+                {
+                    <CarouselItem>
+                        <Image src="@picture.ImageUrl" style="height:400px; border-radius: 15px;" />
+                    </CarouselItem>
+                }
+            </Carousel>
+        </div>
+    </div>
+
+    <!-- Nedre sektion -->
+    <div class="row mt-5">
+        <div class="col-6 pe-3">
+            <h3>Beskrivning:</h3>
+            <p class="description" style="text-align: justify;">@realEstate.Description</p>
+        </div>
+
+        <div class="col-6 ms-auto">
+            <div class="ms-4">
+                <h3 class="mb-4 mt-2">Kontakta mäklare: </h3>
+                <hr class="divider" />
+                <RealtorAndAgencyDisplayCard realEstate="realEstate"></RealtorAndAgencyDisplayCard>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* <div class="d-flex align-items-start">
     <div class="col-4 d-flex flex-column mt-2" style="height: 100%;">
         <div class="flex-grow-1">
             <h3>@realEstate.Address: @realEstate.MunicipalityName</h3>
@@ -31,7 +111,7 @@
                             <td class="pe-3">Antal rum:</td>
                             <td>@realEstate.NumberOfRooms</td>
                         </tr>
-                        
+
                         <tr>
                             <td class="pe-3">Pris:</td>
                             <td><DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.AskingPrice)"></DecimalToStringSEK></td>
@@ -68,13 +148,6 @@
             }
         </Carousel>
     </div>
-    <div class="col-3">
-        <div class="ms-4">
-            <h3 class="mb-4 mt-2">Kontakta mäklare: </h3>
-            <hr class=" divider" />
-            <RealtorAndAgencyDisplayCard realEstate="realEstate"></RealtorAndAgencyDisplayCard>
-        </div>
-    </div>
 </div>
 
 
@@ -84,17 +157,25 @@
         <h3>Beskrivning:</h3>
         <p class="description" style="text-align: justify;">@realEstate.Description</p>
     </div>
+    <div class="col-3">
+        <div class="ms-4">
+            <h3 class="mb-4 mt-2">Kontakta mäklare: </h3>
+            <hr class=" divider" />
+            <RealtorAndAgencyDisplayCard realEstate="realEstate"></RealtorAndAgencyDisplayCard>
+        </div>
+    </div>
+</div> *@
 
-    <div class="col-5">
+@* <div class="col-5">
         <h3>Plats:</h3>
         <div class="mt-2">
             <BostadzPortalenClient.Components.Google.GoogleEmbed></BostadzPortalenClient.Components.Google.GoogleEmbed>
         </div>
-    </div>
-</div>
+    </div> *@
+
 @* <div class="d-flex align-items-start">
     <div class="col-4">
-        
+
         <p style="text-align: justify;">@realEstate.Description</p>
     </div>
 

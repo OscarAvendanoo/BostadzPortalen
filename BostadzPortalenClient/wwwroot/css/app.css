@@ -452,3 +452,10 @@ code {
 .description{
     white-space:pre-line;
 }
+
+.page-wrapper {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
