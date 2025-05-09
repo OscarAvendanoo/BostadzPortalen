@@ -2,6 +2,7 @@
 @inject ISearchResultService SearchResultService
 @using BostadzPortalenClient.Components.Search
 @using BostadzPortalenClient.Models
+@using BostadzPortalenClient.Components.R_Estate
 
 @* Author: Oscar *@
 
@@ -32,58 +33,11 @@ else if (!properties.Any())
 }
 else
 {
-    <div class="property-list mt-3">
-        @foreach (var property in pagedProperties)
-        {
-            <div class="property-card d-flex shadow-sm mb-4 rounded p-3">
-                <NavLink href=@($"/properties/details/{property.PropertyForSaleId}")>
-                    <img src="@property.ImageUrls.FirstOrDefault()?.ImageUrl"
-                         alt="Property Image"
-                         class="property-image me-3 img-fluid rounded"
-                         style="max-width: 400px;" />
-                </NavLink>
-
-
-                    <div class="property-details">
-                        <h5>@property.Address</h5>
-                        <p><strong>Kommun:</strong> @property.Municipality?.Name</p>
-                        <p><strong>Antal rum:</strong> @property.NumberOfRooms</p>
-                        <p><strong>Boarea:</strong> @property.LivingArea kvm</p>
-                        <p><strong>Tomtarea:</strong> @property.PlotArea kvm</p>
-                        <p><strong>Pris:</strong> @property.AskingPrice.ToString("N0") kr</p>
-                        <p><strong>Byggår:</strong> @property.YearBuilt</p>
-                    </div>
-                
-            </div>
-        }
-    </div>
-
-    <nav class="mt-4">
-        <ul class="pagination justify-content-center">
-            <li class="page-item @(currentPage == 1 ? "disabled" : "")">
-                <button class="page-link" @onclick="PreviousPage">Föregående</button>
-            </li>
-
-            @for (int i = 1; i <= totalPages; i++)
-            {
-                <li class="page-item @(i == currentPage ? "active" : "")">
-                    <button class="page-link" @onclick="() => GoToPage(i)">@i</button>
-                </li>
-            }
-
-            <li class="page-item @(currentPage == totalPages ? "disabled" : "")">
-                <button class="page-link" @onclick="NextPage">Nästa</button>
-            </li>
-        </ul>
-    </nav>
+    <Paginator_REstate properties="properties"></Paginator_REstate>
 }
 
 @code {
-    private List<PropertyForSale> properties;
-    private List<PropertyForSale> pagedProperties = new();
-    private int currentPage = 1;
-    private int pageSize = 20;
-    private int totalPages;
+    public List<PropertyForSale> properties;
 
     protected override async Task OnInitializedAsync()
 
@@ -98,45 +52,8 @@ else
 
     protected async Task LoadProperties()
     {
-        properties = await SearchResultService.GetSearchResults();
-
-        if (properties != null)
-        {
-            totalPages = (int)Math.Ceiling((double)properties.Count / pageSize);
-            UpdatePagedProperties();
-        }
+        properties = await SearchResultService.GetSearchResults();        
     }
 
-    private void UpdatePagedProperties()
-    {
-        pagedProperties = properties
-            .Skip((currentPage - 1) * pageSize)
-            .Take(pageSize)
-            .ToList();
-    }
-
-    private void GoToPage(int pageNumber)
-    {
-        currentPage = pageNumber;
-        UpdatePagedProperties();
-    }
-
-    private void NextPage()
-    {
-        if (currentPage < totalPages)
-        {
-            currentPage++;
-            UpdatePagedProperties();
-        }
-    }
-
-    private void PreviousPage()
-    {
-        if (currentPage > 1)
-        {
-            currentPage--;
-            UpdatePagedProperties();
-        }
-    }
 
 }
