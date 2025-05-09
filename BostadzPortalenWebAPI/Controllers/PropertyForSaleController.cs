@@ -179,7 +179,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
         // author: Oscar
         [HttpPost("search")]
-        public async Task<ActionResult<List<PropertyForSale>>> SearchProperties([FromBody] PropertySearchRequest searchRequest)
+        public async Task<ActionResult<List<PropertyForSaleOverviewDTO>>> SearchProperties([FromBody] PropertySearchRequest searchRequest)
         {
             var query = _propertyForSaleRepository.QueryPropertiesWithIncludes();
 
@@ -204,8 +204,14 @@ namespace BostadzPortalenWebAPI.Controllers
 
             try
             {
-                var properties = await query.ToListAsync();
-                return Ok(properties);
+                var propertiesList = await query.ToListAsync();
+                var myPropertiesDto = new List<PropertyForSaleOverviewDTO>();
+                foreach (var property in propertiesList)
+                {
+                    var dto = mapper.Map<PropertyForSaleOverviewDTO>(property);
+                    myPropertiesDto.Add(dto);
+                }
+                return Ok(myPropertiesDto);
             }
             catch (Exception ex)
             {

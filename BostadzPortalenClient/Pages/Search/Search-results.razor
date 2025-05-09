@@ -37,7 +37,7 @@ else
 
                 <div class="property-details">
                     <h5>@property.Address</h5>
-                    <p><strong>Kommun:</strong> @property.Municipality?.Name</p>
+                    <p><strong>Kommun:</strong> @property.MunicipalityName</p>
                     <p><strong>Antal rum:</strong> @property.NumberOfRooms</p>
                     <p><strong>Boarea:</strong> @property.LivingArea kvm</p>
                     <p><strong>Tomtarea:</strong> @property.PlotArea kvm</p>
@@ -69,8 +69,8 @@ else
 }
 
 @code {
-    private List<PropertyForSale> properties;
-    private List<PropertyForSale> pagedProperties = new();
+    private List<PropertyForSaleOverviewDTO> properties;
+    private List<PropertyForSaleOverviewDTO> pagedProperties = new();
     private int currentPage = 1;
     private int pageSize = 20;
     private int totalPages;
