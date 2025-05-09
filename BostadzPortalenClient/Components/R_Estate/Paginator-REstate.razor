@@ -12,7 +12,7 @@
 
             <div class="property-details">
                 <h5>@property.Address</h5>
-                <p><strong>Kommun:</strong> @property.Municipality?.Name</p>
+                <p><strong>Kommun:</strong> @property.MunicipalityName</p>
                 <p><strong>Antal rum:</strong> @property.NumberOfRooms</p>
                 <p><strong>Boarea:</strong> @property.LivingArea kvm</p>
                 <p><strong>Tomtarea:</strong> @property.PlotArea kvm</p>
@@ -44,17 +44,27 @@
 </nav>
 @code {
 
-    [Parameter] public List<PropertyForSale> properties { get; set; }
-    public List<PropertyForSale> pagedProperties = new();
+    [Parameter] public List<PropertyForSaleOverviewDTO> properties { get; set; }
+    public List<PropertyForSaleOverviewDTO> pagedProperties = new();
     private int currentPage = 1;
     private int pageSize = 3;
     private int totalPages;
 
 
-    protected override async Task OnInitializedAsync()
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     if (properties != null)
+    //     {
+    //         totalPages = (int)Math.Ceiling((double)properties.Count / pageSize);
+    //         UpdatePagedProperties();
+    //     }
+    // }
+
+    protected override async Task OnParametersSetAsync()
     {
         if (properties != null)
         {
+            currentPage = 1; // Reset to first page on new data
             totalPages = (int)Math.Ceiling((double)properties.Count / pageSize);
             UpdatePagedProperties();
         }
