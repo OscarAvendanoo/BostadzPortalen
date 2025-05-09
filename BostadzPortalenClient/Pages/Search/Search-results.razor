@@ -33,11 +33,13 @@ else if (!properties.Any())
 }
 else
 {
+
     <Paginator_REstate properties="properties"></Paginator_REstate>
 }
 
 @code {
-    public List<PropertyForSale> properties;
+    public List<PropertyForSaleOverviewDTO> properties;
+
 
     protected override async Task OnInitializedAsync()
 
