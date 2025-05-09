@@ -11,14 +11,14 @@
 <h2 class="my-4"></h2>
 <div class="d-flex justify-content-center align-items-center">
     <div class="col-6">
-    <div class="card w-100">
-        
-        <SearchBoxHeader/>
+        <div class="card w-100">
 
-        <div class="card-body">
-            <RealEstate2 SearchChanged="OnSearchChanged" />
-            
-        </div>
+            <SearchBoxHeader />
+
+            <div class="card-body">
+                <RealEstate2 SearchChanged="OnSearchChanged" />
+
+            </div>
         </div>
     </div>
 </div>
@@ -36,20 +36,24 @@ else
         @foreach (var property in pagedProperties)
         {
             <div class="property-card d-flex shadow-sm mb-4 rounded p-3">
-                <img src="@property.ImageUrls.FirstOrDefault()?.ImageUrl"
-                     alt="Property Image"
-                     class="property-image me-3 img-fluid rounded"
-                     style="max-width: 400px;" />
+                <NavLink href=@($"/properties/details/{property.PropertyForSaleId}")>
+                    <img src="@property.ImageUrls.FirstOrDefault()?.ImageUrl"
+                         alt="Property Image"
+                         class="property-image me-3 img-fluid rounded"
+                         style="max-width: 400px;" />
+                </NavLink>
 
-                <div class="property-details">
-                    <h5>@property.Address</h5>
-                    <p><strong>Kommun:</strong> @property.Municipality?.Name</p>
-                    <p><strong>Antal rum:</strong> @property.NumberOfRooms</p>
-                    <p><strong>Boarea:</strong> @property.LivingArea kvm</p>
-                    <p><strong>Tomtarea:</strong> @property.PlotArea kvm</p>
-                    <p><strong>Pris:</strong> @property.AskingPrice.ToString("N0") kr</p>
-                    <p><strong>Byggår:</strong> @property.YearBuilt</p>
-                </div>
+
+                    <div class="property-details">
+                        <h5>@property.Address</h5>
+                        <p><strong>Kommun:</strong> @property.Municipality?.Name</p>
+                        <p><strong>Antal rum:</strong> @property.NumberOfRooms</p>
+                        <p><strong>Boarea:</strong> @property.LivingArea kvm</p>
+                        <p><strong>Tomtarea:</strong> @property.PlotArea kvm</p>
+                        <p><strong>Pris:</strong> @property.AskingPrice.ToString("N0") kr</p>
+                        <p><strong>Byggår:</strong> @property.YearBuilt</p>
+                    </div>
+                
             </div>
         }
     </div>
@@ -82,7 +86,7 @@ else
     private int totalPages;
 
     protected override async Task OnInitializedAsync()
-    
+
     {
         await LoadProperties();
     }
@@ -134,5 +138,5 @@ else
             UpdatePagedProperties();
         }
     }
-    
+
 }
