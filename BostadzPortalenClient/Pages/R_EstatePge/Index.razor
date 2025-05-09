@@ -9,33 +9,47 @@
 @inject IRealtorService realtorService
 
 
-<h3>Index</h3>
 
-<h3>Table</h3>
-<AuthorizeView>
-    <Authorized>
-        <IndexTable propertyList="allProperties"> </IndexTable>
-    </Authorized>
-    <NotAuthorized>
-        <IndexTable propertyList="allProperties"></IndexTable>
-    </NotAuthorized>
-</AuthorizeView>
+<div class="row">
+    <div class="col-9 mx-auto">
+        <h3>Bostäder till salu - just nu</h3>
+        <hr class="divider" />
 
-<h3>Cards</h3>
+        <div class="row">
+            @if (allProperties != null)
+            {
+                @foreach (var property in allProperties)
+                {
+                    <div class="col-12 mb-3">
+                        <RealEstateCardComponent realEstate="property"></RealEstateCardComponent>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>Laddar fastigheter...</p>
+            }
+        </div>
+    </div>
+</div>
+@* <h3>Bostäder till salu - just nu</h3>
+
 <hr class=" divider" />
 <div class="row">
-    @if(allProperties != null)
+    @if (allProperties != null)
     {
         @foreach (var property in allProperties)
         {
-            <RealEstateCardComponent realEstate="property"></RealEstateCardComponent>
+            <div>
+                <RealEstateCardComponent realEstate="property"></RealEstateCardComponent>
+            </div>
         }
     }
     else
     {
         <p>Laddar fastigheter...</p>
-    }    
-</div>
+    }
+</div> *@
 
 
 @code {

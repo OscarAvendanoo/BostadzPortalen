@@ -6,7 +6,7 @@
 @inject IMuniService MuniService
 
 @* Author: Jona *@
-<h3>Add New Property</h3>
+<h3>Lägg till ny fastighet</h3>
 
 <EditForm Model="newProperty" OnValidSubmit="HandleValidSubmit">
     <DataAnnotationsValidator />
@@ -23,7 +23,7 @@
     </div>  *@
 
     <div class="form-group">
-        <label>Municipality:</label>
+        <label>Kommun:</label>
         <InputSelect class="form-control" @bind-Value="newProperty.MunicipalityId">
             <option value="">-- Välj kommun --</option>
             @foreach (var municipality in municipalities)
@@ -35,47 +35,47 @@
 
 
     <div class="form-group">
-        <label>Asking Price:</label>
+        <label>Pris:</label>
         <InputNumber class="form-control" @bind-Value="newProperty.AskingPrice" />
     </div>
 
     <div class="form-group">
-        <label>Living Area (sqm):</label>
+        <label>Bostads area (kvm):</label>
         <InputNumber class="form-control" @bind-Value="newProperty.LivingArea" />
     </div>
 
     <div class="form-group">
-        <label>Supplementary Area (sqm):</label>
+        <label>Tillkommande area (kvm):</label>
         <InputNumber class="form-control" @bind-Value="newProperty.SupplementaryArea" />
     </div>
 
     <div class="form-group">
-        <label>Plot Area (optional):</label>
+        <label>Tomt area (valfri):</label>
         <InputNumber class="form-control" @bind-Value="newProperty.PlotArea" />
     </div>
 
     <div class="form-group">
-        <label>Number of Rooms:</label>
+        <label>Antal rum:</label>
         <InputNumber class="form-control" @bind-Value="newProperty.NumberOfRooms" />
     </div>
 
     <div class="form-group">
-        <label>Description:</label>
+        <label>Beskrivning:</label>
         <InputTextArea class="form-control" @bind-Value="newProperty.Description" />
     </div>
 
     <div class="form-group">
-        <label>Monthly Fee (optional):</label>
+        <label>Kostnad per månad (valfri):</label>
         <InputNumber class="form-control" @bind-Value="newProperty.MonthlyFee" />
     </div>
 
     <div class="form-group">
-        <label>Yearly Operating Cost:</label>
+        <label>Kostnad per år:</label>
         <InputNumber class="form-control" @bind-Value="newProperty.YearlyOperatingCost" />
     </div>
 
     <div class="form-group">
-        <label>Year Built:</label>
+        <label>Byggår:</label>
         <InputNumber class="form-control" @bind-Value="newProperty.YearBuilt" />
     </div>
 
@@ -89,16 +89,20 @@
         </InputSelect>
     </div> *@
 
+    <div class="form-group">
+        <label>Typ av bostad:</label>
+    
     <InputSelect class="form-control" @bind-Value="newProperty.TypeOfProperty">
+            <option value="">-- Välj typ av bostad --</option>
         @foreach (TypeOfPropertyEnum val in Enum.GetValues(typeof(TypeOfPropertyEnum)))
         {
             <option value="@val">@val</option>
         }
     </InputSelect>
-
+    </div>
 
     <div class="form-group">
-        <label>Image URL (add multiple):</label>
+        <label>Bild länk (lägg till fler):</label>
         <InputText class="form-control" @bind-Value="imageUrl" />
         <button class="btn btn-secondary mt-2" type="button" @onclick="AddImageUrl">Add Image</button>
         <div class="mt-2 d-flex flex-wrap">

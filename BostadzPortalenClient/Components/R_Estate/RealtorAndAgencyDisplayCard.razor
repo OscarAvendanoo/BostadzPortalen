@@ -1,40 +1,53 @@
 ﻿@* Author: Johan Nelin *@
 
-<div class="d-flex" style="width:30rem">
-	<div class="realtor-card d-flex col-sm-6">
-		<div class="image-container">
-			<NavLink class="card-img-top">
-				<img src="@realEstate.RealtorPicture" height="50" />
-			</NavLink>
-		</div>
-		<div class="realtor-details ms-3">
-			<h5>
+<div class="d-flex flex-column align-items-center" style="width:30rem">
+    <div class="realtor-card d-flex col-12 mb-3">
+
+        <div class="realtor-details mt-3 col-5 flex-column justify-content-center">
+            @* <h5>
 				Mäklare
-			</h5>
-			<p>@realEstate.RealtorFullName</p>
-		</div>
-	</div>
-	<div class="realtor-card d-flex col-sm-6 ">
-		<div class="image-container">
-			<NavLink class="card-img-top" href="@GetLink()">
-				<img src="@realEstate.AgencyLogo" height="50" />
-			</NavLink>
-		</div>
-		<div class="realtor-details ms-3">
-			<h5>
-				Mäklarbyrå
-			</h5>
-			<p>@realEstate.AgencyName</p>
-		</div>
-	</div>
+			</h5> *@
+            <p style="text-decoration: underline; font-weight:500;">@realEstate.RealtorFullName</p>
+            <p style="margin-bottom: 0;">Tel: 0723-225627</p>
+            <a href="" class="mailto">Kontakta mig <i class="fa-solid fa-envelope"></i></a>     <!-- mailto:@realEstate.RealtorEmail -->
+            @* <p>@realEstate.RealtorEmail</p>
+			<p>@realEstate.RealtorPhoneNumber</p> *@
+        </div>
+        <div class="image-container col-7 d-flex justify-content-center align-items-center">
+            <NavLink class="card-img-top" href="@GetLinkRealtor()">
+                <img src="@realEstate.RealtorPicture" height="150" />
+            </NavLink>
+        </div>
+    </div>
+    @* <hr style="width:100%;"> *@
+    <hr divider/>
+    <div class="realtor-card d-flex col-12 ">
+        <div class="realtor-details col-5 d-flex flex-column justify-content-center">
+            <h5>
+                Mäklarbyrå
+            </h5>
+            <p style="text-decoration: underline; font-weight:500;">@realEstate.AgencyName</p>
+        </div>
+        <div class="image-container col-7 d-flex justify-content-center alignt-items-center">
+            <NavLink class="card-img-top" href="@GetLinkAgency()">
+                <img src="@realEstate.AgencyLogo" height="75" />
+            </NavLink>
+        </div>
+    </div>
 </div>
 
+
 @code {
-	[Parameter] public PropertyForSaleDetailsDTO realEstate { get; set; }
-	public string linkId { get; set; }
-	private string GetLink()
-	{
-		linkId = $"/agency/details/{realEstate.AgencyId}";
-		return linkId;
-	}
+    [Parameter] public PropertyForSaleDetailsDTO realEstate { get; set; }
+    public string linkId { get; set; }
+    private string GetLinkAgency()
+    {
+        linkId = $"/agency/details/{realEstate.AgencyId}";
+        return linkId;
+    }
+    private string GetLinkRealtor()
+    {
+        linkId = $"/realtor/details/{realEstate.RealtorId}";
+        return linkId;
+    }
 }

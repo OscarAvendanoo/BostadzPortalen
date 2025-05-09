@@ -27,6 +27,17 @@
                 <option value="Fritidshus">Fritidshus</option>
             </select>
         </div>
+        
+        @* <div class="col-md-12 mt-3">
+            <label class="form-label">Bostadstyp</label>
+            <InputSelect @bind-Value="selectedPropertyType" class="form-control">
+                <option value="">Alla</option>
+                @foreach (var type in PropertyEnums)
+                {
+                    <option value="@type">@type</option>
+                }
+            </InputSelect>
+        </div> *@
 
         <!-- Pris från -->
         <div class="col-md-12 mt-3">
@@ -78,6 +89,7 @@
     private int selectedPrice;
     private string selectedPropertyType;
     private int selectedPropertyTypeInt;
+  
 
 
     string message = string.Empty;
@@ -87,7 +99,7 @@
 
         // var response = await MuniService.GetAllMunicipalityToListAsync();
         var response = await MuniService.GetAllMunicipalityToListAsync();
-
+        
 
         if (response.Success)
         {

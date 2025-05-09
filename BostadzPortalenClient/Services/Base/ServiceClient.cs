@@ -187,12 +187,12 @@ namespace BostadzPortalenClient.Services.Base
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task DeletePictureAsync(int? id, System.Threading.CancellationToken cancellationToken);
 
-        /// <returns>Success</returns>
+        /// <returns>No Content</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task UnlinkPictureAsync(int id);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Success</returns>
+        /// <returns>No Content</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         System.Threading.Tasks.Task UnlinkPictureAsync(int id, System.Threading.CancellationToken cancellationToken);
 
@@ -1771,7 +1771,7 @@ namespace BostadzPortalenClient.Services.Base
             }
         }
 
-        /// <returns>Success</returns>
+        /// <returns>No Content</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual System.Threading.Tasks.Task UnlinkPictureAsync(int id)
         {
@@ -1779,7 +1779,7 @@ namespace BostadzPortalenClient.Services.Base
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Success</returns>
+        /// <returns>No Content</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public virtual async System.Threading.Tasks.Task UnlinkPictureAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
@@ -1824,7 +1824,7 @@ namespace BostadzPortalenClient.Services.Base
                         ProcessResponse(client_, response_);
 
                         var status_ = (int)response_.StatusCode;
-                        if (status_ == 200)
+                        if (status_ == 204)
                         {
                             return;
                         }
@@ -3044,7 +3044,11 @@ namespace BostadzPortalenClient.Services.Base
 
     }
 
+<<<<<<< HEAD
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
+=======
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.3.0.0 (NJsonSchema v11.2.0.0 (Newtonsoft.Json v13.0.0.0))")]
+>>>>>>> Development
     public partial class LoginRealtorDto
     {
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Always)]
@@ -3504,7 +3508,10 @@ namespace BostadzPortalenClient.Services.Base
 
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> Development
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.2.0.0 (NJsonSchema v11.1.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class ApiException : System.Exception
