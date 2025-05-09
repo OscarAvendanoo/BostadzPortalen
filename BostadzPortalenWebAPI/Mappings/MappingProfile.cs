@@ -123,6 +123,16 @@ namespace BostadzPortalenWebAPI.Mappings
             .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ImageUrls.Select(url => new PropertyImage { ImageUrl = url }).ToList()))
             .ForMember(dest => dest.RealtorId, opt => opt.Ignore()); // RealtorId is set server-side
 
+            CreateMap<Realtor, RealtorInfoDTO>()
+                .ForMember(dest => dest.RealtorId, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"))
+                .ForMember(dest => dest.Phone, opt => opt.MapFrom(src => src.PhoneNumber))
+                .ForMember(dest => dest.AgencyName, opt => opt.MapFrom(src => src.Agency.AgencyName))
+                .ForMember(dest => dest.RealtorImage, opt => opt.MapFrom(src => src.ProfileImageUrl))
+                .ForMember(dest => dest.Properties, opt => opt.Ignore())
+                .ReverseMap(); 
+
+           
         }
 
     }

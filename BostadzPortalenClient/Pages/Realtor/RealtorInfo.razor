@@ -1,0 +1,74 @@
+﻿@page "/realtor/details/{RealtorId}"
+@using BostadzPortalenClient.Components.R_Estate
+@inject IPropertyForSaleService propService
+@inject IRealtorService realtorService
+
+
+<div class="container mt-4">
+    <!-- Övre sektion: Mäklarinfo -->
+    
+        @if (realtorInfo == null)
+        {
+            <p>Laddar mäklarinfo...</p>
+        }
+        else
+        {
+        <div class="row">
+            <!-- Mäklarbild -->
+            <div class="col-3 d-flex justify-content-center align-items-start">
+                <img src="@realtorInfo.RealtorImage" alt="Bild på @realtorInfo.FullName" class="img-fluid rounded" style="max-height: 300px;" />
+            </div>
+
+            <!-- Info -->
+            <div class="col-9">
+                <h2>@realtorInfo.FullName</h2>
+                <p><strong>Telefon:</strong> @realtorInfo.Phone</p>
+                <p><strong>Email:</strong> <a href="mailto:@realtorInfo.Email">@realtorInfo.Email</a></p>
+                <p><strong>Mäklarbyrå:</strong> @realtorInfo.AgencyName</p>
+                @* <p>@realtorInfo.PresentationText</p> *@
+            </div>
+        </div>
+
+        <hr class="my-5" />
+
+        <!-- Nedre sektion: Mäklarens objekt -->
+        <div>
+            <h3 class="mb-4">Objekt till salu av @realtorInfo.FullName</h3>
+            <div class="row">
+                    @if (realtorInfo.Properties == null)
+                    {
+                    <p>Laddar fastigheter...</p>
+                    }
+                    @foreach (var estate in realtorInfo.Properties)
+                    {
+                    <div>
+                        <RealEstateCardComponent realEstate="estate"></RealEstateCardComponent>
+                    </div>
+                    }
+            </div>
+        </div>
+
+        }
+</div>
+
+
+
+
+@code {
+    [Parameter]
+    public string RealtorId { get; set; }
+
+    private RealtorInfoDTO? realtorInfo { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        realtorInfo = await realtorService.GetRealtorInfoDTO(RealtorId);
+
+        // var realtor = realtorService.
+
+
+        // var properties = await propService.GetAllPropertiesForSaleDTOAsync();
+        // realtorProps = properties.Where(p => p.RealtorId == RealtorId);
+    }
+}

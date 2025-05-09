@@ -78,7 +78,7 @@ namespace BostadzPortalenWebAPI.Controllers
                 }
 
                 var realtor = await realtorRepository.GetByIDAsync(id);
-                if(realtor == null)
+                if (realtor == null)
                 {
                     return NotFound();
                 }
@@ -123,7 +123,7 @@ namespace BostadzPortalenWebAPI.Controllers
         {
             var realtor = await realtorRepository.GetByIDAsync(id);
 
-            if(realtor == null)
+            if (realtor == null)
             {
                 return NotFound();
             }
@@ -165,10 +165,60 @@ namespace BostadzPortalenWebAPI.Controllers
             catch (Exception ex)
             {
                 return BadRequest($"Kunder inte hämta realtor: {ex.Message}");
-                
+
+            }
+
+
+        }
+
+        [HttpGet("/GetRealtorInfo/{id}")]
+        public async Task<ActionResult<RealtorInfoDTO>> GetRealtorInfo(string id)
+        {
+            var images = new List<PropertyImageDto>();
+            List<PropertyForSaleOverviewDTO> propsList = new List<PropertyForSaleOverviewDTO>();
+            var realtor = await realtorRepository.GetRealtorInfoDTO(id);
+          
+            
+            
+            foreach(var prop in realtor.Properties)
+            {
+                var property = mapper.Map<PropertyForSaleOverviewDTO>(prop);
+                propsList.Add(property);
+
+                foreach (var picture in prop.ImageUrls)
+                {
+                    var image = mapper.Map<PropertyImageDto>(picture);
+                    images.Add(image);
+                }
             }
             
-            
+            try
+            {
+
+
+                var realtorInfo = new RealtorInfoDTO
+                {
+                    RealtorId = realtor.Id,
+                    FullName = $"{realtor.FirstName} {realtor.LastName}",
+                    AgencyName = realtor.Agency.AgencyName,
+                    Email = realtor.Email,
+                    Phone = realtor.PhoneNumber,
+                    Properties = propsList,
+                    RealtorImage = realtor.ProfileImageUrl,
+                    PropertyImages = images
+                    
+
+                };
+                //mapper.Map<RealtorInfoDTO>(propp);
+
+                return Ok(realtorInfo);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Något fick fel: {ex.Message}");
+            }
+            return BadRequest();
         }
 
         //[HttpGet("{id}")]

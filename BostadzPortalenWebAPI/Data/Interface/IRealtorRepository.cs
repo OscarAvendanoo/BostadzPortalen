@@ -14,5 +14,7 @@ namespace BostadzPortalenWebAPI.Data.Interface
 
         Task<Realtor> GetRealtorByGuidAsync(string guidID);
 
+        Task<Realtor> GetRealtorInfoDTO(string id);
+
     }
 }

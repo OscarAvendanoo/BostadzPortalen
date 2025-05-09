@@ -44,6 +44,12 @@ namespace BostadzPortalenClient.Services.RealtorSrvc
 
         }
 
+        public async  Task<RealtorInfoDTO> GetRealtorInfoDTO(string id)
+        {
+            var realtorInfo = await client.GetRealtorInfoAsync(id);
+            return realtorInfo;
+        }
+
 
     }
 }

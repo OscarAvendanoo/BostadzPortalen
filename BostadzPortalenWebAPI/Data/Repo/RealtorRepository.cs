@@ -78,6 +78,27 @@ namespace BostadzPortalenWebAPI.Data.Repo
             return overviewDTOs;
         }
 
+        public async Task<Realtor> GetRealtorInfoDTO(string id)
+        {
+            //var realtor = await context.Realtors
+            //    .Include(r => r.Agency)
+            //    .Include(r => r.Properties)
+            //    .ThenInclude(r => r.ImageUrls)
+            //    .Where(r => r.Id == id).FirstOrDefaultAsync();
+
+            var realtor = await context.Realtors
+    .Include(r => r.Agency)
+    .Include(r => r.Properties)
+        .ThenInclude(p => p.Municipality)
+    .Include(r => r.Properties)
+        .ThenInclude(p => p.ImageUrls)
+    .Where(r => r.Id == id)
+    .FirstOrDefaultAsync();
+
+
+            return realtor;
+        }
+
 
         //public async Task<IEnumerable<PropertyForSale>> GetListedPropertiesAsync(int id) //osäker på string på id eller hur vi ska gå tillväga??
         //{

@@ -122,7 +122,7 @@ code {
     color: #c02d76;
 }
 
-
+/*AUTHOR: KEVIN*/
 
 /*EGEN NAVBAR*/
 
@@ -189,12 +189,14 @@ code {
     box-shadow: 0;
 }
 
+/*SearchBox tabs*/
+
 .tab-content {
-    display: none; /* Dölj allt som standard */
+    display: none; 
 }
 
     .tab-content.active {
-        display: block; /* Visa aktivt innehåll */
+        display: block; 
     }
 
 
@@ -281,13 +283,7 @@ code {
 
 /*DROPDOWN*/
 
-/* Gör dropdown-menyn samma färg som navbaren */
-/*.navbar, .dropdown-menu {
-    background-color: inherit;*/ /* byt till din navbar-färg */
-/*border: none;
-}*/
 
-/* Ta bort standard box-shadow från dropdown */
 .dropdown-menu {
     box-shadow: none;
     padding: 0;
@@ -300,27 +296,27 @@ code {
     background-color: var(--dark-turqouise);
 }
 
-/* Styla länkarna i dropdownen */
+
 .dropdown-item {
     color: var(--light-yellow);
     padding: 0.75rem 1.5rem;
     transition: background-color 0.2s ease;
 }
 
-    /* Hovereffekt på länkarna */
+    
     .dropdown-item:hover {
-        background-color: var(--light-yellow); /* lite ljusare än navbaren för diskret effekt */
+        background-color: var(--light-yellow);
         color: var(--dark-turqouise);
     }
 
-/* Anpassa dropdown-knappen så den smälter in */
+
 .dropdown-toggle {
     background-color: transparent;
     border: none;
     color: var(--light-yellow);
 }
 
-    /* Ta bort fokus-ringen */
+    
     .dropdown-toggle:focus {
         box-shadow: none;
     }
