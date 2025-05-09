@@ -51,15 +51,6 @@
     private int totalPages;
 
 
-    // protected override async Task OnInitializedAsync()
-    // {
-    //     if (properties != null)
-    //     {
-    //         totalPages = (int)Math.Ceiling((double)properties.Count / pageSize);
-    //         UpdatePagedProperties();
-    //     }
-    // }
-
     protected override async Task OnParametersSetAsync()
     {
         if (properties != null)
