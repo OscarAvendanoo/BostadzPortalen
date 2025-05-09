@@ -9,21 +9,23 @@
 @inject IRealtorService realtorService
 
 
-<h3>Index</h3>
+<h3>Bostäder till salu - just nu</h3>
 
 <hr class=" divider" />
 <div class="row">
-    @if(allProperties != null)
+    @if (allProperties != null)
     {
         @foreach (var property in allProperties)
         {
-            <RealEstateCardComponent realEstate="property"></RealEstateCardComponent>
+            <div class="col-6">
+                <RealEstateCardComponent realEstate="property"></RealEstateCardComponent>
+            </div>
         }
     }
     else
     {
         <p>Laddar fastigheter...</p>
-    }    
+    }
 </div>
 
 
