@@ -177,9 +177,9 @@ namespace BostadzPortalenWebAPI.Controllers
             await _propertyForSaleRepository.DeleteAsync(propertyToDelete);
             return NoContent();
         }
-        // author: Oscar
+        // author: Oscar, Johan Nelin
         [HttpPost("search")]
-        public async Task<ActionResult<List<PropertyForSale>>> SearchProperties([FromBody] PropertySearchRequest searchRequest)
+        public async Task<ActionResult<List<PropertyForSaleOverviewDTO>>> SearchProperties([FromBody] PropertySearchRequest searchRequest)
         {
             var query = _propertyForSaleRepository.QueryPropertiesWithIncludes();
 
@@ -205,7 +205,14 @@ namespace BostadzPortalenWebAPI.Controllers
             try
             {
                 var properties = await query.ToListAsync();
-                return Ok(properties);
+
+                //JN: Convert to DTO-list
+                var propDTOs = new List<PropertyForSaleOverviewDTO>();
+                foreach (var property in properties)
+                {
+                    propDTOs.Add(mapper.Map<PropertyForSaleOverviewDTO>(properties));
+                }
+                return Ok(propDTOs);
             }
             catch (Exception ex)
             {

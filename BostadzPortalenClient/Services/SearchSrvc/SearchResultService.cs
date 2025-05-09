@@ -14,14 +14,14 @@ namespace BostadzPortalenClient.Services.SearchSrvc
     {
         private readonly IClient client;
 
-        public List<PropertyForSale> Results { get; set; } = new();
+        public List<PropertyForSaleOverviewDTO> Results { get; set; } = new();
         public SearchResultService(ILocalStorageService localStorage, IClient client) : base(localStorage, client)
         {
             this.client = client;
         }
-        public async Task<Response<List<PropertyForSale>>> SearchProperties(PropertySearchRequest propertySearchRequest)
+        public async Task<Response<List<PropertyForSaleOverviewDTO>>> SearchProperties(PropertySearchRequest propertySearchRequest)
         {
-            var response = new Response<List<PropertyForSale>>();
+            var response = new Response<List<PropertyForSaleOverviewDTO>>();
 
             try
             {
@@ -43,14 +43,14 @@ namespace BostadzPortalenClient.Services.SearchSrvc
             catch (ApiException ex)
             {
                 Console.WriteLine(ex.Message);
-                response = ConvertApiExceptions<List<PropertyForSale>>(ex);
+                response = ConvertApiExceptions<List<PropertyForSaleOverviewDTO>>(ex);
             }
 
 
             return response;
         }
 
-        public async Task<List<PropertyForSale>> GetSearchResults()
+        public async Task<List<PropertyForSaleOverviewDTO>> GetSearchResults()
         {
             return Results;
         }

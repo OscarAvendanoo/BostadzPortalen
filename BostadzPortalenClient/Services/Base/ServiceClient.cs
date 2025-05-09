@@ -164,12 +164,12 @@ namespace BostadzPortalenClient.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PropertyForSale>> SearchAsync(PropertySearchRequest body);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PropertyForSaleOverviewDTO>> SearchAsync(PropertySearchRequest body);
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PropertyForSale>> SearchAsync(PropertySearchRequest body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PropertyForSaleOverviewDTO>> SearchAsync(PropertySearchRequest body, System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -1537,7 +1537,7 @@ namespace BostadzPortalenClient.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PropertyForSale>> SearchAsync(PropertySearchRequest body)
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PropertyForSaleOverviewDTO>> SearchAsync(PropertySearchRequest body)
         {
             return SearchAsync(body, System.Threading.CancellationToken.None);
         }
@@ -1545,7 +1545,7 @@ namespace BostadzPortalenClient.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PropertyForSale>> SearchAsync(PropertySearchRequest body, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PropertyForSaleOverviewDTO>> SearchAsync(PropertySearchRequest body, System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -1590,7 +1590,7 @@ namespace BostadzPortalenClient.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<PropertyForSale>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<PropertyForSaleOverviewDTO>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
