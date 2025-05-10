@@ -6,6 +6,7 @@ using BostadzPortalenWebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Claims;
 
@@ -170,6 +171,48 @@ namespace BostadzPortalenWebAPI.Controllers
             
             
         }
+
+
+        // Jona
+        [Authorize(Roles = "Realtor")]
+        [HttpPatch("me")]
+        public async Task<IActionResult> UpdateMyProfile([FromBody] RealtorUpdateDTO dto)
+        {
+            try
+            {
+                var userId = User.FindFirst("uid")?.Value;
+                if (string.IsNullOrEmpty(userId))
+                    return Unauthorized("Invalid or missing user ID in token.");
+
+                var realtor = await realtorRepository.GetRealtorByGuidAsync(userId);
+                if (realtor == null)
+                    return NotFound("Realtor not found.");
+
+                if (!string.IsNullOrWhiteSpace(dto.FirstName))
+                    realtor.FirstName = dto.FirstName;
+
+                if (!string.IsNullOrWhiteSpace(dto.LastName))
+                    realtor.LastName = dto.LastName;
+
+                if (!string.IsNullOrWhiteSpace(dto.Email))
+                    realtor.Email = dto.Email;
+
+                if (!string.IsNullOrWhiteSpace(dto.PhoneNumber))
+                    realtor.PhoneNumber = dto.PhoneNumber;
+
+                if (!string.IsNullOrWhiteSpace(dto.ProfileImageUrl))
+                    realtor.ProfileImageUrl = dto.ProfileImageUrl;
+
+                await realtorRepository.UpdateAsync(realtor);
+                return Ok("Profile updated successfully.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An error occurred: " + ex.Message);
+            }
+        }
+
+
 
         //[HttpGet("{id}")]
         //public async Task<ActionResult> GetListedProperties(string id)
