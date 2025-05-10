@@ -734,313 +734,314 @@ namespace BostadzPortalenWebAPI.Constants
                      Description = "\"Området är som en oas med kort gångavstånd till Stockholms bästa brunch på Stenladan, en perfekt strand finns i närheten för att doppa sig dem varma dagarna. Vi har speciellt uppskattat naturen med flertalet vandringsstigar, grönska och djurliv. Utöver det kommer marinan strax vara färdigrenoverad, skola samt förskola byggd samt stallet fyllas med olika hästar.\"\r\nVälkommen till detta vackert designade friköpta parhus med oslagbart läge i Steninge Slottsby! Materialvalen följer som en röd tråd genom hela bostaden och färgnyanserna kopplar ann till naturen runtomkring. Här bor du med naturen som närmsta granne och all bekvämlighet en familj kan tänka sig. Tack vare gavelläget har du mer ljusinsläpp och ett friare läge i området. Huset som stod färdigt 2023 är en del av bostadskvarteret Solfjädern med totalt tio unika parhus om 124 kvadratmeter med 5 rum och kök ritade av arkitekterna på Blooc. Fastigheten kommer att anslutas till en samfällighet för skötsel av vägar och gemensamma ytor i området. Att bo i Steninge Slottsby är förenat med livskvalitet och hela området är omgivet av natur.",
                      NumberOfRooms = 5,
                      TypeOfProperty = TypeOfPropertyEnum.Bostadsrättsradhus
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 21,
-                     MunicipalityId = 2,
-                     RealtorId = SeedGUID.Realtor5,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 22,
-                     MunicipalityId = 2,
-                     RealtorId = SeedGUID.Realtor6,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 23,
-                     MunicipalityId = 2,
-                     RealtorId = SeedGUID.Realtor6,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 24,
-                     MunicipalityId = 2,
-                     RealtorId = SeedGUID.Realtor7,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 25,
-                     MunicipalityId = 2,
-                     RealtorId = SeedGUID.Realtor7,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 26,
-                     MunicipalityId = 2,
-                     RealtorId = SeedGUID.Realtor8,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 27,
-                     MunicipalityId = 2,
-                     RealtorId = SeedGUID.Realtor8,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 28,
-                     MunicipalityId = 1,
-                     RealtorId = SeedGUID.Realtor9,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 29,
-                     MunicipalityId = 1,
-                     RealtorId = SeedGUID.Realtor9,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 30,
-                     MunicipalityId = 1,
-                     RealtorId = SeedGUID.Realtor10,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 31,
-                     MunicipalityId = 1,
-                     RealtorId = SeedGUID.Realtor10,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 32,
-                     MunicipalityId = 2,
-                     RealtorId = SeedGUID.Realtor2,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 33,
-                     MunicipalityId = 2,
-                     RealtorId = SeedGUID.Realtor3,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 34,
-                     MunicipalityId = 2,
-                     RealtorId = SeedGUID.Realtor4,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 35,
-                     MunicipalityId = 2,
-                     RealtorId = SeedGUID.Realtor5,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 36,
-                     MunicipalityId = 2,
-                     RealtorId = SeedGUID.Realtor6,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 37,
-                     MunicipalityId = 2,
-                     RealtorId = SeedGUID.Realtor7,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
-                 },
-                 new PropertyForSale
-                 {
-                     PropertyForSaleId = 38,
-                     MunicipalityId = 2,
-                     RealtorId = SeedGUID.Realtor8,
-                     AskingPrice = ,
-                     MonthlyFee = ,
-                     YearlyOperatingCost = ,
-                     LivingArea = ,
-                     PlotArea = ,
-                     SupplementaryArea = ,
-                     YearBuilt = ,
-                     Address = "",
-                     Description = "",
-                     NumberOfRooms = ,
-                     TypeOfProperty = TypeOfPropertyEnum.
                  }
+                 //,
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 21,
+                 //    MunicipalityId = 2,
+                 //    RealtorId = SeedGUID.Realtor5,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 22,
+                 //    MunicipalityId = 2,
+                 //    RealtorId = SeedGUID.Realtor6,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 23,
+                 //    MunicipalityId = 2,
+                 //    RealtorId = SeedGUID.Realtor6,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 24,
+                 //    MunicipalityId = 2,
+                 //    RealtorId = SeedGUID.Realtor7,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 25,
+                 //    MunicipalityId = 2,
+                 //    RealtorId = SeedGUID.Realtor7,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 26,
+                 //    MunicipalityId = 2,
+                 //    RealtorId = SeedGUID.Realtor8,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 27,
+                 //    MunicipalityId = 2,
+                 //    RealtorId = SeedGUID.Realtor8,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 28,
+                 //    MunicipalityId = 1,
+                 //    RealtorId = SeedGUID.Realtor9,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 29,
+                 //    MunicipalityId = 1,
+                 //    RealtorId = SeedGUID.Realtor9,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 30,
+                 //    MunicipalityId = 1,
+                 //    RealtorId = SeedGUID.Realtor10,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 31,
+                 //    MunicipalityId = 1,
+                 //    RealtorId = SeedGUID.Realtor10,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 32,
+                 //    MunicipalityId = 2,
+                 //    RealtorId = SeedGUID.Realtor2,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 33,
+                 //    MunicipalityId = 2,
+                 //    RealtorId = SeedGUID.Realtor3,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 34,
+                 //    MunicipalityId = 2,
+                 //    RealtorId = SeedGUID.Realtor4,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 35,
+                 //    MunicipalityId = 2,
+                 //    RealtorId = SeedGUID.Realtor5,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 36,
+                 //    MunicipalityId = 2,
+                 //    RealtorId = SeedGUID.Realtor6,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 37,
+                 //    MunicipalityId = 2,
+                 //    RealtorId = SeedGUID.Realtor7,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //},
+                 //new PropertyForSale
+                 //{
+                 //    PropertyForSaleId = 38,
+                 //    MunicipalityId = 2,
+                 //    RealtorId = SeedGUID.Realtor8,
+                 //    AskingPrice = ,
+                 //    MonthlyFee = ,
+                 //    YearlyOperatingCost = ,
+                 //    LivingArea = ,
+                 //    PlotArea = ,
+                 //    SupplementaryArea = ,
+                 //    YearBuilt = ,
+                 //    Address = "",
+                 //    Description = "",
+                 //    NumberOfRooms = ,
+                 //    TypeOfProperty = TypeOfPropertyEnum.
+                 //}
                 );
 
             return builder;
@@ -1393,196 +1394,197 @@ namespace BostadzPortalenWebAPI.Constants
                 },
                 new PropertyImage
                 {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
+                    Id = 58,
+                    ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/c5/86/c58676cf3ebdf4e13163289ff20275e8.jpg",
+                    PropertyForSaleId = 13
                 },
                 new PropertyImage
                 {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
+                    Id = 59,
+                    ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/c4/26/c426696d7ebd9c382c7754d55324411b.jpg",
+                    PropertyForSaleId = 13
                 },
                 new PropertyImage
                 {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
-                },
-                new PropertyImage
-                {
-                    Id = ,
-                    ImageUrl = "",
-                    PropertyForSaleId =
+                    Id = 60,
+                    ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/87/cc/87cce528941e3728d37489276de08a97.jpg",
+                    PropertyForSaleId =13
                 }
+                //,
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //},
+                //new PropertyImage
+                //{
+                //    Id = ,
+                //    ImageUrl = "",
+                //    PropertyForSaleId =
+                //}
                 );
             return builder;
         }
