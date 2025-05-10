@@ -28,7 +28,7 @@ namespace BostadzPortalenWebAPI.Models
         public int PlotArea { get; set; } // kvm
 
         [Required]
-        [MaxLength(1000)]
+        [MaxLength(100000)]
         public string Description { get; set; }
 
         [Required]
