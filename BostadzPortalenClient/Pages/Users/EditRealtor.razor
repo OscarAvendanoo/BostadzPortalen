@@ -1,0 +1,71 @@
+﻿@page "/realtor/edit"
+@inject IRealtorService RealtorService
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+
+
+@* JOna *@
+@* <h3>Uppdatera mina uppgifter</h3>
+
+@if (realtor == null)
+{
+    <p> Laddar data...</p>
+}
+else
+{
+    <EditForm Model="realtor" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group">
+            <label>Förnamn:</label>
+            <InputText class="form-control" @bind-Value="realtor.FirstName" />
+        </div>
+
+        <div class="form-group">
+            <label>Efternamn:</label>
+            <InputText class="form-control" @bind-Value="realtor.LastName" />
+        </div>
+
+        <div class="form-group">
+            <label>Telefonnummer:</label>
+            <InputText class="form-control" @bind-Value="realtor.PhoneNumber" />
+        </div>
+
+        <button class="btn btn-primary mt-2" type="submit">Spara ändringar</button>
+    </EditForm>
+
+    @if (!string.IsNullOrWhiteSpace(feedbackMessage))
+    {
+        <div class="alert alert-info mt-3">@feedbackMessage</div>
+    }
+} *@
+
+@* @code { *@
+//     private UpdateRealtorDTO? realtor;
+//     private string feedbackMessage = string.Empty;
+
+//     protected override async Task OnInitializedAsync()
+//     {
+//         var result = await RealtorService.GetCurrentRealtorAsync();
+//         if (result.Success && result.Data != null)
+//         {
+//             realtor = new UpdateRealtorDTO
+//                 {
+//                     FirstName = result.Data.FirstName,
+//                     LastName = result.Data.LastName,
+//                     PhoneNumber = result.Data.PhoneNumber
+//                 };
+//         }
+//         else
+//         {
+//             feedbackMessage = "Kunde inte ladda dina uppgifter.";
+//         }
+//     }
+
+//     private async Task HandleValidSubmit()
+//     {
+//         var result = await RealtorService.UpdateRealtorPartialAsync(realtor!);
+//         feedbackMessage = result ? "Uppgifterna uppdaterades!" : "Misslyckades med att uppdatera.";
+//     }
+// }
