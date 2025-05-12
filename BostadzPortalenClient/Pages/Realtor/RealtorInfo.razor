@@ -6,13 +6,12 @@
 
 <div class="container mt-4">
     <!-- Övre sektion: Mäklarinfo -->
-    
-        @if (realtorInfo == null)
-        {
-            <p>Laddar mäklarinfo...</p>
-        }
-        else
-        {
+    @if (realtorInfo == null)
+    {
+        <p>Laddar mäklarinfo...</p>
+    }
+    else
+    {
         <div class="row">
             <!-- Mäklarbild -->
             <div class="col-3 d-flex justify-content-center align-items-start">
@@ -21,34 +20,37 @@
 
             <!-- Info -->
             <div class="col-9">
+                <div class=" ms-5 mt-5">
                 <h2>@realtorInfo.FullName</h2>
                 <p><strong>Telefon:</strong> @realtorInfo.Phone</p>
                 <p><strong>Email:</strong> <a href="mailto:@realtorInfo.Email">@realtorInfo.Email</a></p>
                 <p><strong>Mäklarbyrå:</strong> @realtorInfo.AgencyName</p>
                 @* <p>@realtorInfo.PresentationText</p> *@
+                </div>
             </div>
         </div>
 
-        <hr class="my-5" />
+        <hr />
+  @* class="my-5" *@
 
         <!-- Nedre sektion: Mäklarens objekt -->
         <div>
-            <h3 class="mb-4">Objekt till salu av @realtorInfo.FullName</h3>
+            <h3 class="mb-4 mt-4">Objekt till salu av @realtorInfo.FullName</h3>
             <div class="row">
-                    @if (realtorInfo.Properties == null)
-                    {
+                @if (realtorInfo.Properties == null)
+                {
                     <p>Laddar fastigheter...</p>
-                    }
-                    @foreach (var estate in realtorInfo.Properties)
-                    {
+                }
+                @foreach (var estate in realtorInfo.Properties)
+                {
                     <div>
                         <RealEstateCardComponent realEstate="estate"></RealEstateCardComponent>
                     </div>
-                    }
+                }
             </div>
         </div>
 
-        }
+    }
 </div>
 
 

@@ -418,12 +418,7 @@ code {
 }
 
 
-.page-wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
+
 
 
 .property-card {
@@ -450,8 +445,12 @@ code {
 }
 
 .page-wrapper {
-    padding-left: 150px;
-    padding-right: 150px;
+    /*padding-left: 100px;
+    padding-right: 100px;*/
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 100vh;
     max-width: 1400px;
     margin: 0 auto;
 }
