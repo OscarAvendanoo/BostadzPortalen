@@ -1,0 +1,26 @@
+﻿@if (isItInt)
+{
+	if (valueInt != 0)
+	{
+		<strong> | @text: </strong><IntToString_m2 inputInt="@valueInt"></IntToString_m2>
+	}
+}
+else
+{
+	if (valueDouble != 0)
+	{
+		<strong>@text: </strong><DecimalToStringSEK inputDecimal="@Convert.ToDecimal(valueDouble)"></DecimalToStringSEK>
+	}
+}
+
+@code {
+	[Parameter] public string text { get; set; }
+	[Parameter] public int valueInt { get; set; }
+	[Parameter] public double valueDouble { get; set; }
+	[Parameter] public bool isItInt { get; set; }
+	private int check { get; set; }
+	protected override async Task OnInitializedAsync()
+	{
+		check = valueInt;
+	}
+}

@@ -20,7 +20,7 @@ namespace BostadzPortalenClient.Services.R_EstateSrvc
             this.mapper = mapper;
         }
 
-        public async Task<IEnumerable<PropertyForSaleOverviewDTO>> GetAllPropertiesForSaleDTOAsync()
+        public async Task<List<PropertyForSaleOverviewDTO>> GetAllPropertiesForSaleDTOAsync()
         {
             var tests = await httpClient.GetAllPropertyOverviewDTOAsync();
             return tests;

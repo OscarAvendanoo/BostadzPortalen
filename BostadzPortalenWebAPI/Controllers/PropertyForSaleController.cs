@@ -47,7 +47,7 @@ namespace BostadzPortalenWebAPI.Controllers
         // Author: Oscar
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PropertyForSale>>> GetAllProperties()
+        public async Task<ActionResult<List<PropertyForSale>>> GetAllProperties()
         {
             var properties = await _propertyForSaleRepository.GetAllWithIncludesAsync();
             if (properties == null || !properties.Any())
@@ -59,7 +59,7 @@ namespace BostadzPortalenWebAPI.Controllers
 
         //Author: Kevin
         [HttpGet("GetAllPropertiesIncludeAllAsync")]
-        public async Task<ActionResult<IEnumerable<PropertyForSale>>> GetAllPropertiesIncludeAllAsync()
+        public async Task<ActionResult<List<PropertyForSale>>> GetAllPropertiesIncludeAllAsync()
         {
             var properties = await _propertyForSaleRepository.GetAllWithIncludesAsync();
             if (properties == null || !properties.Any())
