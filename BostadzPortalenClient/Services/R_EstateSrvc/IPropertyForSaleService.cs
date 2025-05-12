@@ -6,7 +6,7 @@ namespace BostadzPortalenClient.Services.R_EstateSrvc
 {
     public interface IPropertyForSaleService
     {
-        Task<IEnumerable<PropertyForSaleOverviewDTO>> GetAllPropertiesForSaleDTOAsync();
+        Task<List<PropertyForSaleOverviewDTO>> GetAllPropertiesForSaleDTOAsync();
         Task<PropertyForSaleDetailsDTO> GetPropertyDetailsDTOByIdAsync(int id);
         Task DeletePropertyForSale(int id);
         Task<List<PropertyForSaleOverviewDTO>> GetMyListingsAsync();
