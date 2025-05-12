@@ -2,6 +2,7 @@
 
 namespace BostadzPortalenClient.Services.AgencyService
 {
+    //Author: Kevin
     public class AgencyService : IAgencyService
     {
         private readonly IClient client;

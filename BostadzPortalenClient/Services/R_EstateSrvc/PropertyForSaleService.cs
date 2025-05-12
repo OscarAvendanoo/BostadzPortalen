@@ -95,7 +95,7 @@ namespace BostadzPortalenClient.Services.R_EstateSrvc
             return true;
         }
 
-        //TEST KEVIN
+        //Author: Kevin
 
         public async Task<IEnumerable<PropertyForSale>> GetPropertiesByRealtor(string id)
         {
@@ -113,6 +113,7 @@ namespace BostadzPortalenClient.Services.R_EstateSrvc
             return result.ToList(); 
         }
 
+        //Author: Kevin
         public async Task UnlinkPicture(int id)
         {
             await httpClient.UnlinkPictureAsync(id);
