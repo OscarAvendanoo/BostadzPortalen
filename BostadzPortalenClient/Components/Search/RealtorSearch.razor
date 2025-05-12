@@ -1,9 +1,9 @@
 ﻿@using BostadzPortalenClient.Services
 @inject IRealtorService realtorService
+<!--Author: Kevin-->
 
 <div id="realtor" class="tab-content">
     <div class="row g-12">
-        <!-- Sök efter namn -->
         <label class="form-label">Sök efter namn</label>
         <div class="col-md-6 mt-3">
             <input type="text" class="form-control" placeholder="Förnamn" @bind="firstName" />
@@ -12,13 +12,9 @@
             <input type="text" class="form-control" placeholder="Efternamn" @bind="lastName" />
         </div>
     </div>
-
-    <!-- Byrådropdown -->
     <div class="col-md-12 mt-3">
         <RealEstateAgencyDropdown OnSelectedAgencyChanged="HandleAgencySelection" />
     </div>
-
-    <!-- Sök-knapp -->
     <div class="col-12 d-flex justify-content-center mt-4">
         <button class="btn main-btn w-50" @onclick="Search">Sök</button>
     </div>
