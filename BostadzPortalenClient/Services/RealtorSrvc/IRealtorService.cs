@@ -9,5 +9,7 @@ namespace BostadzPortalenClient.Services.RealtorSrvc
         Task<Response<Realtor>> GetCurrentRealtor();
         Task<Realtor> FindRealtor(string firstName, string lastName);
         Task<RealtorInfoDTO> GetRealtorInfoDTO(string id);
+        // Jona
+        Task<bool> UpdateRealtorPartialAsync(RealtorUpdateDTO dto);
     }
 }
