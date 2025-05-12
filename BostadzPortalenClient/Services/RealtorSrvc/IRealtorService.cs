@@ -8,5 +8,6 @@ namespace BostadzPortalenClient.Services.RealtorSrvc
         //Author: Oscar
         Task<Response<Realtor>> GetCurrentRealtor();
         Task<Realtor> FindRealtor(string firstName, string lastName);
+        Task<RealtorInfoDTO> GetRealtorInfoDTO(string id);
     }
 }
