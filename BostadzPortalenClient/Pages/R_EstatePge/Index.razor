@@ -9,29 +9,27 @@
 @inject IRealtorService realtorService
 
 
+<div class="background-image"></div>
+<div class="background-overlay"></div>
 
-<div class="row">
+
+@* <div class="row">
     <div class="col-9 mx-auto">
         <h3>Bostäder till salu - just nu</h3>
         <hr class="divider" />
 
-        <div class="row">
-            @if (allProperties != null)
-            {
-                @foreach (var property in allProperties)
-                {
-                    <div class="col-12 mb-3">
-                        <RealEstateCardComponent realEstate="property"></RealEstateCardComponent>
-                    </div>
-                }
-            }
-            else
-            {
-                <p>Laddar fastigheter...</p>
-            }
-        </div>
+        <div class="row"> *@
+@if (allProperties != null)
+{
+	<Paginator_REstate properties="allProperties"></Paginator_REstate>
+}
+else
+{
+	<p>Laddar fastigheter...</p>
+}
+@*    </div>
     </div>
-</div>
+</div> *@
 @* <h3>Bostäder till salu - just nu</h3>
 
 <hr class=" divider" />
@@ -53,20 +51,20 @@
 
 
 @code {
-    private IEnumerable<PropertyForSaleOverviewDTO> allProperties { get; set; }
-    [Parameter]
-    public string? Uid { get; set; }
+	private List<PropertyForSaleOverviewDTO> allProperties { get; set; }
+	[Parameter]
+	public string? Uid { get; set; }
 
-    protected override async Task OnInitializedAsync()
-    {
-        if (!string.IsNullOrEmpty(Uid))
-        {
-            allProperties = await propService.GetMyListingsAsync();
-        }
-        else
-        {
-            allProperties = await propService.GetAllPropertiesForSaleDTOAsync();
-        }
+	protected override async Task OnInitializedAsync()
+	{
+		if (!string.IsNullOrEmpty(Uid))
+		{
+			allProperties = await propService.GetMyListingsAsync();
+		}
+		else
+		{
+			allProperties = await propService.GetAllPropertiesForSaleDTOAsync();
+		}
 
-    }
+	}
 }

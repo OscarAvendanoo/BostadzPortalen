@@ -49,6 +49,22 @@ namespace BostadzPortalenClient.Services.RealtorSrvc
             var realtorInfo = await client.GetRealtorInfoAsync(id);
             return realtorInfo;
         }
+        // Jona
+        public async Task<bool> UpdateRealtorPartialAsync(RealtorUpdateDTO dto)
+        {
+            try
+            {
+                await GetBearerToken();
+                await client.MePATCHAsync(dto); 
+                return true;
+            }
+            catch (ApiException ex)
+            {
+                
+                var response = ConvertApiExceptions<string>(ex);
+                return false;
+            }
+        }
 
 
     }

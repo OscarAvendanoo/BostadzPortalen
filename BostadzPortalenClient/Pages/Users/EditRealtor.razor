@@ -1,17 +1,23 @@
 ﻿@page "/realtor/edit"
+@using AutoMapper
+@using BlazorBootstrap
+@using static System.Net.WebRequestMethods
 @inject IRealtorService RealtorService
+@inject IMapper Mapper
 @inject NavigationManager Navigation
+@inject NavigationManager navManager
+@inject ApiAuthenticationStateProvider stateProvider
 @inject IJSRuntime JS
 
 
-@* JOna *@
-@* <h3>Uppdatera mina uppgifter</h3>
+
+<h3>Uppdatera mina uppgifter</h3>
 
 @if (realtor == null)
 {
     <p> Laddar data...</p>
 }
-else
+ else
 {
     <EditForm Model="realtor" OnValidSubmit="HandleValidSubmit">
         <DataAnnotationsValidator />
@@ -38,34 +44,34 @@ else
     @if (!string.IsNullOrWhiteSpace(feedbackMessage))
     {
         <div class="alert alert-info mt-3">@feedbackMessage</div>
+    } 
+} 
+
+@code {
+    private RealtorUpdateDTO? realtor;
+    private string feedbackMessage = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await RealtorService.GetCurrentRealtor();
+        if (result.Success && result.Data != null)
+        {
+            realtor = new RealtorUpdateDTO
+                {
+                    FirstName = result.Data.FirstName,
+                    LastName = result.Data.LastName,
+                    PhoneNumber = result.Data.PhoneNumber
+                };
+        }
+        else
+        {
+            feedbackMessage = "Kunde inte ladda dina uppgifter.";
+        }
     }
-} *@
 
-@* @code { *@
-//     private UpdateRealtorDTO? realtor;
-//     private string feedbackMessage = string.Empty;
-
-//     protected override async Task OnInitializedAsync()
-//     {
-//         var result = await RealtorService.GetCurrentRealtorAsync();
-//         if (result.Success && result.Data != null)
-//         {
-//             realtor = new UpdateRealtorDTO
-//                 {
-//                     FirstName = result.Data.FirstName,
-//                     LastName = result.Data.LastName,
-//                     PhoneNumber = result.Data.PhoneNumber
-//                 };
-//         }
-//         else
-//         {
-//             feedbackMessage = "Kunde inte ladda dina uppgifter.";
-//         }
-//     }
-
-//     private async Task HandleValidSubmit()
-//     {
-//         var result = await RealtorService.UpdateRealtorPartialAsync(realtor!);
-//         feedbackMessage = result ? "Uppgifterna uppdaterades!" : "Misslyckades med att uppdatera.";
-//     }
-// }
+    private async Task HandleValidSubmit()
+    {
+        var result = await RealtorService.UpdateRealtorPartialAsync(realtor!);
+        feedbackMessage = result ? "Uppgifterna uppdaterades!" : "Misslyckades med att uppdatera.";
+    }
+}
