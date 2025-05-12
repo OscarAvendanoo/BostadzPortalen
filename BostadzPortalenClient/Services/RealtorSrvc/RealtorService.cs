@@ -22,7 +22,7 @@ namespace BostadzPortalenClient.Services.RealtorSrvc
             try
             {
                 await GetBearerToken();
-                var data = await client.MeAsync();
+                var data = await client.MeGETAsync();
                 response = new Response<Realtor>
                 {
                     Data = data,
