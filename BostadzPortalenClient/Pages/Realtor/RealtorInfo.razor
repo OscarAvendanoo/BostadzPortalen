@@ -2,10 +2,11 @@
 @using BostadzPortalenClient.Components.R_Estate
 @inject IPropertyForSaleService propService
 @inject IRealtorService realtorService
+@inject IPropertyForSaleService propService
 <!--Author: Kevin-->
 
 <div class="container mt-4">
-    
+
     @if (realtorInfo == null)
     {
         <p>Laddar mäklarinfo...</p>
@@ -17,14 +18,19 @@
                 <img src="@realtorInfo.RealtorImage" alt="Bild på @realtorInfo.FullName" class="img-fluid rounded" style="max-height: 300px;" />
             </div>
 
-            <div class="col-9">
-                <div class=" ms-5 mt-5">
-                <h2>@realtorInfo.FullName</h2>
-                    <p><strong><i class="bi bi-telephone"></i> Telefon:</strong> @realtorInfo.Phone</p>
-                    <p><strong><i class="bi bi-envelope"></i> Email:</strong> <a href="mailto:@realtorInfo.Email">@realtorInfo.Email</a></p>
-                @* JN: This needs to include the Agency-Logo *@
-                <p><strong>Mäklarbyrå:</strong> @realtorInfo.AgencyName</p>
+
+            <div class="col-4 d-flex justify-content-center align-items-center">
+                <div>
+                    <h2>@realtorInfo.FullName</h2>
+                    <p><strong>Telefon:</strong> @realtorInfo.Phone</p>
+                    <p><strong>Email:</strong> <a href="mailto:@realtorInfo.Email">@realtorInfo.Email</a></p>
+                    <p><strong>Mäklarbyrå:</strong> @realtorInfo.AgencyName</p>
+
                 </div>
+
+            </div>
+            <div class="col-5 d-flex justify-content-start align-items-center">
+                <img src="@realtorInfo.AgencyLogoUrl" alt="Bild på @realtorInfo.AgencyName" class="img-fluid rounded" style="max-height: 200px;" />
             </div>
         </div>
 
@@ -35,12 +41,12 @@
             <div class="row">
                 @if (realtorInfo.Properties == null)
                 {
-                    <p>Laddar fastigheter...</p>
+                    <BlazorBootstrap.Spinner />
                 }
-                @foreach (var estate in realtorInfo.Properties)
+                else
                 {
                     <div>
-                        <RealEstateCardComponent realEstate="estate"></RealEstateCardComponent>
+                        <Paginator_REstate properties="realtorInfo.Properties.ToList()" />
                     </div>
                 }
             </div>
@@ -57,11 +63,15 @@
     public string RealtorId { get; set; }
 
     private RealtorInfoDTO? realtorInfo { get; set; }
-
+    // private List<PropertyForSaleOverviewDTO> realEstates;
 
     protected override async Task OnInitializedAsync()
     {
         realtorInfo = await realtorService.GetRealtorInfoDTO(RealtorId);
 
+        // foreach(var estate in realtorInfo.Properties)
+        // {
+        //     realEstates.Add(estate);
+        // }
     }
 }

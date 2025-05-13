@@ -9,6 +9,7 @@
         public string Phone { get; set; } = "";
         public string Email { get; set; } = "";
         public string AgencyName { get; set; } = "";
+        public string AgencyLogoUrl { get; set; } = "";
         public string RealtorImage { get; set; } = "";
         //Needs to include the Agency-Logo
         //public string AgencyLogo {get; set;} = "";
