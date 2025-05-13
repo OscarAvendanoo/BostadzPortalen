@@ -1,8 +1,9 @@
-﻿@inject IPropertyForSaleService propService
+﻿@using BlazorBootstrap
+@inject IPropertyForSaleService propService
 
     @if(PropertiesForSale == null)
     {
-        <p>Laddar...</p>
+        <Spinner />
     }
     else
     {

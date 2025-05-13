@@ -1,6 +1,7 @@
 ﻿@page "/properties/index"
 @* @page "/properties/index/{Uid?}" *@
 @* Author: Johan Nelin *@
+@using BlazorBootstrap
 @using BostadzPortalenClient.Pages.R_EstatePge
 @using BostadzPortalenClient.Components.R_Estate
 @using BostadzPortalenClient.Services
@@ -25,7 +26,7 @@
 }
 else
 {
-	<p>Laddar fastigheter...</p>
+	<Spinner />
 }
 @*    </div>
     </div>

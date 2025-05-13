@@ -1,5 +1,6 @@
 ﻿@page "/search-results"
 @inject ISearchResultService SearchResultService
+@using BlazorBootstrap
 @using BostadzPortalenClient.Components.Search
 @using BostadzPortalenClient.Models
 @using BostadzPortalenClient.Components.R_Estate
@@ -25,7 +26,7 @@
 </div>
 @if (properties == null)
 {
-    <p>Laddar resultat...</p>
+    <Spinner />
 }
 else if (!properties.Any())
 {
