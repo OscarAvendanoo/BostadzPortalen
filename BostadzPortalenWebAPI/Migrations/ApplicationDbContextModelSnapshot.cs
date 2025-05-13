@@ -432,7 +432,7 @@ namespace BostadzPortalenWebAPI.Migrations
                             PropertyForSaleId = 12,
                             Address = "Yrkesgatan 46",
                             AskingPrice = 1295000m,
-                            Description = "Välkommen till denna trevliga 2:a på våning 2 i Brf Stålet. Bostaden har ett ljust kök med både bra förvaring och arbetsytor samt full maskinell utrustning. I köket finns plats för mindre matgrupp invid fönster. Öppningen in mot vardagsrummet bidrar till den ljusa och öppna känslan. I det luftiga vardagsrummet finns plats för både soffgrupp och större matgrupp. Här nås även den trivsamma balkongen. Sovrummet är rymligt och inrymmer dubbelsäng med lätthet, här finns både förvaring via garderober samt klädkammare i anslutning. Badrum med våtrumsmatta på väggar och golv, samt en rymlig hall med goda möjligheter för avhängning och ytterligare möjlighet för förvaring om så önskas. \r\n\r\n\r\n\r\nI källaren finns ett mindre förråd samt ett större förråd att disponera, i det större förrådet finns praktiskt en klädvårdsavdelning med tvättmaskin och torktumlare samt förvaringsmöjligheter längs ena väggen. Till lägenheten hör också en motorvärmarplats belägen direkt invid huset. Garageplatser finns i föreningen och dessa fördelas enligt separat kö. \r\n\r\n\r\n\r\nBrf Stålet är en förening om 120 lägenheter fördelat på 30 huskroppar. I månadsavgiften ingår värme, vatten, kabel-tv, bredband, fast kostnad för IP-telefoni, motorvärmarplats samt bostadsrättstillägg till hemförsäkringen. Föreningen tillämpar enhetsmätning av elen vilket innebär att lägenhetsinnehavaren endast betalar för den förbrukade elen och föreningen står för de fasta kostnaderna. Skurholmen är ett populärt bostadsområde med blandade boendeformer. Goda bussförbindelser till både centrum, Luleå Tekniska Universitet och Sunderby Sjukhus. Närhet till matvarubutik, apotek och restauranger.\r\n",
+                            Description = "Välkommen till denna trevliga 2:a på våning 2 i Brf Stålet. Bostaden har ett ljust kök med både bra förvaring och arbetsytor samt full maskinell utrustning. I köket finns plats för mindre matgrupp invid fönster. Öppningen in mot vardagsrummet bidrar till den ljusa och öppna känslan. I det luftiga vardagsrummet finns plats för både soffgrupp och större matgrupp. Här nås även den trivsamma balkongen. Sovrummet är rymligt och inrymmer dubbelsäng med lätthet, här finns både förvaring via garderober samt klädkammare i anslutning. Badrum med våtrumsmatta på väggar och golv, samt en rymlig hall med goda möjligheter för avhängning och ytterligare möjlighet för förvaring om så önskas. \r\n\r\n\r\n\r\nI källaren finns ett mindre förråd samt ett större förråd att disponera, i det större förrådet finns praktiskt en klädvårdsavdelning med tvättmaskin och torktumlare samt förvaringsmöjligheter längs ena väggen. Till lägenheten hör också en motorvärmarplats belägen direkt invid huset. Garageplatser finns i föreningen och dessa fördelas enligt separat kö. \r\n\r\n\r\n\r\nBrf Stålet är en förening om 120 lägenheter fördelat på 30 huskroppar. I månadsavgiften ingår värme, vatten, kabel-tv, bredband, fast kostnad för IP-telefoni, motorvärmarplats samt bostadsrättstillägg till hemförsäkringen. Föreningen tillämpar enhetsmätning av elen vilket innebär att lägenhetsinnehavaren endast betalar för den förbrukade elen och föreningen står för de fasta kostnaderna. Skurholmen är ett populärt bostadsområde med blandade boendeformer. Goda bussförbindelser till både centrum, Luleå Tekniska Universitet och Sunderby Sjukhus. Närhet till matvarubutik, apotek och restauranger.",
                             LivingArea = 60,
                             MonthlyFee = 4660m,
                             MunicipalityId = 3,
@@ -483,7 +483,7 @@ namespace BostadzPortalenWebAPI.Migrations
                             PropertyForSaleId = 15,
                             Address = "Pastellvägen 30",
                             AskingPrice = 2995000m,
-                            Description = "Välkommen till denna ljusa och insynsskyddade gavelbostad på eftertraktade Pastellvägen. Med fönster i tre väderstreck flödar naturligt ljus in från morgon till kväll, vilket skapar en luftig och trivsam atmosfär. Rymligt vardagsrum med stora fönster som bjuder på härlig utsikt och vackert ljusinsläpp. Trevligt fullutrustat kök med gott om utrymme för matlagning och matplats. Goda förvaringsmöjligheter i lägenheten samt ett källarförråd. \r\nHär bor du med ett fantastiskt läge i härliga och attraktiva Johanneshov som erbjuder grönskande parker och bra restauranger och fik. Gamla Enskede Matbod, Robin Delselius bageri och Matateljén är bara några exempel. På 3 minuter kommer du till Blåsut där T-banan tar dig in till Söder på endast 6 min. Här finns även bra cykelvägar som tar dig in på 10 minuter. I Sandsborg finns ICA Supermarket, apotek och Sandsborgsbadet. Inom räckhåll har du även Globenområdet där det finns gott om shopping, restauranger och matbutiker. I närheten finns 3 arena och Hovet som erbjuder många spännande evenemang. ",
+                            Description = "Välkommen till denna ljusa och insynsskyddade gavelbostad på eftertraktade Pastellvägen. Med fönster i tre väderstreck flödar naturligt ljus in från morgon till kväll, vilket skapar en luftig och trivsam atmosfär. Rymligt vardagsrum med stora fönster som bjuder på härlig utsikt och vackert ljusinsläpp. Trevligt fullutrustat kök med gott om utrymme för matlagning och matplats. Goda förvaringsmöjligheter i lägenheten samt ett källarförråd. \r\nHär bor du med ett fantastiskt läge i härliga och attraktiva Johanneshov som erbjuder grönskande parker och bra restauranger och fik. Gamla Enskede Matbod, Robin Delselius bageri och Matateljén är bara några exempel. På 3 minuter kommer du till Blåsut där T-banan tar dig in till Söder på endast 6 min. Här finns även bra cykelvägar som tar dig in på 10 minuter. I Sandsborg finns ICA Supermarket, apotek och Sandsborgsbadet. Inom räckhåll har du även Globenområdet där det finns gott om shopping, restauranger och matbutiker. I närheten finns 3 arena och Hovet som erbjuder många spännande evenemang.",
                             LivingArea = 57,
                             MonthlyFee = 4168m,
                             MunicipalityId = 2,
@@ -534,7 +534,7 @@ namespace BostadzPortalenWebAPI.Migrations
                             PropertyForSaleId = 18,
                             Address = "Abborrens väg 4",
                             AskingPrice = 3500000m,
-                            Description = "I populära Vätö (Klockarängen) ligger denna soliga och välskötta fastighet på hörntomt utan insyn!\r\nVälkommen till ett drömlikt boende med huvudbyggnad från 2013, stort gästhus med flertalet bäddar samt med naturen som granne.\r\nHär bor ni skärgårdsnära med närhet till havsbad på fin strand, möjlighet till båtplats samt vackra strövområden och vandringsleder i fantastiska omgivningar.\r\nDetta lyxiga fritidshus lämpar sig väl även som permanentboende med ett hus om ca. 71 kvm (Entréplan) samt ett stort allrum på övre plan.\r\nHuvudbyggnaden erbjuder två stora sovrum, vardagsrum/kök i öppen planlösning med värmande täljstenskamin. Köket är bra utrustat med t.ex. diskmaskin och plats för köksbord åt 8 personer. Från kök/vardagsrum finns dörr ut till stora altanen. Badrummet erbjuder dusch, snålspolande vattentoalett, tvättmaskin och bastu.\r\nUtöver huvudbyggnad finns ett gästhus, om ca. 42 kvm. Här finns vardagsrum, litet kök, sovrum samt ett toalettrum.\r\nUtöver detta finns två friggebodar om ca. 10 kvm & 12kvm.\r\nHörntomten om 2 308 kvm ligger insynsskyddat har en härlig mix av trädgård- och naturtomt med berg i dagen. Trädgården klarar sig till stor del på egen hand och är välplanerad med gräsytor, planteringar och blommor. De intilliggande skogarna erbjuder gott om svamp och bär precis som på denna tomt. Favoritplatsen är helt klart den trädäckade altan på berget med paviljong och växthus!\r\nFastigheten har tillgång till vatten året runt in till huvudbyggnad via egen borrad brunn samt är kopplad till godkända avlopp. Man har också tillgång till sommarvatten via samfällighetsförening. Här finns också fiber som möjliggör distansarbete likväl som tonåringars spellystnad.\r\nDet har gjorts ett flertal stora renoveringar under de senaste åren. Se längre ner i annonsen för mer information om dessa renoveringar. Här kan man verkligen koppla av från dag 1 då allt är välskött, renoverat och i bra skick!\r\nDetta boende erbjuder aktiviteter året om när årstiderna skiftar. Bad om sommaren sker på badstranden i området som också har ett hopptorn. Vid badstranden har man också möjlighet till båtplats på välskötta båtbryggor. Ni har närhet till områdets välskötta grönområden med bl.a. fotbollsplan för lek och spel samt boulebana. I Harg finns det matbutik, skola och dagis och i Nysättra strax före Vätöbron finns bygghandel, pizzeria och kiosk. Ni har 14 km till Roslagens golfbana där det på vintertid finns en slinga på 7 km för skidor. 3,5 km till populära Vätö självplock och färska jordgubbar. Ni har 85 km med bil till Stockholm och 20 km till Norrtälje. Roslagen har ett fint vägnät för landsvägscykling. Fastigheten ligger med närhet till bondgård med möjlighet till hästridningslektioner.\r\nNi har 300 m till närmaste busshållplats (buss nr 638) som tar dig direkt in till Norrtälje på 55 minuter.\r\nVälkommen med din visningsanmälan! ",
+                            Description = "I populära Vätö (Klockarängen) ligger denna soliga och välskötta fastighet på hörntomt utan insyn!\r\nVälkommen till ett drömlikt boende med huvudbyggnad från 2013, stort gästhus med flertalet bäddar samt med naturen som granne.\r\nHär bor ni skärgårdsnära med närhet till havsbad på fin strand, möjlighet till båtplats samt vackra strövområden och vandringsleder i fantastiska omgivningar.\r\nDetta lyxiga fritidshus lämpar sig väl även som permanentboende med ett hus om ca. 71 kvm (Entréplan) samt ett stort allrum på övre plan.\r\nHuvudbyggnaden erbjuder två stora sovrum, vardagsrum/kök i öppen planlösning med värmande täljstenskamin. Köket är bra utrustat med t.ex. diskmaskin och plats för köksbord åt 8 personer. Från kök/vardagsrum finns dörr ut till stora altanen. Badrummet erbjuder dusch, snålspolande vattentoalett, tvättmaskin och bastu.\r\nUtöver huvudbyggnad finns ett gästhus, om ca. 42 kvm. Här finns vardagsrum, litet kök, sovrum samt ett toalettrum.\r\nUtöver detta finns två friggebodar om ca. 10 kvm & 12kvm.\r\nHörntomten om 2 308 kvm ligger insynsskyddat har en härlig mix av trädgård- och naturtomt med berg i dagen. Trädgården klarar sig till stor del på egen hand och är välplanerad med gräsytor, planteringar och blommor. De intilliggande skogarna erbjuder gott om svamp och bär precis som på denna tomt. Favoritplatsen är helt klart den trädäckade altan på berget med paviljong och växthus!\r\nFastigheten har tillgång till vatten året runt in till huvudbyggnad via egen borrad brunn samt är kopplad till godkända avlopp. Man har också tillgång till sommarvatten via samfällighetsförening. Här finns också fiber som möjliggör distansarbete likväl som tonåringars spellystnad.\r\nDet har gjorts ett flertal stora renoveringar under de senaste åren. Se längre ner i annonsen för mer information om dessa renoveringar. Här kan man verkligen koppla av från dag 1 då allt är välskött, renoverat och i bra skick!\r\nDetta boende erbjuder aktiviteter året om när årstiderna skiftar. Bad om sommaren sker på badstranden i området som också har ett hopptorn. Vid badstranden har man också möjlighet till båtplats på välskötta båtbryggor. Ni har närhet till områdets välskötta grönområden med bl.a. fotbollsplan för lek och spel samt boulebana. I Harg finns det matbutik, skola och dagis och i Nysättra strax före Vätöbron finns bygghandel, pizzeria och kiosk. Ni har 14 km till Roslagens golfbana där det på vintertid finns en slinga på 7 km för skidor. 3,5 km till populära Vätö självplock och färska jordgubbar. Ni har 85 km med bil till Stockholm och 20 km till Norrtälje. Roslagen har ett fint vägnät för landsvägscykling. Fastigheten ligger med närhet till bondgård med möjlighet till hästridningslektioner.\r\nNi har 300 m till närmaste busshållplats (buss nr 638) som tar dig direkt in till Norrtälje på 55 minuter.\r\nVälkommen med din visningsanmälan!",
                             LivingArea = 71,
                             MonthlyFee = 0m,
                             MunicipalityId = 2,
@@ -579,6 +579,312 @@ namespace BostadzPortalenWebAPI.Migrations
                             TypeOfProperty = 1,
                             YearBuilt = 2022,
                             YearlyOperatingCost = 30905m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 21,
+                            Address = "Smedsgatan 2",
+                            AskingPrice = 2395000m,
+                            Description = "Med centralt läge och promenadavstånd till både stadskärnan och strandpromenaden bor du här i en trivsam vindsvåning med hiss – lugnt placerad högst upp i huset med fönster i tre väderstreck. Den fria utsikten, det generösa ljusinsläppet och de karaktäristiska takkuporna ger hemmet en egen identitet och ett spännande uttryck.\r\n\r\n\r\n\r\nPlanlösningen är lätt att tycka om. Vardagsrum och matplats bildar ett inbjudande rum för både vardag och helg, och köket från Marbodal är välplanerat med bra förvaring och ljusa ytskikt. Från matplatsen når du den rymliga balkongen – en plats för kaffe i morgonsolen likväl som lugna kvällar i dagens sista varma strålar.\r\n\r\n\r\n\r\nSovrummet har ett rofyllt läge och bjuder samtidigt på fin vy över stan – en plats att dra sig tillbaka till men ändå vara nära livet utanför. Badrummet är kaklat, utrustat med badkar och har nyligen uppdaterats med nytt möblemang som ger en fräsch och praktisk känsla. Hallen erbjuder bra med plats för ytterkläder och skor.\r\n\r\n\r\n\r\nHär bor du i en välskött och omtyckt förening med en grön och trivsam innergård – planteringar, utemöbler och en gemensam uteplats bjuder in till avkoppling under sommaren. I källaren finns både tvättstuga och ett förråd som tillhör lägenheten. För dig som får övernattande gäster finns dessutom en gästlägenhet med pentry att hyra för endast 200 kr/natt.\r\n\r\n\r\n\r\nParkeringsplatser under skärmtak finns att tillgå, och läget är centralt men ändå avskilt. Härifrån har du närhet till centrum, älven, gym, Broparken och smidiga bussförbindelser till universitetet, NUS och mycket mer.\r\n\r\n\r\n\r\nVill du bo centralt men ändå lugnt? Då kan det här vara precis vad du letar efter.",
+                            LivingArea = 63,
+                            MonthlyFee = 4371m,
+                            MunicipalityId = 1,
+                            NumberOfRooms = 2,
+                            PlotArea = 0,
+                            RealtorId = "e7cde164-d981-41df-b3d9-35d42c0d8323",
+                            SupplementaryArea = 0,
+                            TypeOfProperty = 0,
+                            YearBuilt = 1991,
+                            YearlyOperatingCost = 2700m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 22,
+                            Address = "Alfens allé 15",
+                            AskingPrice = 1295000m,
+                            Description = "Alfens allé 15 - en smart planerad bostad där varje kvadratmeter har en tanke bakom sig. \r\n\r\n\r\n\r\nDenna bostad bjuder på en smart och funktionell planlösning med stilrena och smakfulla materialval. Här hittar du ett fräscht badrum med både tvättmaskin och torktumlare, ett rymligt och flexibelt vardagsrum/sovrum där du kan möblera efter egen smak, samt ett stilfullt kök med moderna vitvaror och en härlig matplats vid fönstret.\r\n\r\n\r\n\r\nFör att verkligen höja vardagslyxen, kan du njuta av den stora altanen som erbjuder perfekt plats för både morgonkaffe och kvällshäng med vänner. \r\n\r\n\r\n\r\nOmrådet kännetecknas av sina gröna omgivningar och utmärkta kommunikationer. Bussen, som stannar alldeles i närheten, tar dig snabbt både till universitetsområdet och till centrala stan. Dessutom bor du med gångavstånd till den populära Nydalasjön med flertalet badplatser, volleybollplan, utegym etc. \r\n\r\n\r\n\r\nVill du bo smart, bekvämt och med en härlig uteplats? Då har du hittat rätt. Varmt välkommen att boka din visning!",
+                            LivingArea = 35,
+                            MonthlyFee = 2636m,
+                            MunicipalityId = 1,
+                            NumberOfRooms = 1,
+                            PlotArea = 0,
+                            RealtorId = "a7158f9e-8afb-4389-8e68-348450f4b6a9",
+                            SupplementaryArea = 0,
+                            TypeOfProperty = 0,
+                            YearBuilt = 2015,
+                            YearlyOperatingCost = 3156m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 23,
+                            Address = "Ansmark 70",
+                            AskingPrice = 3445000m,
+                            Description = "Här finns nu en riktigt rymlig enplansvilla med hela fyra sovrum och med mycket låga driftskostnader. Fastigheten har en stor tomt och ett naturnära läge samtidigt som det är bekväm närhet till Umeå. Huset värms upp med jordvärme som ger en låg energiförbrukning som möjliggör rabatt på bolåneräntan\r\n\r\n\r\n\r\nIntresserad av den här bostaden? Klicka på knappen läs mer hos mäklaren nedan. Där hittar du mer information och anmäler dig till visning.",
+                            LivingArea = 152,
+                            MonthlyFee = 0m,
+                            MunicipalityId = 1,
+                            NumberOfRooms = 5,
+                            PlotArea = 2659,
+                            RealtorId = "a7158f9e-8afb-4389-8e68-348450f4b6a9",
+                            SupplementaryArea = 0,
+                            TypeOfProperty = 2,
+                            YearBuilt = 1976,
+                            YearlyOperatingCost = 23225m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 24,
+                            Address = "Astronomgatan 5A",
+                            AskingPrice = 2595000m,
+                            Description = "Välkommen till Astronomgatan 5A! \r\n\r\nHär erbjuds en fräsch och modern fyrarumslägenhet i gavelläge med fint ljusinsläpp, påkostad utrustning och öppen planlösning. En mycket fin lägenhet med fräscha ytskikt, stora sällskapsytor och smarta förvaringslösningar. Här är det bara att flytta in och njuta! \r\n\r\nHuset erbjuder alla bekvämligheter med ett modernt boende med vattenburen golvvärme hela bottenplan och tre rymliga sovrum på övre plan och ett entréplan med kök, vardagsrum och en rymlig hall. Dessutom finns här två rymliga badrum som är helt klädd i kakel och klinker.\r\n\r\nTill radhuset hör en uteplats på framsidan av huset med sol nästan hela dagen samt en altan på baksidan av huset med altan.\r\n\r\nTill detta radhus finns en p-plats utanför hus med laddstolpe samt möjlighet att hyra en carportplats med tillhörande förråd.\r\n\r\n\r\n\r\nHär är det lätt för hela familjen att trivas – Äventyrslekpark på promenadavstånd och Nydalasjön en bit bort. På Tavleliden bor du i omtyckta och barnvänliga kvarter. Här finner ni badplats, fina grönområden och förskolor.Ta med familjen och kom på visning!",
+                            LivingArea = 107,
+                            MonthlyFee = 8589m,
+                            MunicipalityId = 1,
+                            NumberOfRooms = 4,
+                            PlotArea = 0,
+                            RealtorId = "144f56f5-10d1-4ab3-ab72-e917ec9cacc4",
+                            SupplementaryArea = 0,
+                            TypeOfProperty = 1,
+                            YearBuilt = 2016,
+                            YearlyOperatingCost = 14196m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 25,
+                            Address = "Backenvägen 117",
+                            AskingPrice = 4750000m,
+                            Description = "På backen finner ni denna rymliga villa med 4 lägenheter varav 1 lägenhet, den största på våning 1 kommer att vara tillgänglig för köparen just nu.\r\n\r\nPå första planet är det 2 st 2.or, på våning 2 är det en 3:a och högst upp en mysig 1.5 rums lägenhet med snedtak.\r\n\r\nHuset har lågt och effektiv drift genom luft/vatten värmepumpar och bra läge nära skolor och kommunikationer. Intäkterna är ca 310 000 per år när allt är uthyrt.\r\n\r\nFör mer information kontakta ansvarig mäklare.",
+                            LivingArea = 210,
+                            MonthlyFee = 0m,
+                            MunicipalityId = 1,
+                            NumberOfRooms = 9,
+                            PlotArea = 1099,
+                            RealtorId = "144f56f5-10d1-4ab3-ab72-e917ec9cacc4",
+                            SupplementaryArea = 90,
+                            TypeOfProperty = 2,
+                            YearBuilt = 1948,
+                            YearlyOperatingCost = 43000m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 26,
+                            Address = "Bygatan 39",
+                            AskingPrice = 5695000m,
+                            Description = "LJUS & RYMLIG BOSTAD -  BALKONG I SÖDERLÄGE - VÄLSKÖTT FÖRENING MED TOPPLÄGE\r\n\r\n\r\n\r\nBOSTADEN\r\n\r\nVälkommen till denna fantastiska bostad med ett av områdets bästa lägen – ett stenkast från Huvudsta Centrum och tunnelbanan, omgiven av grönskande omgivningar. Här erbjuds en välplanerad 112 kvm, som är omgjord till en rymlig femrumslägenhet som känns ännu större än den faktiska ytan. Bostaden håller ett utmärkt skick och ligger högt upp i huset med en solig balkong där du kan njuta av solen under större delen av dagen. Vardagsrummet, som utgör bostadens hjärta, erbjuder gott om plats för socialt umgänge och ger en luftig känsla. Den genomtänkta planlösningen innefattar fyra rymliga sovrum samt goda förvaringsmöjligheter, vilket gör denna bostad perfekt för hela familjen.\r\n\r\n\r\n\r\nFÖRENINGEN\r\n\r\nBRF Bygatan är en stor och stabil bostadsrättsförening med god ekonomi och välskötta fastigheter. Här bor ni i en trygg förening med värdefulla dolda tillgångar om 19 hyresrätter, 3 st lokaler samt med låg belåning om ca 4 042 kr/kvm! Föreningen har vackra och grönskande innergårdar mellan huskropparna, vid Bygatan 25 finns grönskande träd samt en egen boulebana! På andra gårdar finner ni gungor, fontän och annat kul för barn och vuxna. Invid Bygatan finnes Byparken som är en mycket uppskattad lekplats för barnen och ett trevligt ställe att mötas på för de vuxna.\r\n\r\n\r\n\r\nOMRÅDET\r\n\r\nPå Bygatan 39 bor du i en perfekt kombination av citynära bekvämlighet och naturnära livskvalitet! Med Huvudsta Centrum och tunnelbanans blå linje endast en kort promenad bort tar du dig snabbt till City på under 15 minuter – perfekt för både arbete och nöje. Utanför porten hittar du dessutom flera busslinjer och gångavstånd till Solna Centrum med sitt breda utbud av shopping, restauranger och service. I charmiga Huvudsta finns allt du behöver i vardagen. Det renoverade Huvudsta Centrum erbjuder livsmedelsbutiker, apotek, caféer, restauranger, gym och frisör. Behöver du ett större shoppingutbud väntar Mall of Scandinavia, bara tio minuter bort med bil. För resenären är även Arlanda flygplats lättillgänglig via smidiga kommunikationer. För den som värdesätter natur och aktivitet finns det mycket att upptäcka. Bara ett stenkast från bostaden finner du Huvudsta strandbad med badbrygga, omklädningshytter och café, och vill du bada i pool ligger Huvudstabadet med tempererad 50-metersbassäng inom bekvämt avstånd. Strandpromenaden längs Ulvsundasjön bjuder på underbara cykel- och promenadvägar som leder hela vägen in till Hornsbergs strand och Karlbergs slott. Grönområdena är många – från Skytteholmsparkens lekplatser och aktiviteter till de öppna ytorna på Huvudstafältet som bjuder in till träning. Barnfamiljer uppskattar närheten till flera förskolor och skolor, samt den trygga och lugna miljön.",
+                            LivingArea = 112,
+                            MonthlyFee = 7114m,
+                            MunicipalityId = 2,
+                            NumberOfRooms = 5,
+                            PlotArea = 0,
+                            RealtorId = "66787f78-4dd5-4c82-917e-1bf99028a59a",
+                            SupplementaryArea = 0,
+                            TypeOfProperty = 0,
+                            YearBuilt = 1968,
+                            YearlyOperatingCost = 12960m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 27,
+                            Address = "1:a Huvudstagatan 20",
+                            AskingPrice = 2395000m,
+                            Description = "I trevliga lugna kvarter i Gamla Huvudsta, Solna ligger denna trivsamma och ljusa 1:a i en nybildad bostadsrättsförening. Lägenheten är modernt inredd i absolut toppskick. Lägenheten upplevs ljus och luftig och har en trivsam planlösning. Välplanerad med bl.a. kök, ljust och luftigt vardagsrum med matplats och sovalkov samt praktisk rymlig entréhall och ett smakfullt helkaklat badrum förberett för tvättmaskin.\r\n\r\nLägenheten är centralt belägen i gemytliga Gamla Huvudsta, nära  kvarterskrogar och affärer samt har även närhet till såväl Huvudsta Centrum som till populära Solna Centrum, med stort utbud av butiker och restauranger. I Solna finns även populära Friends arena med både evenemang och shopping.\r\nKnappa tio minuter till fots från bostaden ligger promenadstråken vid Huvudsta strand och Ulvsundasjön. Där det finns pool och friluftsbad, 4-H gård, ridskola, tennisbanor, Pampas Marina samt Karlbergs slott. Det är även nära till mysiga restauranger och badbryggor vid Hornsbergs strand. Området har goda kommunikationer och till Kungsholmen och Vasastan har man dessutom cykelavstånd.\r\n\r\nVälkommen till populära Gamla Huvudsta.\r\n\r\n\r\n\r\n\r\nMer information om lägenhetens nettoskulsättning och föreningens energideklaration är under framtagande.   \r\n\r\nKontakta ansvarig fastighetsmäklare för ytterligare information och bokning av förhandsvisning.",
+                            LivingArea = 35,
+                            MonthlyFee = 2500m,
+                            MunicipalityId = 2,
+                            NumberOfRooms = 1,
+                            PlotArea = 0,
+                            RealtorId = "66787f78-4dd5-4c82-917e-1bf99028a59a",
+                            SupplementaryArea = 0,
+                            TypeOfProperty = 0,
+                            YearBuilt = 1974,
+                            YearlyOperatingCost = 6600m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 28,
+                            Address = "Bangatan 17",
+                            AskingPrice = 10500000m,
+                            Description = "Välkomna till denna praktfulla och stadsnära sekelskiftsvilla från 20-talet. \r\n\r\nVillan har genomgående renoverats och erbjuder en imponerande boyta på hela 277 kvadratmeter fördelat på tre våningsplan samt en inredd källare på 90 kvadratmeter, garanteras en bekväm och rymlig livsstil för er och er familj.\r\n\r\n\r\n\r\nGenom de generösa fönstren och den härliga takhöjden strömmar naturligt ljus in i varje vrå och skapar en inbjudande och luftig atmosfär. Ni kan njuta av en fantastisk utsikt över den grönskande tomten som ger er både privatliv genom insynsskydd och en naturlig fridfullhet.\r\n\r\n\r\n\r\nBeläget på Bangatan, endast 5 minuter från stadens puls, erbjuder detta hem en oas av skönhet och komfort som väntar på er att utforska. Utöver allt detta erbjuder huset även en separat uthyrningsdel om 51 kvadratmeter, vilket kan erbjuda fler möjligheter och en stadig inkomst.\r\n\r\nGe er själva möjligheten att skapa minnen och uppleva det bästa av sekelskiftets charm och nutidens bekvämligheter.\r\n\r\n\r\n\r\nLåt oss öppna dörrarna till ett hem med ett läge i absoluta världsklass, du är varmt välkommen!",
+                            LivingArea = 277,
+                            MonthlyFee = 0m,
+                            MunicipalityId = 1,
+                            NumberOfRooms = 9,
+                            PlotArea = 732,
+                            RealtorId = "36cd14e4-aca3-4108-8120-42b5ffaee35f",
+                            SupplementaryArea = 90,
+                            TypeOfProperty = 2,
+                            YearBuilt = 1929,
+                            YearlyOperatingCost = 25752m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 29,
+                            Address = "Biologigränd 24",
+                            AskingPrice = 1795000m,
+                            Description = "Passa på att lägga vantarna på denna snygga lägenhet! Här hittar du ett stilrent kök som är redo för både vardagsmat och mästerverk, ett fräscht badrum med kakel och klinker, och inte minst – en inglasad balkong i sydväst där du kan njuta av morgonkaffet eller kvällens sista solstrålar, oavsett väder!\r\n\r\n\r\n\r\nLägenheten är stilren med ljusa färger och erbjuder en social planlösning mellan kök och vardagsrum, vilket gör det perfekt för både middagsbjudningar och mysiga hemmakvällar. Plus, det härliga ljusinsläppet ger hela bostaden en extra dos av feel-good. Som bonus finns det också ett rymligt varmförråd bekvämt beläget på samma plan.\r\n\r\n\r\n\r\nOch vad sägs om läget? Biologigränd ligger på Ålidhem, ett superläge vare sig du är student, barnfamilj eller bara vill ha nära till allt. Här är det gångavstånd till både universitetet och sjukhuset, och för den som gillar att röra på sig finns grönområden och IKSU alldeles i närheten. Kommunikationerna är dessutom toppen – du tar dig snabbt och smidigt både in till stan och ut till universitetsområdet.\r\n\r\n\r\n\r\nSom grädde på moset bor du i en bostadsrättsförening som inte bara är aktiv, utan också har riktigt bra ekonomi – här är det tryggt och trivsamt på alla sätt! Föreningen erbjuder dessutom bekvämligheter såsom bastu, gym, pingisrum, tvättstugor, gästlägenhet, festlokal och hobbyrum, vilket gör ditt boende ännu mer komplett och trivsamt.\r\n\r\n\r\n\r\nVälkommen hem!",
+                            LivingArea = 78,
+                            MonthlyFee = 5178m,
+                            MunicipalityId = 1,
+                            NumberOfRooms = 3,
+                            PlotArea = 0,
+                            RealtorId = "36cd14e4-aca3-4108-8120-42b5ffaee35f",
+                            SupplementaryArea = 0,
+                            TypeOfProperty = 0,
+                            YearBuilt = 1970,
+                            YearlyOperatingCost = 0m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 30,
+                            Address = "Björnbärsvägen 39B",
+                            AskingPrice = 2695000m,
+                            Description = "Välkommen till ett trivsamt och välplanerat hem i två plan med ljusa ytor, genomgående ekparkett och en stor inglasad balkong i soligt läge. Här bor du med egen entré, flera praktiska förvaringslösningar och två helkaklade badrum – perfekt för familjen eller dig som vill ha gott om utrymme.\r\n\r\nEntrén ligger på nedre plan med klinkergolv och golvvärme – en praktisk hall med plats för avhängning. En trappa upp öppnar lägenheten upp sig i en rymlig och möblerbar hall, från vilken du når bostadens alla rum. \r\n\r\nKöket bjuder på vackra skåpluckor i lönn (fågelögon), generösa arbetsytor, gott om förvaring och plats för ett större matbord vid fönstret med utsikt över innergården. Det rymliga vardagsrummet har ett fantastiskt ljusinsläpp och gott om plats för soffgrupp och umgänge.\r\n\r\nLägenheten har tre sovrum, varav två är belägna i en separat sovrumsdel med eget badrum – perfekt för barn, gäster eller hemmakontor. Det större sovrummet har plats för dubbelsäng och förvaring i garderober. Den generösa klädkammaren erbjuder extra förvaring och används idag som snickarbod.\r\n\r\nBåda badrummen är smakfullt inredda med kakel och klinker samt golvvärme, och i det ena finns tvättmaskin/torktumlare för en smidigare vardag. Den inglasade balkongen i bästa söderläge – ett extrarum större delen av året har plats för både loungehörna och middagsbord.\r\n\r\n\r\n\r\nStor, stabil och välskött förening som gjort stora underhåll under åren. Trevliga medlemsförmåner som tvättstugor, samlingslokal med bastu och övernattningsrum för gäster. Gård med fina planteringar, utegrupper och lekplatser. Parkeringsplats med motorvärme finns ledig \r\n\r\n\r\n\r\nBöleäng erbjuder all service som behövs, här bor ni bekvämt nära lekplatser, skola, förskola, fotbollsplaner, Winpos arena, kvartersrestaurangen GKs, välsorterad mataffär och med härlig natur runt husknuten. Aktivt föreningsliv, fina motionsstråk på Bölesholmarna och efter Röbäcksslätten. God kommunikation med buss och cykelavstånd till centrum. Välkommen!",
+                            LivingArea = 102,
+                            MonthlyFee = 5449m,
+                            MunicipalityId = 1,
+                            NumberOfRooms = 4,
+                            PlotArea = 0,
+                            RealtorId = "0a0ee7be-cde2-49bd-b48d-b675a4fbfbf0",
+                            SupplementaryArea = 0,
+                            TypeOfProperty = 0,
+                            YearBuilt = 1901,
+                            YearlyOperatingCost = 39132m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 31,
+                            Address = "Borgvägen 27E",
+                            AskingPrice = 4995000m,
+                            Description = "Radhus mellan broarna! I idylliska kvarter, på en lugn återvändsgata, har ni nu chansen att förvärva ett riktigt fint gavelradhus! På andra sidan ytterdörren väntar 136 + 16 väldisponerade kvadratmeter som fördelar sig på tre våningsplan. Invändigt kommer ni att uppskatta den perfekt avvägda planlösningen som på entréplan erbjuder sociala ytor i form av kök och vardagsrum samt direktaccess till husets altan och grönyta. På entréplan återfinns även gästtoalett och tvättstuga. En trappa upp är den mer privata sfären som innefattar 4 st sovrum och ett badrum, notera att man låtit bredda dörröppningen till det ena rummet och numera nyttjar det som klädkammare. Två trappor upp finns ett generöst planerat allrum som likväl går att disponera som ett stort sovrum. Förvaring sägs vara något man aldrig kan få för mycket av varpå det bör vara glädjande nyheter när jag berättar att detta våningsplan även inrymmer ett cirka 16 kvm stort förråd!\r\n\r\n\r\n\r\nFör er som har svårt att hålla koll på nycklar kan ni dra en lättnadens suck - dörren har ett digitalt lås (Yale Doorman).\r\n\r\n\r\n\r\n» Genomgående renoverat hus!\r\n\r\n» Förråd i direkt anslutning till ytterdörren. Garageplats i länga + p-plats med motorvärmare.\r\n\r\n\r\n\r\nHär bor ni nära Tegs centrum samt Söderslätts handelsområde med Ikea och Avion. Direkt närhet till förskola/skola, matbutiker, restauranger, ishallen och ett stenkast från älven med dess fina strandpromenad och möjlighet till fiske och bad. Ni har dessutom gång- och cykelavstånd till citykärnan samt goda bussförbindelser till Umeå Universitet och NUS.",
+                            LivingArea = 136,
+                            MonthlyFee = 0m,
+                            MunicipalityId = 1,
+                            NumberOfRooms = 6,
+                            PlotArea = 110,
+                            RealtorId = "0a0ee7be-cde2-49bd-b48d-b675a4fbfbf0",
+                            SupplementaryArea = 16,
+                            TypeOfProperty = 1,
+                            YearBuilt = 1976,
+                            YearlyOperatingCost = 27711m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 32,
+                            Address = "Badstrandsvägen 19",
+                            AskingPrice = 2500000m,
+                            Description = "Välkommen till denna mysiga 1:a med centralt läge på vackra Stora Essingen. Det fria läget med långt till närmsta hus ger bostaden ett härligt ljusinsläpp,  och den väldisponerade planlösningen ger plats för allt du behöver och en flexibel möblering. Det ljusa separata köket har både arbetsyta och god förvaring och här ryms även en mindre matplats. Det helkaklade badrummet är fint renoverat med sobra färger, duschhörna samt handfat med kommod och spegel över. \r\n\r\n\r\n\r\nHär bor du i en välskött bostadsrättsföreningen med mycket god ekonomi och många stora renoveringar utförda. Lägenheten har ett fantastiskt läge med både lugnet på Stora Essingen och gångavstånd både till vattnet med bad och mysiga promenadstråk, samt närhet till Kungsholmens stadspuls. Utanför porten finns busshållplats med bussar som snabbt tar dig in till city. Inom kort gångavstånd finns också restauranger, caféer och matbutik.\r\n\r\n\r\n\r\nMissa inte denna pärla!",
+                            LivingArea = 32,
+                            MonthlyFee = 2503m,
+                            MunicipalityId = 2,
+                            NumberOfRooms = 1,
+                            PlotArea = 0,
+                            RealtorId = "a64ba80d-139c-4816-a169-9344e3d58e22",
+                            SupplementaryArea = 0,
+                            TypeOfProperty = 0,
+                            YearBuilt = 1946,
+                            YearlyOperatingCost = 0m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 33,
+                            Address = "Badviksvägen 4",
+                            AskingPrice = 12495000m,
+                            Description = "Välkommen till denna rymliga villa på Badviksvägen 4 i Vaxholm, en bostad som erbjuder generösa ytor och modern komfort. Med sina 192 kvadratmeter är huset stort och välplanerat, vilket ger gott om utrymme för hela familjen. Villan har högt i tak, vilket skapar en luftig och ljus atmosfär som genomsyrar hela bostaden.\r\n\r\nDen moderna utrustningen i hemmet säkerställer en bekväm vardag och möter de flesta behov. Bostaden består av fem rum fördelade på en planlösning som är både praktisk och stilfull, perfekt för både sociala tillställningar och avkoppling.\r\n\r\nTomten sträcker sig över imponerande 1570 kvadratmeter och erbjuder en vacker trädgårdstomt, idealisk för utomhusaktiviteter och trädgårdsarbete. Här finner du även en rymlig pool och en vedeldad bastu. För extra boende eller gäster finns ett gästhus på 30 kvadratmeter byggt 2014. Det är utrustat med bergvärmepump som huvudbyggnaden, vilket ger effektiv uppvärmning och miljövänlig energiförbrukning. Den vedeldade badtunnan intill gästhuset ger ytterligare möjligheter till avkoppling året runt.\r\n\r\n\r\nI Vaxholm finns ett brett utbud av badplatser, restauranger, butiker, motionsspår samt förskolor och skolor. Villan ligger i det attraktiva området Resarö, känt för sin natursköna miljö och närhet till vatten. Här får du ett hem där komfort och stil går hand i hand, med en genomtänkt design både inne och ute.  Välkommen att upptäcka ditt nya hem.",
+                            LivingArea = 192,
+                            MonthlyFee = 0m,
+                            MunicipalityId = 2,
+                            NumberOfRooms = 5,
+                            PlotArea = 1570,
+                            RealtorId = "b03b6b66-a5fd-4fbc-a3f2-9c7202cbee60",
+                            SupplementaryArea = 36,
+                            TypeOfProperty = 2,
+                            YearBuilt = 2010,
+                            YearlyOperatingCost = 41432m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 34,
+                            Address = "Bagarstugans väg 14",
+                            AskingPrice = 3395000m,
+                            Description = "2 ÅRS AVGIFTSFRITT!\r\nEndast 1 hus kvar! Missa inte möjligheten att förvärva ditt parhus med tillträde omgående eller löpande. Till dig som köper parhus nu bjuder byggherren på avgiften under de första två åren. \r\n\r\nFint planerade parhus med trädgård på både fram-och baksida, plats för två bilar på vardera tomt. Husens baksida vetter mot grönskande allmänning och ligger i bästa söderläge. Genomgående bra standard, ekparkett, vitmålade väggar, gott om förvaring. Öppen härlig planlösning mellan kök och vardagsrum. \r\n\r\n- 1 hus kvar till salu!\r\n- Fint anlagda trädgårdar med baksidan mot söder\r\n- Visningshus finns på plats\r\n- Plats för två bilar på egen tomt\r\n- Stort förråd\r\n- Öppen planlösning\r\n- Avgiftsfritt i två år för att ge ett tryggt köp under dessa tider med förhöjt ränteläge.\r\nDu sparar 141 600 kr på detta sätt. När det gått två år och avgiften ska börjas betalas igen är vi hela vägen framme 2027\r\n\r\n\r\nNu ges chansen att förverkliga drömmen om en modern bostad i en helt unik miljö. I Steninge slottsby uppförs bostadsrättsföreningen Slottets pärla, ett nybyggnadsprojekt om 34 bostäder där vi nu förmedlar de 18 sista parhusen. Här kan ni vänta er en bekväm och fridfull tillvaro, nära till vattnet och den fina naturen. Sigtuna ligger några minuter bort med bil, till både Uppsala och Stockholm tar du dig på 30 minuter och dessutom har du hela världen runt hörnet med 10 minuter till incheckningen på Arlanda. En central plats. Mitt i naturen. I Steninge slottsby har alla bostäder nära till naturen, bad och båtliv i Mälaren, bara några minuter bort. Här skapas en levande plats där butiker, restaurang och naturupplevelser redan finns på plats. Steninge slottsby kommer att bestå av 11 tun, små områden i området, där olika typer av hus och boendeformer blandas. Dina grannar blir barnfamiljer, singelhushåll och par. Vi vill skapa en miljö med liv och rörelse från första stund.",
+                            LivingArea = 108,
+                            MonthlyFee = 5900m,
+                            MunicipalityId = 2,
+                            NumberOfRooms = 5,
+                            PlotArea = 0,
+                            RealtorId = "91858c77-9f96-4e67-8b4d-12065003247a",
+                            SupplementaryArea = 0,
+                            TypeOfProperty = 1,
+                            YearBuilt = 2023,
+                            YearlyOperatingCost = 22100m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 35,
+                            Address = "Baggebytorget 5",
+                            AskingPrice = 2250000m,
+                            Description = "Välkommen till Baggeby Torget 5! I härliga Baggeby ges chansen att förvärva denna smakfullt renoverade lägenhet med egen ingång. Köket bjuder på stilren minimalism med vita släta fronter och ett rent formspråk. Bra arbetsytor samt fullt utrustat kök med integrerad kyl och frys, induktionshäll, ugn, fläkt samt diskmaskin. Vardagsrummet förenas med köket och matplatsen i en öppen planlösning vilket resulterar i en social yta att inreda med allt från matsalsbord till soffgrupp. Rofyllt sovrum med plats för säng samt tillhörande möblemang. Härifrån når ni även en rymlig walk-in-closet med platsbyggd förvaring. Helkaklat badrum med golvvärme, dusch samt tvättmaskin. Egen uteplats i härligt syd-västläge. \r\n\r\nBaggeby som område är populärt med ett centralt läge på Lidingö, nära bron och bra förbindelser. Lidingöbanan (Baggeby Station) nås på en minut och härifrån når man snabbt Ropsten. I området finns såväl matvarubutik, restauranger och gym vid och runtom Baggeby Torg. Närhet till härliga promenadstråk längs vattnet och härlig natur. ",
+                            LivingArea = 32,
+                            MonthlyFee = 2071m,
+                            MunicipalityId = 2,
+                            NumberOfRooms = 2,
+                            PlotArea = 0,
+                            RealtorId = "e7cde164-d981-41df-b3d9-35d42c0d8323",
+                            SupplementaryArea = 0,
+                            TypeOfProperty = 0,
+                            YearBuilt = 1954,
+                            YearlyOperatingCost = 1428m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 36,
+                            Address = "Bergviksgatan 6C",
+                            AskingPrice = 2495000m,
+                            Description = "Drömmer du om att flytta in i ett nytt och modernt hem där alla detaljer redan är på plats? Nu har du chansen! På Bergviksgatan 6C ligger denna fina 2:a som präglas av bland annat öppen samt modern planlösning. Stor terras med härlig vy mot kanalen. Inom gångavstånd väntar Södertäljes stadskärna med sitt utbud av shopping och service. En bostad med närhet till allt! Välkomna!",
+                            LivingArea = 54,
+                            MonthlyFee = 4256m,
+                            MunicipalityId = 2,
+                            NumberOfRooms = 2,
+                            PlotArea = 0,
+                            RealtorId = "a7158f9e-8afb-4389-8e68-348450f4b6a9",
+                            SupplementaryArea = 0,
+                            TypeOfProperty = 0,
+                            YearBuilt = 2018,
+                            YearlyOperatingCost = 2520m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 37,
+                            Address = "Carl Malmstens Väg 2",
+                            AskingPrice = 3995000m,
+                            Description = "NÄRA VATTEN OCH GRÖNSKA - HÄRLIG UTSIKT - STORT BADRUM\r\n\r\n\r\n\r\nLÄGENHETEN\r\n\r\nHär öppnar ni dörren till en välplanerad bostad som passar både familjen och paret. Ett stort fint nyrenoverat kök som bjuder in till härliga middagar. Generöst sovrum med plats för dubbelsäng samt ytterligare ett rum som kan nyttjas som sovrum/ kontor. Sociala ytor och en stor inglasad balkong i västerläge. Bostaden har ett fint renoverat badrum. Mycket goda förvaringsmöjligheter, hel garderobsvägg i hallen samt tillhörande externt förråd.\r\n\r\n\r\n\r\nFÖRENINGEN\r\n\r\nLängs Carl Malmstens väg hittar ni omtyckta och välskötta Brf Fröet 2 i Solna. Husen ligger nära Brunnsvikens strand och är byggda mellan 1983–1985 med god ekonomi. De har bland annat 7 hyresrätter kvar som dolda tillgångar samt två hyresrättslokaler som ger fina hyresintäkter, där verkar populära Restaurangen Who’else samt förskolan Barnens Montessoriakademi. Föreningen har även samlingslokal samt gästlägenhet att nyttja för föreningens medlemmar. Stamspolning skedde i januari 2024 och nya el-platser är driftsatta augusti 2024. En förening med låg belåning och som den senaste tiden amorterat flitigt för att sänka sina räntekostnader.\r\n\r\n\r\n\r\nOMRÅDET\r\n\r\nLägenheten är belägen i södra delen av populära Bergshamra, en mysig oas strax utanför citys sprudlande puls. Här har ni närhet till badbrygga för härliga sommardagar samt Bergshamra Arena där ni kan spela fotboll på sommaren och åka skridskor på vintern. Här får ni det bästa av två världar med närhet till både fina promenadstråk längs vattnet och lummiga grönområden. All typ av service och restaurangutbud endast 10 minuter bort med tunnelbanan. På torget finns bra närservice så som butiker, Apotek samt vårdcentral. Flertalet förskolor och skolor finns också i närområdet. Tunnelbanan och bussar endast ett par minuter från lägenheten och det stora vägnätet nås inom några få minuter.",
+                            LivingArea = 70,
+                            MonthlyFee = 3614m,
+                            MunicipalityId = 2,
+                            NumberOfRooms = 2,
+                            PlotArea = 0,
+                            RealtorId = "144f56f5-10d1-4ab3-ab72-e917ec9cacc4",
+                            SupplementaryArea = 0,
+                            TypeOfProperty = 0,
+                            YearBuilt = 1984,
+                            YearlyOperatingCost = 8160m
+                        },
+                        new
+                        {
+                            PropertyForSaleId = 38,
+                            Address = "Centralgatan 7E",
+                            AskingPrice = 1095000m,
+                            Description = "RING FÖR VISNING!\r\n\r\n- Väldisponerad och social lägenhet\r\n\r\n - Tillgång till parkeringsplats\r\n\r\nÖppen planlösning med gott om plats för både soffa och matgrupp, vilket gör det till en idealisk plats för att umgås med familj och vänner. De stora fönstren släpper in rikligt med dagsljus, vilket bidrar till den hemtrevliga känslan. Köket är praktiskt med utmärkta förvaringsmöjligheter och generösa arbetsytor. Här finns även plats för ett matbord och stolar. Badrummet är rymligt och utrustat med allt du behöver: toalett, dusch, handfat, badrumsskåp, förvaringsskåp, tvättmaskin och torktumlare. Sovrummet har ljusa väggar och laminatgolv som ger en lugn och fräsch känsla. Här finns plats för en dubbelsäng och garderober. \r\n\r\nHär bor du vid ett av Märstas bästa lägen med Märsta Centrum inom gångavstånd. Märsta Station ligger endast tio minuter bort och erbjuder utmärkta kommunikationer till både Uppsala och Stockholm. Med allt från matbutiker och restauranger till skolor och vårdcentraler inom bekvämt avstånd, har du allt du behöver nära till hands.\r\n\r\nVarmvattenberedare måste bytas.",
+                            LivingArea = 47,
+                            MonthlyFee = 4191m,
+                            MunicipalityId = 2,
+                            NumberOfRooms = 2,
+                            PlotArea = 0,
+                            RealtorId = "66787f78-4dd5-4c82-917e-1bf99028a59a",
+                            SupplementaryArea = 0,
+                            TypeOfProperty = 0,
+                            YearBuilt = 2002,
+                            YearlyOperatingCost = 23592m
                         });
                 });
 
@@ -963,6 +1269,330 @@ namespace BostadzPortalenWebAPI.Migrations
                             Id = 60,
                             ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/87/cc/87cce528941e3728d37489276de08a97.jpg",
                             PropertyForSaleId = 13
+                        },
+                        new
+                        {
+                            Id = 61,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/c6/39/c639c5edb603c58f1cf363eeee5619be.jpg",
+                            PropertyForSaleId = 21
+                        },
+                        new
+                        {
+                            Id = 62,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/59/1e/591e4e80af4632dfe5c8ab860fbd45f1.jpg",
+                            PropertyForSaleId = 21
+                        },
+                        new
+                        {
+                            Id = 63,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/70/28/7028870c12f7285d14097e262d0b11ba.jpg",
+                            PropertyForSaleId = 21
+                        },
+                        new
+                        {
+                            Id = 64,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/51/d8/51d89c2fdc558268638fe8e827bd39da.jpg",
+                            PropertyForSaleId = 23
+                        },
+                        new
+                        {
+                            Id = 65,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/58/1b/581bca447be01191a193158fbfd28ae6.jpg",
+                            PropertyForSaleId = 23
+                        },
+                        new
+                        {
+                            Id = 66,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/ab/5b/ab5bb747a623216afa039e39f80e583f.jpg",
+                            PropertyForSaleId = 23
+                        },
+                        new
+                        {
+                            Id = 67,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/43/22/43227ecc8e2c3469c0620e940652a4d9.jpg",
+                            PropertyForSaleId = 22
+                        },
+                        new
+                        {
+                            Id = 68,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/4e/15/4e154ba7f778483af15fdf4ef331116c.jpg",
+                            PropertyForSaleId = 22
+                        },
+                        new
+                        {
+                            Id = 69,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/dc/43/dc43ac40190a9760ef8fe4c09242f5bd.jpg",
+                            PropertyForSaleId = 22
+                        },
+                        new
+                        {
+                            Id = 70,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/e4/09/e4093df775d00554630e2d80f3c2e909.jpg",
+                            PropertyForSaleId = 24
+                        },
+                        new
+                        {
+                            Id = 71,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/53/7e/537eed150d32c5e280c9caae26935110.jpg",
+                            PropertyForSaleId = 24
+                        },
+                        new
+                        {
+                            Id = 72,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/3d/79/3d79d0fd655376b5e01a23e375cde527.jpg",
+                            PropertyForSaleId = 24
+                        },
+                        new
+                        {
+                            Id = 73,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/26/c1/26c17eb424f5be636f93615e6efa6841.jpg",
+                            PropertyForSaleId = 25
+                        },
+                        new
+                        {
+                            Id = 74,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/31/67/3167e33beb2d9cc6c27b355e64a9eae9.jpg",
+                            PropertyForSaleId = 25
+                        },
+                        new
+                        {
+                            Id = 75,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/34/cb/34cb40b99c014b41f872daa34f1fef4a.jpg",
+                            PropertyForSaleId = 25
+                        },
+                        new
+                        {
+                            Id = 76,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/96/a0/96a05365ee62c22896f234a83ecd80a1.jpg",
+                            PropertyForSaleId = 28
+                        },
+                        new
+                        {
+                            Id = 77,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/46/35/46351a59597e87a3fc051c7596440911.jpg",
+                            PropertyForSaleId = 28
+                        },
+                        new
+                        {
+                            Id = 78,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/1a/eb/1aebd41de1823816c1452534f47c7ea3.jpg",
+                            PropertyForSaleId = 28
+                        },
+                        new
+                        {
+                            Id = 79,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/b6/a9/b6a93d6694a9e2408b07e0840d5f5706.jpg",
+                            PropertyForSaleId = 29
+                        },
+                        new
+                        {
+                            Id = 80,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/d3/d4/d3d46b58dfa52c3394776fcfbb6c5bf4.jpg",
+                            PropertyForSaleId = 29
+                        },
+                        new
+                        {
+                            Id = 81,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/1b/b0/1bb0d84d7a347612319cf3bb36423055.jpg",
+                            PropertyForSaleId = 29
+                        },
+                        new
+                        {
+                            Id = 82,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/21/31/2131fd8693997a634ccf770f6c67faf6.jpg",
+                            PropertyForSaleId = 30
+                        },
+                        new
+                        {
+                            Id = 83,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/84/cb/84cbb3402f51bb5ff7a339ed1907569a.jpg",
+                            PropertyForSaleId = 30
+                        },
+                        new
+                        {
+                            Id = 84,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/2c/3a/2c3aa70a93877387adad2465677e938b.jpg",
+                            PropertyForSaleId = 30
+                        },
+                        new
+                        {
+                            Id = 85,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/26/cb/26cb505a3b3662e5e2b1fdfb55b8432c.jpg",
+                            PropertyForSaleId = 31
+                        },
+                        new
+                        {
+                            Id = 86,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/a1/1e/a11e8a09724be5a08585909a9df3c166.jpg",
+                            PropertyForSaleId = 31
+                        },
+                        new
+                        {
+                            Id = 87,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/ef/2d/ef2d54d42e43cae027da80472a36cf7a.jpg",
+                            PropertyForSaleId = 31
+                        },
+                        new
+                        {
+                            Id = 88,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/8b/4d/8b4d68bdd448fc8f4c4fb60c438b20a6.jpg",
+                            PropertyForSaleId = 26
+                        },
+                        new
+                        {
+                            Id = 89,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/3d/cf/3dcf94429f220e92f8f6c9568eb9cec5.jpg",
+                            PropertyForSaleId = 26
+                        },
+                        new
+                        {
+                            Id = 90,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/4d/af/4dafc6611321e4c8595d5b7eaa85ca45.jpg",
+                            PropertyForSaleId = 26
+                        },
+                        new
+                        {
+                            Id = 91,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/96/16/9616eaf912e8032c4317dc02878cc84c.jpg",
+                            PropertyForSaleId = 27
+                        },
+                        new
+                        {
+                            Id = 92,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/17/a5/17a5f05e8b849551315dcc52a952284c.jpg",
+                            PropertyForSaleId = 27
+                        },
+                        new
+                        {
+                            Id = 93,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_portrait_cut/0b/0a/0b0a1964936eb97c18d614f553f3fb12.jpg",
+                            PropertyForSaleId = 27
+                        },
+                        new
+                        {
+                            Id = 94,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/9f/e7/9fe7391814d38b2d7f3bba22ba2d124d.jpg",
+                            PropertyForSaleId = 32
+                        },
+                        new
+                        {
+                            Id = 95,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/c8/a6/c8a67bbf2e4dff1b565df2e72dbfbbf9.jpg",
+                            PropertyForSaleId = 32
+                        },
+                        new
+                        {
+                            Id = 96,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/a7/d8/a7d89b16676ea8c4dc89f5caae01a30d.jpg",
+                            PropertyForSaleId = 32
+                        },
+                        new
+                        {
+                            Id = 97,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/60/9b/609b9b038e2c989dd3a25e1022540238.jpg",
+                            PropertyForSaleId = 33
+                        },
+                        new
+                        {
+                            Id = 98,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/22/ef/22efa45ab97ec57677ad49b2d7d420a4.jpg",
+                            PropertyForSaleId = 33
+                        },
+                        new
+                        {
+                            Id = 99,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/36/80/368007d32471d1bc7bfa7bfe99527e93.jpg",
+                            PropertyForSaleId = 33
+                        },
+                        new
+                        {
+                            Id = 100,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/4d/c9/4dc990dd72ba3a59a3eadd00786a70c8.jpg",
+                            PropertyForSaleId = 34
+                        },
+                        new
+                        {
+                            Id = 101,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/d5/89/d589471444bd80f855930a6c0abdc892.jpg",
+                            PropertyForSaleId = 34
+                        },
+                        new
+                        {
+                            Id = 102,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/0e/ef/0eef32b870baf7bc9d304226f7aefa30.jpg",
+                            PropertyForSaleId = 34
+                        },
+                        new
+                        {
+                            Id = 103,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/e3/81/e381e176bdf34a38843ecd69319a2e48.jpg",
+                            PropertyForSaleId = 35
+                        },
+                        new
+                        {
+                            Id = 104,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/fc/1e/fc1e93d5ce220604aaa72b7b094cdf15.jpg",
+                            PropertyForSaleId = 35
+                        },
+                        new
+                        {
+                            Id = 105,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/67/34/673479f16d42745c0144d050c39891e7.jpg",
+                            PropertyForSaleId = 35
+                        },
+                        new
+                        {
+                            Id = 106,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/50/6b/506be80937d96a80bc2e35e52671c488.jpg",
+                            PropertyForSaleId = 36
+                        },
+                        new
+                        {
+                            Id = 107,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/04/9b/049b84c90c065cdd3214309e22839717.jpg",
+                            PropertyForSaleId = 36
+                        },
+                        new
+                        {
+                            Id = 108,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/f5/5b/f55bad611848c2d0ebfd8b2faf56eaff.jpg",
+                            PropertyForSaleId = 36
+                        },
+                        new
+                        {
+                            Id = 109,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/6a/d2/6ad2fb06593d538eeaa121e1daddf635.jpg",
+                            PropertyForSaleId = 37
+                        },
+                        new
+                        {
+                            Id = 110,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/9c/b8/9cb8afef913e44c125a225edbfc584d3.jpg",
+                            PropertyForSaleId = 37
+                        },
+                        new
+                        {
+                            Id = 111,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/5c/38/5c3877ce6761f98062f3d5b4e4c35bd0.jpg",
+                            PropertyForSaleId = 37
+                        },
+                        new
+                        {
+                            Id = 112,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/6d/fe/6dfe21fb098a0913845232e3f8ef7183.jpg",
+                            PropertyForSaleId = 38
+                        },
+                        new
+                        {
+                            Id = 113,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/39/66/39661759db61a12718ab82914f0c63ca.jpg",
+                            PropertyForSaleId = 38
+                        },
+                        new
+                        {
+                            Id = 114,
+                            ImageUrl = "https://bilder.hemnet.se/images/itemgallery_cut/82/70/82701bcadcefb55d340a2fbb3db72c73.jpg",
+                            PropertyForSaleId = 38
                         });
                 });
 
@@ -1281,7 +1911,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92d637e6-6a8d-421e-a118-7a29d0edc1e7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5f97332b-690b-43eb-ba2c-29180f85313f",
+                            ConcurrencyStamp = "81bad8bd-52f1-429b-802b-681988813ee7",
                             Email = "admin@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
@@ -1289,10 +1919,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@DEMOAPI.COM",
                             NormalizedUserName = "ADMIN@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPG2GeOd6c2YBm0ClRS5NAXyYIsxx7GIrav8SREF11ZbQSwpfc8Ffzq/kOHnY7mdSg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEID8PapY1jF1UBqhLQLkg4WHG+wzdrs6t7m2NZWkOIJAJY3T36cuqMdnpNa4V0HG/g==",
                             PhoneNumber = "0722661920",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "17267a8e-d750-41bf-bb32-33d0d4328e28",
+                            SecurityStamp = "8ced1fa5-b7ec-4ef9-a999-6fce717f025c",
                             TwoFactorEnabled = false,
                             UserName = "admin@demoapi.com",
                             AgencyId = 1,
@@ -1302,7 +1932,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92b88e50-795f-4df6-90e0-8a7d9a179cb0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "120cd0d4-36e0-48f2-8cba-e9b01e5705e2",
+                            ConcurrencyStamp = "05102696-0238-457e-9b31-7c09defa8670",
                             Email = "anders.johansson@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Anders",
@@ -1310,10 +1940,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ANDERS.JOHANSSON@DEMOAPI.COM",
                             NormalizedUserName = "ANDERS.JOHANSSON@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEC1l5iuRV10GQteRIo05XK9eISIOw8HV+l3oQarHgfgBr/xUFsSQQUt/sKW4LPH0JQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAUANGK0dFI9bYoUlh1OHt1j4a6iNBKtSY2qCgDfhOI4GCIbGFQxq1KojKE8+4oAAA==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "922cd996-c11d-4399-a0a9-e02c13e9e848",
+                            SecurityStamp = "de2dc5f2-e498-4cf3-b9ee-3be9000cc4d3",
                             TwoFactorEnabled = false,
                             UserName = "anders.johansson@demoapi.com",
                             AgencyId = 2,
@@ -1323,7 +1953,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "87efc5ac-77d8-4729-b3d6-3309dc88e88d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e2fd693c-cf0c-4da4-9983-cd7e07af347b",
+                            ConcurrencyStamp = "eafff474-a0d5-4cd4-ae76-bb57bb25f0fe",
                             Email = "eric.hultman@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Eric",
@@ -1331,10 +1961,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ERIC.HULTMAN@DEMOAPI.COM",
                             NormalizedUserName = "ERIC.HULTMAN@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGqPQw2w39g/daifuxZZpfjgE7UAfJ5h/h5xNp7JsklsD/3FHdvy8D7LSshVecr+Rw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHgargWlpzCFSvE361dktlbOBaGBt16YEFxyoAT1kYxBYI+Anqd/ZkU4mnpHsIcQcQ==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cfa8023b-9600-48d9-ae5f-fb7fce52abaf",
+                            SecurityStamp = "ad1a0b69-ff9d-405c-a492-8bd01b410b5e",
                             TwoFactorEnabled = false,
                             UserName = "eric.hultman@demoapi.com",
                             AgencyId = 2,
@@ -1344,7 +1974,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "26f1c93b-0ce3-4655-a0e1-f0d91dbe6c71",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "297a9365-4309-4c88-904a-d8a139c67e44",
+                            ConcurrencyStamp = "f5bb9f0a-390e-430c-a770-0e181cb7e539",
                             Email = "eric.svensson@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Eric",
@@ -1352,10 +1982,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ERIC.SVENSSON@DEMOAPI.COM",
                             NormalizedUserName = "ERIC.SVENSSON@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBPyh6US0OIXHLw0OMmcWsFJZI/3cKuSVVBjXYzfn8BuZbbq7h/pl4L6q6oxM2IIOQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDdiOdeZf9hmn0kwbhWB2suTWvfAVUaMlLE708Tn8xRdcNwQqQKOASZC7uJj8IRtmw==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d93e4df8-d346-408a-841b-179023f09237",
+                            SecurityStamp = "ce69b9e9-d65d-47bf-8be4-c73e6c8ce0d8",
                             TwoFactorEnabled = false,
                             UserName = "eric.svensson@demoapi.com",
                             AgencyId = 3,
@@ -1365,7 +1995,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "a64ba80d-139c-4816-a169-9344e3d58e22",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9f004703-acbf-4cd1-ba57-b86ba92cf7a3",
+                            ConcurrencyStamp = "92fe95a8-265d-401b-bc6b-7f00bd16d73c",
                             Email = "christopher.sjodahl@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Christopher",
@@ -1373,10 +2003,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "CHRISTOPHER.SJODAHL@DEMOAPI.COM",
                             NormalizedUserName = "CHRISTOPHER.SJODAHL@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAELYJgxFuiLxT6IMXZCZQae53UgVuLpwihSnScXHUyxbDNykBFpPiHVNNy8IiwlRiuQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEE5odCIiHd2oTyqCZ1e4pkDRUH7gaGemFFHLbMGBHmMj1BvxaOUU0E1G7hKhTQgsQ==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b4eefd58-7a9d-4060-a4f4-21b227316842",
+                            SecurityStamp = "17d56c60-7b78-460e-823c-94c6a8caa4e8",
                             TwoFactorEnabled = false,
                             UserName = "christopher.sjodahl@demoapi.com",
                             AgencyId = 3,
@@ -1386,7 +2016,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "b03b6b66-a5fd-4fbc-a3f2-9c7202cbee60",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5243a21a-c69b-491b-a418-b081a8115b00",
+                            ConcurrencyStamp = "74880676-c1a9-42f0-9f59-f7c71d38f5d8",
                             Email = "asa.danielsson@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Åsa",
@@ -1394,10 +2024,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ASA.DANIELSSON@DEMOAPI.COM",
                             NormalizedUserName = "ASA.DANIELSSON@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAeMzInOQ+1ywpZORKzMb9t0e4iHRjeyt8h+RWWvW410oKxTxrG6datwOnL7ZbYMBg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBx0XzD5+D2otmM4EhpWRrWRK/DV4Ft1HmeJMG5Fget0O+ztoU1vPGqEXZMibSP2aw==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2e83bcbf-e486-4b55-9cc9-44f96b3093dc",
+                            SecurityStamp = "deae2c8c-6101-4ff0-b5d9-1ef72637347c",
                             TwoFactorEnabled = false,
                             UserName = "asa.danielsson@demoapi.com",
                             AgencyId = 3,
@@ -1407,7 +2037,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "91858c77-9f96-4e67-8b4d-12065003247a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c98b20fb-8c1a-458a-bc69-5acbe101996f",
+                            ConcurrencyStamp = "8e31ee16-2107-473b-8dd2-8ea51288fa5a",
                             Email = "frida.urciuoli@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Frida",
@@ -1415,10 +2045,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "FRIDA.URCIUOLI@DEMOAPI.COM",
                             NormalizedUserName = "FRIDA.URCIUOLI@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIRqQ2QmXGsPPHuK/XCFB9JAhk5lagjzJby3/HSq0kTuMIYFcrnYNj2FAkvY55jimA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOYtmHC6QCqx4BwJW7jR3+dlveIkiIRKW+HnyH8QOZBOQl79v3Y0/cLSbT3XjRupGg==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "17e66201-fc29-4858-8f43-a3de90886cac",
+                            SecurityStamp = "1aaa87f7-61f4-4e9f-8b74-96e44895a44d",
                             TwoFactorEnabled = false,
                             UserName = "frida.urciuoli@demoapi.com",
                             AgencyId = 4,
@@ -1428,7 +2058,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "e7cde164-d981-41df-b3d9-35d42c0d8323",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d3d8be70-acfa-418c-91ec-f1a9f7ee286b",
+                            ConcurrencyStamp = "0f2fd035-3efc-4be8-a877-cd087eeebfb8",
                             Email = "alf.jonsson@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Alf",
@@ -1436,10 +2066,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ALF.JONSSON@DEMOAPI.COM",
                             NormalizedUserName = "ALF.JONSSON@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOVTKcRFQ4pY5mMryFW5SUEB2yD73vfnXiaefj4afS31ns0F3o+pNVKPmEKWBUiWCw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIgPlYPUDyaGtSxx06K9yBxuq+Cq9KNMbzig07eaLQJX09hY6f0f5zZ3UxlH/uVT3w==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "606f78e4-27a7-4b24-a2ae-3c08a6b6561c",
+                            SecurityStamp = "5f781543-321e-4758-9eaf-f666073f3e77",
                             TwoFactorEnabled = false,
                             UserName = "alf.jonsson@demoapi.com",
                             AgencyId = 5,
@@ -1449,7 +2079,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "a7158f9e-8afb-4389-8e68-348450f4b6a9",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "87fe09c5-649d-416d-8fa0-141df75a8e1a",
+                            ConcurrencyStamp = "aed0357b-e481-4357-ad81-28dd18970ed6",
                             Email = "louise.pedersen@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Louise",
@@ -1457,10 +2087,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "LOUISE.PEDERSEN@DEMOAPI.COM",
                             NormalizedUserName = "LOUISE.PEDERSEN@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMO87NXept7++aFikr8sm2w4bFh0iTF6Kvcjn4NTrRluKHuNbNj0oPZZppJ+gsDzIw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECXRge3hxdD6Qgga78RXCJWaX/f+hps5/OUbNNa2r1Mcdcat/dWY1c/LdoVNvpL76w==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fbd1a5c4-cd0e-431a-b1bf-bd23d8fcbd7a",
+                            SecurityStamp = "f9e8d30e-4dc5-402a-b963-380c2976aa51",
                             TwoFactorEnabled = false,
                             UserName = "louise.pedersen@demoapi.com",
                             AgencyId = 6,
@@ -1470,7 +2100,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "144f56f5-10d1-4ab3-ab72-e917ec9cacc4",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5f01a560-9c36-414f-8b56-77050707d1ea",
+                            ConcurrencyStamp = "b5df28bb-a426-4eac-a40b-59cd7e5236d5",
                             Email = "max.hjertqvist@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Max",
@@ -1478,10 +2108,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MAX.HJERTQVIST@DEMOAPI.COM",
                             NormalizedUserName = "MAX.HJERTQVIST@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAECs/ggAigE6tZPZpslLfBL85C32AZ+RKoWLg+Uraa3enXG5Nj4q897Y9pd3hWNMpRQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEhFk4T61BkP0xPMpEZB6QMP8Ar4Fvnxntfi2k0Y6l6dc7OfoEwvb5GkygCcV67Wkg==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f74b6b69-6ce0-47cc-912f-b35915dec22e",
+                            SecurityStamp = "2ec88432-239d-4068-ab11-2b2770f1e09a",
                             TwoFactorEnabled = false,
                             UserName = "max.hjertqvist@demoapi.com",
                             AgencyId = 7,
@@ -1491,7 +2121,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "66787f78-4dd5-4c82-917e-1bf99028a59a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2d3eb029-61df-496a-8d98-ea067726728d",
+                            ConcurrencyStamp = "e47a7d8c-14b5-4c3d-950b-6dae9d9d0bbb",
                             Email = "garifalia.diakakis@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Garifalia",
@@ -1499,10 +2129,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "GARIFALIA.DIAKAKIS@DEMOAPI.COM",
                             NormalizedUserName = "GARIFALIA.DIAKAKIS@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGKWjYc225lNoCuRoYxP3gMXu5GsO0cw7P28iVOltg9xQsrbqUqQcACAP7oGLuC6Rg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEA99py8z3Fy02Id8Uk+rRwykfwarDNkLsB15flOjnN1lwUQuGNWTXEey6x3r73F0Dw==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2dc65d79-60f2-4cec-8d66-76c258073932",
+                            SecurityStamp = "aeaa397d-f1ba-468e-836a-2bf1ca84d243",
                             TwoFactorEnabled = false,
                             UserName = "garifalia.diakakis@demoapi.com",
                             AgencyId = 4,
@@ -1512,7 +2142,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "36cd14e4-aca3-4108-8120-42b5ffaee35f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "18fccd43-b675-4a1e-b3e8-abb6a002051c",
+                            ConcurrencyStamp = "800ec687-3841-480e-926d-a28697dbf33b",
                             Email = "gustav.azelius@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Gustav",
@@ -1520,10 +2150,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "GUSTAV.AZELIUS@DEMOAPI.COM",
                             NormalizedUserName = "GUSTAV.AZELIUS@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPr+ODU+wS4H5vtJSyFsv8x8vjtPyvIHjZIT+GRWayi+lj5+q3mTzHrWU6Any8XgZg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMS1L9koQ/vW+OGvpwUvI8q8F+OXjGwLSF+5Gq3tKgJeH2ejVrBJpLIu0OJYfFSoNA==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c1b92784-9b16-4fa6-96a0-5148382daf64",
+                            SecurityStamp = "3dbbcdb7-d733-41c8-ab04-9165801c9b71",
                             TwoFactorEnabled = false,
                             UserName = "gustav.azelius@demoapi.com",
                             AgencyId = 5,
@@ -1533,7 +2163,7 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "0a0ee7be-cde2-49bd-b48d-b675a4fbfbf0",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "362a7f66-2018-430f-8ffa-f72226de0806",
+                            ConcurrencyStamp = "a30eb040-f28f-4a92-81f0-919bfff10897",
                             Email = "tore.wikander@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Tore",
@@ -1541,10 +2171,10 @@ namespace BostadzPortalenWebAPI.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "TORE.WIKANDER@DEMOAPI.COM",
                             NormalizedUserName = "TORE.WIKANDER@DEMOAPI.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHVnA9y2QHF5tpVPfMaGvVF0UQEKXJo038dTmHyNx5WT8p5/mPZwP6qAlFVlHa0G2A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJxLSk9uaFME0rD6JoxM/uNRmPZxN9UYGJsipPo6v1qgs8WBgSaaMxrBiJlz3tLd8w==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "54ac5da3-d63a-4c5b-b693-db8576e0b243",
+                            SecurityStamp = "268b17f7-405a-490b-904f-63ff13228c9b",
                             TwoFactorEnabled = false,
                             UserName = "tore.wikander@demoapi.com",
                             AgencyId = 5,
