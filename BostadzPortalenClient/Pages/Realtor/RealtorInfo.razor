@@ -20,15 +20,16 @@
             <div class="col-9">
                 <div class=" ms-5 mt-5">
                 <h2>@realtorInfo.FullName</h2>
-                <p><strong>Telefon:</strong> @realtorInfo.Phone</p>
-                <p><strong>Email:</strong> <a href="mailto:@realtorInfo.Email">@realtorInfo.Email</a></p>
+                    <p><strong><i class="bi bi-telephone"></i> Telefon:</strong> @realtorInfo.Phone</p>
+                    <p><strong><i class="bi bi-envelope"></i> Email:</strong> <a href="mailto:@realtorInfo.Email">@realtorInfo.Email</a></p>
+                @* JN: This needs to include the Agency-Logo *@
                 <p><strong>Mäklarbyrå:</strong> @realtorInfo.AgencyName</p>
                 </div>
             </div>
         </div>
 
         <hr />
-
+        @* JN: This should be using the Paginator -> DTO-IEnumberable needs to be DTO-List (probably) for that to work *@
         <div>
             <h3 class="mb-4 mt-4">Objekt till salu av @realtorInfo.FullName</h3>
             <div class="row">
