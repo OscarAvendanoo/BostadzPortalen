@@ -18,32 +18,26 @@
                     <table class="table">
                         <tbody>
                             <tr>
-                                <td class="pe-3">Bostads area:</td>
-                                <td><IntToString_m2 inputInt="@realEstate.LivingArea"></IntToString_m2></td>
+                                <TableToNull isItInt="true" text="Bostads area" valueInt="realEstate.LivingArea"></TableToNull>
                             </tr>
                             <tr>
-                                <td class="pe-3">Utomhus area:</td>
-                                <td><IntToString_m2 inputInt="@realEstate.PlotArea"></IntToString_m2></td>
+                                <TableToNull isItInt="true" text="Utomhus area" valueInt="realEstate.PlotArea"></TableToNull>
                             </tr>
                             <tr>
-                                <td class="pe-3">Tillkommande area:</td>
-                                <td><IntToString_m2 inputInt="@realEstate.SupplementaryArea"></IntToString_m2></td>
+                                <TableToNull isItInt="true" text="Tillkommande area" valueInt="realEstate.SupplementaryArea"></TableToNull>
                             </tr>
                             <tr>
                                 <td class="pe-3">Antal rum:</td>
                                 <td>@realEstate.NumberOfRooms</td>
                             </tr>
                             <tr>
-                                <td class="pe-3">Pris:</td>
-                                <td><DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.AskingPrice)"></DecimalToStringSEK></td>
+                                <TableToNull isItInt="false" text="Pris" valueDouble="realEstate.AskingPrice"></TableToNull>
                             </tr>
                             <tr>
-                                <td class="pe-3">Hyra:</td>
-                                <td><DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.MonthlyFee)"></DecimalToStringSEK></td>
+                                <TableToNull isItInt="false" text="Hyra" valueDouble="realEstate.MonthlyFee"></TableToNull>
                             </tr>
                             <tr>
-                                <td class="pe-3">Års kostnad:</td>
-                                <td><DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.YearlyOperatingCost)"></DecimalToStringSEK></td>
+                                <TableToNull isItInt="false" text="Års kostnad" valueDouble="realEstate.YearlyOperatingCost"></TableToNull>
                             </tr>
                         </tbody>
                     </table>
