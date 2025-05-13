@@ -19,13 +19,11 @@ namespace BostadzPortalenWebAPI.Controllers
     public class RealtorController : ControllerBase
     {
         private readonly IRealtorRepository realtorRepository;
-        private readonly IPropertyForSaleRepository propertyForSaleRepository;
         private readonly IMapper mapper;
 
-        public RealtorController(IRealtorRepository realtorRepository, IPropertyForSaleRepository propertyForSaleRepository, IMapper mapper)
+        public RealtorController(IRealtorRepository realtorRepository, IMapper mapper)
         {
             this.realtorRepository = realtorRepository;
-            this.propertyForSaleRepository = propertyForSaleRepository;
             this.mapper = mapper;
         }
 
@@ -35,14 +33,15 @@ namespace BostadzPortalenWebAPI.Controllers
             return Ok(await realtorRepository.GetAllAsync());
         }
 
+        //Author: Kevin
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetRealtor(string id) //string id??
+        public async Task<ActionResult> GetRealtor(string id) 
         {
             var realtor = await realtorRepository.GetRealtorByGuidAsync(id);
 
             if (realtor == null)
             {
-                return NotFound();
+                return NotFound($"No realtor with ID: {id}");
             }
 
             return Ok(realtor);
@@ -67,6 +66,8 @@ namespace BostadzPortalenWebAPI.Controllers
             return Ok(allDTOs);
         }
 
+
+        //Author: Kevin, Oscar
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateRealtor(int id, [FromBody] RegisterRealtorDTO dto)
         {
@@ -155,6 +156,7 @@ namespace BostadzPortalenWebAPI.Controllers
             return Ok(realtor);
         }
 
+        //Author: Kevin
         [HttpGet("FindRealtorByName/{firstName}/{lastName}")]
         public async Task<ActionResult<Realtor>> FindRealtorByName(string firstName, string lastName)
         {
@@ -172,30 +174,28 @@ namespace BostadzPortalenWebAPI.Controllers
 
         }
 
+        //Author: Kevin
         [HttpGet("/GetRealtorInfo/{id}")]
         public async Task<ActionResult<RealtorInfoDTO>> GetRealtorInfo(string id)
         {
-            var images = new List<PropertyImageDto>();
-            List<PropertyForSaleOverviewDTO> propsList = new List<PropertyForSaleOverviewDTO>();
-            var realtor = await realtorRepository.GetRealtorInfoDTO(id);
-          
-            
-            
-            foreach(var prop in realtor.Properties)
-            {
-                var property = mapper.Map<PropertyForSaleOverviewDTO>(prop);
-                propsList.Add(property);
 
-                foreach (var picture in prop.ImageUrls)
-                {
-                    var image = mapper.Map<PropertyImageDto>(picture);
-                    images.Add(image);
-                }
-            }
-            
             try
             {
+                var realtor = await realtorRepository.GetRealtorInfoDTO(id);
 
+                if(realtor == null)
+                {
+                    return NotFound($"No realtor with ID: {id}");
+                }
+
+                var propsList = realtor.Properties
+                    .Select(prop => mapper.Map<PropertyForSaleOverviewDTO>(prop))
+                    .ToList();
+
+                var images = realtor.Properties
+                    .SelectMany(p => p.ImageUrls)
+                    .Select(img => mapper.Map<PropertyImageDto>(img))
+                    .ToList();
 
                 var realtorInfo = new RealtorInfoDTO
                 {
@@ -207,19 +207,60 @@ namespace BostadzPortalenWebAPI.Controllers
                     Properties = propsList,
                     RealtorImage = realtor.ProfileImageUrl,
                     PropertyImages = images
-                    
-
                 };
-                //mapper.Map<RealtorInfoDTO>(propp);
 
                 return Ok(realtorInfo);
             }
             catch (Exception ex)
             {
 
-                Console.WriteLine($"Något fick fel: {ex.Message}");
+                Console.WriteLine($"Something went wrong: {ex.Message}");
+                return StatusCode(500, "Internal error");
             }
-            return BadRequest();
+            //var images = new List<PropertyImageDto>();
+            //List<PropertyForSaleOverviewDTO> propsList = new List<PropertyForSaleOverviewDTO>();
+            //var realtor = await realtorRepository.GetRealtorInfoDTO(id);
+          
+            
+            
+            //foreach(var prop in realtor.Properties)
+            //{
+            //    var property = mapper.Map<PropertyForSaleOverviewDTO>(prop);
+            //    propsList.Add(property);
+
+            //    foreach (var picture in prop.ImageUrls)
+            //    {
+            //        var image = mapper.Map<PropertyImageDto>(picture);
+            //        images.Add(image);
+            //    }
+            //}
+            
+            //try
+            //{
+
+
+            //    var realtorInfo = new RealtorInfoDTO
+            //    {
+            //        RealtorId = realtor.Id,
+            //        FullName = $"{realtor.FirstName} {realtor.LastName}",
+            //        AgencyName = realtor.Agency.AgencyName,
+            //        Email = realtor.Email,
+            //        Phone = realtor.PhoneNumber,
+            //        Properties = propsList,
+            //        RealtorImage = realtor.ProfileImageUrl,
+            //        PropertyImages = images
+                    
+
+            //    };
+
+            //    return Ok(realtorInfo);
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    Console.WriteLine($"Något fick fel: {ex.Message}");
+            //}
+            //return BadRequest();
         }
 
 

@@ -95,6 +95,7 @@ namespace BostadzPortalenWebAPI.Mappings
              .ForMember(dest => dest.Municipality, opt => opt.Ignore())
              .ForMember(dest => dest.Realtor, opt => opt.Ignore());
 
+            //Author: Kevin, Oscar
             CreateMap<PropertyImage, PropertyImageDto>()
               .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl))
               .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
@@ -123,6 +124,7 @@ namespace BostadzPortalenWebAPI.Mappings
             .ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ImageUrls.Select(url => new PropertyImage { ImageUrl = url }).ToList()))
             .ForMember(dest => dest.RealtorId, opt => opt.Ignore()); // RealtorId is set server-side
 
+            //Author: Kevin
             CreateMap<Realtor, RealtorInfoDTO>()
                 .ForMember(dest => dest.RealtorId, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"))
