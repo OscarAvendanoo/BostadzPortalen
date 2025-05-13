@@ -35,7 +35,7 @@ namespace BostadzPortalenWebAPI.Controllers
 
         //Author: Kevin
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetRealtor(string id) 
+        public async Task<ActionResult> GetRealtor(string id)
         {
             var realtor = await realtorRepository.GetRealtorByGuidAsync(id);
 
@@ -99,6 +99,7 @@ namespace BostadzPortalenWebAPI.Controllers
             }
         }
 
+        //[Authorize(Roles ="Admin")]
         [HttpPost]
         public async Task<ActionResult> CreateRealtor([FromBody] RegisterRealtorDTO dto)
         {
@@ -120,6 +121,7 @@ namespace BostadzPortalenWebAPI.Controllers
             }
         }
 
+        //[Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteRealtor(int id)
         {
@@ -133,6 +135,7 @@ namespace BostadzPortalenWebAPI.Controllers
             await realtorRepository.DeleteAsync(realtor);
             return NoContent();
         }
+
         // author: Oscar
         [Authorize]
         [HttpGet("me")]
@@ -183,7 +186,7 @@ namespace BostadzPortalenWebAPI.Controllers
             {
                 var realtor = await realtorRepository.GetRealtorInfoDTO(id);
 
-                if(realtor == null)
+                if (realtor == null)
                 {
                     return NotFound($"No realtor with ID: {id}");
                 }
@@ -206,7 +209,8 @@ namespace BostadzPortalenWebAPI.Controllers
                     Phone = realtor.PhoneNumber,
                     Properties = propsList,
                     RealtorImage = realtor.ProfileImageUrl,
-                    PropertyImages = images
+                    PropertyImages = images,
+                    AgencyLogoUrl = realtor.Agency.AgencyLogoUrl
                 };
 
                 return Ok(realtorInfo);
@@ -220,9 +224,9 @@ namespace BostadzPortalenWebAPI.Controllers
             //var images = new List<PropertyImageDto>();
             //List<PropertyForSaleOverviewDTO> propsList = new List<PropertyForSaleOverviewDTO>();
             //var realtor = await realtorRepository.GetRealtorInfoDTO(id);
-          
-            
-            
+
+
+
             //foreach(var prop in realtor.Properties)
             //{
             //    var property = mapper.Map<PropertyForSaleOverviewDTO>(prop);
@@ -234,7 +238,7 @@ namespace BostadzPortalenWebAPI.Controllers
             //        images.Add(image);
             //    }
             //}
-            
+
             //try
             //{
 
@@ -249,7 +253,7 @@ namespace BostadzPortalenWebAPI.Controllers
             //        Properties = propsList,
             //        RealtorImage = realtor.ProfileImageUrl,
             //        PropertyImages = images
-                    
+
 
             //    };
 
@@ -302,41 +306,6 @@ namespace BostadzPortalenWebAPI.Controllers
                 return StatusCode(500, "An error occurred: " + ex.Message);
             }
         }
-
-
-
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult> GetListedProperties(string id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return BadRequest("You have no listed properties");
-        //    }
-        //    return Ok(await realtorRepository.GetListedPropertiesAsync(id));
-        //}
-
-        //[HttpPost]
-        //public async Task<ActionResult> AddPropertyForSale([FromForm] PropertyForSaleDTO dto) //ska denna vara här eller porpertuForSaleController?
-        //{
-        //    if (dto == null)
-        //    {
-        //        return BadRequest("Invalid input");
-        //    }
-        //    var pfs = mapper.Map<PropertyForSale>(dto);
-        //    await realtorRepository.AddPropertyForSale(pfs);
-        //    return Ok();
-        //}
-
-        //[HttpPut("{id}")]
-        //public async Task<ActionResult> EditPropertyForSale([FromForm] PropertyForSaleDTO dto)
-        //{
-        //    if (dto == null)
-        //    {
-        //        return BadRequest("Invalid input.");
-        //    }
-        //    var pfs = mapper.Map<PropertyForSale>(dto);
-        //    return Ok(await realtorRepository.EditPropertyForSale(pfs));
-        //}
 
     }
 }

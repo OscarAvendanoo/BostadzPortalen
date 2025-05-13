@@ -23,7 +23,7 @@ namespace BostadzPortalenClient.Services.R_EstateSrvc
         public async Task<List<PropertyForSaleOverviewDTO>> GetAllPropertiesForSaleDTOAsync()
         {
             var tests = await httpClient.GetAllPropertyOverviewDTOAsync();
-            return tests;
+            return tests.ToList();
         }
 
         public async Task DeletePropertyForSale(int id)
