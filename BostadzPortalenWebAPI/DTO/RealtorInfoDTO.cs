@@ -1,5 +1,7 @@
 ﻿namespace BostadzPortalenWebAPI.DTO
 {
+
+    //Author: Kevin
     public class RealtorInfoDTO
     {
         public string RealtorId { get; set; } = "";

@@ -2,6 +2,8 @@
 
 namespace BostadzPortalenWebAPI.DTO
 {
+
+    //Author: Kevin, Oscar
     public class PropertyForSaleUpdateDto
     {
         public int PropertyForSaleId { get; set; }
