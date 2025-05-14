@@ -90,27 +90,29 @@ namespace BostadzPortalenWebAPI.Controllers
             var agency = await _realEstateAgencyRepository.GetByIdFullIncludeAsync(id);
 
 
-            var dto = new RealEstateAgencyDetailsDTO
-            {
-                RealEstateAgencyId = agency.RealEstateAgencyId,
-                AgencyName = agency.AgencyName,
-                AgencyDescription = agency.AgencyDescription,
-                AgencyLogoUrl = agency.AgencyLogoUrl,
-                RealtorInfo = agency.AgencyRealtors.Select(r => new RealtorAgencyDTO
-                {
-                    RealtorId = r.Id,
-                    FullName = $"{r.FirstName} {r.LastName}",
-                    ProfileImageUrl = r.ProfileImageUrl,
-                    PropertiesForSale = r.Properties.Select(p => new PropertyForSaleAgencyDTO
-                    {
-                        PropertyForSaleId = p.PropertyForSaleId,
-                        Address = p.Address,
-                        AskingPrice = p.AskingPrice,
-                        FirstImageUrl = p.ImageUrls.FirstOrDefault()?.ImageUrl ?? "/images/property-placeholder.png",
-                        TypeOfProperty = p.TypeOfProperty
-                    }).ToList()
-                }).ToList()
-            };
+            var dto = mapper.Map<RealEstateAgencyDetailsDTO>(agency);
+
+            //var dto = new RealEstateAgencyDetailsDTO
+            //{
+            //    RealEstateAgencyId = agency.RealEstateAgencyId,
+            //    AgencyName = agency.AgencyName,
+            //    AgencyDescription = agency.AgencyDescription,
+            //    AgencyLogoUrl = agency.AgencyLogoUrl,
+            //    RealtorInfo = agency.AgencyRealtors.Select(r => new RealtorAgencyDTO
+            //    {
+            //        RealtorId = r.Id,
+            //        FullName = $"{r.FirstName} {r.LastName}",
+            //        ProfileImageUrl = r.ProfileImageUrl,
+            //        PropertiesForSale = r.Properties.Select(p => new PropertyForSaleAgencyDTO
+            //        {
+            //            PropertyForSaleId = p.PropertyForSaleId,
+            //            Address = p.Address,
+            //            AskingPrice = p.AskingPrice,
+            //            FirstImageUrl = p.ImageUrls.FirstOrDefault()?.ImageUrl ?? "/images/property-placeholder.png",
+            //            TypeOfProperty = p.TypeOfProperty
+            //        }).ToList()
+            //    }).ToList()
+            //};
 
             return dto;
 
