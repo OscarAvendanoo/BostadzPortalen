@@ -1,6 +1,10 @@
 ﻿using AutoMapper;
 using BostadzPortalenWebAPI.DTO;
+
+using BostadzPortalenWebAPI.DTO.R_EstateDTO;
+
 using BostadzPortalenWebAPI.DTO.AgencyDTO;
+
 using BostadzPortalenWebAPI.DTO.UserDTO;
 using BostadzPortalenWebAPI.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
@@ -135,6 +139,15 @@ namespace BostadzPortalenWebAPI.Mappings
                 .ForMember(dest => dest.Properties, opt => opt.Ignore())
                 .ReverseMap();
 
+
+            //Author: Oscar
+            CreateMap<AgencyDTO, RealEstateAgency>()
+                .ForMember(dest => dest.AgencyName, opt => opt.MapFrom(src => src.AgencyName))
+                .ForMember(dest => dest.AgencyDescription, opt => opt.MapFrom(src => src.AgencyDescription))
+                .ForMember(dest => dest.AgencyLogoUrl, opt => opt.MapFrom(src => src.AgencyLogoUrl))
+                .ForMember(dest => dest.AgencyRealtors, opt => opt.Ignore()) // Assuming Realtors are not passed in the DTO
+                .ReverseMap();
+
             CreateMap<RealEstateAgency, RealEstateAgencyDetailsDTO>()
             .ForMember(dest => dest.RealtorInfo, opt => opt.MapFrom(src => src.AgencyRealtors))
             .ReverseMap();
@@ -152,6 +165,7 @@ namespace BostadzPortalenWebAPI.Mappings
                         ? src.ImageUrls.FirstOrDefault().ImageUrl
                         : "/images/property-placeholder.png"))
                 .ReverseMap();
+
 
 
         }

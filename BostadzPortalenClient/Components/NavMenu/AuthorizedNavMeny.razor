@@ -53,7 +53,8 @@
                 <NavLink @onclick="LogOut" class="btn main-btn">Logga ut</NavLink>
                 @if (theUser?.IsInRole("Administrator") == true)
                 {
-                    <NavLink href="/users/registerFirstRealtor" class="btn main-btn">Register (Admin)</NavLink>
+                    <NavLink href="/users/registerFirstRealtor" class="btn main-btn">Register Realtor</NavLink>
+                    <NavLink href="/Agency/CreateAgency" class="btn main-btn">Register Agency</NavLink>
                 }
                
                 @if(theUser?.IsInRole("Realtor") == true){
