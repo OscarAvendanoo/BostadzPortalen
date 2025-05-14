@@ -1,0 +1,75 @@
+﻿@page "/my-page"
+@inject IRealtorService RealtorService
+@using BlazorBootstrap
+
+<h3 class="mb-4">Min Sida</h3>
+
+@if (isLoading)
+{
+    <p>Laddar din information...</p>
+}
+else if (!string.IsNullOrEmpty(errorMessage))
+{
+    <p style="color:red">@errorMessage</p>
+}
+else if (realtor != null)
+{
+    <Card class="shadow-sm">
+        <CardBody>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    @if (!string.IsNullOrWhiteSpace(realtor.ProfileImageUrl))
+                    {
+                        <img src="@realtor.ProfileImageUrl" alt="Profilbild" class="img-fluid rounded mb-3" style="max-height: 200px;" />
+                    }
+                    else
+                    {
+                        <p><em>Ingen profilbild tillgänglig</em></p>
+                    }
+                </div>
+                <div class="col-md-8">
+                    <p><strong>Förnamn:</strong> @realtor.FirstName</p>
+                    <p><strong>Efternamn:</strong> @realtor.LastName</p>
+                    <p><strong>Email:</strong> @realtor.Email</p>
+                    <p><strong>Telefonnummer:</strong> @realtor.PhoneNumber</p>
+
+                    <NavLink class="btn btn-outline-primary mt-3" href="/realtor/edit">
+                        Redigera profil
+                    </NavLink>
+                    <NavLink class="btn btn-outline-success" href="/property/add">
+                        Lägg till ny bostad
+                    </NavLink>
+                </div>
+            </div>
+        </CardBody>
+    </Card>
+}
+else
+{
+    <p>Ingen mäklarinformation hittades.</p>
+}
+
+
+
+@code {
+    private Realtor? realtor;
+    private string? errorMessage;
+    private bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await RealtorService.GetCurrentRealtor();
+
+        if (response.Success)
+        {
+            realtor = response.Data;
+        }
+        else
+        {
+            errorMessage = response.Message ?? "Ett fel uppstod vid hämtning.";
+        }
+
+        isLoading = false;
+    }
+}
+
