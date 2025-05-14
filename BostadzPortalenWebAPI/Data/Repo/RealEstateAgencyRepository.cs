@@ -42,22 +42,14 @@ namespace BostadzPortalenWebAPI.Data.Repo
             return propertyList;
         }
 
-       // public async Task<RealEstateAgency> GetPropertyDetailsDTO(int id)
-       // {
-       //     var agency = await _context.RealEstateAgencies
-       //.Include(a => a.AgencyRealtors)
-       //    .ThenInclude(r => r.Properties)
-       //        .ThenInclude(p => p.ImageUrls)
-       //.FirstOrDefaultAsync(a => a.RealEstateAgencyId == id);
+        public async Task<List<RealEstateAgency>> GetAllFullIncludeAsync()
+        {
+            var agencies = await _context.RealEstateAgencies.
+               Include(a => a.AgencyRealtors).
+               ThenInclude(r => r.Properties).
+               ThenInclude(p=>p.ImageUrls).ToListAsync();
 
-       //     //if (agency == null)
-       //     //{
-       //     //    return NotFound();
-       //     //}
-
-
-
-       //     return agency;
-       // }
+            return agencies;
+        }
     }
 }

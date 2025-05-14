@@ -1,51 +1,62 @@
-﻿@page "/agency/{AgencyId:int}"
+﻿@page "/agency/details/{AgencyId:int}"
 @inject IAgencyService agencyService
-@inject IRealtorService realtorService
-@using BostadzPortalenClient
+@inject NavigationManager navigationManager
+@using BlazorBootstrap
+<!--Author: Kevin-->
 
-
-
-@if (agencyDetails == null)
-{
-    <p>Laddar information...</p>
-}
-else
-{
-    <div class="agency-info">
-        <img src="@agencyDetails.AgencyLogoUrl" alt="@agencyDetails.AgencyName" class="agency-logo" />
-        <h1>@agencyDetails.AgencyName</h1>
-        <p>@agencyDetails.AgencyDescription</p>
-    </div>
-
-    <h2>Mäklare hos oss</h2>
-    @foreach (var realtor in agencyDetails.RealtorInfo)
+<div class="container mt-4">
+    @if (agencyDetails == null)
     {
-        <div class="realtor-card">
-            <img src="@realtor.ProfileImageUrl" alt="@realtor.FullName" class="profile-image" />
-            <h3>@realtor.FullName</h3>
+        <p>Laddar information...</p>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-4 d-flex flex-column mt-2" style="height: 100%;">
+                <div class="flex-grow-1">
+                    <img src="@agencyDetails.AgencyLogoUrl" alt="@agencyDetails.AgencyName" class="img-fluid mb-3" style="max-height: 150px;" />
+                </div>
+            </div>
 
-            @if (realtor.PropertiesForSale.Any())
-            {
-                <h4>Objekt till salu:</h4>
-                <ul>
-                    @foreach (var property in realtor.PropertiesForSale)
-                    {
-                        <li>
-                            <img src="@property.FirstImageUrl" />
+            <div class="col-5 d-flex justify-content-center align-items-center">
+                <p>@agencyDetails.AgencyDescription</p>
+                
+                
+            </div>
+            <hr divider />
+        </div>
 
-                            <strong>@property.Address</strong> - @property.AskingPrice.ToString("C")
-                        </li>
-                    }
-                </ul>
-            }
-            else
+        
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2>Våra mäklare</h2>
+                <hr divider />
+            </div>
+
+            @foreach (var realtor in agencyDetails.RealtorInfo)
             {
-                <p>Inga aktuella objekt.</p>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="@realtor.ProfileImageUrl" alt="@realtor.FullName" class="card-img-top" style="height: 300px; object-fit: cover;" />
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title mb-3">@realtor.FullName</h5>
+                            <p><strong>Telefon:</strong> @realtor.Phone</p>
+                            <p><strong>Email:</strong> @realtor.Email</p>
+                            <p>Antal objekt till salu: <strong>@realtor.PropertiesForSale.Count()</strong></p>
+                            <button class="btn btn-primary mt-auto"
+                                    @onclick="@(() => navigationManager.NavigateTo($"/realtor/details/{realtor.RealtorId}"))">
+                                Visa objekt
+                            </button>
+                        </div>
+                    </div>
+                </div>
             }
         </div>
     }
-}
+</div>
 
+
+ 
 @code {
     [Parameter]
     public int AgencyId { get; set; }

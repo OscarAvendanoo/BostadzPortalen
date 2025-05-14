@@ -1,0 +1,36 @@
+﻿
+@page "/agencies/all"
+@using BostadzPortalenClient.Components.Agency
+@inject IAgencyService agencyService
+@inject IMapper mapper
+<!--Author: Kevin-->
+
+<h2 class="mb-5">Välj mäklarbyrå som passar just dina behov!</h2>
+
+@if(realEstateInfo == null)
+{
+    <BlazorBootstrap.Spinner/>
+}
+else
+{
+    foreach(var agency in realEstateInfo)
+    {
+        <AgencyCardComponent agencyDetails="agency" />
+    }
+
+}
+
+
+@code {
+    private List<RealEstateAgencyDetailsDTO> realEstateInfo = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var allAgencies = await agencyService.GetAllAgenciesIncludeAllAsync();
+        realEstateInfo = allAgencies.ToList();
+
+        
+        
+    }
+
+}

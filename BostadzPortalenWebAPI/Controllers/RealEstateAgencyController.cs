@@ -92,30 +92,27 @@ namespace BostadzPortalenWebAPI.Controllers
 
             var dto = mapper.Map<RealEstateAgencyDetailsDTO>(agency);
 
-            //var dto = new RealEstateAgencyDetailsDTO
-            //{
-            //    RealEstateAgencyId = agency.RealEstateAgencyId,
-            //    AgencyName = agency.AgencyName,
-            //    AgencyDescription = agency.AgencyDescription,
-            //    AgencyLogoUrl = agency.AgencyLogoUrl,
-            //    RealtorInfo = agency.AgencyRealtors.Select(r => new RealtorAgencyDTO
-            //    {
-            //        RealtorId = r.Id,
-            //        FullName = $"{r.FirstName} {r.LastName}",
-            //        ProfileImageUrl = r.ProfileImageUrl,
-            //        PropertiesForSale = r.Properties.Select(p => new PropertyForSaleAgencyDTO
-            //        {
-            //            PropertyForSaleId = p.PropertyForSaleId,
-            //            Address = p.Address,
-            //            AskingPrice = p.AskingPrice,
-            //            FirstImageUrl = p.ImageUrls.FirstOrDefault()?.ImageUrl ?? "/images/property-placeholder.png",
-            //            TypeOfProperty = p.TypeOfProperty
-            //        }).ToList()
-            //    }).ToList()
-            //};
+            
 
             return dto;
 
+        }
+
+        [HttpGet("GetAllAgencyIncludeAll")]
+        public async Task<List<RealEstateAgencyDetailsDTO>> GetAllAgencyDetailsDTO()
+        {
+            var agencyDetails = new List<RealEstateAgencyDetailsDTO>();
+            
+            var agencies = await _realEstateAgencyRepository.GetAllFullIncludeAsync();
+
+            foreach(var agency in agencies)
+            {
+                var details = mapper.Map<RealEstateAgencyDetailsDTO>(agency);
+                agencyDetails.Add(details);
+            }
+            
+
+            return agencyDetails;
         }
     }
 }

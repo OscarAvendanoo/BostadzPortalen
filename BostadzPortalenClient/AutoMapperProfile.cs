@@ -47,6 +47,12 @@ namespace BostadzPortalenClient
             .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.ImageUrl))
             .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
             .ForMember(dest => dest.PropertyForSaleId, opt => opt.MapFrom(src => src.PropertyForSaleId));
+
+            CreateMap<RealEstateAgency, RealEstateAgencyDetailsDTO>()
+           .ForMember(dest => dest.RealtorInfo, opt => opt.MapFrom(src => src.AgencyRealtors))
+           .ReverseMap();
+            
+           
         }
     }
 }

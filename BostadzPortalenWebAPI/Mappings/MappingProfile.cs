@@ -136,17 +136,21 @@ namespace BostadzPortalenWebAPI.Mappings
                 .ReverseMap();
 
             CreateMap<RealEstateAgency, RealEstateAgencyDetailsDTO>()
-                .ReverseMap();
+            .ForMember(dest => dest.RealtorInfo, opt => opt.MapFrom(src => src.AgencyRealtors))
+            .ReverseMap();
 
             CreateMap<Realtor, RealtorAgencyDTO>()
+                .ForMember(dest=>dest.RealtorId, opt=>opt.MapFrom(src=>src.Id))
+                .ForMember(dest=>dest.Phone, opt=>opt.MapFrom(src=>src.PhoneNumber))
                 .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"))
-                .ForMember(dest=>dest.ProfileImageUrl,opt=>opt.MapFrom(src=>src.ProfileImageUrl))
+                .ForMember(dest => dest.PropertiesForSale, opt => opt.MapFrom(src => src.Properties))
                 .ReverseMap();
 
             CreateMap<PropertyForSale, PropertyForSaleAgencyDTO>()
-                .ForMember(dest => dest.FirstImageUrl, opt => opt.MapFrom(src => src.ImageUrls.FirstOrDefault() != null
-                    ? src.ImageUrls.FirstOrDefault().ImageUrl
-                    : "/images/property-placeholder.png"))
+                .ForMember(dest => dest.FirstImageUrl, opt => opt.MapFrom(src =>
+                    src.ImageUrls.FirstOrDefault() != null
+                        ? src.ImageUrls.FirstOrDefault().ImageUrl
+                        : "/images/property-placeholder.png"))
                 .ReverseMap();
 
 
