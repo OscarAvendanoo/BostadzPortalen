@@ -11,41 +11,80 @@
 
 
 
-<h3>Uppdatera mina uppgifter</h3>
+<h3 class="mb-4">Uppdatera mina uppgifter</h3>
 
 @if (realtor == null)
 {
-    <p> Laddar data...</p>
+    <p>Laddar data...</p>
 }
- else
+else
 {
-    <EditForm Model="realtor" OnValidSubmit="HandleValidSubmit">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+    <Card class="shadow-sm">
+        <CardHeader>
+            <h5 class="mb-0">Redigera profil</h5>
+        </CardHeader>
+        <CardBody>
+            <EditForm Model="realtor" OnValidSubmit="HandleValidSubmit">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
 
-        <div class="form-group">
-            <label>Förnamn:</label>
-            <InputText class="form-control" @bind-Value="realtor.FirstName" />
-        </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label">Förnamn:</label>
+                            <InputText class="form-control" @bind-Value="realtor.FirstName" />
+                        </div>
 
-        <div class="form-group">
-            <label>Efternamn:</label>
-            <InputText class="form-control" @bind-Value="realtor.LastName" />
-        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Efternamn:</label>
+                            <InputText class="form-control" @bind-Value="realtor.LastName" />
+                        </div>
 
-        <div class="form-group">
-            <label>Telefonnummer:</label>
-            <InputText class="form-control" @bind-Value="realtor.PhoneNumber" />
-        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Telefonnummer:</label>
+                            <InputText class="form-control" @bind-Value="realtor.PhoneNumber" />
+                        </div>
 
-        <button class="btn btn-primary mt-2" type="submit">Spara ändringar</button>
-    </EditForm>
+                        <div class="mb-3">
+                            <label class="form-label">Email:</label>
+                            <InputText class="form-control" @bind-Value="realtor.Email" />
+                        </div>
 
-    @if (!string.IsNullOrWhiteSpace(feedbackMessage))
-    {
-        <div class="alert alert-info mt-3">@feedbackMessage</div>
-    } 
-} 
+                        <div class="mb-3">
+                            <label class="form-label">Bild-URL:</label>
+                            <InputText class="form-control" @bind-Value="realtor.ProfileImageUrl" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 text-center">
+                        @if (!string.IsNullOrWhiteSpace(realtor.ProfileImageUrl))
+                        {
+                            <img src="@realtor.ProfileImageUrl"
+                                 alt="Förhandsvisning"
+                                 class="img-fluid rounded shadow-sm"
+                                 style="max-height: 200px;" />
+                        }
+                        else
+                        {
+                            <p class="text-muted mt-4"><em>Ingen bild tillgänglig</em></p>
+                        }
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <NavLink class="btn btn-outline-secondary" href="/my-page">Tillbaka</NavLink>
+                    <button class="btn btn-primary" type="submit">Spara ändringar</button>
+                </div>
+            </EditForm>
+
+            @if (!string.IsNullOrWhiteSpace(feedbackMessage))
+            {
+                <div class="alert alert-info mt-3">@feedbackMessage</div>
+            }
+        </CardBody>
+    </Card>
+}
+
 
 @code {
     private RealtorUpdateDTO? realtor;
@@ -60,7 +99,9 @@
                 {
                     FirstName = result.Data.FirstName,
                     LastName = result.Data.LastName,
-                    PhoneNumber = result.Data.PhoneNumber
+                    PhoneNumber = result.Data.PhoneNumber,
+                    Email = result.Data.Email,
+                    ProfileImageUrl = result.Data.ProfileImageUrl
                 };
         }
         else
