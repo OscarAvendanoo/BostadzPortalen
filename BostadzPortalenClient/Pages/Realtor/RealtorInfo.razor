@@ -1,5 +1,6 @@
 ﻿@page "/realtor/details/{RealtorId}"
 @using BostadzPortalenClient.Components.R_Estate
+@using BostadzPortalenClient.Components.Realtor
 @inject IPropertyForSaleService propService
 @inject IRealtorService realtorService
 @inject IPropertyForSaleService propService
@@ -9,7 +10,7 @@
 
     @if (realtorInfo == null)
     {
-        <p>Laddar mäklarinfo...</p>
+        <BlazorBootstrap.Spinner></BlazorBootstrap.Spinner>
     }
     else
     {
@@ -22,8 +23,7 @@
             <div class="col-4 d-flex justify-content-center align-items-center">
                 <div>
                     <h2>@realtorInfo.FullName</h2>
-                    <p><strong>Telefon:</strong> @realtorInfo.Phone</p>
-                    <p><strong>Email:</strong> <a href="mailto:@realtorInfo.Email">@realtorInfo.Email</a></p>
+                    <ContactRealtor Email="@realtorInfo.Email" PhoneNumber="@realtorInfo.Phone"></ContactRealtor>
                     <p><strong>Mäklarbyrå:</strong> @realtorInfo.AgencyName</p>
 
                 </div>
@@ -35,9 +35,8 @@
         </div>
 
         <hr />
-        @* JN: This should be using the Paginator -> DTO-IEnumberable needs to be DTO-List (probably) for that to work *@
         <div>
-            <h3 class="mb-4 mt-4">Objekt till salu av @realtorInfo.FullName</h3>
+            <h3 class="mb-4 mt-4">@realtorInfo.FullName - Fastigheter</h3>
             <div class="row">
                 @if (realtorInfo.Properties == null)
                 {
@@ -63,15 +62,9 @@
     public string RealtorId { get; set; }
 
     private RealtorInfoDTO? realtorInfo { get; set; }
-    // private List<PropertyForSaleOverviewDTO> realEstates;
 
     protected override async Task OnInitializedAsync()
     {
         realtorInfo = await realtorService.GetRealtorInfoDTO(RealtorId);
-
-        // foreach(var estate in realtorInfo.Properties)
-        // {
-        //     realEstates.Add(estate);
-        // }
     }
 }

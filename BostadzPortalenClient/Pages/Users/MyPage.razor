@@ -1,12 +1,13 @@
 ﻿@page "/my-page"
 @inject IRealtorService RealtorService
 @using BlazorBootstrap
+@using BostadzPortalenClient.Components.Realtor
 
 <h3 class="mb-4">Min Sida</h3>
 
 @if (isLoading)
 {
-    <p>Laddar din information...</p>
+    <Spinner></Spinner>
 }
 else if (!string.IsNullOrEmpty(errorMessage))
 {
@@ -30,9 +31,7 @@ else if (realtor != null)
                 <div class="col-md-8">
                     <p><strong>Förnamn:</strong> @realtor.FirstName</p>
                     <p><strong>Efternamn:</strong> @realtor.LastName</p>
-                    <p><strong>Email:</strong> @realtor.Email</p>
-                    <p><strong>Telefonnummer:</strong> @realtor.PhoneNumber</p>
-
+                    <ContactRealtor Email="@realtor.Email" PhoneNumber="@realtor.PhoneNumber"></ContactRealtor>
                     <NavLink class="btn btn-outline-primary mt-3" href="/realtor/edit">
                         Redigera profil
                     </NavLink>

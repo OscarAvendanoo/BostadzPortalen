@@ -1,0 +1,10 @@
+﻿@* Author: Johan Nelin *@
+
+<p><a href="mailto:@Email"><i class="bi bi-envelope"></i></a><strong> Email:</strong> @Email</p>
+<p><strong><i class="bi bi-telephone"></i> Telefon:</strong> @PhoneNumber</p>
+
+
+@code {
+	[Parameter] public string Email { get; set; }
+	[Parameter] public string PhoneNumber { get; set; }
+}
