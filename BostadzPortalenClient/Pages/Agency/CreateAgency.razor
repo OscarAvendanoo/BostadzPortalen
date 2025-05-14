@@ -3,8 +3,9 @@
 @inject NavigationManager navManager
 @inject IAgencyService Agencyservice
 
-<h3>Register New Real Estate Agency</h3>
+<h3>Register New Agency</h3>
 
+@* Author: Oscar *@
 @if (!string.IsNullOrEmpty(message))
 {
     <div class="alert @AlertClass">
@@ -28,7 +29,7 @@
 
                     <div class="form-group">
                         <label for="agencyDescription">Agency Description</label>
-                        <InputText class="form-control" @bind-Value="AgencyModel.AgencyDescription" />
+                        <InputTextArea class="form-control" @bind-Value="AgencyModel.AgencyDescription" rows="5" />
                         <ValidationMessage For="@(() => AgencyModel.AgencyDescription)" />
                     </div>
 

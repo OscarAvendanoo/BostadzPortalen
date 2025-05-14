@@ -41,6 +41,7 @@ namespace BostadzPortalenWebAPI.Controllers
         // Author Oscar
       
         [HttpPost("createAgency")]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult> CreateAgency([FromBody] AgencyDTO agency)
         {
             try
