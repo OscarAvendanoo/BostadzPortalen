@@ -6,5 +6,7 @@ namespace BostadzPortalenClient.Services.AgencyService
     public interface IAgencyService
     {
         public Task<IEnumerable<RealEstateAgency>> GetAllAgenciesAsync();
+        public Task<RealEstateAgencyDetailsDTO> GetAgencyByIdAsync(int id);
+        public Task<IEnumerable<RealEstateAgencyDetailsDTO>> GetAllAgenciesIncludeAllAsync();
     }
 }
