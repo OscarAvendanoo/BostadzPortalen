@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using BostadzPortalenWebAPI.Data.Interface;
 using BostadzPortalenWebAPI.DTO;
+using BostadzPortalenWebAPI.DTO.R_EstateDTO;
 using BostadzPortalenWebAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,9 +15,11 @@ namespace BostadzPortalenWebAPI.Controllers
     public class RealEstateAgencyController : ControllerBase
     {
         private readonly IRealEstateAgencyRepository _realEstateAgencyRepository;
-        public RealEstateAgencyController(IRealEstateAgencyRepository realEstateAgencyRepository)
+        private readonly IMapper mapper;
+        public RealEstateAgencyController(IRealEstateAgencyRepository realEstateAgencyRepository, IMapper mapper)
         {
             this._realEstateAgencyRepository = realEstateAgencyRepository;
+            this.mapper = mapper;
         }
 
 
@@ -34,17 +38,20 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         // POST api/<PropertyForSaleController>
-        [HttpPost]
-        public async Task<ActionResult> CreateAgency([FromBody] RealEstateAgency agency)
+        // Author Oscar
+      
+        [HttpPost("createAgency")]
+        public async Task<ActionResult> CreateAgency([FromBody] AgencyDTO agency)
         {
             try
             {
-                await _realEstateAgencyRepository.AddAsync(agency);
-                return Ok(agency);
+                var newAgency = mapper.Map<RealEstateAgency>(agency);
+                await _realEstateAgencyRepository.AddAsync(newAgency);
+                return Ok();
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "An error occured " + ex.Message);
+                return StatusCode(500, "An error occurred: " + ex.Message);
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using BostadzPortalenClient.Services.Base;
+﻿using BostadzPortalenClient.Models;
+using BostadzPortalenClient.Services.Base;
 
 namespace BostadzPortalenClient.Services.AgencyService
 {
@@ -6,5 +7,7 @@ namespace BostadzPortalenClient.Services.AgencyService
     public interface IAgencyService
     {
         public Task<IEnumerable<RealEstateAgency>> GetAllAgenciesAsync();
+
+        public Task<bool> AddAgency(AgencyDTO agency);
     }
 }
