@@ -47,7 +47,7 @@
 
             <div class="ms-auto d-flex gap-2">
                 <NavLink @onclick="LogOut" class="btn main-btn">Logga ut</NavLink>
-                @if (theUser?.IsInRole("Admin") == true)
+                @if (theUser?.IsInRole("Administrator") == true)
                 {
                     <NavLink href="/users/registerFirstRealtor" class="btn main-btn">Register (Admin)</NavLink>
                 }

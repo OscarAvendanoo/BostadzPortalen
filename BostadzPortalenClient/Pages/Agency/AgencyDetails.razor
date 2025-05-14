@@ -1,0 +1,62 @@
+﻿@page "/agency/{AgencyId:int}"
+@inject IAgencyService agencyService
+@inject IRealtorService realtorService
+@using BostadzPortalenClient
+
+
+
+@if (agencyDetails == null)
+{
+    <p>Laddar information...</p>
+}
+else
+{
+    <div class="agency-info">
+        <img src="@agencyDetails.AgencyLogoUrl" alt="@agencyDetails.AgencyName" class="agency-logo" />
+        <h1>@agencyDetails.AgencyName</h1>
+        <p>@agencyDetails.AgencyDescription</p>
+    </div>
+
+    <h2>Mäklare hos oss</h2>
+    @foreach (var realtor in agencyDetails.RealtorInfo)
+    {
+        <div class="realtor-card">
+            <img src="@realtor.ProfileImageUrl" alt="@realtor.FullName" class="profile-image" />
+            <h3>@realtor.FullName</h3>
+
+            @if (realtor.PropertiesForSale.Any())
+            {
+                <h4>Objekt till salu:</h4>
+                <ul>
+                    @foreach (var property in realtor.PropertiesForSale)
+                    {
+                        <li>
+                            <img src="@property.FirstImageUrl" />
+
+                            <strong>@property.Address</strong> - @property.AskingPrice.ToString("C")
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>Inga aktuella objekt.</p>
+            }
+        </div>
+    }
+}
+
+@code {
+    [Parameter]
+    public int AgencyId { get; set; }
+
+    private RealEstateAgencyDetailsDTO agencyDetails;
+    
+
+    protected override async Task OnInitializedAsync()
+    {
+        agencyDetails = await agencyService.GetAgencyByIdAsync(AgencyId);  /* Http.GetFromJsonAsync<RealEstateAgencyDetailsDto>($"api/realestateagencies/{AgencyId}"); */
+
+        
+    }
+}

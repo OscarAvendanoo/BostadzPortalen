@@ -11,12 +11,10 @@
         public string AgencyName { get; set; } = "";
         public string AgencyLogoUrl { get; set; } = "";
         public string RealtorImage { get; set; } = "";
-        //Needs to include the Agency-Logo
-        //public string AgencyLogo {get; set;} = "";
 
         //Needs to be Lists, not IEnumerable
-        public IEnumerable<PropertyImageDto> PropertyImages { get; set; }
-        public IEnumerable<PropertyForSaleOverviewDTO>? Properties { get; set; }
+        public List<PropertyImageDto> PropertyImages { get; set; }
+        public List<PropertyForSaleOverviewDTO>? Properties { get; set; }
 
     }
 }

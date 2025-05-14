@@ -189,14 +189,23 @@ code {
     box-shadow: 0;
 }
 
+.edit-btn {
+    color: var(--light-yellow);
+    background-color: var(--dark-turqouise);
+}
+
+    .edit-btn:hover {
+        color: var(--turqouise);
+        background-color: var(--light-yellow);
+    }
 /*SearchBox tabs*/
 
 .tab-content {
-    display: none; 
+    display: none;
 }
 
     .tab-content.active {
-        display: block; 
+        display: block;
     }
 
 
@@ -303,7 +312,7 @@ code {
     transition: background-color 0.2s ease;
 }
 
-    
+
     .dropdown-item:hover {
         background-color: var(--light-yellow);
         color: var(--dark-turqouise);
@@ -316,7 +325,7 @@ code {
     color: var(--light-yellow);
 }
 
-    
+
     .dropdown-toggle:focus {
         box-shadow: none;
     }
@@ -440,8 +449,8 @@ code {
     border: none;
 }
 
-.description{
-    white-space:pre-line;
+.description {
+    white-space: pre-line;
 }
 
 .page-wrapper {

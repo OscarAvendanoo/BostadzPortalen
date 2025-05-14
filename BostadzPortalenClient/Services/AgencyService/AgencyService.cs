@@ -17,5 +17,11 @@ namespace BostadzPortalenClient.Services.AgencyService
             var agencies = await client.RealEstateAgencyAllAsync();
             return agencies;
         }
+
+        public async Task<RealEstateAgencyDetailsDTO> GetAgencyByIdAsync(int id)
+        {
+            var agency = await client.GetAgencyDetailsDTOAsync(id);
+            return agency;
+        }
     }
 }

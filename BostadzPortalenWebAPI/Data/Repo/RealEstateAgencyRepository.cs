@@ -1,4 +1,7 @@
 ﻿using BostadzPortalenWebAPI.Data.Interface;
+using BostadzPortalenWebAPI.DTO;
+using BostadzPortalenWebAPI.DTO.AgencyDTO;
+using BostadzPortalenWebAPI.DTO.UserDTO;
 using BostadzPortalenWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,8 +19,9 @@ namespace BostadzPortalenWebAPI.Data.Repo
         public async Task<RealEstateAgency> GetByIdFullIncludeAsync(int id)
         {
             var agency = await _context.RealEstateAgencies.
-               Include(a => a.AgencyRealtors).
-               ThenInclude(r => r.Properties).
+               Include(a => a.AgencyRealtors).              
+               ThenInclude(r => r.Properties).               
+               ThenInclude(p=>p.ImageUrls).
                Where(a => a.RealEstateAgencyId == id).
                FirstOrDefaultAsync();
             return agency;
@@ -37,5 +41,23 @@ namespace BostadzPortalenWebAPI.Data.Repo
             }
             return propertyList;
         }
+
+       // public async Task<RealEstateAgency> GetPropertyDetailsDTO(int id)
+       // {
+       //     var agency = await _context.RealEstateAgencies
+       //.Include(a => a.AgencyRealtors)
+       //    .ThenInclude(r => r.Properties)
+       //        .ThenInclude(p => p.ImageUrls)
+       //.FirstOrDefaultAsync(a => a.RealEstateAgencyId == id);
+
+       //     //if (agency == null)
+       //     //{
+       //     //    return NotFound();
+       //     //}
+
+
+
+       //     return agency;
+       // }
     }
 }

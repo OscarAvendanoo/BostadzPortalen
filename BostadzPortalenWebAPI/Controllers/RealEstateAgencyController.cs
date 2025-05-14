@@ -1,9 +1,14 @@
 ﻿using AutoMapper;
 using BostadzPortalenWebAPI.Data.Interface;
+using BostadzPortalenWebAPI.Data.Repo;
 using BostadzPortalenWebAPI.DTO;
+using BostadzPortalenWebAPI.DTO.AgencyDTO;
+using BostadzPortalenWebAPI.DTO.UserDTO;
 using BostadzPortalenWebAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
+using Microsoft.EntityFrameworkCore;
 
 namespace BostadzPortalenWebAPI.Controllers
 {
@@ -13,9 +18,14 @@ namespace BostadzPortalenWebAPI.Controllers
     public class RealEstateAgencyController : ControllerBase
     {
         private readonly IRealEstateAgencyRepository _realEstateAgencyRepository;
-        public RealEstateAgencyController(IRealEstateAgencyRepository realEstateAgencyRepository)
+        private readonly IRealtorRepository realtorRepo;
+        private readonly IMapper mapper;
+
+        public RealEstateAgencyController(IRealEstateAgencyRepository realEstateAgencyRepository, IRealtorRepository realtorRepo, IMapper mapper)
         {
             this._realEstateAgencyRepository = realEstateAgencyRepository;
+            this.realtorRepo = realtorRepo;
+            this.mapper = mapper;
         }
 
 
@@ -71,6 +81,39 @@ namespace BostadzPortalenWebAPI.Controllers
         public async Task DeleteAgency(int id)
         {
             await _realEstateAgencyRepository.DeleteAsync(await GetAgencyById(id)); //this probably shouldn't be used like this
+        }
+
+        [HttpGet("GetAgencyDetailsDTO")]
+        public async Task<RealEstateAgencyDetailsDTO> GetAgencyDetailsDTO(int id)
+        {
+
+            var agency = await _realEstateAgencyRepository.GetByIdFullIncludeAsync(id);
+
+
+            var dto = new RealEstateAgencyDetailsDTO
+            {
+                RealEstateAgencyId = agency.RealEstateAgencyId,
+                AgencyName = agency.AgencyName,
+                AgencyDescription = agency.AgencyDescription,
+                AgencyLogoUrl = agency.AgencyLogoUrl,
+                RealtorInfo = agency.AgencyRealtors.Select(r => new RealtorAgencyDTO
+                {
+                    RealtorId = r.Id,
+                    FullName = $"{r.FirstName} {r.LastName}",
+                    ProfileImageUrl = r.ProfileImageUrl,
+                    PropertiesForSale = r.Properties.Select(p => new PropertyForSaleAgencyDTO
+                    {
+                        PropertyForSaleId = p.PropertyForSaleId,
+                        Address = p.Address,
+                        AskingPrice = p.AskingPrice,
+                        FirstImageUrl = p.ImageUrls.FirstOrDefault()?.ImageUrl ?? "/images/property-placeholder.png",
+                        TypeOfProperty = p.TypeOfProperty
+                    }).ToList()
+                }).ToList()
+            };
+
+            return dto;
+
         }
     }
 }
