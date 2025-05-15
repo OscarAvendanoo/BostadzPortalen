@@ -1,6 +1,7 @@
 ﻿using BostadzPortalenWebAPI.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+//Author: Johan Nelin
 
 namespace BostadzPortalenWebAPI.Constants
 {
@@ -93,9 +94,6 @@ namespace BostadzPortalenWebAPI.Constants
 
         public static ModelBuilder RealtorBuilder(ModelBuilder builder)
         {
-            // Hårdkodad hash för "Test123!"
-            //string hash = "AQAAAAEAACcQAAAAEF6oFKaPYv7dY6S49UYErceG71LgqY4NQnl65ID7GEx1UAcL7IeuWnI1fBAGgW6Aow==";
-
             //Hasher for passwords
             var hasher = new PasswordHasher<Realtor>();
 
@@ -103,14 +101,15 @@ namespace BostadzPortalenWebAPI.Constants
                 new Realtor
                 {
                     Id = SeedGUID.SystemAdmin,
-                    Email = "admin@demoapi.com",
-                    NormalizedEmail = "ADMIN@DEMOAPI.COM",
-                    UserName = "admin@demoapi.com",
-                    NormalizedUserName = "ADMIN@DEMOAPI.COM",
+                    Email = "admin@bostadzportalen.com",
+                    NormalizedEmail = "ADMIN@BOSTADZPORTALEN.COM",
+                    UserName = "admin@bostadzportalen.com",
+                    NormalizedUserName = "ADMIN@BOSTADZPORTALEN.COM",
                     FirstName = "System",
                     LastName = "Admin",
                     PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
+                    //BostadzPortalen
                     AgencyId = 1, //keep this as "empty" agency
                     PhoneNumber = "0722661920",
                     ProfileImageUrl = "https://genslerzudansdentistry.com/wp-content/uploads/2015/11/anonymous-user.png"
@@ -118,14 +117,15 @@ namespace BostadzPortalenWebAPI.Constants
                 new Realtor
                 {
                     Id = SeedGUID.SystemUser,
-                    Email = "anders.johansson@demoapi.com",
-                    NormalizedEmail = "ANDERS.JOHANSSON@DEMOAPI.COM",
-                    UserName = "anders.johansson@demoapi.com",
-                    NormalizedUserName = "ANDERS.JOHANSSON@DEMOAPI.COM",
+                    Email = "anders.johansson@fastighetsbyran.com",
+                    NormalizedEmail = "ANDERS.JOHANSSON@FASTIGHETSBYRAN.COM",
+                    UserName = "anders.johansson@fastighetsbyran.com",
+                    NormalizedUserName = "ANDERS.JOHANSSON@FASTIGHETSBYRAN.COM",
                     FirstName = "Anders",
                     LastName = "Johansson",
                     PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
+                    //Fastighetsbyrån
                     AgencyId = 2,
                     PhoneNumber = "0722661922",
                     ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/dc/10/dc1096e4429f9ab94cb951c2361c1d2c.jpg"
@@ -133,30 +133,31 @@ namespace BostadzPortalenWebAPI.Constants
                 new Realtor
                 {
                     Id = SeedGUID.SystemRealtor,
-                    Email = "eric.hultman@demoapi.com",
-                    NormalizedEmail = "ERIC.HULTMAN@DEMOAPI.COM",
-                    UserName = "eric.hultman@demoapi.com",
-                    NormalizedUserName = "ERIC.HULTMAN@DEMOAPI.COM",
+                    Email = "eric.hultman@fastighetsbyran.com",
+                    NormalizedEmail = "ERIC.HULTMAN@FASTIGHETSBYRAN.COM",
+                    UserName = "eric.hultman@fastighetsbyran.com",
+                    NormalizedUserName = "ERIC.HULTMAN@FASTIGHETSBYRAN.COM",
                     FirstName = "Eric",
                     LastName = "Hultman",
                     PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
+                    //Fastighetsbyrån
                     AgencyId = 2,
                     PhoneNumber = "0722661922",
                     ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/c2/14/c214891aaaaa4cc23e4cbb57a9b95bbd.jpg"
                 },
-                //FUCKLOADS OF DATA
                 new Realtor
                 {
                     Id = SeedGUID.Realtor1,
-                    Email = "eric.svensson@demoapi.com",
-                    NormalizedEmail = "ERIC.SVENSSON@DEMOAPI.COM",
-                    UserName = "eric.svensson@demoapi.com",
-                    NormalizedUserName = "ERIC.SVENSSON@DEMOAPI.COM",
+                    Email = "eric.svensson@lansforsakringar.se",
+                    NormalizedEmail = "ERIC.SVENSSON@LANSFORSAKRINGAR.SE",
+                    UserName = "eric.svensson@lansforsakringar.se",
+                    NormalizedUserName = "ERIC.SVENSSON@LANSFORSAKRINGAR.SE",
                     FirstName = "Eric",
                     LastName = "Svensson",
                     PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
+                    //Länsförsäkringar
                     AgencyId = 3,
                     PhoneNumber = "0722661922",
                     ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/28/49/2849c9de29bd992309e8e00aaec96d89.jpg"
@@ -164,14 +165,15 @@ namespace BostadzPortalenWebAPI.Constants
                 new Realtor
                 {
                     Id = SeedGUID.Realtor2,
-                    Email = "christopher.sjodahl@demoapi.com",
-                    NormalizedEmail = "CHRISTOPHER.SJODAHL@DEMOAPI.COM",
-                    UserName = "christopher.sjodahl@demoapi.com",
-                    NormalizedUserName = "CHRISTOPHER.SJODAHL@DEMOAPI.COM",
+                    Email = "christopher.sjodahl@lansforsakringar.se",
+                    NormalizedEmail = "CHRISTOPHER.SJODAHL@LANSFORSAKRINGAR.SE",
+                    UserName = "christopher.sjodahl@lansforsakringar.se",
+                    NormalizedUserName = "CHRISTOPHER.SJODAHL@LANSFORSAKRINGAR.SE",
                     FirstName = "Christopher",
                     LastName = "Sjödahl",
                     PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
+                    //Länsförsäkringar
                     AgencyId = 3,
                     PhoneNumber = "0722661922",
                     ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/7e/0c/7e0ceb545d876de2c344463e3def2b2b.jpg"
@@ -179,14 +181,15 @@ namespace BostadzPortalenWebAPI.Constants
                 new Realtor
                 {
                     Id = SeedGUID.Realtor3,
-                    Email = "asa.danielsson@demoapi.com",
-                    NormalizedEmail = "ASA.DANIELSSON@DEMOAPI.COM",
-                    UserName = "asa.danielsson@demoapi.com",
-                    NormalizedUserName = "ASA.DANIELSSON@DEMOAPI.COM",
+                    Email = "asa.danielsson@lansforsakringar.se",
+                    NormalizedEmail = "ASA.DANIELSSON@LANSFORSAKRINGAR.SE",
+                    UserName = "asa.danielsson@lansforsakringar.se",
+                    NormalizedUserName = "ASA.DANIELSSON@LANSFORSAKRINGAR.SE",
                     FirstName = "Åsa",
                     LastName = "Danielsson",
                     PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
+                    //Länsförsäkringar
                     AgencyId = 3,
                     PhoneNumber = "0722661922",
                     ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/93/66/9366e20a447c16f1c7a25c264fe4afba.jpg"
@@ -194,14 +197,15 @@ namespace BostadzPortalenWebAPI.Constants
                 new Realtor
                 {
                     Id = SeedGUID.Realtor4,
-                    Email = "frida.urciuoli@demoapi.com",
-                    NormalizedEmail = "FRIDA.URCIUOLI@DEMOAPI.COM",
-                    UserName = "frida.urciuoli@demoapi.com",
-                    NormalizedUserName = "FRIDA.URCIUOLI@DEMOAPI.COM",
+                    Email = "frida.urciuoli@fastighetsformedling.se",
+                    NormalizedEmail = "FRIDA.URCIUOLI@FASTIGHETSFORMEDLING.SE",
+                    UserName = "frida.urciuoli@fastighetsformedling.se",
+                    NormalizedUserName = "FRIDA.URCIUOLI@FASTIGHETSFORMEDLING.SE",
                     FirstName = "Frida",
                     LastName = "Urciuoli",
                     PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
+                    //Fastighetsförmedling
                     AgencyId = 4,
                     PhoneNumber = "0722661922",
                     ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/3e/9f/3e9fed971ede79ae8654200a71105a3a.png"
@@ -209,14 +213,15 @@ namespace BostadzPortalenWebAPI.Constants
                 new Realtor
                 {
                     Id = SeedGUID.Realtor5,
-                    Email = "alf.jonsson@demoapi.com",
-                    NormalizedEmail = "ALF.JONSSON@DEMOAPI.COM",
-                    UserName = "alf.jonsson@demoapi.com",
-                    NormalizedUserName = "ALF.JONSSON@DEMOAPI.COM",
+                    Email = "alf.jonsson@skandiamaklarna.se",
+                    NormalizedEmail = "ALF.JONSSON@SKANDIAMAKLARNA.SE",
+                    UserName = "alf.jonsson@skandiamaklarna.se",
+                    NormalizedUserName = "ALF.JONSSON@SKANDIAMAKLARNA.SE",
                     FirstName = "Alf",
                     LastName = "Jonsson",
                     PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
+                    //SkandiaMäklarna
                     AgencyId = 5,
                     PhoneNumber = "0722661922",
                     ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/fb/e0/fbe05166921e291c40f9d5f22c2403ee.png"
@@ -224,14 +229,15 @@ namespace BostadzPortalenWebAPI.Constants
                 new Realtor
                 {
                     Id = SeedGUID.Realtor6,
-                    Email = "louise.pedersen@demoapi.com",
-                    NormalizedEmail = "LOUISE.PEDERSEN@DEMOAPI.COM",
-                    UserName = "louise.pedersen@demoapi.com",
-                    NormalizedUserName = "LOUISE.PEDERSEN@DEMOAPI.COM",
+                    Email = "louise.pedersen@maklarhuset.com",
+                    NormalizedEmail = "LOUISE.PEDERSEN@MAKLARHUSET.COM",
+                    UserName = "louise.pedersen@maklarhuset.com",
+                    NormalizedUserName = "LOUISE.PEDERSEN@MAKLARHUSET.COM",
                     FirstName = "Louise",
                     LastName = "Pedersen",
                     PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
+                    //Mäklarhuset
                     AgencyId = 6,
                     PhoneNumber = "0722661922",
                     ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/0d/69/0d69c1adc73cb71ec67c0e48fcd6bf09.png"
@@ -239,14 +245,15 @@ namespace BostadzPortalenWebAPI.Constants
                 new Realtor
                 {
                     Id = SeedGUID.Realtor7,
-                    Email = "max.hjertqvist@demoapi.com",
-                    NormalizedEmail = "MAX.HJERTQVIST@DEMOAPI.COM",
-                    UserName = "max.hjertqvist@demoapi.com",
-                    NormalizedUserName = "MAX.HJERTQVIST@DEMOAPI.COM",
+                    Email = "max.hjertqvist@husmanhagberg.com",
+                    NormalizedEmail = "MAX.HJERTQVIST@HUSMANHAGBERG.COM",
+                    UserName = "max.hjertqvist@husmanhagberg.com",
+                    NormalizedUserName = "MAX.HJERTQVIST@HUSMANHAGBERG.COM",
                     FirstName = "Max",
                     LastName = "Hjertqvist",
                     PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
+                    //HusmanHagberg
                     AgencyId = 7,
                     PhoneNumber = "0722661922",
                     ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/c3/f1/c3f167f797358d672aa4c1d4b7ffc421.jpg"
@@ -254,14 +261,15 @@ namespace BostadzPortalenWebAPI.Constants
                 new Realtor
                 {
                     Id = SeedGUID.Realtor8,
-                    Email = "garifalia.diakakis@demoapi.com",
-                    NormalizedEmail = "GARIFALIA.DIAKAKIS@DEMOAPI.COM",
-                    UserName = "garifalia.diakakis@demoapi.com",
-                    NormalizedUserName = "GARIFALIA.DIAKAKIS@DEMOAPI.COM",
+                    Email = "garifalia.diakakis@fastighetsformedling.se",
+                    NormalizedEmail = "GARIFALIA.DIAKAKIS@FASTIGHETSFORMEDLING.SE",
+                    UserName = "garifalia.diakakis@fastighetsformedling.se",
+                    NormalizedUserName = "GARIFALIA.DIAKAKIS@FASTIGHETSFORMEDLING.SE",
                     FirstName = "Garifalia",
                     LastName = "Diakakis",
                     PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
+                    //Fastighetsförmedling
                     AgencyId = 4,
                     PhoneNumber = "0722661922",
                     ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/9c/a7/9ca77f4a03c12493a14c2acf6400b7db.jpg"
@@ -269,14 +277,15 @@ namespace BostadzPortalenWebAPI.Constants
                 new Realtor
                 {
                     Id = SeedGUID.Realtor9,
-                    Email = "gustav.azelius@demoapi.com",
-                    NormalizedEmail = "GUSTAV.AZELIUS@DEMOAPI.COM",
-                    UserName = "gustav.azelius@demoapi.com",
-                    NormalizedUserName = "GUSTAV.AZELIUS@DEMOAPI.COM",
+                    Email = "gustav.azelius@skandiamaklarna.se",
+                    NormalizedEmail = "GUSTAV.AZELIUS@SKANDIAMAKLARNA.SE",
+                    UserName = "gustav.azelius@skandiamaklarna.se",
+                    NormalizedUserName = "GUSTAV.AZELIUS@SKANDIAMAKLARNA.SE",
                     FirstName = "Gustav",
                     LastName = "Azelius",
                     PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
+                    //SkandiaMäklarna
                     AgencyId = 5,
                     PhoneNumber = "0722661922",
                     ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/f9/1e/f91ef13e8343b48609d5fc6462fc5b29.jpg"
@@ -284,14 +293,15 @@ namespace BostadzPortalenWebAPI.Constants
                 new Realtor
                 {
                     Id = SeedGUID.Realtor10,
-                    Email = "tore.wikander@demoapi.com",
-                    NormalizedEmail = "TORE.WIKANDER@DEMOAPI.COM",
-                    UserName = "tore.wikander@demoapi.com",
-                    NormalizedUserName = "TORE.WIKANDER@DEMOAPI.COM",
+                    Email = "tore.wikander@skandiamaklarna.se",
+                    NormalizedEmail = "TORE.WIKANDER@SKANDIAMAKLARNA.SE",
+                    UserName = "tore.wikander@skandiamaklarna.se",
+                    NormalizedUserName = "TORE.WIKANDER@SKANDIAMAKLARNA.SE",
                     FirstName = "Tore",
                     LastName = "Wikander",
                     PasswordHash = hasher.HashPassword(null, "Test123!"),
                     EmailConfirmed = true,
+                    //SkandiaMäklarna
                     AgencyId = 5,
                     PhoneNumber = "0722661922",
                     ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/f6/da/f6da5fe256d9d155fd6e291460c6f95b.jpg"
