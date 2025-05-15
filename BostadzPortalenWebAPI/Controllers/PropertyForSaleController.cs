@@ -136,8 +136,8 @@ namespace BostadzPortalenWebAPI.Controllers
 
             await _propertyForSaleRepository.AddAsync(property);
 
-            return Ok(dto);
-            //return CreatedAtAction(nameof(GetProperty), new { id = property.PropertyForSaleId }, property);
+
+            return CreatedAtAction(nameof(GetProperty), new { id = property.PropertyForSaleId }, property);
         }
 
 
@@ -174,6 +174,10 @@ namespace BostadzPortalenWebAPI.Controllers
             {
                 return NotFound();
             }
+
+            //var images = propertyToDelete.ImageUrls;
+            //propertyToDelete.ImageUrls.Remove()
+
             await _propertyForSaleRepository.DeleteAsync(propertyToDelete);
             return NoContent();
         }

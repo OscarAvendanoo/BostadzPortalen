@@ -47,42 +47,42 @@ namespace BostadzPortalenWebAPI.Constants
                     {
                         RealEstateAgencyId = 2,
                         AgencyName = "Fastighetsbyrån",
-                        AgencyDescription = "",
+                        AgencyDescription = "Vi är Sveriges största mäklarkedja och stolta över att vara en del av Swedbank. Med över 300 kontor över hela landet erbjuder vi trygghet, lokal expertis och ett stort nätverk som gör din bostadsaffär smidig och säker. Vår passion är att hjälpa dig hitta rätt – oavsett om du ska köpa eller sälja.",
                         AgencyLogoUrl = "https://bilder.hemnet.se/images/broker_logo_2_2x/3d/53/3d53972640f121199879bf779e590c7d.jpg"
                     },
                     new RealEstateAgency
                     {
                         RealEstateAgencyId = 3,
                         AgencyName = "Länsförsäkringar Fastighetsförmedling",
-                        AgencyDescription = "",
+                        AgencyDescription = "Hos oss får du mer än bara en mäklare – du får en trygg partner. Som en del av Länsförsäkringar-koncernen kombinerar vi djup lokal kunskap med försäkrings- och banktjänster, vilket ger dig en heltäckande och säker bostadsaffär. Vi finns nära dig för att göra bostadsdrömmen till verklighet.",
                         AgencyLogoUrl = "https://bilder.hemnet.se/images/broker_logo_2/73/c6/73c63376473b74a25e13711a82fcae60.png"
                     },
                     new RealEstateAgency
                     {
                         RealEstateAgencyId = 4,
                         AgencyName = "Svensk Fastighetsförmedling",
-                        AgencyDescription = "",
+                        AgencyDescription = "Vi är en av Sveriges äldsta och mest pålitliga mäklarkedjor med ett starkt fokus på kundnöjdhet. Med vår stora erfarenhet och omfattande marknadsföring når vi ut till rätt köpare snabbt – så att du får bästa möjliga pris och en trygg försäljningsprocess.",
                         AgencyLogoUrl = "https://bilder.hemnet.se/images/broker_logo_2/73/80/7380eae8e412bea23a30d7cdd416f750.png"
                     },
                     new RealEstateAgency
                     {
                         RealEstateAgencyId = 5,
                         AgencyName = "SkandiaMäklarna",
-                        AgencyDescription = "",
+                        AgencyDescription = "Vi är din personliga och engagerade mäklare med hjärtat i den lokala marknaden. Genom nära kundkontakt och skräddarsydd rådgivning ser vi till att din bostadsaffär blir så trygg och framgångsrik som möjligt. Vårt mål är att göra dig nöjd – varje steg på vägen.\r\n\r\n",
                         AgencyLogoUrl = "https://bilder.hemnet.se/images/broker_logo_2_2x/dd/7a/dd7a02fb5c0324de279ace72e14b873c.png"
                     },
                     new RealEstateAgency
                     {
                         RealEstateAgencyId = 6,
                         AgencyName = "Mäklarhuset",
-                        AgencyDescription = "",
+                        AgencyDescription = "Välkommen till en mäklarkedja som sätter dig i fokus! Vi kombinerar rikstäckande närvaro med djup lokal expertis för att göra din bostadsaffär enkel, trygg och lönsam. Hos oss får du alltid personlig service och rådgivning anpassad efter dina behov.",
                         AgencyLogoUrl = "https://bilder.hemnet.se/images/broker_logo_2_2x/68/41/684184dc02af90e4f9d2ac612122b24f.png"
                     },
                     new RealEstateAgency
                     {
                         RealEstateAgencyId = 7,
                         AgencyName = "HusmanHagberg",
-                        AgencyDescription = "",
+                        AgencyDescription = "Med över 20 års erfarenhet är vi en av Sveriges mest pålitliga och fristående mäklarkedjor. Vi brinner för att ge dig personlig service och lokalkännedom i världsklass, så att du kan känna dig trygg och nöjd genom hela bostadsresan.",
                         AgencyLogoUrl = "https://bilder.hemnet.se/images/broker_logo_2_2x/ff/d0/ffd046756118f2684c2df1061d0185c4.png"
                     }
                 );

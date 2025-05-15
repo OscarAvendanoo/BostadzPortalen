@@ -80,9 +80,10 @@
         {
 
             Console.WriteLine($"Something went wrong: {ex.Message}");
+            navManager.NavigateTo("/");
         }
 
-        navManager.NavigateTo("/");
+        
 
        
     }

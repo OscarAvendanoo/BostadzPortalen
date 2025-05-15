@@ -22,6 +22,8 @@ html, body {
     overflow-x: hidden !important;
 }
 
+
+
 h1:focus {
     outline: none;
 }
@@ -458,8 +460,14 @@ code {
     padding-right: 100px;*/
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    /*overflow-x: visible;*/
     min-height: 100vh;
     max-width: 1400px;
     margin: 0 auto;
 }
+
+/*.custom-property-list{
+
+    overflow-x:visible;
+    padding-inline: 10rem;
+}*/
