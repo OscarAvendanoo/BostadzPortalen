@@ -279,7 +279,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         [HttpDelete("DeletePicture")]
-        [Authorize(Roles ="Realtor, Admin")]
+        [Authorize(Roles ="Realtor, Administrator")]
         public async Task DeletePictureAsync(int id)
         {
             
@@ -287,6 +287,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [Authorize(Roles = "Realtor, Administrator")]
         [HttpPut("UnlinkPicture/{id}")]
         public async Task<IActionResult> UnlinkImageFromProperty(int id)
         {
