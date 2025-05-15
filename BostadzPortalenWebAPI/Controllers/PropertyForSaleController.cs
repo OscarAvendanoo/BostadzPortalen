@@ -85,6 +85,8 @@ namespace BostadzPortalenWebAPI.Controllers
 
             return Ok(allDTOs);
         }
+
+
         [HttpGet("GetPropertyByIdDetailsDTOAsync/{id}")]
         public async Task<ActionResult<PropertyForSaleDetailsDTO>> GetPropertyByIdDetailsDTOAsync(int id)
         {
@@ -144,6 +146,7 @@ namespace BostadzPortalenWebAPI.Controllers
 
         // Author: Jona
         // PUT api/<PropertyForSaleController>/5
+        [Authorize(Roles = "Administrator, Realtor")]
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateProperty(int id, [FromBody] PropertyForSaleUpdateDto updatedPropertyForSale)
         {
@@ -166,6 +169,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
         // Author: Jonaaa
         // DELETE api/<PropertyForSaleController>/5
+        [Authorize(Roles = "Administrator, Realtor")]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteProperty(int id)
         {

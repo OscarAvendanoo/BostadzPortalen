@@ -8,6 +8,7 @@
         public string FullName { get; set; } = "";
         public string Phone { get; set; } = "";
         public string Email { get; set; } = "";
+        public int RealEstateAgencyId { get; set; }
         public string AgencyName { get; set; } = "";
         public string AgencyLogoUrl { get; set; } = "";
         public string RealtorImage { get; set; } = "";

@@ -70,6 +70,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         // PUT api/<PropertyForSaleController>/5
+        [Authorize(Roles = "Administrator")]
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateAgency(int id, [FromBody] RealEstateAgency realEstateAgency)
         {
@@ -88,6 +89,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         // DELETE api/<PropertyForSaleController>/5
+        [Authorize(Roles = "Administrator")]
         [HttpDelete("{id}")]
         public async Task DeleteAgency(int id)
         {

@@ -68,6 +68,7 @@ namespace BostadzPortalenWebAPI.Controllers
 
 
         //Author: Kevin, Oscar
+        [Authorize(Roles = "Administrator, Realtor")]
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateRealtor(int id, [FromBody] RegisterRealtorDTO dto)
         {
@@ -86,9 +87,7 @@ namespace BostadzPortalenWebAPI.Controllers
                 }
 
                 mapper.Map(realtor, dto);
-                //mapper.Map<Realtor>(dto);
-                //realtor.RealtorId = id;
-
+                
                 await realtorRepository.UpdateAsync(realtor);
                 return Ok(realtor);
             }
@@ -99,7 +98,7 @@ namespace BostadzPortalenWebAPI.Controllers
             }
         }
 
-        //[Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Administrator, Realtor")]
         [HttpPost]
         public async Task<ActionResult> CreateRealtor([FromBody] RegisterRealtorDTO dto)
         {
@@ -121,7 +120,7 @@ namespace BostadzPortalenWebAPI.Controllers
             }
         }
 
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Administrator, Realtor")]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteRealtor(int id)
         {
@@ -210,7 +209,8 @@ namespace BostadzPortalenWebAPI.Controllers
                     Properties = propsList,
                     RealtorImage = realtor.ProfileImageUrl,
                     PropertyImages = images,
-                    AgencyLogoUrl = realtor.Agency.AgencyLogoUrl
+                    AgencyLogoUrl = realtor.Agency.AgencyLogoUrl,
+                    RealEstateAgencyId = realtor.Agency.RealEstateAgencyId
                 };
 
                 return Ok(realtorInfo);
@@ -221,55 +221,12 @@ namespace BostadzPortalenWebAPI.Controllers
                 Console.WriteLine($"Something went wrong: {ex.Message}");
                 return StatusCode(500, "Internal error");
             }
-            //var images = new List<PropertyImageDto>();
-            //List<PropertyForSaleOverviewDTO> propsList = new List<PropertyForSaleOverviewDTO>();
-            //var realtor = await realtorRepository.GetRealtorInfoDTO(id);
-
-
-
-            //foreach(var prop in realtor.Properties)
-            //{
-            //    var property = mapper.Map<PropertyForSaleOverviewDTO>(prop);
-            //    propsList.Add(property);
-
-            //    foreach (var picture in prop.ImageUrls)
-            //    {
-            //        var image = mapper.Map<PropertyImageDto>(picture);
-            //        images.Add(image);
-            //    }
-            //}
-
-            //try
-            //{
-
-
-            //    var realtorInfo = new RealtorInfoDTO
-            //    {
-            //        RealtorId = realtor.Id,
-            //        FullName = $"{realtor.FirstName} {realtor.LastName}",
-            //        AgencyName = realtor.Agency.AgencyName,
-            //        Email = realtor.Email,
-            //        Phone = realtor.PhoneNumber,
-            //        Properties = propsList,
-            //        RealtorImage = realtor.ProfileImageUrl,
-            //        PropertyImages = images
-
-
-            //    };
-
-            //    return Ok(realtorInfo);
-            //}
-            //catch (Exception ex)
-            //{
-
-            //    Console.WriteLine($"Något fick fel: {ex.Message}");
-            //}
-            //return BadRequest();
+           
         }
 
 
         // Jona
-        [Authorize(Roles = "Realtor")]
+        [Authorize(Roles = "Administrator, Realtor")]
         [HttpPatch("me")]
         public async Task<IActionResult> UpdateMyProfile([FromBody] RealtorUpdateDTO dto)
         {
