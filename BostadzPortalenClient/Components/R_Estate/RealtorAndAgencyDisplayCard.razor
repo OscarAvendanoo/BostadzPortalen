@@ -1,4 +1,5 @@
 ﻿@* Author: Johan Nelin *@
+@using BostadzPortalenClient.Components.Realtor
 
 <div class="d-flex flex-column align-items-center" style="width:30rem">
     <div class="realtor-card d-flex col-12 mb-3">
@@ -7,10 +8,10 @@
             <p style="text-decoration: underline; font-weight:500;">@realEstate.RealtorFullName</p>
 
             @* NEEDS DTO UPDATE *@
-            @* <ContactRealtor Email="@realEstate.RealtorEmail" PhoneNumber="@realEstate.RealtorPhone"></ContactRealtor>*@
+            <ContactRealtor Email="@realEstate.RealtorEmail" PhoneNumber="@realEstate.RealtorPhone"></ContactRealtor>
         </div>
         <div class="image-container col-7 d-flex justify-content-center align-items-center">
-            <NavLink class="card-img-top" href="@GetLinkRealtor()">
+            <NavLink  href="@GetLinkRealtor()">
                 <img src="@realEstate.RealtorPicture" height="150" />
             </NavLink>
         </div>
@@ -24,7 +25,7 @@
             <p style="text-decoration: underline; font-weight:500;">@realEstate.AgencyName</p>
         </div>
         <div class="image-container col-7 d-flex justify-content-center alignt-items-center">
-            <NavLink class="card-img-top" href="@GetLinkAgency()">
+            <NavLink href="@GetLinkAgency()">
                 <img src="@realEstate.AgencyLogo" height="75" />
             </NavLink>
         </div>
