@@ -46,13 +46,19 @@
 
                     <h4 class="text-center mb-3">@($"{realtor.FirstName} {realtor.LastName}")</h4>
 
-                    <dl class="row mb-4">
+                    @* <dl class="row mb-4">
                         <dt class="col-sm-4">Förnamn:</dt>
                         <dd class="col-sm-8">@realtor.FirstName</dd>
 
                         <dt class="col-sm-4">Efternamn:</dt>
                         <dd class="col-sm-8">@realtor.LastName</dd>
-                    </dl>
+                    </dl> *@
+
+                    @* <dl class="row mb-4">
+                        <dt class="col-sm-4">Byrå:</dt>
+                        <p>@realtor.Agency.AgencyName</p>
+                    </dl>  *@
+                    <p class="fs-5"><strong>Byrå: </strong>@realtor.Agency.AgencyName</p>
 
                     <ContactRealtor Email="@realtor.Email" PhoneNumber="@realtor.PhoneNumber"></ContactRealtor>
 
@@ -62,7 +68,7 @@
                         </NavLink>
 
                         <NavLink class="btn btn-success" href="/property/add">
-                            <i class="bi bi-house-add me-2"></i> Ny bostad
+                            <i class="bi bi-house-add me-2"></i> Lägg till ny bostad
                         </NavLink>
                     </div>
                 </CardBody>
