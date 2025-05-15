@@ -2,6 +2,106 @@
 @inject IRealtorService RealtorService
 @using BlazorBootstrap
 @using BostadzPortalenClient.Components.Realtor
+@using Microsoft.AspNetCore.Components.Routing
+
+<div class="container py-4">
+    <div class="mb-5 text-center">
+        <h2 class="fw-bold">Min Profil</h2>
+        <p class="text-muted">Här kan du se och uppdatera din information.</p>
+    </div>
+
+    @if (isLoading)
+    {
+        <div class="d-flex justify-content-center">
+            <Spinner></Spinner>
+        </div>
+    }
+    else if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <Alert Color="AlertColor.Danger">
+            @errorMessage
+        </Alert>
+    }
+    else if (realtor != null)
+    {
+        <div class="mx-auto" style="max-width: 600px;">
+            <Card class="shadow-lg border-0">
+                <CardBody>
+                    <div class="text-center mb-4">
+                        @if (!string.IsNullOrWhiteSpace(realtor.ProfileImageUrl))
+                        {
+                            <img src="@realtor.ProfileImageUrl" alt="Profilbild"
+                                 class="img-fluid rounded-circle shadow mb-3"
+                                 style="max-height: 160px; border: 4px solid #f0f0f0;" />
+                        }
+                        else
+                        {
+                            <div class="border rounded-circle d-flex align-items-center justify-content-center mx-auto"
+                                 style="width: 160px; height: 160px; background-color: #f8f9fa;">
+                                <i class="bi bi-person" style="font-size: 2.5rem; color: #adb5bd;"></i>
+                            </div>
+                            <p class="text-muted mt-2"><em>Ingen profilbild tillgänglig</em></p>
+                        }
+                    </div>
+
+                    <h4 class="text-center mb-3">@($"{realtor.FirstName} {realtor.LastName}")</h4>
+
+                    <dl class="row mb-4">
+                        <dt class="col-sm-4">Förnamn:</dt>
+                        <dd class="col-sm-8">@realtor.FirstName</dd>
+
+                        <dt class="col-sm-4">Efternamn:</dt>
+                        <dd class="col-sm-8">@realtor.LastName</dd>
+                    </dl>
+
+                    <ContactRealtor Email="@realtor.Email" PhoneNumber="@realtor.PhoneNumber"></ContactRealtor>
+
+                    <div class="mt-4 d-flex flex-wrap justify-content-center gap-2">
+                        <NavLink class="btn btn-primary" href="/realtor/edit" Match="NavLinkMatch.All">
+                            <i class="bi bi-pencil-square me-2"></i> Redigera
+                        </NavLink>
+
+                        <NavLink class="btn btn-success" href="/property/add">
+                            <i class="bi bi-house-add me-2"></i> Ny bostad
+                        </NavLink>
+                    </div>
+                </CardBody>
+            </Card>
+        </div>
+    }
+    else
+    {
+        <Alert Color="AlertColor.Warning">
+            Ingen mäklarinformation hittades.
+        </Alert>
+    }
+</div>
+
+@code {
+    private Realtor? realtor;
+    private string? errorMessage;
+    private bool isLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await RealtorService.GetCurrentRealtor();
+
+        if (response.Success)
+        {
+            realtor = response.Data;
+        }
+        else
+        {
+            errorMessage = response.Message ?? "Ett fel uppstod vid hämtning.";
+        }
+
+        isLoading = false;
+    }
+}
+@* @page "/my-page"
+@inject IRealtorService RealtorService
+@using BlazorBootstrap
+@using BostadzPortalenClient.Components.Realtor
 
 <h3 class="mb-4">Min Sida</h3>
 
@@ -70,5 +170,5 @@ else
 
         isLoading = false;
     }
-}
+} *@
 

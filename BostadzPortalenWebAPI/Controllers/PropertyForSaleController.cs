@@ -136,8 +136,8 @@ namespace BostadzPortalenWebAPI.Controllers
 
             await _propertyForSaleRepository.AddAsync(property);
 
-
-            return CreatedAtAction(nameof(GetProperty), new { id = property.PropertyForSaleId }, property);
+            return Ok(dto);
+            //return CreatedAtAction(nameof(GetProperty), new { id = property.PropertyForSaleId }, property);
         }
 
 

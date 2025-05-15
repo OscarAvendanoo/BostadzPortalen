@@ -1,9 +1,9 @@
 ﻿@page "/realtor/details/{RealtorId}"
 @using BostadzPortalenClient.Components.R_Estate
 @using BostadzPortalenClient.Components.Realtor
-@inject IPropertyForSaleService propService
+@inject IAgencyService agencyService
 @inject IRealtorService realtorService
-@inject IPropertyForSaleService propService
+@inject NavigationManager navManager
 <!--Author: Kevin-->
 
 <div class="container mt-4">
@@ -30,13 +30,13 @@
 
             </div>
             <div class="col-5 d-flex justify-content-start align-items-center">
-                <img src="@realtorInfo.AgencyLogoUrl" alt="Bild på @realtorInfo.AgencyName" class="img-fluid rounded" style="max-height: 200px;" />
+                <NavLink href=@($"/agency/details/{myAgency.RealEstateAgencyId}")><img src="@realtorInfo.AgencyLogoUrl" alt="Bild på @realtorInfo.AgencyName" class="img-fluid rounded" style="max-height: 200px;" /></NavLink>
             </div>
         </div>
 
         <hr />
         <div>
-            <h3 class="mb-4 mt-4">@realtorInfo.FullName - Fastigheter</h3>
+            @* <h3 class="mb-4 mt-4">@realtorInfo.FullName - Fastigheter</h3> *@
             <div class="row">
                 @if (realtorInfo.Properties == null)
                 {
@@ -63,8 +63,27 @@
 
     private RealtorInfoDTO? realtorInfo { get; set; }
 
+    private RealEstateAgency? myAgency { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
-        realtorInfo = await realtorService.GetRealtorInfoDTO(RealtorId);
+
+        try
+        {
+            realtorInfo = await realtorService.GetRealtorInfoDTO(RealtorId);
+
+            var agencies = await agencyService.GetAllAgenciesAsync();
+
+            myAgency = agencies.Where(a => a.AgencyName == realtorInfo.AgencyName).FirstOrDefault();
+        }
+        catch (Exception ex)
+        {
+
+            Console.WriteLine($"Something went wrong: {ex.Message}");
+        }
+
+        navManager.NavigateTo("/");
+
+       
     }
 }

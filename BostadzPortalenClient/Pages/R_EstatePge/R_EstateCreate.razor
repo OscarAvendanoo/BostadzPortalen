@@ -1,127 +1,125 @@
-﻿@page "/property/add"
+﻿@* Author: Jona och lite Kevin  *@
+@page "/property/add"
 @using BostadzPortalenClient.Models
 @inject IPropertyForSaleService PropertyService
 @inject NavigationManager Navigation
 @inject IJSRuntime JS
 @inject IMuniService MuniService
 
-@* Author: Jona *@
-<h3>Lägg till ny fastighet</h3>
+<div class="card shadow-sm p-4">
+    <h3 class="card-title mb-4">Lägg till ny fastighet</h3>
 
-<EditForm Model="newProperty" OnValidSubmit="HandleValidSubmit">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
+    <EditForm Model="newProperty" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
 
-    <div class="form-group">
-        <label>Address:</label>
-        <InputText class="form-control" @bind-Value="newProperty.Address" />
-    </div>
+        <h5 class="mb-3">Grundinformation</h5>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Adress</label>
+                <InputText class="form-control" placeholder="Ex: Storgatan 12B" @bind-Value="newProperty.Address" />
+            </div>
 
-     @* <div class="form-group">
-        <label>Municipality ID:</label>
-        <InputNumber class="form-control" @bind-Value="newProperty.MunicipalityId" />
-    </div>  *@
+            <div class="col-md-6 mb-3">
+                <label>Kommun</label>
+                <InputSelect class="form-control" @bind-Value="newProperty.MunicipalityId">
+                    <option value="">-- Välj kommun --</option>
+                    @foreach (var municipality in municipalities)
+                    {
+                        <option value="@municipality.Id">@municipality.Name</option>
+                    }
+                </InputSelect>
+            </div>
 
-    <div class="form-group">
-        <label>Kommun:</label>
-        <InputSelect class="form-control" @bind-Value="newProperty.MunicipalityId">
-            <option value="">-- Välj kommun --</option>
-            @foreach (var municipality in municipalities)
-            {
-                <option value="@municipality.Id">@municipality.Name</option>
-            }
-        </InputSelect>
-    </div>
-
-
-    <div class="form-group">
-        <label>Pris:</label>
-        <InputNumber class="form-control" @bind-Value="newProperty.AskingPrice" />
-    </div>
-
-    <div class="form-group">
-        <label>Bostads area (kvm):</label>
-        <InputNumber class="form-control" @bind-Value="newProperty.LivingArea" />
-    </div>
-
-    <div class="form-group">
-        <label>Tillkommande area (kvm):</label>
-        <InputNumber class="form-control" @bind-Value="newProperty.SupplementaryArea" />
-    </div>
-
-    <div class="form-group">
-        <label>Tomt area (valfri):</label>
-        <InputNumber class="form-control" @bind-Value="newProperty.PlotArea" />
-    </div>
-
-    <div class="form-group">
-        <label>Antal rum:</label>
-        <InputNumber class="form-control" @bind-Value="newProperty.NumberOfRooms" />
-    </div>
-
-    <div class="form-group">
-        <label>Beskrivning:</label>
-        <InputTextArea class="form-control" @bind-Value="newProperty.Description" />
-    </div>
-
-    <div class="form-group">
-        <label>Kostnad per månad (valfri):</label>
-        <InputNumber class="form-control" @bind-Value="newProperty.MonthlyFee" />
-    </div>
-
-    <div class="form-group">
-        <label>Kostnad per år:</label>
-        <InputNumber class="form-control" @bind-Value="newProperty.YearlyOperatingCost" />
-    </div>
-
-    <div class="form-group">
-        <label>Byggår:</label>
-        <InputNumber class="form-control" @bind-Value="newProperty.YearBuilt" />
-    </div>
-
-    @* <div class="form-group">
-        <label>Type of Property:</label>
-        <InputSelect class="form-control" @bind-Value="newProperty.TypeOfProperty">
-            @foreach (var val in Enum.GetValues(typeof(TypeOfPropertyEnum)))
-            {
-                <option value="@val">@val</option>
-            }
-        </InputSelect>
-    </div> *@
-
-    <div class="form-group">
-        <label>Typ av bostad:</label>
-    
-    <InputSelect class="form-control" @bind-Value="newProperty.TypeOfProperty">
-            <option value="">-- Välj typ av bostad --</option>
-        @foreach (TypeOfPropertyEnum val in Enum.GetValues(typeof(TypeOfPropertyEnum)))
-        {
-            <option value="@val">@val</option>
-        }
-    </InputSelect>
-    </div>
-
-    <div class="form-group">
-        <label>Bild länk (lägg till fler):</label>
-        <InputText class="form-control" @bind-Value="imageUrl" />
-        <button class="btn btn-secondary mt-2" type="button" @onclick="AddImageUrl">Add Image</button>
-        <div class="mt-2 d-flex flex-wrap">
-            @foreach (var url in newProperty.ImageUrls)
-            {
-                <div class="me-2 mb-2">
-                    <img src="@url" alt="Preview" style="width: 100px; height: 100px; object-fit: cover;" />
-                </div>
-            }
+            <div class="col-md-6 mb-3">
+                <label>Typ av bostad</label>
+                <InputSelect class="form-control" @bind-Value="newProperty.TypeOfProperty">
+                    <option value="">-- Välj typ av bostad --</option>
+                    @foreach (TypeOfPropertyEnum val in Enum.GetValues(typeof(TypeOfPropertyEnum)))
+                    {
+                        <option value="@val">@val</option>
+                    }
+                </InputSelect>
+            </div>
         </div>
-    </div>
 
-    <button class="btn btn-primary mt-3" type="submit">Save</button>
-</EditForm>
+        <h5 class="mt-4 mb-3">Boendeyta & Pris</h5>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Pris (kr)</label>
+                <InputNumber class="form-control" placeholder="Ex: 3500000" @bind-Value="newProperty.AskingPrice" />
+            </div>
 
-@if (!string.IsNullOrWhiteSpace(feedbackMessage))
-{
-    <div class="alert alert-info mt-3">@feedbackMessage</div>
-}
+            <div class="col-md-6 mb-3">
+                <label>Bostadsarea (kvm)</label>
+                <InputNumber class="form-control" placeholder="Ex: 90" @bind-Value="newProperty.LivingArea" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>Tillkommande area (kvm)</label>
+                <InputNumber class="form-control" placeholder="Ex: 20" @bind-Value="newProperty.SupplementaryArea" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>Tomtarea (kvm)</label>
+                <InputNumber class="form-control" placeholder="Ex: 450" @bind-Value="newProperty.PlotArea" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>Antal rum</label>
+                <InputNumber class="form-control" placeholder="Ex: 4" @bind-Value="newProperty.NumberOfRooms" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>Byggår</label>
+                <InputNumber class="form-control" placeholder="Ex: 1987" @bind-Value="newProperty.YearBuilt" />
+            </div>
+        </div>
+
+        <h5 class="mt-4 mb-3">Driftskostnader</h5>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Kostnad per månad (kr)</label>
+                <InputNumber class="form-control" placeholder="Ex: 3500" @bind-Value="newProperty.MonthlyFee" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label>Kostnad per år (kr)</label>
+                <InputNumber class="form-control" placeholder="Ex: 24000" @bind-Value="newProperty.YearlyOperatingCost" />
+            </div>
+        </div>
+
+        <h5 class="mt-4 mb-3">Beskrivning</h5>
+        <div class="mb-4">
+            <InputTextArea class="form-control" rows="4" placeholder="Skriv en kort beskrivning av fastigheten…" @bind-Value="newProperty.Description" />
+        </div>
+
+        <h5 class="mt-4 mb-3">Bilder</h5>
+        <div class="mb-3">
+            <div class="input-group">
+                <InputText class="form-control" placeholder="Klistra in bildens URL…" @bind-Value="imageUrl" />
+                <button class="btn btn-outline-secondary" type="button" @onclick="AddImageUrl">Lägg till</button>
+            </div>
+
+            <div class="mt-3 d-flex flex-wrap">
+                @foreach (var url in newProperty.ImageUrls)
+                {
+                    <div class="me-2 mb-2 position-relative">
+                        <img src="@url" alt="Preview" class="rounded border" style="width: 100px; height: 100px; object-fit: cover;" />
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="d-flex justify-content-center justify-items-center">
+        <button class="btn btn-primary w-50" type="submit">Spara fastighet</button>
+        </div>
+    </EditForm>
+
+    @if (!string.IsNullOrWhiteSpace(feedbackMessage))
+    {
+        <div class="alert alert-info mt-4">@feedbackMessage</div>
+    }
+</div>
 
 @code {
     private CreatePropertyForSaleDTO newProperty = new()
@@ -133,19 +131,6 @@
     private string feedbackMessage = string.Empty;
     private List<Municipality> municipalities = new();
 
-    // Testar denna för att slippa sifforna
-    // string GetDisplayName(TypeOfPropertyEnum value)
-    // {
-    //     return value switch
-    //     {
-    //         TypeOfPropertyEnum._0 => "Bostadsrättslägenhet",
-    //         TypeOfPropertyEnum._1 => "Bostadsrättsradhus",
-    //         TypeOfPropertyEnum._2 => "Villa",
-    //         TypeOfPropertyEnum._3 => "Fritidshus",
-    //         _ => value.ToString()
-    //     };
-    // }
-
     protected override async Task OnInitializedAsync()
     {
         var result = await MuniService.GetAllMunicipalityToListAsync();
@@ -155,7 +140,6 @@
         }
     }
 
-
     private async Task HandleValidSubmit()
     {
         try
@@ -163,17 +147,17 @@
             var response = await PropertyService.AddPropertyForSaleAsync(newProperty);
             if (response)
             {
-                feedbackMessage = "✅ Property added successfully!";
+                feedbackMessage = "✅ Fastigheten har lagts till!";
                 Navigation.NavigateTo("/properties/index");
             }
             else
             {
-                feedbackMessage = "❌ Failed to add property.";
+                feedbackMessage = "❌ Kunde inte lägga till fastigheten.";
             }
         }
         catch (Exception ex)
         {
-            feedbackMessage = $"❌ Error: {ex.Message}";
+            feedbackMessage = $"❌ Fel: {ex.Message}";
         }
     }
 
@@ -191,3 +175,5 @@
         newProperty.ImageUrls.Remove(url);
     }
 }
+
+
