@@ -30,7 +30,7 @@
 
             </div>
             <div class="col-5 d-flex justify-content-start align-items-center">
-                <NavLink href=@($"/agency/details/{myAgency.RealEstateAgencyId}")><img src="@realtorInfo.AgencyLogoUrl" alt="Bild på @realtorInfo.AgencyName" class="img-fluid rounded" style="max-height: 200px;" /></NavLink>
+                <NavLink href=@($"/agency/details/{realtorInfo.RealEstateAgencyId}")><img src="@realtorInfo.AgencyLogoUrl" alt="Bild på @realtorInfo.AgencyName" class="img-fluid rounded" style="max-height: 200px;" /></NavLink>
             </div>
         </div>
 
@@ -63,7 +63,7 @@
 
     private RealtorInfoDTO? realtorInfo { get; set; }
 
-    private RealEstateAgency? myAgency { get; set; }
+    // private RealEstateAgency? myAgency { get; set; 
 
     protected override async Task OnInitializedAsync()
     {
@@ -72,9 +72,9 @@
         {
             realtorInfo = await realtorService.GetRealtorInfoDTO(RealtorId);
 
-            var agencies = await agencyService.GetAllAgenciesAsync();
+            // var agencies = await agencyService.GetAllAgenciesAsync();
 
-            myAgency = agencies.Where(a => a.AgencyName == realtorInfo.AgencyName).FirstOrDefault();
+            // myAgency = agencies.Where(a => a.AgencyName == realtorInfo.AgencyName).FirstOrDefault();
         }
         catch (Exception ex)
         {
