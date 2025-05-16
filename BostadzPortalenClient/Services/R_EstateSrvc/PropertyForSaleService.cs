@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using Blazored.LocalStorage;
 using BostadzPortalenClient.Services.Base;
-using BostadzPortalenClient.Waste.ApiService;
-using Microsoft.AspNetCore.Components.Authorization;
-using System.Net.Http.Json;
 //Author: Johan Nelin
 
 namespace BostadzPortalenClient.Services.R_EstateSrvc
@@ -12,9 +9,7 @@ namespace BostadzPortalenClient.Services.R_EstateSrvc
     {
         private readonly IClient httpClient;
         private readonly IMapper mapper;
-
-        
-
+               
         public PropertyForSaleService(IClient httpClient, IMapper mapper, ILocalStorageService localStorage) : base(localStorage, httpClient)
         {
             this.httpClient = httpClient;
@@ -37,14 +32,11 @@ namespace BostadzPortalenClient.Services.R_EstateSrvc
             {
                 Console.WriteLine($"Gick inte att ta bort: {ex.Message}");
                 throw;
-            }
-            
-            
+            }       
         }
 
         public async Task<PropertyForSaleDetailsDTO> GetPropertyDetailsDTOByIdAsync(int id)
         {
-
             var property = await httpClient.GetPropertyByIdDetailsDTOAsync(id);
             return property;
         }
@@ -59,15 +51,9 @@ namespace BostadzPortalenClient.Services.R_EstateSrvc
 
         public async Task UpdatePropertyAsync(int propertyId, PropertyForSaleUpdateDto property)
         {
-            //var proptosend = mapper.Map<PropertyForSale>(property);
             await httpClient.PropertyForSalePUTAsync(propertyId, property);
         }
 
-        //public async Task<bool> AddPropertyForSaleAsync(CreatePropertyForSaleDTO dto)
-        //{
-        //    await httpClient.PropertyForSalePOSTAsync(dto);
-        //    return true;
-        //}
         public async Task<bool> AddPropertyForSaleAsync(CreatePropertyForSaleDTO dto)
         {
             await GetBearerToken();
@@ -87,22 +73,16 @@ namespace BostadzPortalenClient.Services.R_EstateSrvc
                 YearlyOperatingCost = (double)dto.YearlyOperatingCost,
                 YearBuilt = dto.YearBuilt,
                 TypeOfProperty = dto.TypeOfProperty,
-                //ImageUrls = dto.ImageUrls behöver ändras
-
             };
 
-            // JN: Removed ApiService usage -> Don't know if it works (but this way we can comment-out ApiService entirely)
             await this.httpClient.PropertyForSalePOSTAsync(dto);
 
             return true;
         }
 
         //Author: Kevin
-
         public async Task<IEnumerable<PropertyForSale>> GetPropertiesByRealtor(string id)
-        {
-            
-            
+        {            
             var properties = await httpClient.GetAllPropertiesIncludeAllAsync();
             var myProps = properties.Where(p => p.RealtorId == id).ToList();
             
@@ -120,6 +100,5 @@ namespace BostadzPortalenClient.Services.R_EstateSrvc
         {
             await httpClient.UnlinkPictureAsync(id);
         }
-
     }
 }

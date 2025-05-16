@@ -17,8 +17,7 @@ namespace BostadzPortalenWebAPI.DTO
         public int NumberOfRooms { get; set; }
         public decimal MonthlyFee { get; set; }
         public decimal YearlyOperatingCost { get; set; }
-        public int YearBuilt { get; set; }
-       
+        public int YearBuilt { get; set; }       
         public List<PropertyImage> ImageUrls { get; set; } = new List<PropertyImage>();
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
         public string PropertyTypeString { get; set; } //for users to be able to read what the Enum is
@@ -31,6 +30,5 @@ namespace BostadzPortalenWebAPI.DTO
         public string RealtorEmail { get; set; }
         public string RealtorPhone { get; set; }
 
-        //Might want to add things like (access to: laundry machine / dryer / dishwasher / garage / etc)
     }
 }

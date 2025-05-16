@@ -17,7 +17,5 @@ namespace BostadzPortalenWebAPI.DTO.UserDTO
         public string Password { get; set; }
         [Required]
         public int AgencyId { get; set; }
-
-
     }
 }

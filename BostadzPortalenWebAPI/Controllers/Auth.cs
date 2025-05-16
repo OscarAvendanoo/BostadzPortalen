@@ -32,7 +32,6 @@ namespace BostadzPortalenWebAPI.Controllers
         {
             try
             {
-                //var realtor = mapper.Map<Realtor>(realtorDto);
                 Realtor user = new Realtor()
                 {
                     UserName = userDto.Email,
@@ -41,8 +40,6 @@ namespace BostadzPortalenWebAPI.Controllers
                     LastName = userDto.LastName,
                     AgencyId = userDto.AgencyId,
                     EmailConfirmed = true
-
-
                 };
 
                 var result = await userManager.CreateAsync(user, userDto.Password);
@@ -61,7 +58,6 @@ namespace BostadzPortalenWebAPI.Controllers
             }
             catch (Exception ex)
             {
-
                 return Problem($"Something went wrong in the {nameof(Register)}", statusCode: 500);
             }
         }
@@ -78,7 +74,6 @@ namespace BostadzPortalenWebAPI.Controllers
                 {
                     return Unauthorized("Fel e-post");
                 }
-
 
                 //skapa en DTOklass AuthResponse med props: UserId, Token, Email
                 var passwordIsValid = await userManager.CheckPasswordAsync(user, userDto.Password);

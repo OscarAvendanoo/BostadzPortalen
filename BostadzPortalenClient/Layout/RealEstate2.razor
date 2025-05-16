@@ -1,20 +1,12 @@
 ﻿@using BostadzPortalenClient.Models
-
 @inject IClient httpClient
 @inject IMuniService MuniService
 @inject ISearchResultService SearchResultService
 @inject NavigationManager navManager
-
 <!--Author: Kevin-->
-
 
 <div id="homes" class="tab-content active">
     <div class="row g-12">
-        @*   <!-- Plats -->
-        <div class="col-md-12 mt-3">
-        <label class="form-label">Plats</label>
-        <input type="text" class="form-control" placeholder="Ange område, t.ex. Stockholm">
-        </div> *@
 
         <!-- Bostadstyp -->
         <div class="col-md-12 mt-3">
@@ -27,17 +19,6 @@
                 <option value="Fritidshus">Fritidshus</option>
             </select>
         </div>
-        
-        @* <div class="col-md-12 mt-3">
-            <label class="form-label">Bostadstyp</label>
-            <InputSelect @bind-Value="selectedPropertyType" class="form-control">
-                <option value="">Alla</option>
-                @foreach (var type in PropertyEnums)
-                {
-                    <option value="@type">@type</option>
-                }
-            </InputSelect>
-        </div> *@
 
         <!-- Pris från -->
         <div class="col-md-12 mt-3">
@@ -49,18 +30,6 @@
                 <option value="2000000">2 000 000 kr</option>
             </select>
         </div>
-
-        @* <!-- Min antal rum -->
-        <div class="col-md-12 mt-3">
-        <label class="form-label">Min antal rum</label>
-        <select class="form-select">
-        <option>Inga krav</option>
-        <option>1+</option>
-        <option>2+</option>
-        <option>3+</option>
-        <option>4+</option>
-        </select>
-        </div> *@
 
         <!-- Kommun -->
         <div class="col-md-12 mt-3">
@@ -88,28 +57,20 @@
     private string selectedMunicipality;
     private int selectedPrice;
     private string selectedPropertyType;
-    private int selectedPropertyTypeInt;
-  
-
-
+    private int selectedPropertyTypeInt; 
     string message = string.Empty;
 
     protected override async Task OnInitializedAsync()
     {
-
-        // var response = await MuniService.GetAllMunicipalityToListAsync();
-        var response = await MuniService.GetAllMunicipalityToListAsync();
-        
+        var response = await MuniService.GetAllMunicipalityToListAsync();        
 
         if (response.Success)
         {
             municipalities = response.Data;
-
         }
         else
         {
             message = "Failed to load Municipality information.";
-
         }
     }
 
@@ -153,14 +114,11 @@
 
         if (response.Success)
         {
-            await SearchChanged.InvokeAsync();
-       
-
+            await SearchChanged.InvokeAsync();      
         }
         else
         {
             message = "Failed to load realtor information.";
-
         }
     }
 }

@@ -18,6 +18,7 @@ namespace BostadzPortalenWebAPI.Data.Repo
         {
             _context = context;
         }
+
         //Author: Johan Nelin
         //Get All for DTO-overview (index)
         public async Task<List<PropertyForSaleOverviewDTO>> GetAllPropertyOverviewDTOAsync()
@@ -46,40 +47,7 @@ namespace BostadzPortalenWebAPI.Data.Repo
             }
             return allDTOs;
         }
-        public async Task<PropertyForSaleDetailsDTO> GetPropertyByIdDTOAsync(int id)
-        {
-            var model = await GetByIDIncludesAsync(id); //doesn't give the agency, despite ThenInclude
-            //added method to grab the agency of the realtor for the DTO
-            var model2 = await _context.Realtors
-                .Include(r => r.Agency)
-                .Where(r => r.Id == model.RealtorId)
-                .FirstOrDefaultAsync();
 
-            var dto = new PropertyForSaleDetailsDTO()
-            {
-                PropertyForSaleId = model.PropertyForSaleId,
-                Address = model.Address,
-                MunicipalityName = model.Municipality.Name,
-                AskingPrice = model.AskingPrice,
-                LivingArea = model.LivingArea,
-                SupplementaryArea = model.SupplementaryArea,
-                PlotArea = model.PlotArea,
-                Description = model.Description,
-                NumberOfRooms = model.NumberOfRooms,
-                MonthlyFee = model.MonthlyFee,
-                YearlyOperatingCost = model.YearlyOperatingCost,
-                YearBuilt = model.YearBuilt,
-                //ImageUrls = model.ImageUrls,
-                TypeOfProperty = model.TypeOfProperty,
-                AgencyId = model2.Agency.RealEstateAgencyId,
-                AgencyLogo = model2.Agency.AgencyLogoUrl,
-                AgencyName = model2.Agency.AgencyName,
-                RealtorFullName = $"{model.Realtor.FirstName} {model.Realtor.LastName}",
-                RealtorId = model.Realtor.Id,
-                RealtorPicture = model.Realtor.ProfileImageUrl
-            };
-            return dto;
-        }
         // Hämtar alla försäljningsobjekt med full include till en lista
         public async Task<List<PropertyForSale>> GetAllWithIncludesAsync()
         {
@@ -121,7 +89,6 @@ namespace BostadzPortalenWebAPI.Data.Repo
         {
             return await _context.PropertiesForSale
                 .Where(p => p.MunicipalityId == municipalityId)
-                //.Include(p => p.Images)
                 .Include(p => p.Realtor)
                 .ToListAsync();
         }
@@ -134,7 +101,6 @@ namespace BostadzPortalenWebAPI.Data.Repo
                 .Include(p => p.Realtor)
                     .ThenInclude(r => r.Agency)
                 .Include(p => p.Municipality)
-                //.Include(p => p.Images)
                 .ToListAsync();
         }
 
@@ -145,10 +111,6 @@ namespace BostadzPortalenWebAPI.Data.Repo
                 .Include(p => p.Realtor)
                 .ThenInclude(r => r.Agency)
                 .Include(p => p.ImageUrls);
-
-
         }
-
-
     }
 }

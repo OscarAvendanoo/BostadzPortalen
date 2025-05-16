@@ -1,4 +1,3 @@
-
 using BostadzPortalenWebAPI.Data;
 using BostadzPortalenWebAPI.Mappings;
 using BostadzPortalenWebAPI.Models;
@@ -14,7 +13,6 @@ using System.Text.Json.Serialization;
 using BostadzPortalenWebAPI.Data.Interface;
 using BostadzPortalenWebAPI.Data.Repo;
 
-
 namespace BostadzPortalenWebAPI
 {
     public class Program
@@ -24,24 +22,17 @@ namespace BostadzPortalenWebAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-
-
-
-
             builder.Services.AddSwaggerGen();
 
             //Löser översättning av Enums : KEVIN
             builder.Services.AddControllers()
-    .AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-    });
-
-
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                }
+            );
 
             // Author: ALL
             builder.Services.AddCors(options =>
@@ -60,10 +51,8 @@ namespace BostadzPortalenWebAPI
             });
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("BostadzPortalenWebAPI"))
-            .ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning)));
-
-
+                options.UseSqlServer(builder.Configuration.GetConnectionString("BostadzPortalenWebAPI"))
+                .ConfigureWarnings(w => w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning)));
 
             builder.Services.AddIdentityCore<ApiUser>()
                 .AddRoles<IdentityRole>()

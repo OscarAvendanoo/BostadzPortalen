@@ -10,12 +10,6 @@
 
     <div id="homes" class="tab-content active">
         <div class="row g-12">
-          @*   <!-- Plats -->
-            <div class="col-md-12 mt-3">
-                <label class="form-label">Plats</label>
-                <input type="text" class="form-control" placeholder="Ange område, t.ex. Stockholm">
-            </div> *@
-
             <!-- Bostadstyp -->
             <div class="col-md-12 mt-3">
             <label class="form-label">Bostadstyp</label>
@@ -39,19 +33,7 @@
                 </select>
             </div>
 
-            @* <!-- Min antal rum -->
-            <div class="col-md-12 mt-3">
-                <label class="form-label">Min antal rum</label>
-                <select class="form-select">
-                    <option>Inga krav</option>
-                    <option>1+</option>
-                    <option>2+</option>
-                    <option>3+</option>
-                    <option>4+</option>
-                </select>
-            </div> *@
-
-        <!-- Kommun -->
+            <!-- Kommun -->
             <div class="col-md-12 mt-3">
                 <label class="form-label">Kommun</label>
                 <select class="form-select" @bind="selectedMunicipality">
@@ -84,20 +66,15 @@
 
     protected override async Task OnInitializedAsync()
     {
-
-        // var response = await MuniService.GetAllMunicipalityToListAsync();
         var response = await MuniService.GetAllMunicipalityToListAsync();
-
 
         if (response.Success)
         {
             municipalities = response.Data;
-
         }
         else
         {
             message = "Failed to load Municipality information.";
-
         }
     }
     
@@ -143,13 +120,10 @@
         {
             await SearchChanged.InvokeAsync();
             navManager.NavigateTo("/search-results");
-
-
         }
         else
         {
             message = "Failed to load realtor information.";
-
         }
     }
 }

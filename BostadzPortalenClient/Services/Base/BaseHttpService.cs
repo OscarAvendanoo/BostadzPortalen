@@ -30,11 +30,9 @@ namespace BostadzPortalenClient.Services.Base
       // author: Oscar
         public async Task GetBearerToken()
         {
-
             try
             {
-                var token = await localStorage.GetItemAsync<string>("accessToken");
-               
+                var token = await localStorage.GetItemAsync<string>("accessToken");               
 
                 if (!string.IsNullOrWhiteSpace(token))
                 {
@@ -55,7 +53,5 @@ namespace BostadzPortalenClient.Services.Base
 
             Console.WriteLine("GetBearerToken END");
         }
-    }
-
-   
+    }   
 }

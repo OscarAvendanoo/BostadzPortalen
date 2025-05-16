@@ -7,12 +7,7 @@ namespace BostadzPortalenWebAPI.Models
         // Author: Jona
         public int Id { get; set; }
         public string ImageUrl { get; set; } = string.Empty;
-
-        public int? PropertyForSaleId { get; set; }
-
-       
+        public int? PropertyForSaleId { get; set; }       
         public PropertyForSale? PropertyForSale { get; set; }
-
-
     }
 }

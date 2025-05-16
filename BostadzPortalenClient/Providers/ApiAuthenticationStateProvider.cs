@@ -5,7 +5,6 @@ using System.Security.Claims;
 
 namespace BostadzPortalenClient.Providers
 {
-
     //Author: ALL
     public class ApiAuthenticationStateProvider : AuthenticationStateProvider
     {

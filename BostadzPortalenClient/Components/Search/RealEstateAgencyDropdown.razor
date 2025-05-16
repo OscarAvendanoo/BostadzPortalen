@@ -30,7 +30,6 @@
         {
             var agencies = await agencyService.GetAllAgenciesAsync();
             realEstateAgencies = agencies.Skip(1).ToList();
-
         }
         catch (Exception ex)
         {

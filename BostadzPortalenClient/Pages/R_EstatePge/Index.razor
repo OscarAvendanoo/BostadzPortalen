@@ -9,17 +9,9 @@
 @inject IPropertyForSaleService propService
 @inject IRealtorService realtorService
 
-
 <div class="background-image"></div>
 <div class="background-overlay"></div>
 
-
-@* <div class="row">
-    <div class="col-9 mx-auto">
-        <h3>Bostäder till salu - just nu</h3>
-        <hr class="divider" />
-
-        <div class="row"> *@
 @if (allProperties != null)
 {
 	<Paginator_REstate properties="allProperties"></Paginator_REstate>
@@ -28,27 +20,6 @@ else
 {
 	<Spinner />
 }
-@*    </div>
-    </div>
-</div> *@
-@* <h3>Bostäder till salu - just nu</h3>
-
-<hr class=" divider" />
-<div class="row">
-    @if (allProperties != null)
-    {
-        @foreach (var property in allProperties)
-        {
-            <div>
-                <RealEstateCardComponent realEstate="property"></RealEstateCardComponent>
-            </div>
-        }
-    }
-    else
-    {
-        <p>Laddar fastigheter...</p>
-    }
-</div> *@
 
 
 @code {
@@ -66,6 +37,5 @@ else
 		{
 			allProperties = await propService.GetAllPropertiesForSaleDTOAsync();
 		}
-
 	}
 }
