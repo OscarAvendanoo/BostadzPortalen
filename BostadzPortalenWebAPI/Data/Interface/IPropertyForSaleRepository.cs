@@ -6,7 +6,6 @@ namespace BostadzPortalenWebAPI.Data.Interface
     public interface IPropertyForSaleRepository : IRepository<PropertyForSale>
     {
         Task<List<PropertyForSale>> GetAllWithIncludesAsync();
-        Task<List<PropertyForSaleOverviewDTO>> GetAllPropertyOverviewDTOAsync();
         Task<PropertyForSale?> GetByIDIncludesAsync(int id);
         Task<List<PropertyForSale>> GetByRealtorAsync(string realtorId);
         Task<List<PropertyForSale>> GetByMunicipalityAsync(int municipalityId);
