@@ -148,6 +148,11 @@ code {
         color: inherit;
     }
 
+.navbar-nav .nav-link.show {
+    color: var(--light-yellow);
+}
+
+
 .dropdown-toggle:hover {
     color: var(--dark-turqouise);
     background-color: var(--dark-yellow);
@@ -167,6 +172,20 @@ code {
 
 
 /*BUTTON*/
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+.btn:focus-visible{
+    color: var(--dark-turqouise);
+    background-color: var(--light-yellow);
+}
+
+.btn.active {
+    color: var(--light-yellow);
+    background-color:var(--dark-turqouise);
+}
+
 .main-btn {
     background-color: var(--dark-turqouise);
     color: var(--light-yellow);
@@ -187,9 +206,6 @@ code {
         background-color: red;
     }
 
-.btn:focus {
-    box-shadow: 0;
-}
 
 .edit-btn {
     color: var(--light-yellow);
@@ -322,9 +338,14 @@ code {
 
 
 .dropdown-toggle {
-    background-color: transparent;
+    
     border: none;
     color: var(--light-yellow);
+}
+.dropdown-toggle:hover {
+    background-color: transparent;
+    border: none;
+    color: var(--dark-yellow);
 }
 
 
@@ -349,11 +370,19 @@ code {
     flex-grow: 1;
     position: relative;
 }
+    /*.card-body-img {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        height: auto;
+        width: 150px;
+        max-width: 100%;
+    }*/
 
     .card-body img {
         position: absolute;
-        bottom: 10px;
         right: 10px;
+        top: 10px;
         height: auto;
         width: 150px;
         max-width: 100%;

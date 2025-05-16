@@ -20,12 +20,12 @@
                         <DataAnnotationsValidator />
                         <ValidationSummary />
                         <div class="form-group">
-                            <label for="email">Email Adress</label>
+                            <label for="email">E-postadress</label>
                             <InputText class="form-control" @bind-Value="LoginModel.Email" />
                             <ValidationMessage For="@(() => LoginModel.Email)" />
                         </div>
                         <div class="form-group">
-                            <label for="email">Password</label>
+                            <label for="email">Lösenord</label>
                             <InputText class="form-control" type="password" @bind-Value="LoginModel.Password" />
                             <ValidationMessage For="@(() => LoginModel.Password)" />
                         </div>
