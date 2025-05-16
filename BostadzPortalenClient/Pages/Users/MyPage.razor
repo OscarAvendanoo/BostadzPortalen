@@ -46,18 +46,7 @@
 
                     <h4 class="text-center mb-3">@($"{realtor.FirstName} {realtor.LastName}")</h4>
 
-                    @* <dl class="row mb-4">
-                        <dt class="col-sm-4">Förnamn:</dt>
-                        <dd class="col-sm-8">@realtor.FirstName</dd>
-
-                        <dt class="col-sm-4">Efternamn:</dt>
-                        <dd class="col-sm-8">@realtor.LastName</dd>
-                    </dl> *@
-
-                    @* <dl class="row mb-4">
-                        <dt class="col-sm-4">Byrå:</dt>
-                        <p>@realtor.Agency.AgencyName</p>
-                    </dl>  *@
+                    
                     <p class="fs-5"><strong>Byrå: </strong>@realtor.Agency.AgencyName</p>
 
                     <ContactRealtor Email="@realtor.Email" PhoneNumber="@realtor.PhoneNumber"></ContactRealtor>
@@ -104,77 +93,3 @@
         isLoading = false;
     }
 }
-@* @page "/my-page"
-@inject IRealtorService RealtorService
-@using BlazorBootstrap
-@using BostadzPortalenClient.Components.Realtor
-
-<h3 class="mb-4">Min Sida</h3>
-
-@if (isLoading)
-{
-    <Spinner></Spinner>
-}
-else if (!string.IsNullOrEmpty(errorMessage))
-{
-    <p style="color:red">@errorMessage</p>
-}
-else if (realtor != null)
-{
-    <Card class="shadow-sm">
-        <CardBody>
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    @if (!string.IsNullOrWhiteSpace(realtor.ProfileImageUrl))
-                    {
-                        <img src="@realtor.ProfileImageUrl" alt="Profilbild" class="img-fluid rounded mb-3" style="max-height: 200px;" />
-                    }
-                    else
-                    {
-                        <p><em>Ingen profilbild tillgänglig</em></p>
-                    }
-                </div>
-                <div class="col-md-8">
-                    <p><strong>Förnamn:</strong> @realtor.FirstName</p>
-                    <p><strong>Efternamn:</strong> @realtor.LastName</p>
-                    <ContactRealtor Email="@realtor.Email" PhoneNumber="@realtor.PhoneNumber"></ContactRealtor>
-                    <NavLink class="btn btn-outline-primary mt-3" href="/realtor/edit">
-                        Redigera profil
-                    </NavLink>
-                    <NavLink class="btn btn-outline-success" href="/property/add">
-                        Lägg till ny bostad
-                    </NavLink>
-                </div>
-            </div>
-        </CardBody>
-    </Card>
-}
-else
-{
-    <p>Ingen mäklarinformation hittades.</p>
-}
-
-
-
-@code {
-    private Realtor? realtor;
-    private string? errorMessage;
-    private bool isLoading = true;
-
-    protected override async Task OnInitializedAsync()
-    {
-        var response = await RealtorService.GetCurrentRealtor();
-
-        if (response.Success)
-        {
-            realtor = response.Data;
-        }
-        else
-        {
-            errorMessage = response.Message ?? "Ett fel uppstod vid hämtning.";
-        }
-
-        isLoading = false;
-    }
-} *@
-
