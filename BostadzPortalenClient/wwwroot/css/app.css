@@ -176,14 +176,15 @@ code {
     outline: none;
     box-shadow: none;
 }
-.btn:focus-visible{
+
+.btn:focus-visible {
     color: var(--dark-turqouise);
     background-color: var(--light-yellow);
 }
 
 .btn.active {
     color: var(--light-yellow);
-    background-color:var(--dark-turqouise);
+    background-color: var(--dark-turqouise);
 }
 
 .main-btn {
@@ -331,22 +332,22 @@ code {
 }
 
 
-    .dropdown-item:hover {
+    .dropdown-item:hover, .dropdown-item.active {
         background-color: var(--light-yellow);
         color: var(--dark-turqouise);
     }
 
 
 .dropdown-toggle {
-    
     border: none;
     color: var(--light-yellow);
 }
-.dropdown-toggle:hover {
-    background-color: transparent;
-    border: none;
-    color: var(--dark-yellow);
-}
+
+    .dropdown-toggle:hover {
+        background-color: transparent;
+        border: none;
+        color: var(--dark-yellow);
+    }
 
 
     .dropdown-toggle:focus {
@@ -364,20 +365,14 @@ code {
     padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 30px;
+    background-color: var(--white);
 }
 
 .card-body {
     flex-grow: 1;
     position: relative;
 }
-    /*.card-body-img {
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        height: auto;
-        width: 150px;
-        max-width: 100%;
-    }*/
+
 
     .card-body img {
         position: absolute;

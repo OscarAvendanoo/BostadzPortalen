@@ -1,11 +1,16 @@
 ﻿
 @page "/agency/index"
 @using BostadzPortalenClient.Components.Agency
+@using BlazorBootstrap
 @inject IAgencyService agencyService
 @inject IMapper mapper
 <!--Author: Kevin-->
 
-<h2 class="mb-5">Välj mäklarbyrå som passar just dina behov!</h2>
+<div class="background-image"></div>
+<div class="background-overlay"></div>
+
+<Card>
+<h2 class="mb-5 mt-3 p-3 ms-3">Välj mäklarbyrå som passar just dina behov!</h2>
 
 @if(realEstateInfo == null)
 {
@@ -15,10 +20,11 @@ else
 {
     foreach (var agency in realEstateInfo)
     {
-        <AgencyCardComponent agencyDetails="agency" />
+        <AgencyCardComponent agencyDetails="agency"  />
     }
 
 }
+</Card>
 
 
 @code {
