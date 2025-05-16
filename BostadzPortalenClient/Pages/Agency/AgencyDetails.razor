@@ -5,6 +5,9 @@
 @using BlazorBootstrap
 <!--Author: Kevin-->
 
+<div class="background-image"></div>
+<div class="background-overlay"></div>
+<Card>
 <div class="container mt-4">
     @if (agencyDetails == null)
     {
@@ -12,6 +15,7 @@
     }
     else
     {
+        
         <div class="row">
             <div class="col-4 d-flex flex-column mt-2" style="height: 100%;">
                 <div class="flex-grow-1">
@@ -23,12 +27,16 @@
                 <p>@agencyDetails.AgencyDescription</p>
             </div>
             <hr divider />
+                
         </div>
+        
 
         
         <div class="row mt-5">
             <div class="col-12">
-                <h2>Våra mäklare</h2>
+                
+                    <h2 class="mb-5">Våra mäklare</h2>
+                
                 <hr divider />
             </div>
 
@@ -52,6 +60,7 @@
         </div>
     }
 </div>
+</Card>
 
 
  
