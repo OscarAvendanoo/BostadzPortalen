@@ -1,6 +1,5 @@
 ﻿using Blazored.LocalStorage;
 using BostadzPortalenClient.Models;
-using BostadzPortalenClient.Waste.ApiService;
 using BostadzPortalenClient.Services.Base;
 
 namespace BostadzPortalenClient.Services.RealtorSrvc

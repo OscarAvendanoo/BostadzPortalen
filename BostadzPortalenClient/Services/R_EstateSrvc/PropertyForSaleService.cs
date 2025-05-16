@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using Blazored.LocalStorage;
 using BostadzPortalenClient.Services.Base;
-using BostadzPortalenClient.Waste.ApiService;
-using Microsoft.AspNetCore.Components.Authorization;
-using System.Net.Http.Json;
 //Author: Johan Nelin
 
 namespace BostadzPortalenClient.Services.R_EstateSrvc
