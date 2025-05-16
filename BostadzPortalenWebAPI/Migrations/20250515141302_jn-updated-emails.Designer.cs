@@ -4,6 +4,7 @@ using BostadzPortalenWebAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BostadzPortalenWebAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250515141302_jn-updated-emails")]
+    partial class jnupdatedemails
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1281,22 +1284,18 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92d637e6-6a8d-421e-a118-7a29d0edc1e7",
                             AccessFailedCount = 0,
-
                             ConcurrencyStamp = "06250666-0b77-47b8-ab92-eceafbc00b5c",
                             Email = "admin@bostadzportalen.com",
-
                             EmailConfirmed = true,
                             FirstName = "System",
                             LastName = "Admin",
                             LockoutEnabled = false,
-
                             NormalizedEmail = "ADMIN@BOSTADZPORTALEN.COM",
                             NormalizedUserName = "ADMIN@BOSTADZPORTALEN.COM",
                             PasswordHash = "AQAAAAIAAYagAAAAEFhVAwW0xIaJHnhxtDsO5QI6/0mVWQdeIFvO74u1mhbfxcul7EGi+QbSJRqFr8CivQ==",
                             PhoneNumber = "0722661920",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "e30a120a-f130-4886-99b3-7f18e1c52371",
-
                             TwoFactorEnabled = false,
                             UserName = "admin@bostadzportalen.com",
                             AgencyId = 1,
@@ -1306,22 +1305,18 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92b88e50-795f-4df6-90e0-8a7d9a179cb0",
                             AccessFailedCount = 0,
-
                             ConcurrencyStamp = "e0791bcb-f06d-4ba0-bcfe-6dc9cec3ebb8",
                             Email = "anders.johansson@fastighetsbyran.com",
-
                             EmailConfirmed = true,
                             FirstName = "Anders",
                             LastName = "Johansson",
                             LockoutEnabled = false,
-
                             NormalizedEmail = "ANDERS.JOHANSSON@FASTIGHETSBYRAN.COM",
                             NormalizedUserName = "ANDERS.JOHANSSON@FASTIGHETSBYRAN.COM",
                             PasswordHash = "AQAAAAIAAYagAAAAEF9m0BVO/35IL2nCWII5baZEulpIN/AjvW9bBh5E31/J7+3KiCJrEjFFnjn5mJviwQ==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "20e0840b-a371-4c4e-a442-e1133caa478f",
-
                             TwoFactorEnabled = false,
                             UserName = "anders.johansson@fastighetsbyran.com",
                             AgencyId = 2,
@@ -1331,22 +1326,18 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "87efc5ac-77d8-4729-b3d6-3309dc88e88d",
                             AccessFailedCount = 0,
-
                             ConcurrencyStamp = "a231d652-5c49-4ac3-bc3c-093a5a9b270f",
                             Email = "eric.hultman@fastighetsbyran.com",
-
                             EmailConfirmed = true,
                             FirstName = "Eric",
                             LastName = "Hultman",
                             LockoutEnabled = false,
-
                             NormalizedEmail = "ERIC.HULTMAN@FASTIGHETSBYRAN.COM",
                             NormalizedUserName = "ERIC.HULTMAN@FASTIGHETSBYRAN.COM",
                             PasswordHash = "AQAAAAIAAYagAAAAELCejoawL/XNVSHYDeHyvkO9fNXR4eD7qb9YwRhUBBqkQO1HPvWk9Q8K5pnQYekSzw==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "e8f8c68f-4af5-4cae-91f4-75ea490b8799",
-
                             TwoFactorEnabled = false,
                             UserName = "eric.hultman@fastighetsbyran.com",
                             AgencyId = 2,
@@ -1356,22 +1347,18 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "26f1c93b-0ce3-4655-a0e1-f0d91dbe6c71",
                             AccessFailedCount = 0,
-
                             ConcurrencyStamp = "e1878d04-d8e1-4cad-8aa1-025447226c4e",
                             Email = "eric.svensson@lansforsakringar.se",
-
                             EmailConfirmed = true,
                             FirstName = "Eric",
                             LastName = "Svensson",
                             LockoutEnabled = false,
-
                             NormalizedEmail = "ERIC.SVENSSON@LANSFORSAKRINGAR.SE",
                             NormalizedUserName = "ERIC.SVENSSON@LANSFORSAKRINGAR.SE",
                             PasswordHash = "AQAAAAIAAYagAAAAEDuEzXwiAMF29VCzfcwZKNwhKuDZmbiDjXmkvwebFmhaQE3WmO9Yte4SrWpzzlwXGg==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "d2d2e5c0-f3f9-41c3-95e0-ba5c122b3e5f",
-
                             TwoFactorEnabled = false,
                             UserName = "eric.svensson@lansforsakringar.se",
                             AgencyId = 3,
@@ -1381,22 +1368,18 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "a64ba80d-139c-4816-a169-9344e3d58e22",
                             AccessFailedCount = 0,
-
                             ConcurrencyStamp = "5d556a94-69c5-48ff-9215-639f014f5a4d",
                             Email = "christopher.sjodahl@lansforsakringar.se",
-
                             EmailConfirmed = true,
                             FirstName = "Christopher",
                             LastName = "Sjödahl",
                             LockoutEnabled = false,
-
                             NormalizedEmail = "CHRISTOPHER.SJODAHL@LANSFORSAKRINGAR.SE",
                             NormalizedUserName = "CHRISTOPHER.SJODAHL@LANSFORSAKRINGAR.SE",
                             PasswordHash = "AQAAAAIAAYagAAAAEBZo/Q/YKXfP4KSACJkWpbSzVzSuMhpIiBJ0bLBtlRHUufSytcbKv0cT2IDgRroCMQ==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "26115386-03bc-4bc9-b4ab-c3676138d27a",
-
                             TwoFactorEnabled = false,
                             UserName = "christopher.sjodahl@lansforsakringar.se",
                             AgencyId = 3,
@@ -1406,22 +1389,18 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "b03b6b66-a5fd-4fbc-a3f2-9c7202cbee60",
                             AccessFailedCount = 0,
-
                             ConcurrencyStamp = "dbf160d3-2b0e-4237-9bfe-03428b3f860a",
                             Email = "asa.danielsson@lansforsakringar.se",
-
                             EmailConfirmed = true,
                             FirstName = "Åsa",
                             LastName = "Danielsson",
                             LockoutEnabled = false,
-
                             NormalizedEmail = "ASA.DANIELSSON@LANSFORSAKRINGAR.SE",
                             NormalizedUserName = "ASA.DANIELSSON@LANSFORSAKRINGAR.SE",
                             PasswordHash = "AQAAAAIAAYagAAAAELgLuDgoXDYwgZNlmrh/GjrmT/x/Z+IWy1Gp4jeoCkOCTxOesLz+EYKlsDhH+eg2MQ==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "3d788620-1c1a-4ff9-ae01-d16be22dc01f",
-
                             TwoFactorEnabled = false,
                             UserName = "asa.danielsson@lansforsakringar.se",
                             AgencyId = 3,
@@ -1431,22 +1410,18 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "91858c77-9f96-4e67-8b4d-12065003247a",
                             AccessFailedCount = 0,
-
                             ConcurrencyStamp = "8565ba3a-58bf-4579-a8c6-36a8f006cbbb",
                             Email = "frida.urciuoli@fastighetsformedling.se",
-
                             EmailConfirmed = true,
                             FirstName = "Frida",
                             LastName = "Urciuoli",
                             LockoutEnabled = false,
-
                             NormalizedEmail = "FRIDA.URCIUOLI@FASTIGHETSFORMEDLING.SE",
                             NormalizedUserName = "FRIDA.URCIUOLI@FASTIGHETSFORMEDLING.SE",
                             PasswordHash = "AQAAAAIAAYagAAAAEHiXI2OYNIRC8wQuz73vJxLHsm0vUOE58br00GF6l07SM6uJHOtFCkYroz0U52wLsQ==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "b54d6622-5af0-4af8-b418-7a23e7770cb6",
-
                             TwoFactorEnabled = false,
                             UserName = "frida.urciuoli@fastighetsformedling.se",
                             AgencyId = 4,
@@ -1456,22 +1431,18 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "e7cde164-d981-41df-b3d9-35d42c0d8323",
                             AccessFailedCount = 0,
-
                             ConcurrencyStamp = "3d3bb249-eba7-4acd-8b8f-36ca3d9de224",
                             Email = "alf.jonsson@skandiamaklarna.se",
-
                             EmailConfirmed = true,
                             FirstName = "Alf",
                             LastName = "Jonsson",
                             LockoutEnabled = false,
-
                             NormalizedEmail = "ALF.JONSSON@SKANDIAMAKLARNA.SE",
                             NormalizedUserName = "ALF.JONSSON@SKANDIAMAKLARNA.SE",
                             PasswordHash = "AQAAAAIAAYagAAAAEP6kTXJWoxudF/A40GCilppkcmca733qOApJBYHMNWtXmL+nyF/PxcnH2Idu3kIHlw==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "188ed2d5-ef43-4f19-86a6-c74b3c44a1e1",
-
                             TwoFactorEnabled = false,
                             UserName = "alf.jonsson@skandiamaklarna.se",
                             AgencyId = 5,
@@ -1481,22 +1452,18 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "a7158f9e-8afb-4389-8e68-348450f4b6a9",
                             AccessFailedCount = 0,
-
                             ConcurrencyStamp = "1e06c97a-7d17-4403-b378-9e25d62db49f",
                             Email = "louise.pedersen@maklarhuset.com",
-
                             EmailConfirmed = true,
                             FirstName = "Louise",
                             LastName = "Pedersen",
                             LockoutEnabled = false,
-
                             NormalizedEmail = "LOUISE.PEDERSEN@MAKLARHUSET.COM",
                             NormalizedUserName = "LOUISE.PEDERSEN@MAKLARHUSET.COM",
                             PasswordHash = "AQAAAAIAAYagAAAAEKJNWQ7funcPy1T01CPJyE4wj86TMrbTrlRlLSUFx4KgwZGqz0LxwUYymkI9HeKOWQ==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "0988f697-859c-4eaf-8693-c02c119326a4",
-
                             TwoFactorEnabled = false,
                             UserName = "louise.pedersen@maklarhuset.com",
                             AgencyId = 6,
@@ -1506,22 +1473,18 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "144f56f5-10d1-4ab3-ab72-e917ec9cacc4",
                             AccessFailedCount = 0,
-
                             ConcurrencyStamp = "43d7ed84-1445-42f1-99d7-6a058e07af06",
                             Email = "max.hjertqvist@husmanhagberg.com",
-
                             EmailConfirmed = true,
                             FirstName = "Max",
                             LastName = "Hjertqvist",
                             LockoutEnabled = false,
-
                             NormalizedEmail = "MAX.HJERTQVIST@HUSMANHAGBERG.COM",
                             NormalizedUserName = "MAX.HJERTQVIST@HUSMANHAGBERG.COM",
                             PasswordHash = "AQAAAAIAAYagAAAAEBqjtOluAkb6HNjkrCPDclK+qvYQVW+AgKbirripZ4lMKkERSUKxZpSp9KXYUkcpWQ==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "e7456b81-2c1d-44ef-8892-4c77b8cac5f8",
-
                             TwoFactorEnabled = false,
                             UserName = "max.hjertqvist@husmanhagberg.com",
                             AgencyId = 7,
@@ -1531,22 +1494,18 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "66787f78-4dd5-4c82-917e-1bf99028a59a",
                             AccessFailedCount = 0,
-
                             ConcurrencyStamp = "beacb037-12c0-4dca-a800-616f44fac157",
                             Email = "garifalia.diakakis@fastighetsformedling.se",
-
                             EmailConfirmed = true,
                             FirstName = "Garifalia",
                             LastName = "Diakakis",
                             LockoutEnabled = false,
-
                             NormalizedEmail = "GARIFALIA.DIAKAKIS@FASTIGHETSFORMEDLING.SE",
                             NormalizedUserName = "GARIFALIA.DIAKAKIS@FASTIGHETSFORMEDLING.SE",
                             PasswordHash = "AQAAAAIAAYagAAAAEATguods4+ZXcv+ccglxLezE9KQdpFKRX3nbm7C0pxpF3Df2IHhpISsxfo2xlMjKag==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "56ec4fc0-3ee5-40b6-bc32-6e0c0b1a35a6",
-
                             TwoFactorEnabled = false,
                             UserName = "garifalia.diakakis@fastighetsformedling.se",
                             AgencyId = 4,
@@ -1556,22 +1515,18 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "36cd14e4-aca3-4108-8120-42b5ffaee35f",
                             AccessFailedCount = 0,
-
                             ConcurrencyStamp = "8c74d78a-b79c-46fb-abb8-5cc4eeb29a54",
                             Email = "gustav.azelius@skandiamaklarna.se",
-
                             EmailConfirmed = true,
                             FirstName = "Gustav",
                             LastName = "Azelius",
                             LockoutEnabled = false,
-
                             NormalizedEmail = "GUSTAV.AZELIUS@SKANDIAMAKLARNA.SE",
                             NormalizedUserName = "GUSTAV.AZELIUS@SKANDIAMAKLARNA.SE",
                             PasswordHash = "AQAAAAIAAYagAAAAENgaZ6zDkrTJJBbRE6QW+Zp3GYeXk/eI93Uigqh3UVIKua1J/poTU8N7mxv3vMLWOw==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "068ae1b5-c3e1-41d6-ba9a-2a4913b3b2c9",
-
                             TwoFactorEnabled = false,
                             UserName = "gustav.azelius@skandiamaklarna.se",
                             AgencyId = 5,
@@ -1581,22 +1536,18 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "0a0ee7be-cde2-49bd-b48d-b675a4fbfbf0",
                             AccessFailedCount = 0,
-
                             ConcurrencyStamp = "40a50ce5-3dcf-451e-a964-e811eca180de",
                             Email = "tore.wikander@skandiamaklarna.se",
-
                             EmailConfirmed = true,
                             FirstName = "Tore",
                             LastName = "Wikander",
                             LockoutEnabled = false,
-
                             NormalizedEmail = "TORE.WIKANDER@SKANDIAMAKLARNA.SE",
                             NormalizedUserName = "TORE.WIKANDER@SKANDIAMAKLARNA.SE",
                             PasswordHash = "AQAAAAIAAYagAAAAEMJBLzP3zpA4FsslhkE6BlELwTXg6jrMK0FKjcXlJtNXdsQfaqOE9ARm0l8aIj8ImQ==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "5b93be97-95b2-4894-bda9-360dd0075ac7",
-
                             TwoFactorEnabled = false,
                             UserName = "tore.wikander@skandiamaklarna.se",
                             AgencyId = 5,
