@@ -3,8 +3,8 @@
 @inject IRealtorService RealtorService
 @inject IAgencyService agencyService
 @inject NavigationManager navManager
-
 <!--Author: Oscar-->
+
 <h3>Registrera nytt konto</h3>
 
 @if (string.IsNullOrEmpty(message) == false)
@@ -14,15 +14,11 @@
     </div>
 }
 
-
 <div>
     <div class="d-flex justify-content-center align-items-center col-6">
         <div class="card w-100">
-
-
             <div class="card-body col-12 d-flex justify-content-center align-items-center">
                 <div class="col-8 ">
-
                     <EditForm Model="RegistrationModel" OnValidSubmit="HandleRegistration">
                         <DataAnnotationsValidator />
                         <ValidationSummary />
@@ -51,7 +47,7 @@
                             <InputSelect class="form-control" @bind-Value="RegistrationModel.AgencyId">
                                 @if(Agencies == null)
                                 {
-                                    <p>Laddar mäklarbyråer...</p>
+                                    <BlazorBootstrap.Spinner/>
                                 }
                                 else
                                 {
@@ -63,11 +59,8 @@
                             </InputSelect>
                             <ValidationMessage For="@(() => RegistrationModel.AgencyId)" />
                         </div>
-
                         <button type="submit" class="btn main-btn btn-block mt-3">Register</button>
-
                     </EditForm>
-
                 </div>
             </div>
         </div>
@@ -81,10 +74,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-
         var agencies = await agencyService.GetAllAgenciesAsync();
         Agencies = agencies;
-
     }
 
     // Author: ALL
@@ -93,7 +84,6 @@
         try
         {
             await httpClient.RegisterAsync(RegistrationModel);
-
             navManager.NavigateTo("/users/login");
         }
         catch (ApiException aex)
@@ -103,7 +93,6 @@
                 navManager.NavigateTo("/users/login");
             }
             message = aex.Response;
-
         }
     }
 }

@@ -1,11 +1,6 @@
-﻿
-using Blazored.LocalStorage;
+﻿using Blazored.LocalStorage;
 using BostadzPortalenClient.Models;
 using BostadzPortalenClient.Services.Base;
-using BostadzPortalenClient.Waste.ApiService;
-using Newtonsoft.Json;
-
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BostadzPortalenClient.Services.SearchSrvc
 {
@@ -45,7 +40,6 @@ namespace BostadzPortalenClient.Services.SearchSrvc
                 Console.WriteLine(ex.Message);
                 response = ConvertApiExceptions<List<PropertyForSaleOverviewDTO>>(ex);
             }
-
 
             return response;
         }

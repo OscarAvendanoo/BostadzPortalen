@@ -21,8 +21,6 @@
 
             <div class="col-5 d-flex justify-content-center align-items-center">
                 <p>@agencyDetails.AgencyDescription</p>
-                
-                
             </div>
             <hr divider />
         </div>
@@ -60,14 +58,10 @@
 @code {
     [Parameter]
     public int AgencyId { get; set; }
-
-    private RealEstateAgencyDetailsDTO agencyDetails;
-    
+    private RealEstateAgencyDetailsDTO agencyDetails;    
 
     protected override async Task OnInitializedAsync()
     {
-        agencyDetails = await agencyService.GetAgencyByIdAsync(AgencyId);  /* Http.GetFromJsonAsync<RealEstateAgencyDetailsDto>($"api/realestateagencies/{AgencyId}"); */
-
-        
+        agencyDetails = await agencyService.GetAgencyByIdAsync(AgencyId);          
     }
 }

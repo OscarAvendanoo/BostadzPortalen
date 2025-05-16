@@ -9,17 +9,11 @@
 @inject ApiAuthenticationStateProvider stateProvider
 @inject IJSRuntime JS
 
-
-
-
-
-
-
 <h3 class="mb-4">Uppdatera mina uppgifter</h3>
 
 @if (realtor == null)
 {
-    <p>Laddar data...</p>
+    <Spinner />
 }
 else
 {

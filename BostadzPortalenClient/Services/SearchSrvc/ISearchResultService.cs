@@ -3,7 +3,6 @@ using BostadzPortalenClient.Services.Base;
 
 namespace BostadzPortalenClient.Services.SearchSrvc
 {
-
     // Author Oscar
     public interface ISearchResultService
     {

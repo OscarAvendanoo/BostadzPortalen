@@ -15,8 +15,6 @@
 <div>
     <div class="d-flex justify-content-center align-items-center col-6">
         <div class="card w-100">
-
-
             <div class="card-body col-12 d-flex justify-content-center align-items-center">
                 <div class="col-8 ">
                     <EditForm Model="RegistrationModel" OnValidSubmit="HandleRegistration">
@@ -42,11 +40,8 @@
                             <InputText class="form-control" type="password" @bind-Value="RegistrationModel.Password" />
                             <ValidationMessage For="@(() => RegistrationModel.Password)" />
                         </div>
-
                         <input type="hidden" @bind="RegistrationModel.AgencyId" />
-
                         <button type="submit" class="btn main-btn btn-block mt-3">Register</button>
-
                     </EditForm>
                 </div>
             </div>
@@ -65,9 +60,7 @@
     // Author: Oscar
     protected override async Task OnInitializedAsync()
     {
-
         var response = await RealtorService.GetCurrentRealtor();
-
 
         if (response.Success)
         {
@@ -76,12 +69,10 @@
             {
                 RegistrationModel.AgencyId = currentUser.AgencyId ?? 0;
             }
-
         }
         else
         {
             message = "Failed to load realtor information.";
-
         }
     }
 
@@ -91,7 +82,6 @@
         try
         {
             await httpClient.RegisterAsync(RegistrationModel);
-
             navManager.NavigateTo("/users/login");
         }
         catch (ApiException aex)
@@ -101,7 +91,6 @@
                 navManager.NavigateTo("/users/login");
             }
             message = aex.Response;
-
         }
     }
 }

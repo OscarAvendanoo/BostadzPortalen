@@ -19,7 +19,6 @@
                 <img src="@realtorInfo.RealtorImage" alt="Bild på @realtorInfo.FullName" class="img-fluid rounded" style="max-height: 300px;" />
             </div>
 
-
             <div class="col-5 d-flex justify-content-start align-items-center">
                 <div>
                     <h2>@realtorInfo.FullName</h2>
@@ -36,7 +35,6 @@
 
         <hr />
         <div>
-            @* <h3 class="mb-4 mt-4">@realtorInfo.FullName - Fastigheter</h3> *@
             <div class="row">
                 @if (realtorInfo.Properties == null)
                 {
@@ -50,7 +48,6 @@
                 }
             </div>
         </div>
-
     }
 </div>
 
@@ -60,31 +57,18 @@
 @code {
     [Parameter]
     public string RealtorId { get; set; }
-
     private RealtorInfoDTO? realtorInfo { get; set; }
-
-    // private RealEstateAgency? myAgency { get; set; 
 
     protected override async Task OnInitializedAsync()
     {
-
         try
         {
             realtorInfo = await realtorService.GetRealtorInfoDTO(RealtorId);
-
-            // var agencies = await agencyService.GetAllAgenciesAsync();
-
-            // myAgency = agencies.Where(a => a.AgencyName == realtorInfo.AgencyName).FirstOrDefault();
         }
         catch (Exception ex)
         {
-
             Console.WriteLine($"Something went wrong: {ex.Message}");
             navManager.NavigateTo("/");
         }
-
-        
-
-       
     }
 }

@@ -8,12 +8,10 @@
 @inject NavigationManager navManager
 @inject ApiAuthenticationStateProvider stateProvider
 @attribute [Authorize(Roles = "Admin, Realtor")]
-
 <!--Author: Kevin and Oscar-->
 
 <h3>@realEstate.Address | @realEstate.MunicipalityName</h3>
 <hr />
-
 
 <EditForm Model="@realEstate" OnValidSubmit="SaveChanges">
     <DataAnnotationsValidator />
@@ -73,14 +71,8 @@
                                     <Button Class="btn btn-danger btn-sm position-absolute top-0 end-0 m-1"  @onclick="async ()=>await RemoveImageUrl(url.Id)">
                                         Ta bort
                                     </Button>
-                                }
-                                @*    <div class="d-flex justify-content-center mt-1">
-                                    <RemoveButton Id="@url.Id" OnRemove="RemoveImageUrl" />
-                                </div>
-                             </div> *@
-                                @* @onclick:stopPropagation="true" *@
+                                }                                
                             </div>
-
                         }
                         <InputText class="form-control" @bind-Value="ImageUrl" placeholder="Enter image URL" />
                         <button class="btn btn-secondary mt-2" type="button" @onclick="AddImageUrl">Ladda upp bild</button>
@@ -107,7 +99,6 @@
             <tbody>
                 <tr>
                     <td>
-
                         <InputNumber @bind-Value="realEstate.AskingPrice" class="form-control" placeholder="SEK" />
                     </td>
                     <td>
@@ -177,7 +168,6 @@
 
     private async Task RemoveImageUrl(int id)
     {
-
         var imageToRemove = realEstate.ImageUrls.FirstOrDefault(i => i.Id == id);
         if (imageToRemove != null)
         {
@@ -186,7 +176,6 @@
         }
         SelectedImageId = null;
         StateHasChanged();
-
     }
 
 
@@ -196,7 +185,6 @@
 
         var user = await stateProvider.GetAuthenticationStateAsync();
         userId = user.User.FindFirst("uid")?.Value;
-
     }
 
     private async Task SaveChanges()
@@ -214,34 +202,19 @@
 
         }
         navManager.NavigateTo($"/properties/details/{realEstate.PropertyForSaleId}");
-
-
     }
     private async Task RemoveRealEstate(int id)
     {
         try
-        {
-            // var picturesToRemove = realEstate.ImageUrls.ToList();
-
-            // foreach(var picture in picturesToRemove)
-            // {
-            //     realEstate.ImageUrls.Remove(picture);
-            //     await propService.UnlinkPicture(picture.Id);
-            // }
-
+        {           
             await propService.DeletePropertyForSale(id);
             StateHasChanged();
         }
         catch (Exception ex)
         {
-
             Console.WriteLine($"Delete failed: {ex.Message}");
         }
 
-
         navManager.NavigateTo($"/realtorobjects/{userId}");
     }
-
-
-
 }

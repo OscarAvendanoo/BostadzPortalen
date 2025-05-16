@@ -18,29 +18,20 @@ else
 }
 
 
-
-
 @code {
     private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-    
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;    
     private AuthenticationState? authState;
-
 
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
     }
 
-
     protected override async Task OnInitializedAsync()
     {
         authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
     }
-
-
-
 }
 
 
@@ -51,4 +42,3 @@ else
         </NavLink>
     </li>
 </AuthorizeView>
-

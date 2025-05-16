@@ -4,7 +4,6 @@
 @using BostadzPortalenClient.Components.Search
 @using BostadzPortalenClient.Models
 @using BostadzPortalenClient.Components.R_Estate
-
 @* Author: Oscar *@
 
 <div class="background-image"></div>
@@ -14,9 +13,7 @@
 <div class="d-flex justify-content-center align-items-center">
     <div>
         <div class="card w-100">
-
             <SearchBoxHeader />
-
             <div class="card-body">
                 <RealEstate2 SearchChanged="OnSearchChanged" />
             </div>
@@ -39,7 +36,6 @@ else
 @code {
     public List<PropertyForSaleOverviewDTO> properties;
 
-
     protected override async Task OnInitializedAsync()
     {
         await LoadProperties();
@@ -54,6 +50,4 @@ else
     {
         properties = await SearchResultService.GetSearchResults();        
     }
-
-
 }

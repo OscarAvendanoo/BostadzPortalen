@@ -1,5 +1,4 @@
-﻿
-@page "/agency/index"
+﻿@page "/agency/index"
 @using BostadzPortalenClient.Components.Agency
 @inject IAgencyService agencyService
 @inject IMapper mapper
@@ -17,7 +16,6 @@ else
     {
         <AgencyCardComponent agencyDetails="agency" />
     }
-
 }
 
 
@@ -28,9 +26,5 @@ else
     {
         var allAgencies = await agencyService.GetAllAgenciesIncludeAllAsync();
         realEstateInfo = allAgencies.Skip(1).ToList() ;
-
-        
-        
     }
-
 }
