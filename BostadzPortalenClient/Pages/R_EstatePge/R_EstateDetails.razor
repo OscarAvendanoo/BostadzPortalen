@@ -11,7 +11,7 @@
 <div>
     @if (authState is null)
     {
-        <p>Laddar...</p>
+        <Spinner />
     }
     else if (authState.User.Identity.IsAuthenticated)
     {
