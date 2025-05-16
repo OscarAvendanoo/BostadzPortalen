@@ -2,6 +2,7 @@
 using BostadzPortalenWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using BostadzPortalenWebAPI.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BostadzPortalenWebAPI.Controllers
 {
@@ -34,6 +35,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         // POST: api/municipality
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         public async Task<ActionResult<Municipality>> CreateMunicipality(Municipality municipality)
         {
@@ -43,6 +45,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         // PUT: api/municipality/5
+        [Authorize(Roles = "Administrator")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateMunicipality(int id, Municipality municipality)
         {
@@ -53,6 +56,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         // DELETE: api/municipality/5
+        [Authorize(Roles = "Administrator")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMunicipality(int id)
         {

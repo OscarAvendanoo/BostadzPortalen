@@ -2,27 +2,31 @@
 @using BostadzPortalenClient.Components.Realtor
 
 <div class="d-flex flex-column align-items-center" style="width:30rem">
+
     <div class="realtor-card d-flex col-12 mb-3">
 
         <div class="realtor-details mt-3 col-5 flex-column justify-content-center">
+            <NavLink href="@GetLinkRealtor()" class="nav-link" style="color:inherit;">
             <p style="text-decoration: underline; font-weight:500;">@realEstate.RealtorFullName</p>
-
-            @* NEEDS DTO UPDATE *@
+            </NavLink>
             <ContactRealtor Email="@realEstate.RealtorEmail" PhoneNumber="@realEstate.RealtorPhone"></ContactRealtor>
         </div>
         <div class="image-container col-7 d-flex justify-content-center align-items-center">
-            <NavLink  href="@GetLinkRealtor()">
+            <NavLink href="@GetLinkRealtor()">
                 <img src="@realEstate.RealtorPicture" height="150" />
             </NavLink>
         </div>
     </div>
-    <hr divider/>
+
+    <hr divider />
     <div class="realtor-card d-flex col-12 ">
         <div class="realtor-details col-5 d-flex flex-column justify-content-center">
             <h5>
                 Mäklarbyrå
             </h5>
+            <NavLink href="@GetLinkAgency()" class="navlink" style="color: inherit;">
             <p style="text-decoration: underline; font-weight:500;">@realEstate.AgencyName</p>
+            </NavLink>
         </div>
         <div class="image-container col-7 d-flex justify-content-center alignt-items-center">
             <NavLink href="@GetLinkAgency()">

@@ -85,6 +85,8 @@ namespace BostadzPortalenWebAPI.Controllers
 
             return Ok(allDTOs);
         }
+
+
         [HttpGet("GetPropertyByIdDetailsDTOAsync/{id}")]
         public async Task<ActionResult<PropertyForSaleDetailsDTO>> GetPropertyByIdDetailsDTOAsync(int id)
         {
@@ -144,9 +146,15 @@ namespace BostadzPortalenWebAPI.Controllers
 
         // Author: Jona
         // PUT api/<PropertyForSaleController>/5
+        [Authorize(Roles = "Administrator, Realtor")]
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateProperty(int id, [FromBody] PropertyForSaleUpdateDto updatedPropertyForSale)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
             if (updatedPropertyForSale == null)
             {
                 return BadRequest("Property cannot be null");
@@ -166,17 +174,15 @@ namespace BostadzPortalenWebAPI.Controllers
         }
         // Author: Jonaaa
         // DELETE api/<PropertyForSaleController>/5
+        [Authorize(Roles = "Administrator, Realtor")]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteProperty(int id)
         {
-            var propertyToDelete = await _propertyForSaleRepository.GetByIDAsync(id);
+            var propertyToDelete = await _propertyForSaleRepository.GetByIDIncludesAsync(id);
             if (propertyToDelete == null)
             {
                 return NotFound();
             }
-
-            //var images = propertyToDelete.ImageUrls;
-            //propertyToDelete.ImageUrls.Remove()
 
             await _propertyForSaleRepository.DeleteAsync(propertyToDelete);
             return NoContent();
@@ -275,7 +281,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         [HttpDelete("DeletePicture")]
-        [Authorize(Roles ="Realtor, Admin")]
+        [Authorize(Roles ="Realtor, Administrator")]
         public async Task DeletePictureAsync(int id)
         {
             
@@ -283,6 +289,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [Authorize(Roles = "Realtor, Administrator")]
         [HttpPut("UnlinkPicture/{id}")]
         public async Task<IActionResult> UnlinkImageFromProperty(int id)
         {

@@ -4,6 +4,7 @@ using BostadzPortalenWebAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BostadzPortalenWebAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250516053639_keke")]
+    partial class keke
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1281,24 +1284,20 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92d637e6-6a8d-421e-a118-7a29d0edc1e7",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "06250666-0b77-47b8-ab92-eceafbc00b5c",
-                            Email = "admin@bostadzportalen.com",
-
+                            ConcurrencyStamp = "fcd9a627-b45c-455b-a5ec-3fccc748fb84",
+                            Email = "admin@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "System",
                             LastName = "Admin",
                             LockoutEnabled = false,
-
-                            NormalizedEmail = "ADMIN@BOSTADZPORTALEN.COM",
-                            NormalizedUserName = "ADMIN@BOSTADZPORTALEN.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFhVAwW0xIaJHnhxtDsO5QI6/0mVWQdeIFvO74u1mhbfxcul7EGi+QbSJRqFr8CivQ==",
+                            NormalizedEmail = "ADMIN@DEMOAPI.COM",
+                            NormalizedUserName = "ADMIN@DEMOAPI.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKrwOPcIQvlYUgmjUy17OpEldD/S4YnmUuOuak070FdqDPmBZ7Euj3Y+L9tBNvZCng==",
                             PhoneNumber = "0722661920",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e30a120a-f130-4886-99b3-7f18e1c52371",
-
+                            SecurityStamp = "0820c7aa-b6cc-4352-919c-3d8a770a9096",
                             TwoFactorEnabled = false,
-                            UserName = "admin@bostadzportalen.com",
+                            UserName = "admin@demoapi.com",
                             AgencyId = 1,
                             ProfileImageUrl = "https://genslerzudansdentistry.com/wp-content/uploads/2015/11/anonymous-user.png"
                         },
@@ -1306,24 +1305,20 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "92b88e50-795f-4df6-90e0-8a7d9a179cb0",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "e0791bcb-f06d-4ba0-bcfe-6dc9cec3ebb8",
-                            Email = "anders.johansson@fastighetsbyran.com",
-
+                            ConcurrencyStamp = "52f686cb-2c25-495a-ac28-b6d481221e21",
+                            Email = "anders.johansson@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Anders",
                             LastName = "Johansson",
                             LockoutEnabled = false,
-
-                            NormalizedEmail = "ANDERS.JOHANSSON@FASTIGHETSBYRAN.COM",
-                            NormalizedUserName = "ANDERS.JOHANSSON@FASTIGHETSBYRAN.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEF9m0BVO/35IL2nCWII5baZEulpIN/AjvW9bBh5E31/J7+3KiCJrEjFFnjn5mJviwQ==",
+                            NormalizedEmail = "ANDERS.JOHANSSON@DEMOAPI.COM",
+                            NormalizedUserName = "ANDERS.JOHANSSON@DEMOAPI.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAELaxnnct9+sNPhbPrZ5dczmf39xVMv5MCdRrwif7vUnYDbeFNIajXyjBZYaPVXGyLQ==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "20e0840b-a371-4c4e-a442-e1133caa478f",
-
+                            SecurityStamp = "fe269022-c1ab-445c-859f-10b008b8433e",
                             TwoFactorEnabled = false,
-                            UserName = "anders.johansson@fastighetsbyran.com",
+                            UserName = "anders.johansson@demoapi.com",
                             AgencyId = 2,
                             ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/dc/10/dc1096e4429f9ab94cb951c2361c1d2c.jpg"
                         },
@@ -1331,24 +1326,20 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "87efc5ac-77d8-4729-b3d6-3309dc88e88d",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "a231d652-5c49-4ac3-bc3c-093a5a9b270f",
-                            Email = "eric.hultman@fastighetsbyran.com",
-
+                            ConcurrencyStamp = "0d437111-60f4-46e7-b695-e887c25d2fcb",
+                            Email = "eric.hultman@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Eric",
                             LastName = "Hultman",
                             LockoutEnabled = false,
-
-                            NormalizedEmail = "ERIC.HULTMAN@FASTIGHETSBYRAN.COM",
-                            NormalizedUserName = "ERIC.HULTMAN@FASTIGHETSBYRAN.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAELCejoawL/XNVSHYDeHyvkO9fNXR4eD7qb9YwRhUBBqkQO1HPvWk9Q8K5pnQYekSzw==",
+                            NormalizedEmail = "ERIC.HULTMAN@DEMOAPI.COM",
+                            NormalizedUserName = "ERIC.HULTMAN@DEMOAPI.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGIfe7zOJPNHHNew7I8Pz1gvnHD45ZKUDQBS8h3tN210lgLMI55DIld+6d9MJ6HGcQ==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e8f8c68f-4af5-4cae-91f4-75ea490b8799",
-
+                            SecurityStamp = "afb0151d-ff67-43c6-bd9c-f3ae12f30a4e",
                             TwoFactorEnabled = false,
-                            UserName = "eric.hultman@fastighetsbyran.com",
+                            UserName = "eric.hultman@demoapi.com",
                             AgencyId = 2,
                             ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/c2/14/c214891aaaaa4cc23e4cbb57a9b95bbd.jpg"
                         },
@@ -1356,24 +1347,20 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "26f1c93b-0ce3-4655-a0e1-f0d91dbe6c71",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "e1878d04-d8e1-4cad-8aa1-025447226c4e",
-                            Email = "eric.svensson@lansforsakringar.se",
-
+                            ConcurrencyStamp = "aae4c268-bc42-4917-8966-fca3aaf34aa2",
+                            Email = "eric.svensson@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Eric",
                             LastName = "Svensson",
                             LockoutEnabled = false,
-
-                            NormalizedEmail = "ERIC.SVENSSON@LANSFORSAKRINGAR.SE",
-                            NormalizedUserName = "ERIC.SVENSSON@LANSFORSAKRINGAR.SE",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDuEzXwiAMF29VCzfcwZKNwhKuDZmbiDjXmkvwebFmhaQE3WmO9Yte4SrWpzzlwXGg==",
+                            NormalizedEmail = "ERIC.SVENSSON@DEMOAPI.COM",
+                            NormalizedUserName = "ERIC.SVENSSON@DEMOAPI.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAECbJsdVZLnLS9qi6cXSWzSa3oDu8DqQjakfmSRvXX8mwRPSQ9M6P4w2RphL7n5puaA==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d2d2e5c0-f3f9-41c3-95e0-ba5c122b3e5f",
-
+                            SecurityStamp = "a2330027-f2d8-44e0-a702-aeca17a61142",
                             TwoFactorEnabled = false,
-                            UserName = "eric.svensson@lansforsakringar.se",
+                            UserName = "eric.svensson@demoapi.com",
                             AgencyId = 3,
                             ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/28/49/2849c9de29bd992309e8e00aaec96d89.jpg"
                         },
@@ -1381,24 +1368,20 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "a64ba80d-139c-4816-a169-9344e3d58e22",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "5d556a94-69c5-48ff-9215-639f014f5a4d",
-                            Email = "christopher.sjodahl@lansforsakringar.se",
-
+                            ConcurrencyStamp = "b93d57bc-7263-4203-bdfd-961ba1d08c36",
+                            Email = "christopher.sjodahl@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Christopher",
                             LastName = "Sjödahl",
                             LockoutEnabled = false,
-
-                            NormalizedEmail = "CHRISTOPHER.SJODAHL@LANSFORSAKRINGAR.SE",
-                            NormalizedUserName = "CHRISTOPHER.SJODAHL@LANSFORSAKRINGAR.SE",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBZo/Q/YKXfP4KSACJkWpbSzVzSuMhpIiBJ0bLBtlRHUufSytcbKv0cT2IDgRroCMQ==",
+                            NormalizedEmail = "CHRISTOPHER.SJODAHL@DEMOAPI.COM",
+                            NormalizedUserName = "CHRISTOPHER.SJODAHL@DEMOAPI.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJ8vsUgnbppqLk762dW7inCoJhl+1Kqlvb7PUEY7hxotRRCiHvJLmN0eAM1a/UJ6Yg==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "26115386-03bc-4bc9-b4ab-c3676138d27a",
-
+                            SecurityStamp = "69af3295-f649-4296-a4da-fc6cd7210bf5",
                             TwoFactorEnabled = false,
-                            UserName = "christopher.sjodahl@lansforsakringar.se",
+                            UserName = "christopher.sjodahl@demoapi.com",
                             AgencyId = 3,
                             ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/7e/0c/7e0ceb545d876de2c344463e3def2b2b.jpg"
                         },
@@ -1406,24 +1389,20 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "b03b6b66-a5fd-4fbc-a3f2-9c7202cbee60",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "dbf160d3-2b0e-4237-9bfe-03428b3f860a",
-                            Email = "asa.danielsson@lansforsakringar.se",
-
+                            ConcurrencyStamp = "8a428110-1931-4a16-8ff0-c30de622c64b",
+                            Email = "asa.danielsson@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Åsa",
                             LastName = "Danielsson",
                             LockoutEnabled = false,
-
-                            NormalizedEmail = "ASA.DANIELSSON@LANSFORSAKRINGAR.SE",
-                            NormalizedUserName = "ASA.DANIELSSON@LANSFORSAKRINGAR.SE",
-                            PasswordHash = "AQAAAAIAAYagAAAAELgLuDgoXDYwgZNlmrh/GjrmT/x/Z+IWy1Gp4jeoCkOCTxOesLz+EYKlsDhH+eg2MQ==",
+                            NormalizedEmail = "ASA.DANIELSSON@DEMOAPI.COM",
+                            NormalizedUserName = "ASA.DANIELSSON@DEMOAPI.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAECR6AlnRqD/7GiqqP+Cm9A6vuidZdP5h0ojW/QWD8voyJiQMPAIhFjhDeMtKXDQQXQ==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3d788620-1c1a-4ff9-ae01-d16be22dc01f",
-
+                            SecurityStamp = "f444bebf-b714-4ab7-80f3-46a2ac8b0554",
                             TwoFactorEnabled = false,
-                            UserName = "asa.danielsson@lansforsakringar.se",
+                            UserName = "asa.danielsson@demoapi.com",
                             AgencyId = 3,
                             ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/93/66/9366e20a447c16f1c7a25c264fe4afba.jpg"
                         },
@@ -1431,24 +1410,20 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "91858c77-9f96-4e67-8b4d-12065003247a",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "8565ba3a-58bf-4579-a8c6-36a8f006cbbb",
-                            Email = "frida.urciuoli@fastighetsformedling.se",
-
+                            ConcurrencyStamp = "c647cb25-cccc-4b36-9185-c95dc75258e2",
+                            Email = "frida.urciuoli@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Frida",
                             LastName = "Urciuoli",
                             LockoutEnabled = false,
-
-                            NormalizedEmail = "FRIDA.URCIUOLI@FASTIGHETSFORMEDLING.SE",
-                            NormalizedUserName = "FRIDA.URCIUOLI@FASTIGHETSFORMEDLING.SE",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHiXI2OYNIRC8wQuz73vJxLHsm0vUOE58br00GF6l07SM6uJHOtFCkYroz0U52wLsQ==",
+                            NormalizedEmail = "FRIDA.URCIUOLI@DEMOAPI.COM",
+                            NormalizedUserName = "FRIDA.URCIUOLI@DEMOAPI.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMZj3Ny7Ch+U/MO8VLPROJpj9xHDo2JbG497VCV0B132+466F71kdhLsNg5ki5OkWg==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b54d6622-5af0-4af8-b418-7a23e7770cb6",
-
+                            SecurityStamp = "8a304074-867a-4ced-9b55-311610b23e7f",
                             TwoFactorEnabled = false,
-                            UserName = "frida.urciuoli@fastighetsformedling.se",
+                            UserName = "frida.urciuoli@demoapi.com",
                             AgencyId = 4,
                             ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/3e/9f/3e9fed971ede79ae8654200a71105a3a.png"
                         },
@@ -1456,24 +1431,20 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "e7cde164-d981-41df-b3d9-35d42c0d8323",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "3d3bb249-eba7-4acd-8b8f-36ca3d9de224",
-                            Email = "alf.jonsson@skandiamaklarna.se",
-
+                            ConcurrencyStamp = "1c79ec2d-c8b4-4135-ace7-65e9e71b2a72",
+                            Email = "alf.jonsson@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Alf",
                             LastName = "Jonsson",
                             LockoutEnabled = false,
-
-                            NormalizedEmail = "ALF.JONSSON@SKANDIAMAKLARNA.SE",
-                            NormalizedUserName = "ALF.JONSSON@SKANDIAMAKLARNA.SE",
-                            PasswordHash = "AQAAAAIAAYagAAAAEP6kTXJWoxudF/A40GCilppkcmca733qOApJBYHMNWtXmL+nyF/PxcnH2Idu3kIHlw==",
+                            NormalizedEmail = "ALF.JONSSON@DEMOAPI.COM",
+                            NormalizedUserName = "ALF.JONSSON@DEMOAPI.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJpnpGjgL/6p0bua9zWL5Cd7ZeQt0RxZyE2/I4mSk9BOL681tnMx8+52/to0grjXew==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "188ed2d5-ef43-4f19-86a6-c74b3c44a1e1",
-
+                            SecurityStamp = "64f8cb3e-9361-420e-a529-b888a6fd3ca1",
                             TwoFactorEnabled = false,
-                            UserName = "alf.jonsson@skandiamaklarna.se",
+                            UserName = "alf.jonsson@demoapi.com",
                             AgencyId = 5,
                             ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/fb/e0/fbe05166921e291c40f9d5f22c2403ee.png"
                         },
@@ -1481,24 +1452,20 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "a7158f9e-8afb-4389-8e68-348450f4b6a9",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "1e06c97a-7d17-4403-b378-9e25d62db49f",
-                            Email = "louise.pedersen@maklarhuset.com",
-
+                            ConcurrencyStamp = "38303ac8-a144-45df-93a6-8c7052787421",
+                            Email = "louise.pedersen@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Louise",
                             LastName = "Pedersen",
                             LockoutEnabled = false,
-
-                            NormalizedEmail = "LOUISE.PEDERSEN@MAKLARHUSET.COM",
-                            NormalizedUserName = "LOUISE.PEDERSEN@MAKLARHUSET.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKJNWQ7funcPy1T01CPJyE4wj86TMrbTrlRlLSUFx4KgwZGqz0LxwUYymkI9HeKOWQ==",
+                            NormalizedEmail = "LOUISE.PEDERSEN@DEMOAPI.COM",
+                            NormalizedUserName = "LOUISE.PEDERSEN@DEMOAPI.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBWRTFyeismWsSH0PaUJrH2up12sQuyBZ2moQRpA1d9qO0DjLqPUMIH2IbgL9gcOzg==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0988f697-859c-4eaf-8693-c02c119326a4",
-
+                            SecurityStamp = "8b5f2227-42cb-4297-8df4-8cb30f3f8703",
                             TwoFactorEnabled = false,
-                            UserName = "louise.pedersen@maklarhuset.com",
+                            UserName = "louise.pedersen@demoapi.com",
                             AgencyId = 6,
                             ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/0d/69/0d69c1adc73cb71ec67c0e48fcd6bf09.png"
                         },
@@ -1506,24 +1473,20 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "144f56f5-10d1-4ab3-ab72-e917ec9cacc4",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "43d7ed84-1445-42f1-99d7-6a058e07af06",
-                            Email = "max.hjertqvist@husmanhagberg.com",
-
+                            ConcurrencyStamp = "63c491e7-5fd6-4e35-adb7-46f5c06b03d0",
+                            Email = "max.hjertqvist@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Max",
                             LastName = "Hjertqvist",
                             LockoutEnabled = false,
-
-                            NormalizedEmail = "MAX.HJERTQVIST@HUSMANHAGBERG.COM",
-                            NormalizedUserName = "MAX.HJERTQVIST@HUSMANHAGBERG.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBqjtOluAkb6HNjkrCPDclK+qvYQVW+AgKbirripZ4lMKkERSUKxZpSp9KXYUkcpWQ==",
+                            NormalizedEmail = "MAX.HJERTQVIST@DEMOAPI.COM",
+                            NormalizedUserName = "MAX.HJERTQVIST@DEMOAPI.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAENnszvuouzoyHTwrCpS4/R0qQXteHywiBzP228s72k8MXunARD3wuVvrp8fIEyrfhQ==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e7456b81-2c1d-44ef-8892-4c77b8cac5f8",
-
+                            SecurityStamp = "7b6bfe5f-a548-4b60-8d87-e5b5fd6c3b43",
                             TwoFactorEnabled = false,
-                            UserName = "max.hjertqvist@husmanhagberg.com",
+                            UserName = "max.hjertqvist@demoapi.com",
                             AgencyId = 7,
                             ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/c3/f1/c3f167f797358d672aa4c1d4b7ffc421.jpg"
                         },
@@ -1531,24 +1494,20 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "66787f78-4dd5-4c82-917e-1bf99028a59a",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "beacb037-12c0-4dca-a800-616f44fac157",
-                            Email = "garifalia.diakakis@fastighetsformedling.se",
-
+                            ConcurrencyStamp = "ce8a3230-cf9e-4025-aa12-bf26c8d92c52",
+                            Email = "garifalia.diakakis@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Garifalia",
                             LastName = "Diakakis",
                             LockoutEnabled = false,
-
-                            NormalizedEmail = "GARIFALIA.DIAKAKIS@FASTIGHETSFORMEDLING.SE",
-                            NormalizedUserName = "GARIFALIA.DIAKAKIS@FASTIGHETSFORMEDLING.SE",
-                            PasswordHash = "AQAAAAIAAYagAAAAEATguods4+ZXcv+ccglxLezE9KQdpFKRX3nbm7C0pxpF3Df2IHhpISsxfo2xlMjKag==",
+                            NormalizedEmail = "GARIFALIA.DIAKAKIS@DEMOAPI.COM",
+                            NormalizedUserName = "GARIFALIA.DIAKAKIS@DEMOAPI.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOd95Z0WkZLzZ7pahmsdzTZQ2D2Tfh0v1iOtAEEe7wT68MNcIgJwsTTyVmCiVTJ8mw==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "56ec4fc0-3ee5-40b6-bc32-6e0c0b1a35a6",
-
+                            SecurityStamp = "cc0b7ebe-9928-44fe-969a-ed96e76b200a",
                             TwoFactorEnabled = false,
-                            UserName = "garifalia.diakakis@fastighetsformedling.se",
+                            UserName = "garifalia.diakakis@demoapi.com",
                             AgencyId = 4,
                             ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/9c/a7/9ca77f4a03c12493a14c2acf6400b7db.jpg"
                         },
@@ -1556,24 +1515,20 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "36cd14e4-aca3-4108-8120-42b5ffaee35f",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "8c74d78a-b79c-46fb-abb8-5cc4eeb29a54",
-                            Email = "gustav.azelius@skandiamaklarna.se",
-
+                            ConcurrencyStamp = "65d5b8cc-8765-4ad1-b03c-98e3f3e2f0b9",
+                            Email = "gustav.azelius@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Gustav",
                             LastName = "Azelius",
                             LockoutEnabled = false,
-
-                            NormalizedEmail = "GUSTAV.AZELIUS@SKANDIAMAKLARNA.SE",
-                            NormalizedUserName = "GUSTAV.AZELIUS@SKANDIAMAKLARNA.SE",
-                            PasswordHash = "AQAAAAIAAYagAAAAENgaZ6zDkrTJJBbRE6QW+Zp3GYeXk/eI93Uigqh3UVIKua1J/poTU8N7mxv3vMLWOw==",
+                            NormalizedEmail = "GUSTAV.AZELIUS@DEMOAPI.COM",
+                            NormalizedUserName = "GUSTAV.AZELIUS@DEMOAPI.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAENPp7LJxH9fto5nxAPWWIfaUbLWfg1hSXIz8nk2gu7KBZRO8dIYEqZrGOYCdpB7Ehg==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "068ae1b5-c3e1-41d6-ba9a-2a4913b3b2c9",
-
+                            SecurityStamp = "c8a19c1a-b693-4f12-b57c-2f98cc6fd65e",
                             TwoFactorEnabled = false,
-                            UserName = "gustav.azelius@skandiamaklarna.se",
+                            UserName = "gustav.azelius@demoapi.com",
                             AgencyId = 5,
                             ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/f9/1e/f91ef13e8343b48609d5fc6462fc5b29.jpg"
                         },
@@ -1581,24 +1536,20 @@ namespace BostadzPortalenWebAPI.Migrations
                         {
                             Id = "0a0ee7be-cde2-49bd-b48d-b675a4fbfbf0",
                             AccessFailedCount = 0,
-
-                            ConcurrencyStamp = "40a50ce5-3dcf-451e-a964-e811eca180de",
-                            Email = "tore.wikander@skandiamaklarna.se",
-
+                            ConcurrencyStamp = "6c23a635-2760-4d60-b17f-09f225384124",
+                            Email = "tore.wikander@demoapi.com",
                             EmailConfirmed = true,
                             FirstName = "Tore",
                             LastName = "Wikander",
                             LockoutEnabled = false,
-
-                            NormalizedEmail = "TORE.WIKANDER@SKANDIAMAKLARNA.SE",
-                            NormalizedUserName = "TORE.WIKANDER@SKANDIAMAKLARNA.SE",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMJBLzP3zpA4FsslhkE6BlELwTXg6jrMK0FKjcXlJtNXdsQfaqOE9ARm0l8aIj8ImQ==",
+                            NormalizedEmail = "TORE.WIKANDER@DEMOAPI.COM",
+                            NormalizedUserName = "TORE.WIKANDER@DEMOAPI.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAKD4/99Q6x1rWO/kpoeKTebm/ec2rbwsh81/BlibaX7tBhJ0u7FsqXA8Y4oPlLINA==",
                             PhoneNumber = "0722661922",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5b93be97-95b2-4894-bda9-360dd0075ac7",
-
+                            SecurityStamp = "5104bf51-8945-4974-a824-58cc4cd85a97",
                             TwoFactorEnabled = false,
-                            UserName = "tore.wikander@skandiamaklarna.se",
+                            UserName = "tore.wikander@demoapi.com",
                             AgencyId = 5,
                             ProfileImageUrl = "https://bilder.hemnet.se/images/broker_profile_large/f6/da/f6da5fe256d9d155fd6e291460c6f95b.jpg"
                         });

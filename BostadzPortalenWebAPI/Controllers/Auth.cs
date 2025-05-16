@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BostadzPortalenWebAPI.DTO.UserDTO;
 using BostadzPortalenWebAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -25,6 +26,7 @@ namespace BostadzPortalenWebAPI.Controllers
             this.mapper = mapper;
         }
 
+        [Authorize(Roles = "Realtor, Administrator")]
         [HttpPost("register")]
         public async Task<IActionResult> Register(RegisterRealtorDTO userDto)
         {
@@ -63,6 +65,7 @@ namespace BostadzPortalenWebAPI.Controllers
                 return Problem($"Something went wrong in the {nameof(Register)}", statusCode: 500);
             }
         }
+
 
         [HttpPost("login")]
         public async Task<ActionResult<AuthResponseDTO>> Login(LoginRealtorDto userDto)
