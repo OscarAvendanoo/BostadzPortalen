@@ -150,6 +150,11 @@ namespace BostadzPortalenWebAPI.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateProperty(int id, [FromBody] PropertyForSaleUpdateDto updatedPropertyForSale)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            
             if (updatedPropertyForSale == null)
             {
                 return BadRequest("Property cannot be null");
@@ -173,14 +178,11 @@ namespace BostadzPortalenWebAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteProperty(int id)
         {
-            var propertyToDelete = await _propertyForSaleRepository.GetByIDAsync(id);
+            var propertyToDelete = await _propertyForSaleRepository.GetByIDIncludesAsync(id);
             if (propertyToDelete == null)
             {
                 return NotFound();
             }
-
-            //var images = propertyToDelete.ImageUrls;
-            //propertyToDelete.ImageUrls.Remove()
 
             await _propertyForSaleRepository.DeleteAsync(propertyToDelete);
             return NoContent();

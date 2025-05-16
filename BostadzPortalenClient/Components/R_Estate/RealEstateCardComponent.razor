@@ -1,30 +1,33 @@
 ﻿@* Author: Johan Nelin *@
 @using BostadzPortalenClient.Components.XtoString
-
-<div class="property-card d-flex shadow-sm mb-4 rounded p-3 " >
-	<div class="image-container col-4"  >
-		<NavLink class="card-img-top" href="@GetLink()">
-			<img src="@realEstate.ImageUrls.First().ImageUrl" class="card-img-top" alt="bild" style="max-width: 400px; border-radius: 15px;max-height:250px" />
-		</NavLink>
+<NavLink href="@GetLink()" class="nav-link" style="color:inherit;">
+	<div class="property-card d-flex shadow-sm mb-4 rounded p-3 " >
+		<div class="image-container col-4"  >
+			<NavLink class="card-img-top" href="@GetLink()">
+				<img src="@realEstate.ImageUrls.First().ImageUrl" class="card-img-top" alt="bild" style="max-width: 400px; border-radius: 15px;max-height:250px" />
+			</NavLink>
+		</div>
+		<div class="property-details ms-3 col-6">
+			<h5>
+				@realEstate.Address
+			</h5>
+			<p><strong>@realEstate.MunicipalityName </strong> | @realEstate.PropertyTypeString</p>
+			<p><strong>Pris:</strong> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.AskingPrice)"></DecimalToStringSEK></p>
+			<p><StringToNull isItInt="false" text="Hyra" valueDouble="realEstate.MonthlyFee"></StringToNull></p>
+			<p>
+				<strong>Antal rum:</strong> @realEstate.NumberOfRooms
+				<StringToNull isItInt="true" text="Boarea" valueInt="@realEstate.LivingArea"></StringToNull>
+				<StringToNull isItInt="true" text="Tomtarea" valueInt="@realEstate.PlotArea"></StringToNull>
+			</p>
+			<p><strong>Byggår:</strong> @realEstate.YearBuilt </p>
+		</div>
 	</div>
-	<div class="property-details ms-3 col-6">
-		<h5>
-			@realEstate.Address
-		</h5>
-		<p><strong>@realEstate.MunicipalityName </strong> | @realEstate.PropertyTypeString</p>
-		<p><strong>Pris:</strong> <DecimalToStringSEK inputDecimal="@Convert.ToDecimal(realEstate.AskingPrice)"></DecimalToStringSEK></p>
-		<p><StringToNull isItInt="false" text="Hyra" valueDouble="realEstate.MonthlyFee"></StringToNull></p>
-		<p>
-			<strong>Antal rum:</strong> @realEstate.NumberOfRooms
-			<StringToNull isItInt="true" text="Boarea" valueInt="@realEstate.LivingArea"></StringToNull>
-			<StringToNull isItInt="true" text="Tomtarea" valueInt="@realEstate.PlotArea"></StringToNull>
-		</p>
-		<p><strong>Byggår:</strong> @realEstate.YearBuilt </p>
-	</div>
-</div>
+</NavLink>
 
 @code {
 	[Parameter] public PropertyForSaleOverviewDTO realEstate { get; set; }
+	
+
 	public string linkId { get; set; }
 
 	private string GetLink()
@@ -32,4 +35,6 @@
 		linkId = $"/properties/details/{realEstate.PropertyForSaleId}";
 		return linkId;
 	}
+
+	
 }
