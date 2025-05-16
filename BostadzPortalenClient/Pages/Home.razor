@@ -7,36 +7,57 @@
 <PageTitle>Home</PageTitle>
 
 <div class="d-flex row align-items-center justify-content-between">
-    <div class=" col-6">
-        <!--d-flex justify-content-center align-items-center-->
+    <div class="col-6">
         <SearchBox />
     </div>
 
-    <div class="col-6" width="500px">
-        <!--d-flex justify-content-center align-items-center -->
-
+    <div class="col-6">
         @if (Images == null)
         {
             <Spinner />
         }
         else if (Images.Any())
         {
+           
             <Carousel>
                 <CarouselItem Active="true">
-                    <Image src="@Images.First().ImageUrl.ToString()" />
+                    <Image src="@Images.First().ImageUrl.ToString()" style="height:430px; border-radius: 15px;" />
                 </CarouselItem>
                 @foreach (var picture in Images.Skip(1))
                 {
                     <CarouselItem>
-                        <Image src="@picture.ImageUrl" />
+                        <Image src="@picture.ImageUrl" style="height:430px; border-radius: 15px;" />
                     </CarouselItem>
                 }
             </Carousel>
         }
-        
     </div>
 </div>
+<div class="container-fluid">
+    <!-- First full-width image row -->
+    <div class="row mt-4">
+        <div class="col-8">
+            <img src="/skargarden.jpg" class="img-fluid w-100" alt="First full-width image" />
+            <div class="home-page-text">
+                Vi hjälper dig i nästa fas i livet
+            </div>
+        </div>
+        <div class="col-4">
+            <img src="/familj.jpg" style="max-height: 385px;" class="img-fluid w-100" alt="First full-width image" />
+        </div>
+    </div>
 
+    <!-- Second full-width image row -->
+    <div class="row mt-4">
+        <div class="col-4">
+            <img src="/nybygge.jpg" style="max-height: 385px;" class="img-fluid w-100" alt="First full-width image" />
+        </div>
+        <div class="col-8">
+            <img src="/dromhus.jpg" class="img-fluid w-100" alt="Second full-width image" />
+        </div>
+       
+    </div>
+</div>
 
 
 @code {
