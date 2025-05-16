@@ -25,14 +25,10 @@ namespace BostadzPortalenClient.Services.Authentication
             this.authenticationStateProvider = authenticationStateProvider;
         }
         public async Task<bool> AuthenticateAsync(LoginRealtorDto realtorDto)
-        {
-            
+        {            
             var response = await httpClient.LoginAsync(realtorDto);
-
             await localStorage.SetItemAsync("accessToken", response.Token);
-
             await ((ApiAuthenticationStateProvider)authenticationStateProvider).LoggedIn();
-
             return true;
         }
 

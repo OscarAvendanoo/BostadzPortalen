@@ -4,7 +4,6 @@ using BostadzPortalenClient.Services.Base;
 
 namespace BostadzPortalenClient.Services.MunicipalitySrvc
 {
-
     //author: Oscar
     public class MuniService : BaseHttpService, IMuniService
     {
@@ -20,9 +19,7 @@ namespace BostadzPortalenClient.Services.MunicipalitySrvc
 
             try
             {
-                //await GetBearerToken();
                 var data = await client.GetAllMuniAsync();
-
 
                 response = new Response<List<Municipality>>
                 {

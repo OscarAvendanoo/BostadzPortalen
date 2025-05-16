@@ -13,7 +13,5 @@ namespace BostadzPortalenWebAPI.Data.Interface
         Task SaveChanges();
         Task<IEnumerable<T>> GetAllAsync();
         Task AttachEntity(T entity);
-
-
     }
 }

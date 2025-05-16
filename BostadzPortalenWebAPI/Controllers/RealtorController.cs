@@ -72,10 +72,9 @@ namespace BostadzPortalenWebAPI.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateRealtor(int id, [FromBody] RegisterRealtorDTO dto)
         {
-
             try
             {
-                if (dto == null)
+                if (dto == null || !ModelState.IsValid)
                 {
                     return BadRequest("Invalid input.");
                 }
@@ -104,7 +103,7 @@ namespace BostadzPortalenWebAPI.Controllers
         {
             try
             {
-                if (dto == null)
+                if (dto == null || !ModelState.IsValid)
                 {
                     return BadRequest("Invalid input.");
                 }
@@ -161,26 +160,22 @@ namespace BostadzPortalenWebAPI.Controllers
         //Author: Kevin
         [HttpGet("FindRealtorByName/{firstName}/{lastName}")]
         public async Task<ActionResult<Realtor>> FindRealtorByName(string firstName, string lastName)
-        {
+        {            
             try
-            {
+            {               
                 var realtor = await realtorRepository.GetByNameIncludesAsync(firstName, lastName);
                 return Ok(realtor);
             }
             catch (Exception ex)
             {
-                return BadRequest($"Kunder inte hämta realtor: {ex.Message}");
-
+                return BadRequest($"Could not fetch realtor: {ex.Message}");
             }
-
-
         }
 
         //Author: Kevin
         [HttpGet("/GetRealtorInfo/{id}")]
         public async Task<ActionResult<RealtorInfoDTO>> GetRealtorInfo(string id)
         {
-
             try
             {
                 var realtor = await realtorRepository.GetRealtorInfoDTO(id);
@@ -220,8 +215,7 @@ namespace BostadzPortalenWebAPI.Controllers
 
                 Console.WriteLine($"Something went wrong: {ex.Message}");
                 return StatusCode(500, "Internal error");
-            }
-           
+            }           
         }
 
 

@@ -7,8 +7,7 @@ namespace BostadzPortalenWebAPI.DTO
 {
     //Author: Oscar
     public class CreatePropertyForSaleDTO
-    {
-        
+    {       
         public int PropertyForSaleId { get; set; }
         [Required]
         public string Address { get; set; }
@@ -16,8 +15,7 @@ namespace BostadzPortalenWebAPI.DTO
         [Required]
         public decimal AskingPrice { get; set; }
         [Required]
-        public int LivingArea { get; set; } // kvm
-      
+        public int LivingArea { get; set; } // kvm      
         public int? SupplementaryArea { get; set; } // kvm
         public int PlotArea { get; set; } // kvm
         [Required]
@@ -30,8 +28,6 @@ namespace BostadzPortalenWebAPI.DTO
         [Required]
         public int YearBuilt { get; set; }
         public List<string> ImageUrls { get; set; } = new List<string>();
-        //public int RealtorId { get; set; }
-        // Plockade bort den, ska la sättas via JWT token
         [Required]
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
     }

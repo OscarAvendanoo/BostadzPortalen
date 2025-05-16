@@ -45,20 +45,20 @@
                 </li>
             </ul>
 
-            <div class="ms-auto d-flex gap-2">
+            <div class="ms-auto d-flex gap-2 nav-item">
                 @if (theUser?.IsInRole("Realtor") == true)
                 {
-                    <NavLink href="/my-page" class="btn main-btn">Min Sida</NavLink>
+                    <NavLink href="/my-page" class="btn main-btn">Min Profil</NavLink>
                 }
                 <NavLink @onclick="LogOut" class="btn main-btn">Logga ut</NavLink>
                 @if (theUser?.IsInRole("Administrator") == true)
                 {
-                    <NavLink href="/users/registerFirstRealtor" class="btn main-btn">Register Realtor</NavLink>
-                    <NavLink href="/Agency/CreateAgency" class="btn main-btn">Register Agency</NavLink>
+                    <NavLink href="/users/registerFirstRealtor" class="btn main-btn">Registrera ny mäklare</NavLink>
+                    <NavLink href="/Agency/CreateAgency" class="btn main-btn">Registrera ny mäklarbyrå</NavLink>
                 }
                
                 @if(theUser?.IsInRole("Realtor") == true){
-                    <NavLink href="/users/register" class="btn main-btn">Register</NavLink>
+                    <NavLink href="/users/register" class="btn main-btn">Registrera</NavLink>
                 }
               
             </div>
@@ -73,15 +73,12 @@
     [CascadingParameter]
     private Task<AuthenticationState> authenticationStateTask { get; set; }
 
-
     protected override async Task OnInitializedAsync()
     {
         var authState = await authenticationStateTask;
         var user = authState.User;
         theUser = user;
-        userId = user.FindFirst("uid")?.Value;
-
-        
+        userId = user.FindFirst("uid")?.Value;        
     }
 
     private async Task LogOut()

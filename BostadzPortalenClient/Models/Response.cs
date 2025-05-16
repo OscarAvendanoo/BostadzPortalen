@@ -1,6 +1,5 @@
 ﻿namespace BostadzPortalenClient.Models
 {
-
     // Author: Oscar
     public class Response<T>
     {

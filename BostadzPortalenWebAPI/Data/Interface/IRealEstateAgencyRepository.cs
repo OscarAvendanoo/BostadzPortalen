@@ -8,8 +8,6 @@ namespace BostadzPortalenWebAPI.Data.Interface
     {
         Task<List<PropertyForSale>> GetListOfPropertiesFromAgencyAsync(int id);
         Task<RealEstateAgency> GetByIdFullIncludeAsync(int id);
-
         Task<List<RealEstateAgency>> GetAllFullIncludeAsync();
-        //Task<RealEstateAgency> GetAgencyDetailsDTO(int id);
     }
 }

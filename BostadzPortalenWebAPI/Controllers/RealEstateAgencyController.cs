@@ -51,8 +51,7 @@ namespace BostadzPortalenWebAPI.Controllers
         }
 
         // POST api/<PropertyForSaleController>
-        // Author Oscar
-      
+        // Author Oscar      
         [HttpPost("createAgency")]
         [Authorize(Roles = "Administrator")]
         public async Task<ActionResult> CreateAgency([FromBody] AgencyDTO agency)
@@ -99,16 +98,11 @@ namespace BostadzPortalenWebAPI.Controllers
         [HttpGet("GetAgencyDetailsDTO")]
         public async Task<RealEstateAgencyDetailsDTO> GetAgencyDetailsDTO(int id)
         {
-
             var agency = await _realEstateAgencyRepository.GetByIdFullIncludeAsync(id);
 
-
-            var dto = mapper.Map<RealEstateAgencyDetailsDTO>(agency);
-
-            
+            var dto = mapper.Map<RealEstateAgencyDetailsDTO>(agency);            
 
             return dto;
-
         }
 
         [HttpGet("GetAllAgencyIncludeAll")]
@@ -122,8 +116,7 @@ namespace BostadzPortalenWebAPI.Controllers
             {
                 var details = mapper.Map<RealEstateAgencyDetailsDTO>(agency);
                 agencyDetails.Add(details);
-            }
-            
+            }            
 
             return agencyDetails;
         }

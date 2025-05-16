@@ -5,6 +5,5 @@
         public string AgencyName { get; set; }
         public string AgencyDescription { get; set; }
         public string AgencyLogoUrl { get; set; }
-
     }
 }

@@ -43,37 +43,9 @@ namespace BostadzPortalenWebAPI.Data.Repo
                 .FirstOrDefaultAsync(r => r.Id == guidID);
         }
 
-        public async Task<List<PropertyForSaleOverviewDTO>> GetOverviewDTOByRealtorIdAsync(string guidID)
-        {
-            var realtor = await GetRealtorByGuidAsync(guidID);
-            var overviewDTOs = new List<PropertyForSaleOverviewDTO>();
-            foreach (var property in realtor.Properties)
-            {
-                overviewDTOs.Add(new PropertyForSaleOverviewDTO()
-                {
-                    PropertyForSaleId = property.PropertyForSaleId,
-                    Address = property.Address,
-                    MunicipalityName = property.Municipality.Name,
-                    AskingPrice = property.AskingPrice,
-                    LivingArea = property.LivingArea,
-                    SupplementaryArea = property.SupplementaryArea,
-                    PlotArea = property.PlotArea,
-                    Description = property.Description,
-                    NumberOfRooms = property.NumberOfRooms,
-                    MonthlyFee = property.MonthlyFee,
-                    YearlyOperatingCost = property.YearlyOperatingCost,
-                    YearBuilt = property.YearBuilt,
-                    ImageUrls = property.ImageUrls,
-                    TypeOfProperty = property.TypeOfProperty,
-                });
-            }
-            return overviewDTOs;
-        }
-
         //Author: Kevin
         public async Task<Realtor> GetRealtorInfoDTO(string id)
-        {
-           
+        {           
             var realtor = await context.Realtors
             .Include(r => r.Agency)
             .Include(r => r.Properties)
@@ -83,13 +55,7 @@ namespace BostadzPortalenWebAPI.Data.Repo
             .Where(r => r.Id == id)
             .FirstOrDefaultAsync();
 
-
             return realtor;
         }
-
-
-       
-
-
     }
 }

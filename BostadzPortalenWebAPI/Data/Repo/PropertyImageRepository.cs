@@ -17,8 +17,5 @@ namespace BostadzPortalenWebAPI.Data.Repo
         {
             return _context.PropertyImages.Where(im => im.Id == id).FirstOrDefault() ?? new PropertyImage();
         }
-
-
-
     }
 }

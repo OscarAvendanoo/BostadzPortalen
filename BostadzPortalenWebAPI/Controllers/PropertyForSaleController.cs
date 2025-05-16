@@ -1,8 +1,6 @@
 
 using BostadzPortalenWebAPI.Data;
-
 using AutoMapper;
-
 using BostadzPortalenWebAPI.DTO;
 using BostadzPortalenWebAPI.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -10,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BostadzPortalenWebAPI.Data.Interface;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace BostadzPortalenWebAPI.Controllers
 {
@@ -142,8 +139,6 @@ namespace BostadzPortalenWebAPI.Controllers
             return CreatedAtAction(nameof(GetProperty), new { id = property.PropertyForSaleId }, property);
         }
 
-
-
         // Author: Jona
         // PUT api/<PropertyForSaleController>/5
         [Authorize(Roles = "Administrator, Realtor")]
@@ -187,6 +182,7 @@ namespace BostadzPortalenWebAPI.Controllers
             await _propertyForSaleRepository.DeleteAsync(propertyToDelete);
             return NoContent();
         }
+
         // author: Oscar
         [HttpPost("search")]
         public async Task<ActionResult<List<PropertyForSaleOverviewDTO>>> SearchProperties([FromBody] PropertySearchRequest searchRequest)
@@ -228,10 +224,7 @@ namespace BostadzPortalenWebAPI.Controllers
                 Console.WriteLine("ERROR: " + ex.Message);
                 throw;
             }
-
-
         }
-
 
         // Author: Ledion 
         [HttpGet("GetMyListings")]
@@ -251,31 +244,6 @@ namespace BostadzPortalenWebAPI.Controllers
                 var dto = mapper.Map<PropertyForSaleOverviewDTO>(property);
                 myPropertiesDto.Add(dto); 
             }
-
-
-            //var myProperties = await _propertyForSaleRepository
-            //    .QueryPropertiesWithIncludes()
-            //    .Where(p => p.RealtorId == userId)
-            //    .Select(p => new PropertyForSaleOverviewDTO
-            //    {
-            //        PropertyForSaleId = p.PropertyForSaleId,
-                    
-            //        Address = p.Address,
-            //        MunicipalityName = p.Municipality.Name,
-            //        AskingPrice = p.AskingPrice,
-            //        LivingArea = p.LivingArea,
-            //        SupplementaryArea = p.SupplementaryArea,
-            //        PlotArea = p.PlotArea,
-            //        Description = p.Description,
-            //        NumberOfRooms = p.NumberOfRooms,
-            //        MonthlyFee = p.MonthlyFee,
-            //        YearlyOperatingCost = p.YearlyOperatingCost,
-            //        YearBuilt = p.YearBuilt,
-            //        ImageUrls = p.ImageUrls, // Lägg in riktiga bilder om du har det
-            //        TypeOfProperty = p.TypeOfProperty
-            //    }).ToListAsync();
-
-            
 
             return Ok(myPropertiesDto);
         }
@@ -299,15 +267,10 @@ namespace BostadzPortalenWebAPI.Controllers
                 return NotFound();
             }
 
-
             image.PropertyForSaleId = null;
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
-
-
-
-
     }
 }

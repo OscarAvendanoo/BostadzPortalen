@@ -2,8 +2,11 @@
 @inject IClient httpClient
 @inject IRealtorService RealtorService
 @inject NavigationManager navManager
+@using BlazorBootstrap
 <!--Author: All-->
-<h3>Register new account</h3>
+
+<div class="background-image"></div>
+<div class="background-overlay"></div>
 
 @if (string.IsNullOrEmpty(message) == false)
 {
@@ -12,48 +15,49 @@
     </div>
 }
 
-<div>
-    <div class="d-flex justify-content-center align-items-center col-6">
-        <div class="card w-100">
 
 
-            <div class="card-body col-12 d-flex justify-content-center align-items-center">
-                <div class="col-8 ">
-                    <EditForm Model="RegistrationModel" OnValidSubmit="HandleRegistration">
-                        <DataAnnotationsValidator />
-                        <ValidationSummary />
-                        <div class="form-group">
-                            <label for="email">Email Adress</label>
-                            <InputText class="form-control" @bind-Value="RegistrationModel.Email" />
-                            <ValidationMessage For="@(() => RegistrationModel.Email)" />
-                        </div>
-                        <div class="form-group">
-                            <label for="firstname">First Name</label>
-                            <InputText class="form-control" @bind-Value="RegistrationModel.FirstName" />
-                            <ValidationMessage For="@(() => RegistrationModel.FirstName)" />
-                        </div>
-                        <div class="form-group">
-                            <label for="lastname">Last Name</label>
-                            <InputText class="form-control" @bind-Value="RegistrationModel.LastName" />
-                            <ValidationMessage For="@(() => RegistrationModel.LastName)" />
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <InputText class="form-control" type="password" @bind-Value="RegistrationModel.Password" />
-                            <ValidationMessage For="@(() => RegistrationModel.Password)" />
-                        </div>
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="col-8">
+            <div class="card w-100">
+                <h3 class="ms-4 mt-2">Registrera ny mäklare</h3>
+                <div class="card-body col-12 d-flex justify-content-center align-items-center">
+                    <div class="col-8 ">
+                        <EditForm Model="RegistrationModel" OnValidSubmit="HandleRegistration">
+                            <DataAnnotationsValidator />
+                            <ValidationSummary />
+                            <div class="form-group">
+                                <label for="email">E-postadress</label>
+                                <InputText class="form-control" @bind-Value="RegistrationModel.Email" />
+                                <ValidationMessage For="@(() => RegistrationModel.Email)" />
+                            </div>
+                            <div class="form-group">
+                                <label for="firstname">Förnamn</label>
+                                <InputText class="form-control" @bind-Value="RegistrationModel.FirstName" />
+                                <ValidationMessage For="@(() => RegistrationModel.FirstName)" />
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Efternamn</label>
+                                <InputText class="form-control" @bind-Value="RegistrationModel.LastName" />
+                                <ValidationMessage For="@(() => RegistrationModel.LastName)" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Lösenord</label>
+                                <InputText class="form-control" type="password" @bind-Value="RegistrationModel.Password" />
+                                <ValidationMessage For="@(() => RegistrationModel.Password)" />
+                            </div>
+                            <input type="hidden" @bind="RegistrationModel.AgencyId" />
+                            <button type="submit" class="btn main-btn btn-block mt-3">Registrera</button>
+                        </EditForm>
 
-                        <input type="hidden" @bind="RegistrationModel.AgencyId" />
+                    </div>
 
-                        <button type="submit" class="btn main-btn btn-block mt-3">Register</button>
-
-                    </EditForm>
                 </div>
             </div>
-
         </div>
     </div>
-</div>
+
+
 
 
 @code {
@@ -65,9 +69,7 @@
     // Author: Oscar
     protected override async Task OnInitializedAsync()
     {
-
         var response = await RealtorService.GetCurrentRealtor();
-
 
         if (response.Success)
         {
@@ -76,12 +78,10 @@
             {
                 RegistrationModel.AgencyId = currentUser.AgencyId ?? 0;
             }
-
         }
         else
         {
             message = "Failed to load realtor information.";
-
         }
     }
 
@@ -91,7 +91,6 @@
         try
         {
             await httpClient.RegisterAsync(RegistrationModel);
-
             navManager.NavigateTo("/users/login");
         }
         catch (ApiException aex)
@@ -101,7 +100,6 @@
                 navManager.NavigateTo("/users/login");
             }
             message = aex.Response;
-
         }
     }
 }

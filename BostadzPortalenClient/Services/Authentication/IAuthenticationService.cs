@@ -1,7 +1,5 @@
 ﻿using BostadzPortalenClient.Services.Base;
 
-
-
 namespace BostadzPortalenClient.Services.Authentication
 {
     //Author: ALL

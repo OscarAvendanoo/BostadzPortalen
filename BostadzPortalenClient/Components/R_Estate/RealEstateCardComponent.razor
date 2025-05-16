@@ -26,8 +26,6 @@
 
 @code {
 	[Parameter] public PropertyForSaleOverviewDTO realEstate { get; set; }
-	
-
 	public string linkId { get; set; }
 
 	private string GetLink()
@@ -35,6 +33,5 @@
 		linkId = $"/properties/details/{realEstate.PropertyForSaleId}";
 		return linkId;
 	}
-
 	
 }

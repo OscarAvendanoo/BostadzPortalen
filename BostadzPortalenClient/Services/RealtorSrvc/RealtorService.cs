@@ -1,8 +1,6 @@
 ﻿using Blazored.LocalStorage;
 using BostadzPortalenClient.Models;
-using BostadzPortalenClient.Waste.ApiService;
 using BostadzPortalenClient.Services.Base;
-
 
 namespace BostadzPortalenClient.Services.RealtorSrvc
 {
@@ -18,7 +16,6 @@ namespace BostadzPortalenClient.Services.RealtorSrvc
         public async Task<Response<Realtor>> GetCurrentRealtor()
         {
             Response<Realtor> response;
-
             try
             {
                 await GetBearerToken();
@@ -41,7 +38,6 @@ namespace BostadzPortalenClient.Services.RealtorSrvc
             // Get DTO instead of Full-Realtor
             var realtor = await client.FindRealtorByNameAsync(firstName,lastName);
             return realtor;
-
         }
 
         public async  Task<RealtorInfoDTO> GetRealtorInfoDTO(string id)
@@ -59,13 +55,10 @@ namespace BostadzPortalenClient.Services.RealtorSrvc
                 return true;
             }
             catch (ApiException ex)
-            {
-                
+            {                
                 var response = ConvertApiExceptions<string>(ex);
                 return false;
             }
         }
-
-
     }
 }

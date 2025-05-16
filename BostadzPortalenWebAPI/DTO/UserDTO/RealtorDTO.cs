@@ -16,12 +16,7 @@ namespace BostadzPortalenWebAPI.DTO.UserDTO
         [Required]
         public string PhoneNumber { get; set; }
         public string? ProfileImageUrl { get; set; } // Can be null, use placeholder if so
-
-
         public int AgencyId { get; set; }
-
-
-
         public List<int> PropertyIds { get; set; }
     }
 }

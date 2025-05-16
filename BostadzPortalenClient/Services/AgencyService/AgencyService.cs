@@ -7,13 +7,13 @@ namespace BostadzPortalenClient.Services.AgencyService
     //Author: Kevin
     public class AgencyService : BaseHttpService, IAgencyService
     {
-        private readonly IClient client;
-        
+        private readonly IClient client;        
 
         public AgencyService(ILocalStorageService localStorage, IClient client) : base(localStorage, client)
         {
             this.client = client;
         }
+
         // author: Oscar
         public async Task<bool> AddAgency(AgencyDTO agency)
         {
@@ -25,7 +25,6 @@ namespace BostadzPortalenClient.Services.AgencyService
             }
             catch (ApiException ex)
             {
-
                 var response = ConvertApiExceptions<string>(ex);
                 return false;
             }

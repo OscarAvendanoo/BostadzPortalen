@@ -1,6 +1,5 @@
 ﻿namespace BostadzPortalenWebAPI.DTO.UserDTO
 {
-
     // Jona
     public class RealtorUpdateDTO
     {
@@ -10,5 +9,4 @@
         public string? PhoneNumber { get; set; }
         public string? ProfileImageUrl { get; set; }
     }
-
 }

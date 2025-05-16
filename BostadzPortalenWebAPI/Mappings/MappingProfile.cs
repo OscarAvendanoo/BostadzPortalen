@@ -48,8 +48,6 @@ namespace BostadzPortalenWebAPI.Mappings
                 .ForMember(dest => dest.MonthlyFee, opt => opt.MapFrom(src => src.MonthlyFee))
                 .ForMember(dest => dest.YearlyOperatingCost, opt => opt.MapFrom(src => src.YearlyOperatingCost))
                 .ForMember(dest => dest.YearBuilt, opt => opt.MapFrom(src => src.YearBuilt))
-                //.ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ImageUrls))
-                //.ForMember(dest => dest.RealtorId, opt => opt.MapFrom(src => src.RealtorId))
                 .ForMember(dest => dest.TypeOfProperty, opt => opt.MapFrom(src => src.TypeOfProperty))
                 .ForMember(dest => dest.PropertyTypeString, opt => opt.MapFrom(src => src.TypeOfProperty.ToString()))
                 .ReverseMap();
@@ -83,7 +81,6 @@ namespace BostadzPortalenWebAPI.Mappings
                 .ReverseMap();
 
             CreateMap<PropertyForSaleUpdateDto, PropertyForSale>()
-             //.ForMember(dest => dest.PropertyForSaleId, opt => opt.MapFrom(src => src.PropertyForSaleId))
              .ForMember(dest => dest.Address, opt => opt.MapFrom(src => src.Address))
              .ForMember(dest => dest.AskingPrice, opt => opt.MapFrom(src => src.AskingPrice))
              .ForMember(dest => dest.LivingArea, opt => opt.MapFrom(src => src.LivingArea))
@@ -122,8 +119,6 @@ namespace BostadzPortalenWebAPI.Mappings
               .ForMember(dest => dest.MonthlyFee, opt => opt.MapFrom(src => src.MonthlyFee))
               .ForMember(dest => dest.YearlyOperatingCost, opt => opt.MapFrom(src => src.YearlyOperatingCost))
               .ForMember(dest => dest.YearBuilt, opt => opt.MapFrom(src => src.YearBuilt))
-              //.ForMember(dest => dest.ImageUrls, opt => opt.MapFrom(src => src.ImageUrls))
-              //.ForMember(dest => dest.RealtorId, opt => opt.MapFrom(src => src.RealtorId))
               .ForMember(dest => dest.TypeOfProperty, opt => opt.MapFrom(src => src.TypeOfProperty))
               .ReverseMap();
 
@@ -140,7 +135,6 @@ namespace BostadzPortalenWebAPI.Mappings
                 .ForMember(dest => dest.RealtorImage, opt => opt.MapFrom(src => src.ProfileImageUrl))
                 .ForMember(dest => dest.Properties, opt => opt.Ignore())
                 .ReverseMap();
-
 
             //Author: Oscar
             CreateMap<AgencyDTO, RealEstateAgency>()
@@ -168,10 +162,7 @@ namespace BostadzPortalenWebAPI.Mappings
                         : "/images/property-placeholder.png"))
                 .ReverseMap();
 
-
-
         }
-
     }
 }
 

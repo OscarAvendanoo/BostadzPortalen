@@ -13,13 +13,16 @@
 
 
 
+<div class="background-image"></div>
+<div class="background-overlay"></div>
 
 
-<h3 class="mb-4">Uppdatera mina uppgifter</h3>
+
+
 
 @if (realtor == null)
 {
-    <p>Laddar data...</p>
+    <Spinner />
 }
 else
 {
@@ -73,6 +76,7 @@ else
                             <p class="text-muted mt-4"><em>Ingen bild tillgänglig</em></p>
                         }
                     </div>
+                    
                 </div>
 
                 <div class="d-flex justify-content-between mt-4">

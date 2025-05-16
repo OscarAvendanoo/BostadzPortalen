@@ -1,32 +1,9 @@
 ﻿<div class="property-list mt-3" style="padding-inline:10rem;">
-
-
     @foreach (var property in pagedProperties)
     {
-
         <RealEstateCardComponent realEstate="property"></RealEstateCardComponent>
     }
 </div>
-@* <div class="property-card d-flex shadow-sm mb-4 rounded p-3">
-            <NavLink href=@($"/properties/details/{property.PropertyForSaleId}")>
-                <img src="@property.ImageUrls.FirstOrDefault()?.ImageUrl"
-                alt="Property Image"
-                class="property-image me-3 img-fluid rounded"
-                style="max-width: 400px;" />
-            </NavLink>
-
-
-            <div class="property-details">
-                <h5>@property.Address</h5>
-                <p><strong>Kommun:</strong> @property.MunicipalityName</p>
-                <p><strong>Antal rum:</strong> @property.NumberOfRooms</p>
-                <p><strong>Boarea:</strong> @property.LivingArea kvm</p>
-                <p><strong>Tomtarea:</strong> @property.PlotArea kvm</p>
-                <p><strong>Pris:</strong> @property.AskingPrice.ToString("N0") kr</p>
-                <p><strong>Byggår:</strong> @property.YearBuilt</p>
-            </div>
-
-        </div> *@
 
 <nav class="mt-4">
     <ul class="pagination justify-content-center">
@@ -51,9 +28,8 @@
     [Parameter] public List<PropertyForSaleOverviewDTO> properties { get; set; }
     public List<PropertyForSaleOverviewDTO> pagedProperties = new();
     private int currentPage = 1;
-    private int pageSize = 3;
+    private int pageSize = 5;
     private int totalPages;
-
 
     protected override async Task OnParametersSetAsync()
     {
@@ -95,7 +71,6 @@
             currentPage--;
             UpdatePagedProperties();
         }
-    }
-    
+    }   
 
 }

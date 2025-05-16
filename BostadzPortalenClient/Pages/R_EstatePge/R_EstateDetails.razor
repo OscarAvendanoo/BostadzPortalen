@@ -42,7 +42,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        //JN: check user-token -> FUTURE: make it so that only correct Agency can edit
         authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
 
         realEstate = await propService.GetPropertyDetailsDTOByIdAsync(Id);
