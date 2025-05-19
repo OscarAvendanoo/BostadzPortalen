@@ -19,34 +19,6 @@ namespace BostadzPortalenWebAPI.Data.Repo
             _context = context;
         }
 
-        //Author: Johan Nelin
-        //Get All for DTO-overview (index)
-        public async Task<List<PropertyForSaleOverviewDTO>> GetAllPropertyOverviewDTOAsync()
-        {
-            var allModels = await GetAllWithIncludesAsync();
-            var allDTOs = new List<PropertyForSaleOverviewDTO>();
-            foreach (var property in allModels)
-            {
-                allDTOs.Add(new PropertyForSaleOverviewDTO()
-                {
-                    PropertyForSaleId = property.PropertyForSaleId,
-                    Address = property.Address,
-                    MunicipalityName = property.Municipality.Name,
-                    AskingPrice = property.AskingPrice,
-                    LivingArea = property.LivingArea,
-                    SupplementaryArea = property.SupplementaryArea,
-                    PlotArea = property.PlotArea,
-                    Description = property.Description,
-                    NumberOfRooms = property.NumberOfRooms,
-                    MonthlyFee = property.MonthlyFee,
-                    YearlyOperatingCost = property.YearlyOperatingCost,
-                    YearBuilt = property.YearBuilt,
-                    ImageUrls = property.ImageUrls,
-                    TypeOfProperty = property.TypeOfProperty,
-                });
-            }
-            return allDTOs;
-        }
 
         // Hämtar alla försäljningsobjekt med full include till en lista
         public async Task<List<PropertyForSale>> GetAllWithIncludesAsync()
