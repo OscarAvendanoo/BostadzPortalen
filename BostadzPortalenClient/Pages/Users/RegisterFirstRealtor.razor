@@ -23,7 +23,7 @@
                         <DataAnnotationsValidator />
                         <ValidationSummary />
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label for="email">E-postadress</label>
                             <InputText class="form-control" @bind-Value="RegistrationModel.Email" />
                             <ValidationMessage For="@(() => RegistrationModel.Email)" />
                         </div>
@@ -59,7 +59,7 @@
                             </InputSelect>
                             <ValidationMessage For="@(() => RegistrationModel.AgencyId)" />
                         </div>
-                        <button type="submit" class="btn main-btn btn-block mt-3">Register</button>
+                        <button type="submit" class="btn main-btn btn-block mt-3">Registrera</button>
                     </EditForm>
                 </div>
             </div>

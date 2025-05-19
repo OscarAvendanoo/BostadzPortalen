@@ -3,7 +3,7 @@
 @inject NavigationManager navManager
 @inject IAgencyService Agencyservice
 
-<h3>Register New Agency</h3>
+<h3>Lägg till ny mäklarbyrå</h3>
 
 @* Author: Oscar *@
 @if (!string.IsNullOrEmpty(message))
@@ -22,24 +22,24 @@
                     <ValidationSummary />
 
                     <div class="form-group">
-                        <label for="agencyName">Agency Name</label>
+                        <label for="agencyName">Namn på mäklarbyrå</label>
                         <InputText class="form-control" @bind-Value="AgencyModel.AgencyName" />
                         <ValidationMessage For="@(() => AgencyModel.AgencyName)" />
                     </div>
 
                     <div class="form-group">
-                        <label for="agencyDescription">Agency Description</label>
+                        <label for="agencyDescription">Beskrivning</label>
                         <InputTextArea class="form-control" @bind-Value="AgencyModel.AgencyDescription" rows="5" />
                         <ValidationMessage For="@(() => AgencyModel.AgencyDescription)" />
                     </div>
 
                     <div class="form-group">
-                        <label for="agencyLogoUrl">Agency Logo URL</label>
+                        <label for="agencyLogoUrl">Byråns logotyp (url)</label>
                         <InputText class="form-control" @bind-Value="AgencyModel.AgencyLogoUrl" />
                         <ValidationMessage For="@(() => AgencyModel.AgencyLogoUrl)" />
                     </div>
 
-                    <button type="submit" class="btn main-btn btn-block mt-3">Create Agency</button>
+                    <button type="submit" class="btn main-btn btn-block mt-3">Lägg till</button>
                 </EditForm>
             </div>
         </div>
