@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
+using BostadzPortalenWebAPI.DTO;
 
 namespace BostadzPortalenWebAPI.DTO
 {
@@ -20,7 +21,7 @@ namespace BostadzPortalenWebAPI.DTO
         public decimal MonthlyFee { get; set; }
         public decimal YearlyOperatingCost { get; set; }
         public int YearBuilt { get; set; }
-        public List<PropertyImage> ImageUrls { get; set; } = new List<PropertyImage>();
+        public List<string> ImageUrls { get; set; } = new List<string>();
         public TypeOfPropertyEnum TypeOfProperty { get; set; }
         public string PropertyTypeString { get; set; } //for users to be able to read what the Enum is
         public string RealtorId { get; set; } //for searching on a Realtor

@@ -77,7 +77,14 @@ namespace BostadzPortalenWebAPI.Controllers
             var allDTOs = new List<PropertyForSaleOverviewDTO>();
             foreach (var property in properties)
             {
+                var imageUrl=new List<string>();
+                foreach (var image in property.ImageUrls)
+                {
+                    imageUrl.Add(image.ImageUrl);
+                }
                 allDTOs.Add(mapper.Map<PropertyForSaleOverviewDTO>(property));
+                allDTOs[allDTOs.Count-1].ImageUrls=imageUrl;
+                
             }
 
             return Ok(allDTOs);
